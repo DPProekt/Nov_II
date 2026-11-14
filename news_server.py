@@ -79,9 +79,9 @@ class Handler(SimpleHTTPRequestHandler):
         if self.path.split('?')[0] == '/api/news':
             try: self.reply(200, read_news())
             except (OSError, ValueError): self.reply(500, {'error':'Не удалось прочитать сохранённые новости.'})
-        elif self.path.split('?')[0] in ('/private-news.json', '/news_server.py'):
-            self.send_error(404)
-        else: super().do_GET()
+        elif self.path.split('?')[0] in ('/', '/index.html', '/style.css', '/app.js', '/charts.js', '/archive.json'):
+            super().do_GET()
+        else: self.send_error(404)
     def do_POST(self):
         if self.path != '/api/refresh': return self.send_error(404)
         if self.headers.get('Origin') not in ('http://127.0.0.1:8766', 'http://localhost:8766') or self.headers.get('Content-Type') != 'application/json': return self.reply(403, {'error':'Недопустимый источник запроса.'})

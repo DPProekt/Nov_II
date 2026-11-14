@@ -1,0 +1,5 @@
+private-news.json
+private-news.tmp
+.debug/
+__pycache__/
+

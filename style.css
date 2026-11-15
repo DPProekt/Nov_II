@@ -3,3 +3,5 @@
 
 .period-controls,.period-nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.period-controls button,.period-nav button{border:1px solid #cbd0d9;background:#fff;color:#303845;border-radius:3px;padding:9px 12px;font-size:13px;cursor:pointer}.period-controls button[aria-pressed="true"]{background:#1742c7;color:#fff;border-color:#1742c7}.period-nav{margin-top:18px;font-size:12px;color:#596171}.period-nav button:disabled{opacity:.45;cursor:not-allowed}.period-note{font-size:12px;color:#6c717b;margin:12px 0}.news-period{margin:30px 0}
 
+#forecast-topic{display:block;margin:10px 0 0;width:min(100%,480px);padding:12px;border:1px solid #cbd0d9;border-radius:3px;background:white;color:#17191e;font:15px Arial,sans-serif}.forecast-sources a{color:#1742c7;text-decoration:underline}
+

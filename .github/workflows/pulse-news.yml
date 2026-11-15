@@ -54,10 +54,13 @@ jobs:
                           if kind in {"invalid_grant", "invalid_subject_token", "invalid_request", "unauthorized_client", "access_denied", "unsupported_grant_type", "invalid_client"}:
                               detail = f" ({kind})"
                           description = str(error_info.get("message", "") if isinstance(error_info, dict) else reply.get("error_description", "")).lower()
+                          param = error_info.get("param") if isinstance(error_info, dict) else None
+                          if isinstance(param, str) and re.fullmatch(r"[a-z.0-9_\[\]-]{1,64}", param):
+                              detail += f" [param: {param}]"
                           scopes = sorted(set(re.findall(r"\bapi\.[a-z_.]+[a-z_]\b", description)))
                           if scopes:
                               detail += " [permissions: " + ", ".join(scopes) + "]"
-                          hints = ("provider", "mapping", "service account", "audience", "issuer", "signature", "expired", "subject token", "scope", "project", "permission", "api key", "jwt", "access token", "authorization")
+                          hints = ("provider", "mapping", "service account", "audience", "issuer", "signature", "expired", "subject token", "scope", "project", "permission", "api key", "jwt", "access token", "authorization", "invalid", "missing", "required", "credentials", "environment", "input", "model", "agent", "mcp", "vault", "not found", "configuration")
                           found = [hint for hint in hints if hint in description]
                           if found:
                               detail += " [" + ", ".join(found) + "]"
@@ -159,7 +162,7 @@ jobs:
               data={
                   "agent_id": "agent_6afa24e65b40819189c54aeef04a7989",
                   "environment": {"type": "none"},
-                  "input": [{"role": "user", "content": [{"type": "input_text", "text": prompt}]}],
+                  "input": prompt,
                   "stream": True,
               },
               timeout=240,

@@ -139,10 +139,14 @@ jobs:
               "Обновляй только news.json в main DPProekt/Nov_II. Сохрани все прежние записи. "
               "Под каждой новостью должна быть прямая HTTPS-ссылка на статью. При наличии "
               "только даты оставляй published_at равным null. У каждой новой записи добавь поле analysis "
-              "с выводом и пределами применимости. Сопоставь новые факты с прежним обзором и "
+              "с выводом и пределами применимости. Канонические названия для общих новостей и "
+              "экономики: Подробные новости ИИ и Прогноз экономики при быстром развитии ИИ. "
+              "Сопоставь новые факты с прежним обзором и "
               "обнови верхнеуровневый массив analysis в том же news.json для затронутых тем. "
               "Формат элемента массива: topic, updated_at в ISO 8601 UTC, changes (что изменилось), "
-              "conclusion (вывод и оговорки), sources (массив прямых URL из items). "
+              "conclusion (вывод и оговорки), details (минимум два раздела с heading и text, включая "
+              "факты, пределы данных и что изменит оценку), sources (прежние проверенные "
+              "ссылки и новые прямые URL из items), source_titles (заголовки источников). "
               "Сохрани обзоры остальных тем. Сохрани новости и аналитику одним коммитом. "
               "После записи проверь её повторным "
               "чтением и ответь PULSE_PUBLISHED. Если подтверждённых новых материалов нет, "
@@ -210,6 +214,7 @@ jobs:
           previous = {entry["topic"]: entry for entry in old_archive.get("analysis", [])}
           reviews = {entry["topic"]: entry for entry in new_archive.get("analysis", [])}
           source_urls = {item["url"] for item in new_items}
+          source_urls.update(url for review in previous.values() for url in review.get("sources", []))
           if any(reviews.get(topic) != entry for topic, entry in previous.items() if topic not in affected_topics):
               raise SystemExit("Изменился аналитический обзор незатронутой темы.")
           for topic in affected_topics:
@@ -217,6 +222,9 @@ jobs:
               urls = review.get("sources", [])
               if review == previous.get(topic) or not all(review.get(field) for field in ("updated_at", "changes", "conclusion")):
                   raise SystemExit("Отсутствует обновлённый аналитический обзор.")
+              details = review.get("details", [])
+              if len(details) < 2 or not all(section.get("heading") and section.get("text") for section in details):
+                  raise SystemExit("Аналитика темы должна содержать подробные разделы.")
               if not urls or any(url not in source_urls for url in urls):
                   raise SystemExit("Обзор не ссылается на материалы в архиве.")
           print(f"Выпуск окончен. Новых записей в GitHub: {len(added)}.")

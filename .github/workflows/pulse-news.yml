@@ -77,7 +77,7 @@ jobs:
                   "Чтение архива GitHub",
                   headers={"Accept": "application/vnd.github.raw+json", "Cache-Control": "no-cache"},
               )
-              return result["items"]
+              return result
 
           cutoff_value = os.environ.get("PULSE_CREDITS_UNTIL_UTC")
           if not cutoff_value:
@@ -94,7 +94,8 @@ jobs:
           if not provider or not account:
               raise SystemExit("Добавьте идентификаторы провайдера и сервисного аккаунта.")
 
-          old_items = read_archive()
+          old_archive = read_archive()
+          old_items = old_archive["items"]
           oidc_url = os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
           separator = "&" if "?" in oidc_url else "?"
           github_token = get_json(
@@ -132,7 +133,13 @@ jobs:
               "перекрытием, сверяй дату и содержание с первоисточником и исключай дубликаты. "
               "Обновляй только news.json в main DPProekt/Nov_II. Сохрани все прежние записи. "
               "Под каждой новостью должна быть прямая HTTPS-ссылка на статью. При наличии "
-              "только даты оставляй published_at равным null. После записи проверь её повторным "
+              "только даты оставляй published_at равным null. У каждой новой записи добавь поле analysis "
+              "с выводом и пределами применимости. Сопоставь новые факты с прежним обзором и "
+              "обнови верхнеуровневый массив analysis в том же news.json для затронутых тем. "
+              "Формат элемента массива: topic, updated_at в ISO 8601 UTC, changes (что изменилось), "
+              "conclusion (вывод и оговорки), sources (массив прямых URL из items). "
+              "Сохрани обзоры остальных тем. Сохрани новости и аналитику одним коммитом. "
+              "После записи проверь её повторным "
               "чтением и ответь PULSE_PUBLISHED. Если подтверждённых новых материалов нет, "
               "ничего не меняй и ответь PULSE_NO_NEWS. При ошибке опиши её и ответь PULSE_ERROR."
           )
@@ -179,7 +186,8 @@ jobs:
 
           if not completed:
               raise SystemExit("OpenAI не подтвердил завершение выпуска.")
-          new_items = read_archive()
+          new_archive = read_archive()
+          new_items = new_archive["items"]
           if any(item not in new_items for item in old_items):
               raise SystemExit("Архив изменился: прежние записи не сохранились в исходном виде.")
           added = [item for item in new_items if item not in old_items]
@@ -187,9 +195,24 @@ jobs:
           if not added and final_status != "PULSE_NO_NEWS":
               raise SystemExit("Новых записей нет и агент не подтвердил отсутствие новостей.")
           for item in added:
+              if not isinstance(item.get("analysis"), str) or not item["analysis"].strip():
+                  raise SystemExit("У новой записи отсутствует аналитический вывод.")
               url = urlsplit(item.get("url", ""))
               if url.scheme != "https" or not url.hostname or not item.get("source"):
                   raise SystemExit("У новой записи отсутствует корректная ссылка на источник.")
+          affected_topics = {item["topic"] for item in added}
+          previous = {entry["topic"]: entry for entry in old_archive.get("analysis", [])}
+          reviews = {entry["topic"]: entry for entry in new_archive.get("analysis", [])}
+          source_urls = {item["url"] for item in new_items}
+          if any(reviews.get(topic) != entry for topic, entry in previous.items() if topic not in affected_topics):
+              raise SystemExit("Изменился аналитический обзор незатронутой темы.")
+          for topic in affected_topics:
+              review = reviews.get(topic, {})
+              urls = review.get("sources", [])
+              if review == previous.get(topic) or not all(review.get(field) for field in ("updated_at", "changes", "conclusion")):
+                  raise SystemExit("Отсутствует обновлённый аналитический обзор.")
+              if not urls or any(url not in source_urls for url in urls):
+                  raise SystemExit("Обзор не ссылается на материалы в архиве.")
           print(f"Выпуск окончен. Новых записей в GitHub: {len(added)}.")
           PY
 

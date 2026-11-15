@@ -11,7 +11,19 @@ function date(ts){return ts?new Intl.DateTimeFormat('ru-RU',{day:'numeric',month
 function graph(){return `<div class="chart" id="chart"><h3>Когда возможны первые результаты</h3><p>Сценарные оценки из чата «Пять технологических прорывов», сентябрь 2026 года. Показаны начальные годы диапазонов, а не гарантированные сроки.</p>${[['ИИ в исследованиях',2027],['Термоядерная энергетика',2033],['Восстановление тканей',2028],['Роботизированное производство',2030]].map(([n,y])=>`<div class="bar-row"><span>${n}</span><div class="track"><div class="bar" style="width:${(y-2025)/10*100}%"></div></div><strong>${y}</strong></div>`).join('')}<p>По сверхпроводнику срок в исходном прогнозе не определён. <a class="read-link" href="#/topic/8">Открыть исходный материал →</a></p></div>`}
 function side(){return `<aside class="side"><h2>Темы</h2><a class="selected" href="#/topics">Все материалы</a>${topicEntries().map(({d,i})=>`<a href="#/topic/${i}">${escapeHtml(d.title)}</a>`).join('')}<div class="notice"><strong>Личный архив</strong>Материалы сохранены из выбранных чатов. Даты относятся к ответам, а прогнозы не являются установленными фактами.</div></aside>`}
 function rows(items){return items.map(({d,i})=>`<article class="feed-row"><div class="meta"><span class="tag">${labels[i]}</span>${date(d.updatedAt)}</div><div><h3><a class="article-link" href="#/topic/${i}">${escapeHtml(d.title)}</a></h3><p>${descriptions[i]}</p></div></article>`).join('')}
-function feedCards(items){return items.map(n=>`<article class="feed-row"><div class="meta"><span class="tag">${n.importance==='high'?'Главное':'Новое'}</span>${escapeHtml(n.date)}</div><div><h3><a class="article-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(n.title)} ↗</a></h3><p>${escapeHtml(n.summary)}</p>${typeof n.analysis==='string'&&n.analysis.trim()?`<p><strong>Вывод</strong> ${escapeHtml(n.analysis)}</p>`:''}<p><a class="read-link" href="${escapeHtml(n.url)}" target="_blank" rel="noopener noreferrer">Источник: ${escapeHtml(n.source)} ↗</a></p></div></article>`).join('')}
+function feedCards(items) {
+  return items.map(item => {
+    const question = typeof item.question === 'string' && item.question.trim();
+    const mark = item.importance === 'high' ? 'Главное' : 'Новое';
+    const url = escapeHtml(item.url);
+    return `<article class="feed-row news-card"><div class="meta"><span class="tag">${mark}</span><time datetime="${escapeHtml(item.date)}">${escapeHtml(item.date)}</time></div>
+      <div><h3><a class="article-link" href="${url}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)} ↗</a></h3>
+      ${question ? `<p class="news-question"><strong>Вопрос к GPT</strong> ${escapeHtml(question)}</p>` : ''}
+      <p class="news-answer">${question ? '<strong>Ответ GPT</strong> ' : ''}${escapeHtml(item.summary)}</p>
+      ${typeof item.analysis === 'string' && item.analysis.trim() ? `<p class="news-inference"><strong>Вывод</strong> ${escapeHtml(item.analysis)}</p>` : ''}
+      <p><a class="read-link" href="${url}" target="_blank" rel="noopener noreferrer">Источник: ${escapeHtml(item.source)} ↗</a></p></div></article>`;
+  }).join('');
+}
 function itemTime(n){if(typeof n.published_at==='string'&&/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(n.published_at)){let t=Date.parse(n.published_at);if(Number.isFinite(t))return t}return null}
 
 const topicAliases = new Map([
@@ -41,7 +53,6 @@ function analysisFor(title) {
     && Number.isFinite(Date.parse(entry.updated_at)));
 }
 function renderAnalysisDetail(entry) {
-  const dateFormat = new Intl.DateTimeFormat('ru-RU', {dateStyle:'long', timeZone:'Asia/Omsk'});
   const sections = Array.isArray(entry.details) ? entry.details.filter(section =>
     section && typeof section.heading === 'string' && typeof section.text === 'string') : [];
   const newsByUrl = new Map(sharedNews.filter(validNews).map(item => [item.url, item]));
@@ -53,9 +64,8 @@ function renderAnalysisDetail(entry) {
     const name = entry.source_titles?.[url] || newsByUrl.get(url)?.title || parsed.hostname;
     return [`<li><a class="read-link" href="${escapeHtml(parsed.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(name)} ↗</a></li>`];
   }).join('');
-  return `<article class="prose"><p class="meta">Обновлено ${dateFormat.format(new Date(entry.updated_at))}</p>
+  return `<article class="prose review-reading"><h2>Подробный разбор</h2>
     <h3>Что изменилось</h3><p>${escapeHtml(entry.changes)}</p>
-    <h3>Вывод</h3><p>${escapeHtml(entry.conclusion)}</p>
     ${sections.map(section => `<h3>${escapeHtml(section.heading)}</h3><p>${escapeHtml(section.text)}</p>`).join('')}
     ${links ? `<h3>Источники</h3><ul>${links}</ul>` : ''}</article>`;
 }
@@ -65,11 +75,20 @@ function showAnalysis(index) {
   if (!selected) return;
   const current = analysisFor(selected.d.title);
   const selector = topics.map(({i,d}) => `<option value="${i}" ${i===selected.i?'selected':''}>${escapeHtml(d.title)}</option>`).join('');
-  root.innerHTML = `<section class="article-top"><a class="back" href="#/">← Новости</a>
-    <h1>Аналитика</h1><label for="analysis-topic">Тема</label> <select id="analysis-topic" style="max-width:100%">${selector}</select>
-    </section><div class="article-body"><h2>${escapeHtml(selected.d.title)}</h2>
-    <p><a class="read-link" href="#/topic/${selected.i}">Новости и архив темы →</a></p>
-    ${current ? renderAnalysisDetail(current) : '<p class="empty">Обзор по этой теме готовится.</p>'}</div>`;
+  root.innerHTML = `<div class="analysis-page">
+    <section class="analysis-toolbar">
+      <h1>Аналитика</h1>
+      <label for="analysis-topic">Тема<select id="analysis-topic">${selector}</select></label>
+    </section>
+    <section class="analysis-intro">
+      <h2>${escapeHtml(selected.d.title)}</h2>
+      ${current ? `<p class="meta">Обновлено ${escapeHtml(reviewTimeFormat.format(new Date(current.updated_at)))} · Омск</p>
+        <p class="analysis-conclusion"><strong>Вывод</strong> ${escapeHtml(current.conclusion)}</p>` : ''}
+      <a class="read-link" href="#/topic/${selected.i}">Новости и архив темы →</a>
+    </section>
+    ${current ? `${renderReviewDashboard(selected.d.title, current)}${renderAnalysisDetail(current)}` : '<p class="empty">Обзор по этой теме готовится.</p>'}
+  </div>`;
+  wireReviewDashboard(selected.d.title, selected.i);
   document.querySelector('#analysis-topic').addEventListener('change', ({target}) => {
     location.hash = '#/analysis/' + target.value;
   });
@@ -128,12 +147,18 @@ function renderNews(topicName){
 function wireNews(){root.querySelectorAll('[data-news-view]').forEach(b=>b.addEventListener('click',()=>{newsView=b.dataset.newsView;newsPage=0;newsAnchor=Date.now();render()}));root.querySelectorAll('[data-news-page]').forEach(b=>b.addEventListener('click',()=>{newsPage=Math.max(0,newsPage+(b.dataset.newsPage==='older'?1:-1));render()}))}
 function home(){let items=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));root.innerHTML=`<div class="layout"><section><div class="hero"><h1>Новости искусственного интеллекта</h1><p>Исследования, открытия и прогнозы — важные события развития ИИ и их влияние на будущее.</p></div><form class="search" role="search"><input id="search" type="search" aria-label="Поиск по архиву" placeholder="Поиск по архиву: новости, модели, прогнозы..." value="${escapeHtml(query)}"></form>${renderNews()}<h2 class="section-title">Архив подборок из чатов</h2><div id="results">${items.length?rows(items):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'}</div>${graph()}</section>${side()}</div>`;wireNews();document.querySelector('.search').addEventListener('submit',e=>e.preventDefault());document.querySelector('#search').addEventListener('input',e=>{query=e.target.value;let matches=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));document.querySelector('#results').innerHTML=matches.length?rows(matches):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'})}
 function topic(i){i=topicIndex(i);let d=topicDocument(i);if(!d){home();return}root.innerHTML=`<section class="article-top"><a class="back" href="#/">← Все материалы</a><h1>${escapeHtml(d.title)}</h1><p><a class="read-link" href="#/analysis/${i}">Аналитика темы →</a></p><div class="meta">${labels[i]} · последнее изменение чата ${date(d.updatedAt)}</div><div class="status">Это сохранённые ответы из чата GPT. Сообщения и прогнозы не проверены повторно и могут устареть. Встроенные ссылки на конкретные источники сохранены, где они доступны.</div></section><div class="article-body">${renderNews(d.title)}${i===8?graph():''}${d.note?`<div class="status">${escapeHtml(d.note)}</div>`:""}${d.messages.map((m,n)=>`<section class="message"><div class="message-date">Ответ ${n+1} · ${date(m.date)}</div>${m.truncated?'<div class="status">Ответ получен не полностью: показаны первые 20 000 символов.</div>':''}<div class="prose">${renderArticle(m.text)}</div></section>`).join('')}</div>`;wireNews()}
-function render(){if(!archive)return;const analysisRoute=location.hash.match(/^#\/analysis(?:\/(\d+))?$/);if(analysisRoute){showAnalysis(Number(analysisRoute[1]??0));return;}if(location.hash==='#/forecast'){showForecast();return}let match=location.hash.match(/^#\/topic\/(\d+)$/);if(match)topic(Number(match[1]));else{home();if(location.hash==='#/chart')document.querySelector('#chart')?.scrollIntoView();if(location.hash==='#/topics')document.querySelector('#results')?.scrollIntoView()}}
+function render(){if(!archive)return;markCurrentNavigation();const analysisRoute=location.hash.match(/^#\/analysis(?:\/(\d+))?$/);if(analysisRoute){showAnalysis(Number(analysisRoute[1]??0));return;}if(location.hash==='#/forecast'){showForecast();return}let match=location.hash.match(/^#\/topic\/(\d+)$/);if(match)topic(Number(match[1]));else{home();if(location.hash==='#/chart')document.querySelector('#chart')?.scrollIntoView();if(location.hash==='#/topics')document.querySelector('#results')?.scrollIntoView()}}
+function markCurrentNavigation() {
+  let route = location.hash || '#/';
+  if (route.startsWith('#/analysis')) route = '#/analysis';
+  document.querySelectorAll('.mast-nav a').forEach(link => {
+    if (link.getAttribute('href') === route) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+}
 async function loadArchive(manual=false){try{let r=await fetch('archive.json?'+(manual?Date.now():'v1'),{cache:'no-store'});if(!r.ok)throw Error();archive=await r.json();render();if(manual){let msg=document.createElement('div');msg.className='status';msg.setAttribute('role','status');msg.textContent='Данные сайта перечитаны. Автоматическое получение новых ответов из закрытых чатов GPT пока не подключено.';root.prepend(msg)}}catch{if(manual&&archive){let msg=document.createElement('div');msg.className='status';msg.textContent='Не удалось перечитать архив. Показаны ранее загруженные материалы.';root.prepend(msg)}else root.innerHTML='<p class="empty">Не удалось загрузить архив. Проверьте подключение и попробуйте снова.</p>'}}
 function updateStatus(text){document.querySelector('#refresh-status')?.remove();let m=document.createElement('div');m.className='status';m.id='refresh-status';m.setAttribute('role','status');m.textContent=text;root.prepend(m)}
 async function refreshNews(){const match=location.hash.match(/^#\/(?:topic|analysis)\/(\d+)$/);const d=match&&archive&&topicDocument(Number(match[1]));selectedTopic=d?.title||'Новости ИИ';let cutoff=d?new Date(d.updatedAt*1000).toISOString().slice(0,10):'2026-11-14';for(const n of fresh)if(n.topic===selectedTopic&&n.date>cutoff)cutoff=n.date;const button=document.querySelector('#refresh');button.disabled=true;button.textContent='Ищем новости…';updateStatus('Ищем новые публикации по теме «'+selectedTopic+'»…');try{const r=await fetch('http://127.0.0.1:8766/api/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({topic:selectedTopic,cutoff})});const body=await r.json();if(!r.ok)throw Error(body.error||'Поиск недоступен');localNews=Array.isArray(body.items)?body.items:[];combineNews();try{localStorage.setItem('pulse-ii-news',JSON.stringify(fresh))}catch{}render();updateStatus(body.added?'Добавлено новостей: '+body.added+'. Даты и ссылки следует проверить.':'Новых публикаций по этой теме после '+body.cutoff+' не найдено.')}catch(e){updateStatus('Поиск не завершён: '+(e.message||'локальный сервер недоступен')+'. Сохранённые материалы не изменены.')}finally{button.disabled=false;button.textContent='↻ Обновить'}}
 window.addEventListener('message',event=>{if(event.origin!==backendOrigin||event.source!==popup)return;if(event.data?.type==='pulse-ready'){const match=location.hash.match(/^#\/(?:topic|analysis)\/(\d+)$/);const d=match&&archive&&topicDocument(Number(match[1]));let cutoff=d?new Date(d.updatedAt*1000).toISOString().slice(0,10):'2026-11-14';for(const n of fresh)if(n.topic===selectedTopic&&n.date>cutoff)cutoff=n.date;popup.postMessage({type:'pulse-context',topic:selectedTopic,cutoff},backendOrigin)}else if(event.data?.type==='pulse-news'&&Array.isArray(event.data.items)){const seen=new Set(fresh.map(x=>x.url));let items=event.data.items.filter(x=>{try{return typeof x.title==='string'&&typeof x.summary==='string'&&typeof x.source==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&new URL(x.url).protocol==='https:'&&!seen.has(x.url)}catch{return false}}).map(x=>({...x,topic:selectedTopic}));fresh=[...items,...fresh];try{localStorage.setItem('pulse-ii-news',JSON.stringify(fresh))}catch{updateStatus('Не удалось сохранить новости в браузере.');return}render();updateStatus(items.length?'Добавлено новостей: '+items.length+'. Даты и ссылки следует проверить.':'Новых публикаций по этой теме не найдено.');}});
 document.querySelector('#refresh').addEventListener('click',refreshNews);window.addEventListener('hashchange',()=>{render();if(!['#/chart','#/topics'].includes(location.hash))window.scrollTo(0,0)});fetch('news.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){sharedNews=d.items;newsAnalysis=Array.isArray(d.analysis)?d.analysis:[];combineNews();render()}}).catch(()=>{});fetch('http://127.0.0.1:8766/api/news').then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){localNews=d.items;combineNews();render()}}).catch(()=>{});loadArchive();
-
-
-
+loadReviewArchive();

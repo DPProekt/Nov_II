@@ -26,6 +26,7 @@ jobs:
         shell: bash
         run: |
           python3 - <<'PY'
+          import base64
           import json
           import os
           from datetime import datetime, timedelta, timezone
@@ -43,7 +44,21 @@ jobs:
               try:
                   return urlopen(Request(url, data, request_headers), timeout=timeout)
               except HTTPError as error:
-                  raise SystemExit(f"{label}: HTTP {error.code}") from None
+                  detail = ""
+                  if url == "https://auth.openai.com/oauth/token":
+                      try:
+                          reply = json.load(error)
+                          kind = reply.get("error")
+                          if kind in {"invalid_grant", "invalid_subject_token", "invalid_request", "unauthorized_client", "access_denied", "unsupported_grant_type", "invalid_client"}:
+                              detail = f" ({kind})"
+                          description = str(reply.get("error_description", "")).lower()
+                          hints = ("provider", "mapping", "service account", "audience", "issuer", "signature", "expired", "subject token")
+                          found = [hint for hint in hints if hint in description]
+                          if found:
+                              detail += " [" + ", ".join(found) + "]"
+                      except (ValueError, TypeError, AttributeError):
+                          pass
+                  raise SystemExit(f"{label}: HTTP {error.code}{detail}") from None
               except (URLError, TimeoutError):
                   raise SystemExit(f"{label}: ошибка соединения") from None
 
@@ -82,6 +97,18 @@ jobs:
               "Идентификация GitHub",
               token=os.environ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"],
           )["value"]
+          encoded_claims = github_token.split(".")[1]
+          claims = json.loads(base64.urlsafe_b64decode(encoded_claims + "=" * (-len(encoded_claims) % 4)))
+          expected_claims = {
+              "iss": "https://token.actions.githubusercontent.com",
+              "aud": "urn:openai:dpproekt:nov-ii",
+              "sub": "repo:DPProekt/Nov_II:ref:refs/heads/main",
+              "workflow_ref": "DPProekt/Nov_II/.github/workflows/pulse-news.yml@refs/heads/main",
+          }
+          mismatch = [name for name, expected in expected_claims.items() if claims.get(name) != expected]
+          if mismatch:
+              raise SystemExit("GitHub OIDC: не совпадают поля " + ", ".join(mismatch))
+          print("GitHub OIDC: назначение, репозиторий, ветка и workflow совпадают.")
           openai_token = get_json(
               "https://auth.openai.com/oauth/token",
               "Обмен токена OpenAI",

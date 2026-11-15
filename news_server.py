@@ -73,6 +73,9 @@ def search_news(key, cutoff, topic):
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
+    def log_message(self, format, *args):
+        # pythonw has no console streams; the default logger would fail there.
+        return
     def reply(self, status, payload):
         body=json.dumps(payload, ensure_ascii=False).encode('utf-8')
         self.send_response(status); self.send_header('Access-Control-Allow-Origin',self.headers.get('Origin') if self.headers.get('Origin') in ALLOWED_ORIGINS else 'null'); self.send_header('Vary','Origin'); self.send_header('Content-Type','application/json; charset=utf-8'); self.send_header('Cache-Control','no-store'); self.send_header('Content-Length',str(len(body))); self.end_headers(); self.wfile.write(body)

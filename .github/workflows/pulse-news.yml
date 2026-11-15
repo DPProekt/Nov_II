@@ -201,7 +201,11 @@ jobs:
           if any(item not in new_items for item in old_items):
               raise SystemExit("Архив изменился: прежние записи не сохранились в исходном виде.")
           added = [item for item in new_items if item not in old_items]
-          final_status = messages[-1].strip() if messages else ""
+          report = "\n".join(messages)
+          markers = re.findall(r"\bPULSE_(?:NO_NEWS|PUBLISHED|ERROR)\b", report)
+          final_status = markers[-1] if markers else ""
+          if final_status == "PULSE_ERROR":
+              raise SystemExit("Агент сообщил об ошибке публикации.")
           if not added and final_status != "PULSE_NO_NEWS":
               raise SystemExit("Новых записей нет и агент не подтвердил отсутствие новостей.")
           for item in added:

@@ -29,6 +29,7 @@ jobs:
           import base64
           import json
           import os
+          import re
           from datetime import datetime, timedelta, timezone
           from urllib.error import HTTPError, URLError
           from urllib.parse import urlencode, urlsplit
@@ -45,14 +46,18 @@ jobs:
                   return urlopen(Request(url, data, request_headers), timeout=timeout)
               except HTTPError as error:
                   detail = ""
-                  if url == "https://auth.openai.com/oauth/token":
+                  if url.startswith(("https://auth.openai.com/", "https://api.openai.com/")):
                       try:
                           reply = json.load(error)
-                          kind = reply.get("error")
+                          error_info = reply.get("error")
+                          kind = error_info.get("code") if isinstance(error_info, dict) else error_info
                           if kind in {"invalid_grant", "invalid_subject_token", "invalid_request", "unauthorized_client", "access_denied", "unsupported_grant_type", "invalid_client"}:
                               detail = f" ({kind})"
-                          description = str(reply.get("error_description", "")).lower()
-                          hints = ("provider", "mapping", "service account", "audience", "issuer", "signature", "expired", "subject token")
+                          description = str(error_info.get("message", "") if isinstance(error_info, dict) else reply.get("error_description", "")).lower()
+                          scopes = sorted(set(re.findall(r"\bapi\.[a-z_.]+[a-z_]\b", description)))
+                          if scopes:
+                              detail += " [permissions: " + ", ".join(scopes) + "]"
+                          hints = ("provider", "mapping", "service account", "audience", "issuer", "signature", "expired", "subject token", "scope", "project", "permission", "api key", "jwt", "access token", "authorization")
                           found = [hint for hint in hints if hint in description]
                           if found:
                               detail += " [" + ", ".join(found) + "]"
@@ -134,7 +139,11 @@ jobs:
           messages = []
           event_data = []
           completed = False
-          headers = {"OpenAI-Beta": "agents=v1", "Accept": "text/event-stream"}
+          headers = {
+              "OpenAI-Beta": "agents=v1",
+              "OpenAI-Project": "proj_2yk5sqnjXZpYTzF9fngNiYB0",
+              "Accept": "text/event-stream",
+          }
           with request(
               "https://api.openai.com/v1/agents/sessions",
               "Запуск агента OpenAI",

@@ -1,0 +1,158 @@
+name: Пульс ИИ — обновление новостей
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+permissions:
+  id-token: write
+
+concurrency:
+  group: pulse-ii-news
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.repository == 'DPProekt/Nov_II' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      OPENAI_IDENTITY_PROVIDER_ID: ${{ vars.PULSE_OPENAI_IDENTITY_PROVIDER_ID }}
+      OPENAI_SERVICE_ACCOUNT_ID: ${{ vars.PULSE_OPENAI_SERVICE_ACCOUNT_ID }}
+      PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
+    steps:
+      - name: Запустить агента через OpenAI API
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timedelta, timezone
+          from urllib.error import HTTPError, URLError
+          from urllib.parse import urlencode, urlsplit
+          from urllib.request import Request, urlopen
+
+          def request(url, label, *, token=None, data=None, headers=None, timeout=30):
+              request_headers = {"User-Agent": "Pulse-II-News", **(headers or {})}
+              if token:
+                  request_headers["Authorization"] = "Bearer " + token
+              if data is not None:
+                  request_headers["Content-Type"] = "application/json"
+                  data = json.dumps(data).encode()
+              try:
+                  return urlopen(Request(url, data, request_headers), timeout=timeout)
+              except HTTPError as error:
+                  raise SystemExit(f"{label}: HTTP {error.code}") from None
+              except (URLError, TimeoutError):
+                  raise SystemExit(f"{label}: ошибка соединения") from None
+
+          def get_json(url, label, **kwargs):
+              with request(url, label, **kwargs) as response:
+                  return json.load(response)
+
+          def read_archive():
+              result = get_json(
+                  "https://api.github.com/repos/DPProekt/Nov_II/contents/news.json?ref=main",
+                  "Чтение архива GitHub",
+                  headers={"Accept": "application/vnd.github.raw+json", "Cache-Control": "no-cache"},
+              )
+              return result["items"]
+
+          cutoff_value = os.environ.get("PULSE_CREDITS_UNTIL_UTC")
+          if not cutoff_value:
+              raise SystemExit("Укажите срок подтверждённых кредитов PULSE_CREDITS_UNTIL_UTC.")
+          cutoff = datetime.fromisoformat(cutoff_value)
+          if cutoff.utcoffset() != timedelta(0):
+              raise SystemExit("Срок кредитов должен быть указан в UTC.")
+          if datetime.now(timezone.utc) + timedelta(minutes=8) >= cutoff:
+              print("Срок подтверждённых кредитов подошёл к концу. OpenAI API не вызывался.")
+              raise SystemExit(0)
+
+          provider = os.environ.get("OPENAI_IDENTITY_PROVIDER_ID")
+          account = os.environ.get("OPENAI_SERVICE_ACCOUNT_ID")
+          if not provider or not account:
+              raise SystemExit("Добавьте идентификаторы провайдера и сервисного аккаунта.")
+
+          old_items = read_archive()
+          oidc_url = os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
+          separator = "&" if "?" in oidc_url else "?"
+          github_token = get_json(
+              oidc_url + separator + urlencode({"audience": "urn:openai:dpproekt:nov-ii"}),
+              "Идентификация GitHub",
+              token=os.environ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"],
+          )["value"]
+          openai_token = get_json(
+              "https://auth.openai.com/oauth/token",
+              "Обмен токена OpenAI",
+              data={
+                  "grant_type": "urn:ietf:params:oauth:grant-type:token-exchange",
+                  "subject_token_type": "urn:ietf:params:oauth:token-type:jwt",
+                  "subject_token": github_token,
+                  "identity_provider_id": provider,
+                  "service_account_id": account,
+              },
+          )["access_token"]
+
+          prompt = (
+              "Подготовь шестичасовой выпуск Пульса ИИ. Ищи значимые новости с небольшим "
+              "перекрытием, сверяй дату и содержание с первоисточником и исключай дубликаты. "
+              "Обновляй только news.json в main DPProekt/Nov_II. Сохрани все прежние записи. "
+              "Под каждой новостью должна быть прямая HTTPS-ссылка на статью. При наличии "
+              "только даты оставляй published_at равным null. После записи проверь её повторным "
+              "чтением и ответь PULSE_PUBLISHED. Если подтверждённых новых материалов нет, "
+              "ничего не меняй и ответь PULSE_NO_NEWS. При ошибке опиши её и ответь PULSE_ERROR."
+          )
+          messages = []
+          event_data = []
+          completed = False
+          headers = {"OpenAI-Beta": "agents=v1", "Accept": "text/event-stream"}
+          with request(
+              "https://api.openai.com/v1/agents/sessions",
+              "Запуск агента OpenAI",
+              token=openai_token,
+              headers=headers,
+              data={
+                  "agent_id": "agent_6afa24e65b40819189c54aeef04a7989",
+                  "environment": {"type": "none"},
+                  "input": [{"role": "user", "content": [{"type": "input_text", "text": prompt}]}],
+                  "stream": True,
+              },
+              timeout=240,
+          ) as stream:
+              for raw_line in stream:
+                  line = raw_line.decode().rstrip("\r\n")
+                  if line.startswith("data:"):
+                      event_data.append(line[5:].lstrip(" "))
+                  if line or not event_data:
+                      continue
+                  raw_event = "\n".join(event_data)
+                  event_data.clear()
+                  if raw_event == "[DONE]":
+                      break
+                  event = json.loads(raw_event)
+                  event_type = event.get("type")
+                  if event_type == "agent.session.turn.output_text.done":
+                      messages.append(event.get("text", ""))
+                  if event_type in {"agent.session.turn.failed", "agent.session.turn.cancelled", "error"}:
+                      raise SystemExit(f"Агент завершил выпуск с ошибкой: {event_type}")
+                  if event_type == "agent.session.turn.completed":
+                      completed = True
+                      break
+
+          if not completed:
+              raise SystemExit("OpenAI не подтвердил завершение выпуска.")
+          new_items = read_archive()
+          if any(item not in new_items for item in old_items):
+              raise SystemExit("Архив изменился: прежние записи не сохранились в исходном виде.")
+          added = [item for item in new_items if item not in old_items]
+          final_status = messages[-1].strip() if messages else ""
+          if not added and final_status != "PULSE_NO_NEWS":
+              raise SystemExit("Новых записей нет и агент не подтвердил отсутствие новостей.")
+          for item in added:
+              url = urlsplit(item.get("url", ""))
+              if url.scheme != "https" or not url.hostname or not item.get("source"):
+                  raise SystemExit("У новой записи отсутствует корректная ссылка на источник.")
+          print(f"Выпуск окончен. Новых записей в GitHub: {len(added)}.")
+          PY
+

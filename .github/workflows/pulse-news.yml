@@ -7,6 +7,7 @@ on:
 
 permissions:
   id-token: write
+  contents: write
 
 concurrency:
   group: pulse-ii-news
@@ -23,7 +24,9 @@ jobs:
       PULSE_GITHUB_VAULT_ID: ${{ vars.PULSE_GITHUB_VAULT_ID }}
       PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
     steps:
-      - name: Запустить агента через OpenAI API
+      - name: Сохранить текущую аналитику и подготовить выпуск
+        env:
+          PULSE_GITHUB_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           python3 - <<'PY'
@@ -31,12 +34,13 @@ jobs:
           import json
           import os
           import re
-          from datetime import datetime, timedelta, timezone
+          from collections import Counter
+          from datetime import date, datetime, timedelta, timezone
           from urllib.error import HTTPError, URLError
           from urllib.parse import urlencode, urlsplit
           from urllib.request import Request, urlopen
 
-          def request(url, label, *, token=None, data=None, headers=None, timeout=30):
+          def request(url, label, *, token=None, data=None, headers=None, timeout=30, method=None, missing_ok=False):
               request_headers = {"User-Agent": "Pulse-II-News", **(headers or {})}
               if token:
                   request_headers["Authorization"] = "Bearer " + token
@@ -44,8 +48,10 @@ jobs:
                   request_headers["Content-Type"] = "application/json"
                   data = json.dumps(data).encode()
               try:
-                  return urlopen(Request(url, data, request_headers), timeout=timeout)
+                  return urlopen(Request(url, data, request_headers, method=method), timeout=timeout)
               except HTTPError as error:
+                  if missing_ok and error.code == 404:
+                      return None
                   detail = ""
                   if url.startswith(("https://auth.openai.com/", "https://api.openai.com/")):
                       try:
@@ -72,7 +78,10 @@ jobs:
                   raise SystemExit(f"{label}: ошибка соединения") from None
 
           def get_json(url, label, **kwargs):
-              with request(url, label, **kwargs) as response:
+              response = request(url, label, **kwargs)
+              if response is None:
+                  return None
+              with response:
                   return json.load(response)
 
           def read_archive():
@@ -82,6 +91,67 @@ jobs:
                   headers={"Accept": "application/vnd.github.raw+json", "Cache-Control": "no-cache"},
               )
               return result
+
+          def canonical_topic(topic):
+              return {
+                  "Новости ИИ": "Подробные новости ИИ",
+                  "Новости ИИ подробно": "Подробные новости ИИ",
+                  "Прогноз экономики ИИ": "Прогноз экономики при быстром развитии ИИ",
+              }.get(topic, topic)
+
+          def version_key(review):
+              updated = datetime.fromisoformat(review["updated_at"])
+              if updated.utcoffset() is None:
+                  raise ValueError("У версии аналитики не указан часовой пояс.")
+              return canonical_topic(review["topic"]), updated.astimezone(timezone.utc)
+
+          def save_reviews(archive):
+              url = "https://api.github.com/repos/DPProekt/Nov_II/contents/analysis-history.json"
+              token = os.environ["PULSE_GITHUB_TOKEN"]
+              headers = {"Accept": "application/vnd.github+json", "Cache-Control": "no-cache"}
+              file = get_json(url + "?ref=main", "Чтение архива аналитики", headers=headers, token=token, missing_ok=True)
+              if file is None:
+                  history = {"schema_version": 1, "versions": []}
+              elif file.get("encoding") == "base64":
+                  history = json.loads(base64.b64decode(file["content"]))
+              else:
+                  history = get_json(
+                      url + "?ref=main", "Чтение архива аналитики",
+                      headers={**headers, "Accept": "application/vnd.github.raw+json"}, token=token,
+                  )
+              if history.get("schema_version") != 1 or not isinstance(history.get("versions"), list):
+                  raise SystemExit("Формат архива аналитики не распознан.")
+              versions = history["versions"]
+              retained = {version_key(review) for review in versions}
+              publications = {}
+              seen = set()
+              for item in archive["items"]:
+                  topic = canonical_topic(item["topic"])
+                  day = date.fromisoformat(item["date"]).isoformat()
+                  key = (topic, item["url"])
+                  if key not in seen:
+                      publications.setdefault(topic, Counter())[day] += 1
+                      seen.add(key)
+
+              count = 0
+              for review in archive.get("analysis", []):
+                  key = version_key(review)
+                  if key not in retained:
+                      versions.append({**review, "topic": key[0], "publication_dates": publications.get(key[0], {})})
+                      retained.add(key)
+                      count += 1
+              if not count:
+                  print("Архив аналитики уже содержит текущие версии.")
+                  return
+              payload = {
+                  "branch": "main",
+                  "message": "Сохранить версии аналитики перед обновлением",
+                  "content": base64.b64encode((json.dumps(history, ensure_ascii=False, indent=2) + "\n").encode()).decode(),
+              }
+              if file is not None:
+                  payload["sha"] = file["sha"]
+              get_json(url, "Запись архива аналитики", headers=headers, token=token, data=payload, method="PUT")
+              print(f"Сохранено версий аналитики: {count}.")
 
           cutoff_value = os.environ.get("PULSE_CREDITS_UNTIL_UTC")
           if not cutoff_value:
@@ -100,6 +170,7 @@ jobs:
               raise SystemExit("Добавьте идентификаторы провайдера, сервисного аккаунта и хранилища GitHub.")
 
           old_archive = read_archive()
+          save_reviews(old_archive)
           old_items = old_archive["items"]
           oidc_url = os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
           separator = "&" if "?" in oidc_url else "?"
@@ -134,8 +205,19 @@ jobs:
           )["access_token"]
 
           prompt = (
-              "Подготовь шестичасовой выпуск Пульса ИИ. Ищи значимые новости с небольшим "
-              "перекрытием, сверяй дату и содержание с первоисточником и исключай дубликаты. "
+              "Подготовь шестичасовой выпуск Пульса ИИ, отвечая на отдельные вопросы по всем восьми темам. "
+              "Подробные новости ИИ: какие значимые разработки или исследования вышли? "
+              "Прогноз экономики при быстром развитии ИИ: что изменилось в оценках отдачи, затрат или внедрения? "
+              "Развитие мышления ИИ образами: какие новые результаты есть по визуальной памяти, планированию и моделям мира? "
+              "Пересборка прогноза 2026–2050: какие подтверждённые сигналы меняют долгосрочные допущения? "
+              "Новости GPT: что нового в моделях, продуктах и инструментах OpenAI? "
+              "Гипербола технологий Капицы с ИИ: появились ли сопоставимые данные о темпах технологического изменения? "
+              "Прогноз беспилотных авто: что подтверждено в испытаниях и коммерческих запусках? "
+              "Пять технологических прорывов: какие подтверждённые результаты меняют оценку готовности технологий? "
+              "Ищи за последние шесть часов с небольшим перекрытием, сверяй дату и содержание с первоисточником "
+              "и исключай дубликаты. Формулируй карточку как полезный самостоятельный ответ GPT по теме: "
+              "сохраняй публичный вопрос в question, ответ с проверенными фактами в summary и точную ссылку в url. "
+              "Показывай ответ на вопрос о новом событии. Не создавай карточку из общего фонового обзора. "
               "Обновляй только news.json в main DPProekt/Nov_II. Сохрани все прежние записи. "
               "Под каждой новостью должна быть прямая HTTPS-ссылка на статью. При наличии "
               "только даты оставляй published_at равным null. У каждой новой записи добавь поле analysis "
@@ -209,6 +291,8 @@ jobs:
           if not added and final_status != "PULSE_NO_NEWS":
               raise SystemExit("Новых записей нет и агент не подтвердил отсутствие новостей.")
           for item in added:
+              if not isinstance(item.get("question"), str) or not item["question"].strip():
+                  raise SystemExit("В новой карточке отсутствует вопрос к GPT.")
               if not isinstance(item.get("analysis"), str) or not item["analysis"].strip():
                   raise SystemExit("У новой записи отсутствует аналитический вывод.")
               url = urlsplit(item.get("url", ""))
@@ -224,7 +308,10 @@ jobs:
           for topic in affected_topics:
               review = reviews.get(topic, {})
               urls = review.get("sources", [])
-              if review == previous.get(topic) or not all(review.get(field) for field in ("updated_at", "changes", "conclusion")):
+              prior = previous.get(topic)
+              if not all(review.get(field) for field in ("updated_at", "changes", "conclusion")) or (
+                  prior and version_key(review)[1] <= version_key(prior)[1]
+              ):
                   raise SystemExit("Отсутствует обновлённый аналитический обзор.")
               details = review.get("details", [])
               if len(details) < 2 or not all(section.get("heading") and section.get("text") for section in details):

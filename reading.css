@@ -86,6 +86,18 @@ tbody tr:last-child :is(th, td) { border-bottom: 0; }
 .review-compare-table ul { padding-left: 16px; }
 .review-reading { margin-top: 27px; max-width: 75ch; }
 .review-reading h2 { font-size: 30px; margin: 0 0 12px; }
+.review-reading { margin-bottom: 30px; }
+.source-date { color: var(--muted); }
+.history-nav { background: #f4f7fc; border: 1px solid var(--line); border-radius: 8px; padding: 13px 18px; }
+.history-nav-head { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 24px; }
+.history-nav h3 { margin: 0; font: 700 23px/1.2 Georgia, serif; }
+.history-nav label { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 14px; }
+.history-nav p { margin: 8px 0; }
+.history-timeline { display: flex; flex-wrap: wrap; gap: 7px; }
+.history-timeline a { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; min-width: 57px; padding: 2px 9px; border: 1px solid #bccae0; background: #fff; border-radius: 4px; color: var(--blue); font-size: 14px; font-weight: 650; }
+.history-timeline a[aria-current] { background: var(--blue); border-color: var(--blue); color: #fff; }
+.history-timeline a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.review-panel + .review-data-band { border-top: 0; }
 
 @media (max-width: 900px) {
   .wrap { width: min(100% - 36px, 1180px); }
@@ -116,4 +128,3 @@ tbody tr:last-child :is(th, td) { border-bottom: 0; }
   .review-compare-pickers select { max-width: 62%; }
   .prose { font-size: 16px; }
 }
-

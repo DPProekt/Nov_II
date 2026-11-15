@@ -2,4 +2,6 @@ private-news.json
 private-news.tmp
 .debug/
 __pycache__/
-
+.env
+.env.*
+!.env.example

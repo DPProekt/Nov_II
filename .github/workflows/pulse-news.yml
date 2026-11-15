@@ -20,6 +20,7 @@ jobs:
     env:
       OPENAI_IDENTITY_PROVIDER_ID: ${{ vars.PULSE_OPENAI_IDENTITY_PROVIDER_ID }}
       OPENAI_SERVICE_ACCOUNT_ID: ${{ vars.PULSE_OPENAI_SERVICE_ACCOUNT_ID }}
+      PULSE_GITHUB_VAULT_ID: ${{ vars.PULSE_GITHUB_VAULT_ID }}
       PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
     steps:
       - name: Запустить агента через OpenAI API
@@ -94,8 +95,9 @@ jobs:
 
           provider = os.environ.get("OPENAI_IDENTITY_PROVIDER_ID")
           account = os.environ.get("OPENAI_SERVICE_ACCOUNT_ID")
-          if not provider or not account:
-              raise SystemExit("Добавьте идентификаторы провайдера и сервисного аккаунта.")
+          vault = os.environ.get("PULSE_GITHUB_VAULT_ID")
+          if not provider or not account or not vault:
+              raise SystemExit("Добавьте идентификаторы провайдера, сервисного аккаунта и хранилища GitHub.")
 
           old_archive = read_archive()
           old_items = old_archive["items"]
@@ -162,6 +164,7 @@ jobs:
               data={
                   "agent_id": "agent_6afa24e65b40819189c54aeef04a7989",
                   "environment": {"type": "none"},
+                  "vault_ids": [vault],
                   "input": prompt,
                   "stream": True,
               },

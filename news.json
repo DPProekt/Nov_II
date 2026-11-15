@@ -1,1 +1,35 @@
-{"updated_at":null,"items":[]}
+{
+  "updated_at": "2026-11-15T22:15:15.080Z",
+  "items": [
+    {
+      "title": "Google представила Gemini 4 Hydrogen для агентных задач",
+      "summary": "Google анонсировала модель Gemini 4 Hydrogen для программирования и агентных процессов, сделав её доступной через Gemini API, AI Studio и другие продукты компании.",
+      "date": "2026-11-12",
+      "published_at": null,
+      "importance": "high",
+      "source": "Google",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "topic": "Новости ИИ"
+    },
+    {
+      "title": "Исследователи Anthropic изучили сбои взаимодействия ИИ-агентов",
+      "summary": "В четырёх моделируемых сценариях группа отдельных агентов уступила одному координатору по общему результату; авторы также исследовали меры для улучшения взаимодействия.",
+      "date": "2026-11-11",
+      "published_at": null,
+      "importance": "high",
+      "source": "Anthropic Alignment Science",
+      "url": "https://alignment.anthropic.com/2026/worse-together/",
+      "topic": "Новости ИИ"
+    },
+    {
+      "title": "OpenAI представила профили компаний и бизнес-агентов в ChatGPT",
+      "summary": "OpenAI запустила бета-версию бизнес-хаба для управления профилями компаний и представила бизнес-агентов; первоначально агенты доступны соответствующим условиям компаниям в США.",
+      "date": "2026-11-10",
+      "published_at": null,
+      "importance": "high",
+      "source": "OpenAI",
+      "url": "https://openai.com/ru-RU/index/introducing-businesses-chatgpt/",
+      "topic": "Новости GPT"
+    }
+  ]
+}

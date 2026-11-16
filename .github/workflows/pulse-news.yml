@@ -409,6 +409,8 @@ jobs:
           markers = re.findall(r"\bPULSE_(?:NO_NEWS|PUBLISHED|ERROR)\b", report)
           final_status = markers[-1] if markers else ""
           if final_status == "PULSE_ERROR":
+              diagnostic = re.sub(r"(?i)(?:sk-[a-z0-9_-]+|github_pat_[a-z0-9_]+|gh[pousr]_[a-z0-9_]+|bearer\s+\S+)", "[скрыто]", report)
+              print("Ответ агента:", diagnostic[-1200:])
               raise SystemExit("Агент сообщил об ошибке публикации.")
           if not added and final_status != "PULSE_NO_NEWS":
               raise SystemExit("Новых записей нет и агент не подтвердил отсутствие новостей.")

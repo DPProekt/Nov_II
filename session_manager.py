@@ -4,6 +4,7 @@ import json
 import os
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
@@ -37,8 +38,41 @@ class Manager:
         self.vault_id = vault_id
         self.run_id = run_id
 
+    def refresh_openai_token(self):
+        url = os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
+        url += ("&" if "?" in url else "?") + urllib.parse.urlencode({"audience": "urn:openai:dpproekt:nov-ii"})
+        request = urllib.request.Request(url, headers={
+            "Authorization": "Bearer " + os.environ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"],
+            "User-Agent": "Pulse-II-Sessions",
+        })
+        with urllib.request.urlopen(request, timeout=30) as response:
+            assertion = json.load(response)["value"]
+        part = assertion.split(".")[1]
+        claims = json.loads(base64.urlsafe_b64decode(part + "=" * (-len(part) % 4)))
+        expected = {
+            "iss": "https://token.actions.githubusercontent.com", "aud": "urn:openai:dpproekt:nov-ii",
+            "repository_id": "1458024428", "ref": "refs/heads/main",
+            "workflow_ref": "DPProekt/Nov_II/.github/workflows/pulse-news.yml@refs/heads/main",
+        }
+        if any(claims.get(key) != value for key, value in expected.items()):
+            raise RuntimeError("Проверка удостоверения GitHub не пройдена")
+        body = json.dumps({
+            "grant_type": "urn:ietf:params:oauth:grant-type:token-exchange",
+            "subject_token_type": "urn:ietf:params:oauth:token-type:jwt",
+            "subject_token": assertion,
+            "identity_provider_id": os.environ["OPENAI_IDENTITY_PROVIDER_ID"],
+            "service_account_id": os.environ["OPENAI_SERVICE_ACCOUNT_ID"],
+        }).encode()
+        request = urllib.request.Request("https://auth.openai.com/oauth/token", body,
+                                         {"Content-Type": "application/json"}, method="POST")
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                self.openai_token = json.load(response)["access_token"]
+        except urllib.error.HTTPError as exc:
+            raise ApiError("Обновление доступа OpenAI", exc.code) from None
+
     def call(self, url, operation, *, openai=False, method="GET", payload=None,
-             raw=False, missing=False, idempotency=None):
+             raw=False, missing=False, idempotency=None, retry_auth=True):
         headers = {
             "User-Agent": "Pulse-II-Sessions",
             "Authorization": "Bearer " + (self.openai_token if openai else self.github_token),
@@ -60,6 +94,10 @@ class Manager:
         except urllib.error.HTTPError as exc:
             if missing and exc.code == 404:
                 return None
+            if openai and exc.code == 401 and retry_auth:
+                self.refresh_openai_token()
+                return self.call(url, operation, openai=True, method=method, payload=payload,
+                                 raw=raw, missing=missing, idempotency=idempotency, retry_auth=False)
             detail = ""
             try:
                 info = json.load(exc).get("error", {})

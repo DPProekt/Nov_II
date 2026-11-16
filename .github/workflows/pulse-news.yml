@@ -281,7 +281,12 @@ jobs:
               },
           )["access_token"]
 
-          if os.environ.get("PULSE_PERSISTENT") == "true":
+          use_sessions = (
+              os.environ.get("PULSE_PERSISTENT") == "true" or
+              (not os.environ.get("PULSE_SEARCH_SINCE", "").strip() and
+               os.environ.get("PULSE_CONTINUE_PILOT") != "true")
+          )
+          if use_sessions:
               with request(
                   "https://api.github.com/repos/DPProekt/Nov_II/contents/session_manager.py?ref=" + os.environ["GITHUB_SHA"],
                   "Загрузка обработчика сессий", token=os.environ["PULSE_GITHUB_TOKEN"],
@@ -300,7 +305,8 @@ jobs:
                   chosen = list(all_topics)
               namespace["run_sessions"](openai_token, os.environ["PULSE_GITHUB_TOKEN"], vault,
                                         chosen, os.environ["GITHUB_RUN_ID"],
-                                        initialize_only=os.environ.get("PULSE_INITIALIZE") == "true")
+                                        initialize_only=os.environ.get("PULSE_INITIALIZE") == "true",
+                                        on_topic_done=lambda: save_reviews(read_archive()))
               raise SystemExit(0)
 
           if os.environ.get("PULSE_CONTINUE_PILOT") == "true":

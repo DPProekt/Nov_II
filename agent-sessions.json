@@ -14,6 +14,14 @@
       "history": [],
       "id": "sess_0f895f553bbfbab7006afacd963be4819fb29e12db128702bc",
       "last_turn_id": "turn_0f895f553bbfbab7006afacd9dc800819faf90d0ae9ae06dd8"
+    },
+    "Прогноз экономики при быстром развитии ИИ": {
+      "history": [],
+      "id": "sess_03a36d95316e9a62006aface35a940819c8b6e99b756568bd7",
+      "pending": {
+        "previous": null,
+        "created": true
+      }
     }
   }
 }

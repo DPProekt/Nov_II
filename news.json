@@ -1,6 +1,71 @@
 {
-  "updated_at": "2026-11-15T23:01:49.655Z",
+  "updated_at": "2026-11-16T03:48:52.380Z",
   "items": [
+    {
+      "title": "Runway открыла веса модели Praxis-1 для управления роботами по видео",
+      "question": "Как новые модели используют визуальное предсказание для управления роботами?",
+      "brief": "Runway открыла модель, совместно предсказывающую видео и действия робота.",
+      "summary": "11 ноября 2026 года Runway открыла веса Praxis-1 и код запуска и дообучения под лицензией Apache 2.0, включая коммерческое использование. Модель предсказывает фрагменты будущего видео и соответствующие действия; её предварительно обучали на видео, а затем адаптировали к роботам. По данным разработчика, на симуляционном тесте RoboLab-120 после дообучения на DROID она успешно выполнила 555 из 1 200 эпизодов (46,2%); указанная в том же сравнении FLUX 3 Action набрала 42,9%. Это ранее пропущенный материал от 11 ноября, добавленный к текущему выпуску.",
+      "date": "2026-11-11",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Runway",
+      "url": "https://runway.com/news/company-news/praxis-1-is-now-available",
+      "topic": "Развитие мышления ИИ образами",
+      "analysis": "Связка предсказания сцены и действий — проверяемый пример использования визуальной модели мира для управления, но не доказательство человеческого образного мышления или надёжного долгосрочного планирования. Результат относится к конкретному симуляционному тесту и условиям дообучения, данные сообщены разработчиком; они не гарантируют такой же успех в реальной эксплуатации.",
+      "watch": "Отслеживать независимое воспроизведение, тесты на незнакомых роботах и результаты длительных физических задач вне лаборатории.",
+      "comparison": {
+        "caption": "RoboLab-120: симуляция 120 настольных задач, 10 испытаний на задачу; результаты из сравнения Runway, ноябрь 2026 года. Не показатель надёжности в реальной эксплуатации.",
+        "columns": [
+          "Модель",
+          "Успешные эпизоды, %"
+        ],
+        "rows": [
+          [
+            "Praxis-1",
+            "46,2"
+          ],
+          [
+            "FLUX 3 Action",
+            "42,9"
+          ],
+          [
+            "Cosmos3 Nano",
+            "36,8"
+          ],
+          [
+            "π0.5",
+            "28,0"
+          ]
+        ]
+      },
+      "references": [
+        {
+          "title": "Praxis-1: From Video Pretraining to Robot Control",
+          "url": "https://runway.com/research/praxis-1-video-pretraining-to-robot-control"
+        }
+      ]
+    },
+    {
+      "title": "Google DeepMind проверила ключевые свойства кода Signal с помощью ИИ-агентов",
+      "question": "Могут ли ИИ-агенты помогать формально проверять безопасность реального программного кода?",
+      "brief": "Агенты помогли построить проверяемые доказательства для криптографического кода Signal.",
+      "summary": "10 ноября 2026 года Google DeepMind представила AlphaProof Code — систему агентов для формальной проверки кода. По отчёту авторов, с участием экспертов система проверила отдельные свойства реализации libsignal на уровне машинного кода, включая части протоколов PQXDH и Triple Ratchet; доказательства проверялись ядром Lean. В работе указано около 6,5 млн строк машинно проверенного кода доказательств и около 26 тыс. строк доверенных спецификаций и семантики AArch64. Компания сообщает, что работа заняла четыре недели. Это ранее пропущенный материал от 10 ноября, добавленный к текущему выпуску.",
+      "date": "2026-11-10",
+      "published_at": null,
+      "importance": "high",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "topic": "Подробные новости ИИ",
+      "analysis": "Это значимый пример применения агентных систем там, где результат можно формально проверить, а не просто принять на доверие. Доказательства зависят от выбранных спецификаций и предположений и не делают Signal или любое ПО неуязвимым: в частности, боковые каналы в описанной модели угроз не рассматриваются. Оценка времени принадлежит разработчику и не является контролируемым сравнением стоимости.",
+      "watch": "Следить за независимой проверкой спецификаций и переносом метода на другие версии кода, архитектуры и проекты, с публикацией затрат и ограничений.",
+      "references": [
+        {
+          "title": "AlphaProof Code: Verifying Signal’s Security at the Machine-Code Level",
+          "url": "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf"
+        }
+      ]
+    },
     {
       "title": "Исследователи проверили надёжность кодовых языковых моделей при поиске уязвимостей смарт-контрактов",
       "summary": "В исследовании Scientific Reports сравнили три модели примерно с 7 млрд параметров на трёх наборах смарт-контрактов при фиксированных запросах и процедурах восстановления ответов. Среди 75 957 ответов доля корректных записей с первой попытки составляла от 3,7% до 85,3%, хотя после обработки корректный формат получили все записи. Лучший исходный micro-F1 составил 0,961 на SmartBugs-Curated и 0,108 на ScrawlD. Авторы подчёркивают зависимость результатов от выбранных версий моделей, запросов и восстановления ответов; перенос на другие данные не проверялся. Журнал указывает дату 15 ноября, но не время публикации.",
@@ -78,9 +143,9 @@
   "analysis": [
     {
       "topic": "Подробные новости ИИ",
-      "updated_at": "2026-11-15T22:59:51.145Z",
-      "changes": "Ранее обзор сообщал о сбоях координации нескольких агентов в экспериментах Anthropic. Новое исследование рассматривает другой уровень надёжности: качество ответов отдельных кодовых моделей при поиске уязвимостей и зависимость результатов от восстановления некорректных ответов.",
-      "conclusion": "Обе работы указывают на необходимость проверять реальные результаты и механизмы обработки ошибок, а не полагаться только на наличие связного ответа. Эксперименты охватывают разные задачи и модели: их показатели нельзя напрямую сравнивать или переносить на все агентные системы. Точное время публикации нового исследования неизвестно.",
+      "updated_at": "2026-11-16T03:48:52.380Z",
+      "changes": "В дополнение к предыдущему обзору надёжности отдельных кодовых моделей и взаимодействия агентов добавлен ранее пропущенный отчёт DeepMind от 10 ноября: AlphaProof Code применили к формальной проверке ключевых свойств libsignal.",
+      "conclusion": "Проверка ядром Lean ограничивает риск принять неверное доказательство, но зависит от доверенных спецификаций и модели угроз; это не доказательство полной безопасности Signal. Сравнивать результат напрямую с классификацией уязвимостей в прежнем исследовании нельзя.",
       "details": [
         {
           "heading": "Контекст: Gemini и надёжность команд",
@@ -97,16 +162,29 @@
         {
           "heading": "Что изменит вывод",
           "text": "Нужны сравнения одной модели и команды агентов на одинаковых задачах с единым бюджетом. Отдельный показатель — сколько ошибок связано с несогласованностью и сколько устраняет общий координатор."
+        },
+        {
+          "heading": "Формальная проверка и её пределы",
+          "text": "Авторы сообщили о проверке свойств частей PQXDH и Triple Ratchet на уровне машинного кода. Эксперты участвуют в подготовке и утверждении спецификаций; боковые каналы в описанной модели угроз не охвачены."
+        },
+        {
+          "heading": "Что изменит оценку",
+          "text": "Независимая проверка доверенных спецификаций, воспроизведение на других проектах и сопоставимые оценки затрат помогут понять масштабируемость метода."
         }
       ],
       "sources": [
         "https://www.nature.com/articles/s41598-026-78368-7",
         "https://alignment.anthropic.com/2026/worse-together/",
-        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "https://deepmind.google/blog/introducing-alphaproof-code/",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf"
       ],
       "source_titles": {
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/": "Google DeepMind — Gemini 4 Hydrogen",
-        "https://alignment.anthropic.com/2026/worse-together/": "Anthropic — Worse Together"
+        "https://alignment.anthropic.com/2026/worse-together/": "Anthropic — Worse Together",
+        "https://www.nature.com/articles/s41598-026-78368-7": "Scientific Reports — исследование надёжности моделей при анализе смарт-контрактов",
+        "https://deepmind.google/blog/introducing-alphaproof-code/": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf": "AlphaProof Code: Verifying Signal’s Security at the Machine-Code Level"
       }
     },
     {
@@ -139,9 +217,9 @@
     },
     {
       "topic": "Развитие мышления ИИ образами",
-      "updated_at": "2026-11-15T22:59:51.145Z",
-      "changes": "Genie 3 показала интерактивные визуальные среды, в которых сцена меняется в ответ на действия. SIMA 2 продемонстрировала другую часть задачи — восприятие ситуации и выбор действий в виртуальных 3D-мирах. В препринте Duo v1 от 11 ноября 2026 года авторы предложили модель, которая обрабатывает аудио и видео во время ответа и может учитывать перебивания.",
-      "conclusion": "Главный практический результат — возможность проверять пространственное планирование в управляемой среде. Из этих демонстраций пока нельзя вывести, как именно модель представляет образы внутри и насколько результат переносится на физический мир.",
+      "updated_at": "2026-11-16T03:48:52.380Z",
+      "changes": "К прежнему обзору Genie 3, SIMA 2 и Duo v1 добавлен ранее пропущенный выпуск открытых весов Praxis-1 от 11 ноября: модель совместно предсказывает видео и действия робота.",
+      "conclusion": "В отличие от демонстраций интерактивного видео, Praxis-1 связывает прогноз сцены с управлением роботом. Результаты симуляции не устанавливают механизм человеческого образного мышления и не доказывают надёжность в незнакомом физическом окружении.",
       "details": [
         {
           "heading": "Что считать мышлением образами",
@@ -162,17 +240,29 @@
         {
           "heading": "Что проверить в следующем выпуске",
           "text": "Сравнить выполнение одной и той же пространственной задачи с текстовым описанием и с видео. Проверить длинные цепочки действий, возвращение к скрытому объекту, результаты при изменении физики сцены и воспроизводимость на независимых тестах."
+        },
+        {
+          "heading": "Новый результат: визуальное предсказание и действия",
+          "text": "Runway открыла веса и код Praxis-1 под Apache 2.0. В симуляции RoboLab-120 разработчик сообщает 46,2% успешных эпизодов из 1 200 после дообучения на DROID; модель также проверялась на физической руке, но симуляционный процент нельзя переносить на реальную эксплуатацию."
+        },
+        {
+          "heading": "Что изменит оценку",
+          "text": "Независимые испытания на незнакомых роботах и длинных задачах, с сопоставимыми условиями и оценкой ошибок, покажут, переносится ли результат за пределы тестового набора."
         }
       ],
       "sources": [
         "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
         "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/",
-        "https://arxiv.org/abs/2611.15131"
+        "https://arxiv.org/abs/2611.15131",
+        "https://runway.com/news/company-news/praxis-1-is-now-available",
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control"
       ],
       "source_titles": {
         "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/": "Google DeepMind — Genie 3",
         "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/": "Google DeepMind — SIMA 2",
-        "https://arxiv.org/abs/2611.15131": "Duo v1 — технический отчёт авторов, arXiv"
+        "https://arxiv.org/abs/2611.15131": "Duo v1 — технический отчёт авторов, arXiv",
+        "https://runway.com/news/company-news/praxis-1-is-now-available": "Praxis-1 Is Now Available",
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control": "Praxis-1: From Video Pretraining to Robot Control"
       }
     },
     {
@@ -293,9 +383,9 @@
     },
     {
       "topic": "Пять технологических прорывов",
-      "updated_at": "2026-11-15T22:59:51.145Z",
-      "changes": "AlphaEvolve показывает автоматизацию поиска алгоритмов с машинной проверкой. LLNL подтверждает зажигание реакции в эксперименте. SIMA 2 показывает обучение действий в виртуальной среде.",
-      "conclusion": "Сравнивать направления полезно по одинаковым этапам готовности: демонстрация, независимое повторение, пилот и эксплуатация. Сроки зависят от того, какой этап считать прорывом.",
+      "updated_at": "2026-11-16T03:48:52.380Z",
+      "changes": "К прежнему обзору AlphaEvolve, SIMA 2 и эксперимента LLNL добавлены ранее пропущенные публикации: формальная проверка libsignal с AlphaProof Code и открытый выпуск робототехнической модели Praxis-1.",
+      "conclusion": "Оба результата расширяют набор проверяемых применений ИИ, но формальное доказательство ограничено спецификацией, а успех в симуляции не равен готовности робота к эксплуатации. Энергетические и биомедицинские сроки эти результаты сами по себе не меняют.",
       "details": [
         {
           "heading": "Алгоритмы и роботизация",
@@ -308,17 +398,33 @@
         {
           "heading": "Биотехнологии и пересмотр сроков",
           "text": "Переход к практическому применению зависит от измеримых результатов исследований и подтверждённой безопасности. Пока для отдельных направлений нет сопоставимых новых данных, сохраняется высокая неопределённость их сроков."
+        },
+        {
+          "heading": "Новые результаты и ограничения",
+          "text": "AlphaProof Code использует проверку доказательств в Lean для заданных свойств кода; Praxis-1 сочетает предсказание видео и действий, а её показатели RoboLab-120 получены в симуляции. Оба результата сообщены разработчиками и требуют дальнейшего независимого изучения."
+        },
+        {
+          "heading": "Что изменит оценку",
+          "text": "Перенос формальной проверки на другие промышленные проекты и независимые испытания роботов в рабочих условиях с измерением надёжности и стоимости."
         }
       ],
       "sources": [
         "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
         "https://lasers.llnl.gov/science/achieving-fusion-ignition",
-        "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/"
+        "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/",
+        "https://deepmind.google/blog/introducing-alphaproof-code/",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf",
+        "https://runway.com/news/company-news/praxis-1-is-now-available",
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control"
       ],
       "source_titles": {
         "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/": "Google DeepMind — AlphaEvolve",
         "https://lasers.llnl.gov/science/achieving-fusion-ignition": "LLNL — Achieving Fusion Ignition",
-        "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/": "Google DeepMind — SIMA 2"
+        "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/": "Google DeepMind — SIMA 2",
+        "https://deepmind.google/blog/introducing-alphaproof-code/": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf": "AlphaProof Code: Verifying Signal’s Security at the Machine-Code Level",
+        "https://runway.com/news/company-news/praxis-1-is-now-available": "Praxis-1 Is Now Available",
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control": "Praxis-1: From Video Pretraining to Robot Control"
       }
     }
   ]

@@ -2067,6 +2067,81 @@
         "2026-10-26": 1,
         "2026-10-23": 1
       }
+    },
+    {
+      "topic": "Пересборка прогноза 2026–2050",
+      "updated_at": "2026-11-16T04:10:20Z",
+      "changes": "В октябрьском прогнозе МВФ оценил возможности и ограничения инвестиций в ИИ.",
+      "conclusion": "Данные МВФ помогают обновить предпосылки о производительности, инвестициях и ограничениях предложения. Рассмотренные фондом сценарии не определяют единственную траекторию до 2050 года.",
+      "details": [
+        {
+          "heading": "Ближний контур",
+          "text": "Повышать уверенность в автоматизации проверяемых задач стоит после повторяемых результатов: качество кода, время выполнения и стоимость проверки в одной и той же постановке."
+        },
+        {
+          "heading": "Дальний контур",
+          "text": "Сценарии до 2050 года зависят от скорости внедрения, стоимости вычислений и от того, какие решения организации готовы доверить системам. Сроки меняются при любом из этих ограничений."
+        },
+        {
+          "heading": "Правило пересмотра",
+          "text": "Менять сценарий при независимом повторении результата или при измеримом переходе от пилота к эксплуатации. Единичный анонс даёт повод искать данные о внедрении."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Британский опрос фиксирует 32% компаний с ИИ, включая пилоты, а OpenAI заявляет о снижении стандартной цены API новой модели относительно предшественника."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Опрос проведён в начале 2026 года и опирается на самоотчёты; цены API не равны совокупной стоимости и не доказывают ускорение общего прогресса. Оценку изменят повторные сопоставимые замеры и причинные исследования."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "ЕИБ сообщает об использовании генеративного ИИ 67% фирм ЕС и США; Крейг описал помощь GPT-6 Astra в развитии своей стратегии для решёточной конструкции."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Самоотчёт не измеряет совокупную отдачу, а физический результат остаётся кандидатным. Оценку изменят причинные измерения производительности, независимая проверка доказательства и воспроизводимые результаты в других дисциплинах."
+        },
+        {
+          "heading": "Измеримый сигнал",
+          "text": "По оценке Epoch AI, цена фиксированного тестового результата снижалась примерно на 47% за квартал на выбранных тестах в изученный период. Это отличается от цен за токен и не измеряет стоимость завершённой рабочей задачи."
+        },
+        {
+          "heading": "Пределы и что изменит сценарий",
+          "text": "Тестовая выборка и модельная экстраполяция ограничивают перенос результата на 2050 год. Дальнейшую оценку изменят воспроизводимые ряды качества и стоимости, данные об инфраструктурных ограничениях и проверенные эффекты внедрения."
+        },
+        {
+          "heading": "Сценарии МВФ",
+          "text": "В обзоре World Economic Outlook за октябрь 2026 года МВФ рассматривает ускорение инвестиций в искусственный интеллект и риски пересмотра ожиданий. Среди сценарных факторов названы рост производительности и возможные ограничения поставок технологического оборудования. В обзоре представлены макроэкономические прогнозы на 2026 и 2027 годы. Новые статистические оценки внедрения ИИ, производительности и доступности вычислительного оборудования."
+        }
+      ],
+      "sources": [
+        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+        "https://openai.com/ru-RU/index/introducing-businesses-chatgpt/",
+        "https://alignment.anthropic.com/2026/worse-together/",
+        "https://www.gov.uk/government/publications/ai-adoption-survey-2026/ai-adoption-survey-report-2026-executive-summary",
+        "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "https://www.eib.org/en/publications/20260192-econ-eibis-2026-eu",
+        "https://openai.com/index/step-toward-defining-the-standard-model/",
+        "https://arxiv.org/abs/2610.09093",
+        "https://epoch.ai/publications/the-plunging-price-of-thought",
+        "https://www.imf.org/en/Publications/WEO/Issues/2026/10/13/world-economic-outlook-october-2026"
+      ],
+      "source_titles": {
+        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/": "Google DeepMind — AlphaEvolve",
+        "https://openai.com/ru-RU/index/introducing-businesses-chatgpt/": "OpenAI — бизнес в ChatGPT",
+        "https://alignment.anthropic.com/2026/worse-together/": "Anthropic — Worse Together",
+        "https://www.gov.uk/government/publications/ai-adoption-survey-2026/ai-adoption-survey-report-2026-executive-summary": "AI adoption survey report 2026: executive summary",
+        "https://openai.com/index/introducing-gpt-6-1-terra/": "Introducing GPT-6.1 Terra",
+        "https://www.eib.org/en/publications/20260192-econ-eibis-2026-eu": "Опрос ЕИБ: 67% компаний ЕС и США используют генеративный ИИ",
+        "https://openai.com/index/step-toward-defining-the-standard-model/": "Физик описал применение GPT-6 Astra к задаче определения Стандартной модели",
+        "https://arxiv.org/abs/2610.09093": "A gauge-invariant measure for lattice chiral fermions",
+        "https://epoch.ai/publications/the-plunging-price-of-thought": "Исследователи оценили снижение цены фиксированного качества ИИ",
+        "https://www.imf.org/en/Publications/WEO/Issues/2026/10/13/world-economic-outlook-october-2026": "Международный валютный фонд, World Economic Outlook"
+      },
+      "publication_dates": {
+        "2026-10-13": 1
+      }
     }
   ]
 }

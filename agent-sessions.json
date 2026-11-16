@@ -29,6 +29,14 @@
       "history": [],
       "id": "sess_0774442b5db096b7806afacfabb9c481948cb9573fa3d72df8",
       "last_turn_id": "turn_0774442b5db096b7806afacfabb9e081948f565ad3f524c63b"
+    },
+    "Прогноз беспилотных авто": {
+      "history": [],
+      "id": "sess_0c2acb839e4acc1a006afad028b2b48193903f404805ebd61b",
+      "pending": {
+        "previous": null,
+        "created": true
+      }
     }
   }
 }

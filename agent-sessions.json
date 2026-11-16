@@ -1,5 +1,12 @@
 {
   "sessions": {
-    "Развитие мышления ИИ образами": "sess_02d4b31ca4daef22806afacacf3118819da3432ed4296e1d0a"
+    "Развитие мышления ИИ образами": {
+      "id": "sess_02d4b31ca4daef22806afacacf3118819da3432ed4296e1d0a",
+      "history": [],
+      "pending": {
+        "previous": "turn_02d4b31ca4daef22806afacc069ee0819d86d4420af7bbba19",
+        "key": "pulse-43839897377-2"
+      }
+    }
   }
 }

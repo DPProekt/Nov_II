@@ -48,9 +48,16 @@ def search_prompt(topic, cutoff):
         f'на русском или английском. Ориентиры: {TOPIC_CONTEXT[topic]}. '
         'Открой подходящие результаты и отбирай по содержанию. Статья должна сообщать новый факт, '
         'исследование или объявление по теме. Совпадение названия темы с заголовком не требуется. '
-        f'Включай только публикации с проверяемой датой строго после {cutoff}. '
-        'Укажи прямую ссылку на первоисточник, дату исходной публикации в формате YYYY-MM-DD, '
-        'название источника, заголовок и краткое описание на русском. '
+        'После поиска открой первоисточник и отдельно проверь дату события, дату публикации, '
+        'доступность, единицы измерения и условия сравнения. При необходимости найди независимую проверку. '
+        f'Включай материалы с проверяемой датой от {cutoff} включительно. '
+        'В date укажи исходную дату публикации, в published_at подтверждённое время ISO 8601 или null. '
+        'В url укажи прямую ссылку на первоисточник без параметров отслеживания. '
+        'Напиши вопрос к GPT, главное изменение в brief, подробные факты на русском в summary, '
+        'отдельный вывод о значении для темы в analysis и следующую проверку или веху в watch. '
+        'Используй high для ключевых событий, normal для остальных. '
+        'Если есть сопоставимые цифры, приложи в comparison таблицу с заголовком, единицами и условиями; '
+        'иначе верни comparison равным null. Убирай ссылки на повторные сообщения без новых фактов. '
         'Когда подтверждённых материалов по теме нет, верни пустой массив.'
     )
 
@@ -82,16 +89,37 @@ def select_new(items, old, cutoff):
             continue
         date, url = item.get('date', ''), item.get('url', '')
         parsed = urllib.parse.urlsplit(url)
-        if not valid_date(date) or not cutoff < date <= today or parsed.scheme != 'https' or not parsed.hostname or parsed.username or url in known:
+        if not valid_date(date) or not cutoff <= date <= today or parsed.scheme != 'https' or not parsed.hostname or parsed.username or url in known:
             continue
         if not all(isinstance(item.get(k), str) and item[k].strip() for k in ('title', 'summary', 'source')):
             continue
         known.add(url)
-        result.append({k: item[k].strip() for k in ('title', 'summary', 'date', 'source', 'url')})
+        fields = ('title', 'summary', 'date', 'source', 'url', 'question', 'brief', 'analysis', 'watch',
+                  'importance', 'comparison', 'published_at')
+        result.append({key: item[key].strip() if isinstance(item[key], str) else item[key]
+                       for key in fields if key in item})
     return result
 
 def search_news(key, cutoff, topic):
-    schema = {'type':'object','properties':{'items':{'type':'array','items':{'type':'object','properties':{'title':{'type':'string'},'summary':{'type':'string'},'date':{'type':'string'},'source':{'type':'string'},'url':{'type':'string'}},'required':['title','summary','date','source','url'],'additionalProperties':False}}},'required':['items'],'additionalProperties':False}
+    strings = ('title', 'summary', 'date', 'source', 'url', 'question', 'brief', 'analysis', 'watch')
+    columns = {'type': 'array', 'items': {'type': 'string'}}
+    table = {
+        'type': 'object',
+        'properties': {'caption': {'type': 'string'}, 'columns': columns,
+                       'rows': {'type': 'array', 'items': columns}},
+        'required': ['caption', 'columns', 'rows'],
+        'additionalProperties': False,
+    }
+    properties = {field: {'type': 'string'} for field in strings}
+    properties.update({
+        'published_at': {'type': ['string', 'null']},
+        'importance': {'type': 'string', 'enum': ['high', 'normal']},
+        'comparison': {'anyOf': [table, {'type': 'null'}]},
+    })
+    article = {'type': 'object', 'properties': properties, 'required': list(properties),
+               'additionalProperties': False}
+    schema = {'type': 'object', 'properties': {'items': {'type': 'array', 'items': article}},
+              'required': ['items'], 'additionalProperties': False}
     prompt = search_prompt(canonical_topic(topic), cutoff)
     body = {'model':'gpt-6.1-terra','tools':[{'type':'web_search','search_context_size':'low'}], 'tool_choice':'required','input':prompt,'max_output_tokens':3500,'text':{'format':{'type':'json_schema','name':'news','schema':schema,'strict':True}}}
     request = urllib.request.Request('https://api.openai.com/v1/responses', data=json.dumps(body).encode(), method='POST', headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'})
@@ -121,7 +149,11 @@ class Handler(SimpleHTTPRequestHandler):
         if self.path.split('?')[0] == '/api/news':
             try: self.reply(200, read_news())
             except (OSError, ValueError): self.reply(500, {'error':'Не удалось прочитать сохранённые новости.'})
-        elif self.path.split('?')[0] in ('/', '/index.html', '/style.css', '/app.js', '/charts.js', '/archive.json'):
+        elif self.path.split('?')[0] in (
+            '/', '/index.html', '/style.css', '/reading.css', '/app.js', '/charts.js', '/favicon.svg',
+            '/archive.json', '/news.json', '/periods.js', '/forecast.js', '/forecasts.json',
+            '/analysis-views.js', '/analysis-history.json', '/historical-analysis.json',
+        ):
             super().do_GET()
         else: self.send_error(404)
     def do_POST(self):

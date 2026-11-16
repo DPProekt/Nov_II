@@ -11,17 +11,61 @@ function date(ts){return ts?new Intl.DateTimeFormat('ru-RU',{day:'numeric',month
 function graph(){return `<div class="chart" id="chart"><h3>Когда возможны первые результаты</h3><p>Сценарные оценки из чата «Пять технологических прорывов», сентябрь 2026 года. Показаны начальные годы диапазонов, а не гарантированные сроки.</p>${[['ИИ в исследованиях',2027],['Термоядерная энергетика',2033],['Восстановление тканей',2028],['Роботизированное производство',2030]].map(([n,y])=>`<div class="bar-row"><span>${n}</span><div class="track"><div class="bar" style="width:${(y-2025)/10*100}%"></div></div><strong>${y}</strong></div>`).join('')}<p>По сверхпроводнику срок в исходном прогнозе не определён. <a class="read-link" href="#/topic/8">Открыть исходный материал →</a></p></div>`}
 function side(){return `<aside class="side"><h2>Темы</h2><a class="selected" href="#/topics">Все материалы</a>${topicEntries().map(({d,i})=>`<a href="#/topic/${i}">${escapeHtml(d.title)}</a>`).join('')}<div class="notice"><strong>Личный архив</strong>Материалы сохранены из выбранных чатов. Даты относятся к ответам, а прогнозы не являются установленными фактами.</div></aside>`}
 function rows(items){return items.map(({d,i})=>`<article class="feed-row"><div class="meta"><span class="tag">${labels[i]}</span>${date(d.updatedAt)}</div><div><h3><a class="article-link" href="#/topic/${i}">${escapeHtml(d.title)}</a></h3><p>${descriptions[i]}</p></div></article>`).join('')}
+function newsSources(item) {
+  const found = new Set();
+  const extra = Array.isArray(item.references) ? item.references.slice(0, 5) : [];
+  return [{title: item.source, url: item.url}, ...extra].flatMap(ref => {
+    if (!ref || typeof ref.title !== 'string' || !ref.title.trim()) return [];
+    try {
+      const url = new URL(ref.url);
+      if (url.protocol !== 'https:' || url.username || url.password || found.has(url.href)) return [];
+      found.add(url.href);
+      return [`<a class="read-link" href="${escapeHtml(url.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(ref.title)} ↗</a>`];
+    } catch { return []; }
+  }).join(' · ');
+}
+
+function newsComparison(table) {
+  const columns = table?.columns;
+  const rows = table?.rows;
+  const hasText = value => typeof value === 'string' && value.trim();
+  if (!hasText(table?.caption) || !Array.isArray(columns) || columns.length < 2 ||
+      columns.length > 5 || !columns.every(hasText) || !Array.isArray(rows) ||
+      rows.length < 2 || rows.length > 8 || !rows.every(row =>
+        Array.isArray(row) && row.length === columns.length && row.every(hasText))) return '';
+  return `<div class="table-wrap news-comparison" tabindex="0" aria-label="Сравнение данных">
+    <table><caption>${escapeHtml(table.caption)}</caption>
+      <thead><tr>${columns.map(cell => `<th scope="col">${escapeHtml(cell)}</th>`).join('')}</tr></thead>
+      <tbody>${rows.map(([label, ...values]) => `<tr><th scope="row">${escapeHtml(label)}</th>${values.map(cell => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
+    </table></div>`;
+}
+
+function newsHighlights(items, periodLabel) {
+  const marked = items.filter(item => item.importance === 'high');
+  if (!marked.length && items.length < 2) return '';
+  const stories = (marked.length ? marked : items).slice(0, 3);
+  return `<aside class="news-highlights" aria-label="Главное за период">
+    <h3>Главное за период</h3><p class="meta">${escapeHtml(periodLabel)} · Омск</p>
+    <ul>${stories.map(item => `<li><strong>${escapeHtml(item.title)}</strong>${typeof item.brief === 'string' && item.brief.trim() ? `<span>${escapeHtml(item.brief)}</span>` : ''}</li>`).join('')}</ul></aside>`;
+}
+
+const newsDateFormat = new Intl.DateTimeFormat('ru-RU', {timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric'});
+
 function feedCards(items) {
   return items.map(item => {
     const question = typeof item.question === 'string' && item.question.trim();
     const mark = item.importance === 'high' ? 'Главное' : 'Новое';
     const url = escapeHtml(item.url);
-    return `<article class="feed-row news-card"><div class="meta"><span class="tag">${mark}</span><time datetime="${escapeHtml(item.date)}">${escapeHtml(item.date)}</time></div>
+    const published = Date.parse(item.date);
+    const shownDate = Number.isFinite(published) ? newsDateFormat.format(published) : item.date;
+    return `<article class="feed-row news-card"><div class="meta"><span class="tag">${mark}</span><time datetime="${escapeHtml(item.date)}">${escapeHtml(shownDate)}</time></div>
       <div><h3><a class="article-link" href="${url}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)} ↗</a></h3>
       ${question ? `<p class="news-question"><strong>Вопрос к GPT</strong> ${escapeHtml(question)}</p>` : ''}
-      <p class="news-answer">${question ? '<strong>Ответ GPT</strong> ' : ''}${escapeHtml(item.summary)}</p>
-      ${typeof item.analysis === 'string' && item.analysis.trim() ? `<p class="news-inference"><strong>Вывод</strong> ${escapeHtml(item.analysis)}</p>` : ''}
-      <p><a class="read-link" href="${url}" target="_blank" rel="noopener noreferrer">Источник: ${escapeHtml(item.source)} ↗</a></p></div></article>`;
+      <p class="news-answer"><strong>${question ? 'Ответ GPT' : 'Что произошло'}</strong> ${escapeHtml(item.summary)}</p>
+      ${newsComparison(item.comparison)}
+      ${typeof item.analysis === 'string' && item.analysis.trim() ? `<p class="news-inference"><strong>Что это меняет</strong> ${escapeHtml(item.analysis)}</p>` : ''}
+      ${typeof item.watch === 'string' && item.watch.trim() ? `<p class="news-watch"><strong>Что отслеживать дальше</strong> ${escapeHtml(item.watch)}</p>` : ''}
+      <p class="news-sources"><strong>Источники</strong> ${newsSources(item)}</p></div></article>`;
   }).join('');
 }
 function itemTime(n){if(typeof n.published_at==='string'&&/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(n.published_at)){let t=Date.parse(n.published_at);if(Number.isFinite(t))return t}return null}
@@ -124,6 +168,7 @@ function renderNews(topicName){
     return `<section class="news-period" aria-label="Лента по времени">
       <h2 class="section-title">${topicName ? 'Новые материалы по теме' : 'Лента новостей'}</h2>
       <div class="period-controls" role="group" aria-label="Период новостей">${buttons}</div>
+      ${newsHighlights(candidates, 'Последние публикации')}
       ${renderAnalysisPreview(topicName)}
       <div aria-live="polite">${candidates.length ? feedCards(candidates) : '<p class="empty">Новых публикаций пока нет.</p>'}</div>
     </section>`;
@@ -149,7 +194,7 @@ function renderNews(topicName){
   const navLabels={six:['Предыдущие 6 часов','Следующие 6 часов'],week:['Предыдущая неделя','Следующая неделя'],month:['Предыдущий месяц','Следующий месяц'],year:['Предыдущий год','Следующий год']};
   const [older,newer]=navLabels[newsView];
   const note=newsView==='six'?'Здесь показаны публикации с подтверждённым временем. Публикации с одной только датой доступны во вкладке «Последние» и в календарных обзорах.':'Календарный период по времени Омска.'+(fallback?' Важность ещё не размечена — показаны все материалы.':'');
-  return `<section class="news-period" aria-label="Лента по времени"><h2 class="section-title">${topicName?'Новые материалы по теме':'Лента новостей'}</h2><div class="period-controls" role="group" aria-label="Период новостей">${buttons}</div><div class="period-nav"><button type="button" data-news-page="older">← ${older}</button><span>${escapeHtml(periodLabel)} · Омск</span><button type="button" data-news-page="newer" ${newsPage===0?'disabled':''}>${newer} →</button></div><p class="period-note">${note}</p><div aria-live="polite">${candidates.length?feedCards(candidates):'<p class="empty">За выбранный период материалов пока нет.</p>'}</div></section>`
+  return `<section class="news-period" aria-label="Лента по времени"><h2 class="section-title">${topicName?'Новые материалы по теме':'Лента новостей'}</h2><div class="period-controls" role="group" aria-label="Период новостей">${buttons}</div><div class="period-nav"><button type="button" data-news-page="older">← ${older}</button><span>${escapeHtml(periodLabel)} · Омск</span><button type="button" data-news-page="newer" ${newsPage===0?'disabled':''}>${newer} →</button></div><p class="period-note">${note}</p>${newsHighlights(candidates, periodLabel)}<div aria-live="polite">${candidates.length?feedCards(candidates):'<p class="empty">За выбранный период материалов пока нет.</p>'}</div></section>`
 }
 function wireNews(){root.querySelectorAll('[data-news-view]').forEach(b=>b.addEventListener('click',()=>{newsView=b.dataset.newsView;newsPage=0;newsAnchor=Date.now();render()}));root.querySelectorAll('[data-news-page]').forEach(b=>b.addEventListener('click',()=>{newsPage=Math.max(0,newsPage+(b.dataset.newsPage==='older'?1:-1));render()}))}
 function home(){let items=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));root.innerHTML=`<div class="layout"><section><div class="hero"><h1>Новости искусственного интеллекта</h1><p>Исследования, открытия и прогнозы — важные события развития ИИ и их влияние на будущее.</p></div><form class="search" role="search"><input id="search" type="search" aria-label="Поиск по архиву" placeholder="Поиск по архиву: новости, модели, прогнозы..." value="${escapeHtml(query)}"></form>${renderNews()}<h2 class="section-title">Архив подборок из чатов</h2><div id="results">${items.length?rows(items):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'}</div>${graph()}</section>${side()}</div>`;wireNews();document.querySelector('.search').addEventListener('submit',e=>e.preventDefault());document.querySelector('#search').addEventListener('input',e=>{query=e.target.value;let matches=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));document.querySelector('#results').innerHTML=matches.length?rows(matches):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'})}

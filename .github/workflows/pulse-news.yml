@@ -3,6 +3,10 @@ name: Пульс ИИ — обновление новостей
 on:
   workflow_dispatch:
     inputs:
+      since:
+        description: Начальная дата поиска YYYY-MM-DD, необязательно
+        type: string
+        required: false
       topic:
         description: Тема выпуска
         type: choice
@@ -39,6 +43,7 @@ jobs:
       PULSE_GITHUB_VAULT_ID: ${{ vars.PULSE_GITHUB_VAULT_ID }}
       PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
       PULSE_SEARCH_TOPIC: ${{ inputs.topic }}
+      PULSE_SEARCH_SINCE: ${{ inputs.since }}
     steps:
       - name: Сохранить текущую аналитику и подготовить выпуск
         env:
@@ -272,6 +277,14 @@ jobs:
               "Пять технологических прорывов": "проверенные технологические вехи в ИИ, автономных системах, энергетике, биомедицине и квантовых вычислениях",
           }
           requested_topic = os.environ.get("PULSE_SEARCH_TOPIC", "")
+          search_since = os.environ.get("PULSE_SEARCH_SINCE", "").strip()
+          if search_since:
+              try:
+                  since_date = date.fromisoformat(search_since)
+              except ValueError:
+                  raise SystemExit("Начальная дата должна быть указана как YYYY-MM-DD.") from None
+              if since_date.isoformat() != search_since or since_date > datetime.now(timezone.utc).date():
+                  raise SystemExit("Некорректная начальная дата поиска.")
           if requested_topic and requested_topic != "Все темы":
               if requested_topic not in topics:
                   raise SystemExit("Неизвестная тема выпуска.")
@@ -281,6 +294,13 @@ jobs:
               f"Первый веб-запрос: {topic}\nУточнения для дополнительных запросов: {context}"
               for topic, context in topics.items()
           )
+          interval_instruction = (
+              f"Ищи пропущенные существенные материалы с {search_since} по текущий момент. "
+              "Для каждой темы проверь диапазон целиком, используя несколько поисковых запросов. "
+              if search_since else
+              "Ищи публикации за последние шесть часов с небольшим перекрытием. "
+              "Отдельно проверяй ранее пропущенные, но обнаруженные сейчас важные материалы последних семи дней. "
+          )
           prompt = (
               "Подготовь выпуск Пульса ИИ по всем перечисленным темам.\n"
               "Для каждой темы выполни реальный веб-поиск с её названием целиком. "
@@ -288,8 +308,8 @@ jobs:
               "любого вида и без операторов точного совпадения. Запросы по темам можно выполнять параллельно. "
               "ИИ и AI означают искусственный интеллект (artificial intelligence). "
               "Если выдача расплывчата, выполни дополнительные запросы без кавычек с предметными терминами "
-              "на русском или английском. Ищи публикации за последние шесть часов с небольшим перекрытием. "
-              "Отдельно проверяй ранее пропущенные, но обнаруженные сейчас важные материалы последних семи дней. "
+              "на русском или английском. "
+              f"{interval_instruction}"
               "При их включении укажи исходную дату публикации и поясни, что материал добавлен к этому выпуску.\n"
               f"{search_plan}\n"
               "Открывай подходящие результаты и отбирай по содержанию. Статья должна сообщать новый факт, "

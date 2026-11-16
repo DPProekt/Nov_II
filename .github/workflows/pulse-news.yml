@@ -3,6 +3,10 @@ name: Пульс ИИ — обновление новостей
 on:
   workflow_dispatch:
     inputs:
+      persistent_session:
+        description: Использовать постоянные сессии агента
+        type: boolean
+        default: false
       continue_pilot:
         description: Продолжить проверочную сессию по мышлению ИИ
         type: boolean
@@ -40,7 +44,7 @@ jobs:
   update:
     if: github.repository == 'DPProekt/Nov_II' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 40
     env:
       OPENAI_IDENTITY_PROVIDER_ID: ${{ vars.PULSE_OPENAI_IDENTITY_PROVIDER_ID }}
       OPENAI_SERVICE_ACCOUNT_ID: ${{ vars.PULSE_OPENAI_SERVICE_ACCOUNT_ID }}
@@ -49,6 +53,7 @@ jobs:
       PULSE_SEARCH_TOPIC: ${{ inputs.topic }}
       PULSE_SEARCH_SINCE: ${{ inputs.since }}
       PULSE_CONTINUE_PILOT: ${{ inputs.continue_pilot }}
+      PULSE_PERSISTENT: ${{ inputs.persistent_session }}
     steps:
       - name: Сохранить текущую аналитику и подготовить выпуск
         env:
@@ -270,6 +275,27 @@ jobs:
                   "service_account_id": account,
               },
           )["access_token"]
+
+          if os.environ.get("PULSE_PERSISTENT") == "true":
+              with request(
+                  "https://api.github.com/repos/DPProekt/Nov_II/contents/session_manager.py?ref=main",
+                  "Загрузка обработчика сессий", token=os.environ["PULSE_GITHUB_TOKEN"],
+                  headers={"Accept": "application/vnd.github.raw+json"},
+              ) as source:
+                  program = source.read().decode("utf-8")
+              namespace = {"__name__": "pulse_session_manager"}
+              exec(compile(program, "session_manager.py", "exec"), namespace)
+              all_topics = namespace["TOPICS"]
+              selected = os.environ.get("PULSE_SEARCH_TOPIC", "")
+              if selected and selected != "Все темы":
+                  if selected not in all_topics:
+                      raise SystemExit("Неизвестная тема.")
+                  chosen = [selected]
+              else:
+                  chosen = list(all_topics)
+              namespace["run_sessions"](openai_token, os.environ["PULSE_GITHUB_TOKEN"], vault,
+                                        chosen, os.environ["GITHUB_RUN_ID"])
+              raise SystemExit(0)
 
           if os.environ.get("PULSE_CONTINUE_PILOT") == "true":
               state_url = "https://api.github.com/repos/DPProekt/Nov_II/contents/agent-sessions.json"

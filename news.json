@@ -1,6 +1,44 @@
 {
-  "updated_at": "2026-11-16T03:48:52.380Z",
+  "updated_at": "2026-11-16T03:54:55.907Z",
   "items": [
+    {
+      "title": "Google DeepMind представила тест для визуальной работы ИИ-агентов с профессиональными документами",
+      "question": "Как проверить, способны ли ИИ-агенты использовать изображения и схемы в профессиональных задачах?",
+      "brief": "Новый тест MKA проверяет визуальную работу агентов на 200 многошаговых задачах.",
+      "summary": "10 ноября 2026 года Google DeepMind и Artificial Analysis представили Multimodal Knowledge Agent (MKA): набор из 200 заданий по 10 направлениям и 83 профессиям, где агентам приходится работать с визуально сложными файлами, включая чертежи и схемы. Каждая задача моделирует проект, на который опытному специалисту потребовалось бы от трёх до восьми часов. Оценка опирается на экспертные критерии: 75% веса приходится на фактическую точность и 25% — на визуальное оформление. По данным авторов, автоматический оценщик совпадал с экспертами по отдельным критериям в 96,2% случаев в исследовании на 50 заданиях. Основной набор закрыт; отдельно опубликованы 10 демонстрационных задач. Это ранее пропущенный материал от 10 ноября, добавленный к текущему выпуску.",
+      "date": "2026-11-10",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Google DeepMind",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
+      "topic": "Развитие мышления ИИ образами",
+      "analysis": "Факт: тест проверяет работу с визуальной информацией и итоговыми документами в единой агентной среде. Оценка: он дополняет прежние примеры моделей мира и робототехники более прикладным измерением восприятия. Совпадение оценщика с экспертами измерено лишь на 50 заданиях и не означает, что агенты решают 96,2% задач; закрытый набор и автоматическое оценивание ограничивают независимую проверку. Тест не доказывает человеческое образное мышление или надёжную работу в реальной практике.",
+      "watch": "Следить за независимыми оценками, проверкой устойчивости автосудьи и сравнением одних и тех же агентов с визуальными инструментами и без них.",
+      "references": [
+        {
+          "title": "MKA: Evaluating Multimodal Knowledge Agents on end-to-end professional tasks",
+          "url": "https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf"
+        },
+        {
+          "title": "Multimodal Knowledge Agent (MKA) Benchmark",
+          "url": "https://artificialanalysis.ai/evaluations/mka"
+        }
+      ]
+    },
+    {
+      "title": "Vercel измерила переход команд на новые ИИ-модели и рост запросов к моделям решений",
+      "question": "Что данные реального ИИ-трафика говорят о внедрении моделей и стоимости отдельных запросов?",
+      "brief": "В октябре модели решений получили 26% запросов AI Gateway при 0,53% расходов.",
+      "summary": "9 ноября 2026 года Vercel опубликовала ноябрьский индекс AI Gateway по трафику своей платформы. По данным компании, в октябре модели решений, которые классифицируют или выбирают варианты, получили 26% всех запросов, но на них пришлось 0,53% расходов; платформа обслуживает более 100 трлн токенов ежемесячно. Более половины запросов к языковым моделям приходилось на модели младше 60 дней; до сентября эта доля не превышала 30%. Vercel оценивает среднюю цену запроса модели решений примерно в одну семидесятую цены запроса языковой модели, но задачи этих классов различаются. Это ранее пропущенная публикация от 9 ноября, добавленная к текущему выпуску; точное время публикации источник не указывает.",
+      "date": "2026-11-09",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Vercel",
+      "url": "https://vercel.com/blog/ai-gateway-production-index-november-2026",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Факт: речь об агрегированных запросах и расходах клиентов одной платформы, а не всего рынка. Оценка: специализация моделей может снижать стоимость подходящих операций, но данные не сопоставляют качество на одной задаче и не измеряют общую окупаемость внедрения или рост производительности. Изменение структуры трафика само по себе не подтверждает гиперболический рост технологий.",
+      "watch": "Следить за следующими индексами Vercel, независимыми данными других платформ и стоимостью завершённой задачи при сопоставимом качестве."
+    },
     {
       "title": "Runway открыла веса модели Praxis-1 для управления роботами по видео",
       "question": "Как новые модели используют визуальное предсказание для управления роботами?",
@@ -189,9 +227,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-15T22:59:51.145Z",
-      "changes": "Scientific Reports опубликовал работу, в которой агенты анализировали прогнозы конкуренции для 30 компаний. Это пример применения ИИ для проверки рыночного прогноза.",
-      "conclusion": "Ближайший измеримый эффект ИИ следует искать в стоимости и качестве отдельных процессов. Перенос результата одной работы на темпы роста всей экономики требует дополнительных данных.",
+      "updated_at": "2026-11-16T03:54:55.907Z",
+      "changes": "К исследованию рыночных прогнозов добавлены данные Vercel от 9 ноября о структуре запросов и расходов на модели в AI Gateway за октябрь.",
+      "conclusion": "Данные одной платформы показывают распространение специализированных дешёвых запросов, но не устанавливают сопоставимое качество или окупаемость внедрения. Макроэкономический эффект и чистая отдача компаний остаются открытыми вопросами.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -204,22 +242,32 @@
         {
           "heading": "Какие показатели отслеживать",
           "text": "Сравнивать стоимость завершённой операции и долю перепроверок до и после внедрения. Для долгосрочных прогнозов нужны наблюдения из нескольких отраслей и независимая проверка на новых периодах."
+        },
+        {
+          "heading": "Новые данные о расходах",
+          "text": "По данным Vercel, модели решений получили 26% запросов AI Gateway и 0,53% расходов в октябре; их средний запрос стоил примерно одну семидесятую запроса языковой модели. Классы решают разные задачи, а выборка ограничена пользователями одного шлюза."
+        },
+        {
+          "heading": "Что изменит экономическую оценку",
+          "text": "Нужны сопоставления стоимости и качества завершённой операции с учётом интеграции и проверки, данные других платформ и повторные измерения производительности компаний."
         }
       ],
       "sources": [
         "https://www.nature.com/articles/s41598-026-79480-4",
-        "https://alignment.anthropic.com/2026/worse-together/"
+        "https://alignment.anthropic.com/2026/worse-together/",
+        "https://vercel.com/blog/ai-gateway-production-index-november-2026"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
-        "https://alignment.anthropic.com/2026/worse-together/": "Anthropic — Worse Together"
+        "https://alignment.anthropic.com/2026/worse-together/": "Anthropic — Worse Together",
+        "https://vercel.com/blog/ai-gateway-production-index-november-2026": "Decision models take 26% of requests; Anthropic now wins new teams 2:1"
       }
     },
     {
       "topic": "Развитие мышления ИИ образами",
-      "updated_at": "2026-11-16T03:48:52.380Z",
-      "changes": "К прежнему обзору Genie 3, SIMA 2 и Duo v1 добавлен ранее пропущенный выпуск открытых весов Praxis-1 от 11 ноября: модель совместно предсказывает видео и действия робота.",
-      "conclusion": "В отличие от демонстраций интерактивного видео, Praxis-1 связывает прогноз сцены с управлением роботом. Результаты симуляции не устанавливают механизм человеческого образного мышления и не доказывают надёжность в незнакомом физическом окружении.",
+      "updated_at": "2026-11-16T03:54:55.907Z",
+      "changes": "К прежнему обзору Genie 3, SIMA 2, Duo v1 и Praxis-1 добавлен тест MKA от 10 ноября для визуально сложных профессиональных задач.",
+      "conclusion": "В дополнение к предсказанию сцен и управлению роботами MKA проверяет применение визуальной информации в документах. Это не доказательство человеческого образного мышления или надёжности в реальных рабочих процессах.",
       "details": [
         {
           "heading": "Что считать мышлением образами",
@@ -248,6 +296,14 @@
         {
           "heading": "Что изменит оценку",
           "text": "Независимые испытания на незнакомых роботах и длинных задачах, с сопоставимыми условиями и оценкой ошибок, покажут, переносится ли результат за пределы тестового набора."
+        },
+        {
+          "heading": "Новый тест визуальной работы",
+          "text": "MKA включает 200 закрытых многошаговых задач по 10 направлениям и 83 профессиям. По отчёту авторов, автоматический оценщик совпадал с экспертами по отдельным критериям на 96,2% в исследовании из 50 задач; эта цифра не является процентом успешно решённых задач."
+        },
+        {
+          "heading": "Пределы MKA и пересмотр оценки",
+          "text": "Закрытый набор и автоматическое оценивание затрудняют независимую проверку; 10 других задач опубликованы как примеры. Оценку изменят независимое воспроизведение, проверка автосудьи и сопоставимые испытания с визуальными инструментами и без них."
         }
       ],
       "sources": [
@@ -255,14 +311,20 @@
         "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/",
         "https://arxiv.org/abs/2611.15131",
         "https://runway.com/news/company-news/praxis-1-is-now-available",
-        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control"
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
+        "https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf",
+        "https://artificialanalysis.ai/evaluations/mka"
       ],
       "source_titles": {
         "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/": "Google DeepMind — Genie 3",
         "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/": "Google DeepMind — SIMA 2",
         "https://arxiv.org/abs/2611.15131": "Duo v1 — технический отчёт авторов, arXiv",
         "https://runway.com/news/company-news/praxis-1-is-now-available": "Praxis-1 Is Now Available",
-        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control": "Praxis-1: From Video Pretraining to Robot Control"
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control": "Praxis-1: From Video Pretraining to Robot Control",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/": "Introducing the Multimodal Knowledge Agent benchmark",
+        "https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf": "MKA: Evaluating Multimodal Knowledge Agents on end-to-end professional tasks",
+        "https://artificialanalysis.ai/evaluations/mka": "Multimodal Knowledge Agent (MKA) Benchmark"
       }
     },
     {
@@ -325,9 +387,9 @@
     },
     {
       "topic": "Гипербола технологий Капицы с ИИ",
-      "updated_at": "2026-11-15T22:59:51.145Z",
-      "changes": "Капица применял квадратичную зависимость темпа роста к историческим данным о населении Земли. Для технологической динамики ИИ понадобится отдельный сопоставимый ряд наблюдений.",
-      "conclusion": "Гиперболу полезно проверять как одну из гипотез наряду с экспонентой и кривой насыщения. Отдельные прорывы в ИИ не позволяют определить вид кривой и дату её перелома.",
+      "updated_at": "2026-11-16T03:54:55.907Z",
+      "changes": "К прежней гипотезе о технологическом ускорении добавлены данные Vercel о возрасте моделей в запросах AI Gateway: в октябре более половины запросов к языковым моделям приходилось на модели младше 60 дней.",
+      "conclusion": "Быстрая смена моделей на одной платформе — сигнал динамики внедрения, а не временной ряд качества при фиксированной стоимости. Она не доказывает гиперболу и не позволяет оценить дату перелома.",
       "details": [
         {
           "heading": "Что можно перенести из работы Капицы",
@@ -340,17 +402,27 @@
         {
           "heading": "Когда гипотезу нужно пересмотреть",
           "text": "Если на новых наблюдениях экспонента или кривая насыщения дают меньшую ошибку, оценку следует изменить. Влияние энергопотребления, данных и ограничений развёртывания стоит проверять отдельно."
+        },
+        {
+          "heading": "Наблюдение и его пределы",
+          "text": "В октябре 2026 года более половины запросов к языковым моделям AI Gateway приходилось на модели младше 60 дней; до сентября доля не превышала 30%. Это данные одного шлюза, и возраст модели не является мерой её качества."
+        },
+        {
+          "heading": "Что проверять дальше",
+          "text": "Нужны длинные сопоставимые ряды стоимости решения фиксированных задач при заданной точности и независимое сравнение гиперболы, экспоненты и кривой насыщения на отложенных данных."
         }
       ],
       "sources": [
         "https://ufn.ru/en/articles/1996/1/c/",
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
-        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/"
+        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+        "https://vercel.com/blog/ai-gateway-production-index-november-2026"
       ],
       "source_titles": {
         "https://ufn.ru/en/articles/1996/1/c/": "С. П. Капица — «Феноменологическая теория роста населения Земли», УФН, 1996",
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/": "Google DeepMind — Gemini 4 Hydrogen",
-        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/": "Google DeepMind — AlphaEvolve"
+        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/": "Google DeepMind — AlphaEvolve",
+        "https://vercel.com/blog/ai-gateway-production-index-november-2026": "Decision models take 26% of requests; Anthropic now wins new teams 2:1"
       }
     },
     {

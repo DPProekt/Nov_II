@@ -53,4 +53,12 @@ def configure(manager):
                                   })
         state["test_id"] = automation["id"]
         save()
+    for key in ("periodic_id", "test_id"):
+        identifier = state[key]
+        info = manager.call(AUTOMATIONS + "/" + identifier, "Чтение расписания", openai=True)
+        invocations = manager.call(AUTOMATIONS + "/" + identifier + "/invocations?limit=5",
+                                   "Чтение запусков расписания", openai=True).get("data", [])
+        print(key, "состояние:", info.get("status"), "время:", info.get("run_at"),
+              "запуски:", [(item.get("status"), (item.get("error") or {}).get("code"))
+                            for item in invocations], flush=True)
     print("Облачный таймер и разовая проверка созданы.", flush=True)

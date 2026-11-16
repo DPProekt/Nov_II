@@ -1,5 +1,6 @@
 """Локальный запуск GitHub Actions для владельца сайта."""
 import json
+import os
 import re
 import subprocess
 import threading
@@ -19,11 +20,18 @@ lock = threading.Lock()
 
 
 def gh(*args):
-    return subprocess.run(
-        ["gh", *args], capture_output=True, text=True, encoding="utf-8",
-        errors="replace", timeout=40, check=True,
-        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
-    ).stdout
+    options = {"capture_output": True, "text": True, "encoding": "utf-8",
+               "errors": "replace", "timeout": 40, "check": True,
+               "creationflags": getattr(subprocess, "CREATE_NO_WINDOW", 0)}
+    try:
+        return subprocess.run(["gh", *args], **options).stdout
+    except subprocess.CalledProcessError as exc:
+        detail = (exc.stderr or "").lower()
+        if "proxyconnect" not in detail or "127.0.0.1:10808" not in detail:
+            raise
+        child_env = {key: value for key, value in os.environ.items()
+                     if key.lower() not in ("http_proxy", "https_proxy", "all_proxy")}
+        return subprocess.run(["gh", *args], env=child_env, **options).stdout
 
 
 class Handler(BaseHTTPRequestHandler):

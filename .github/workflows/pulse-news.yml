@@ -115,6 +115,7 @@ jobs:
               result = get_json(
                   "https://api.github.com/repos/DPProekt/Nov_II/contents/news.json?ref=main",
                   "Чтение архива GitHub",
+                  token=os.environ["PULSE_GITHUB_TOKEN"],
                   headers={"Accept": "application/vnd.github.raw+json", "Cache-Control": "no-cache"},
               )
               return result

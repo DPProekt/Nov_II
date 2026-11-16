@@ -13,6 +13,11 @@ API = "https://api.openai.com/v1/agents/sessions"
 AGENT = "agent_6afa24e65b40819189c54aeef04a7989"
 PROJECT = "proj_2yk5sqnjXZpYTzF9fngNiYB0"
 STATE = "agent-sessions.json"
+CREDIT_ERRORS = {
+    "credit_balance_exhausted", "insufficient_quota", "billing_not_active",
+    "project_spend_limit_exceeded", "organization_spend_limit_exceeded",
+    "organization_usage_limit_exceeded", "usage_limit_exceeded",
+}
 TOPICS = {
     "Подробные новости ИИ": "6af8414e-fba4-83ed-8d83-a9fe1058f3c3",
     "Прогноз экономики при быстром развитии ИИ": "6ae06791-3398-83ed-bf90-7c7316b11f4c",
@@ -29,6 +34,9 @@ class ApiError(Exception):
     def __init__(self, operation, status, detail=""):
         self.operation, self.status, self.detail = operation, status, detail
         super().__init__(f"{operation}: HTTP {status}")
+
+class CreditLimitReached(Exception):
+    pass
 
 
 class Manager:
@@ -254,6 +262,11 @@ class Manager:
             self.save_state(state)
             session_id = new_session
             turn = self.wait_turn(session_id, None)
+            error = (turn.get("error") or {}).get("code")
+        if turn["status"] == "failed" and error in CREDIT_ERRORS:
+            entry.pop("pending", None)
+            self.save_state(state)
+            raise CreditLimitReached("API сообщил об исчерпании кредита или лимита: " + error)
         if turn["status"] != "completed":
             raise RuntimeError("Ход завершился с ошибкой: " + str(error or turn["status"]))
         self.append_answer(topic, session_id, turn)
@@ -277,7 +290,19 @@ def run_sessions(openai_token, github_token, vault_id, topics, run_id, initializ
             manager.run_topic(state, topic)
             if on_topic_done:
                 on_topic_done()
-        except (ApiError, RuntimeError, OSError, ValueError, KeyError) as exc:
+        except CreditLimitReached as exc:
+            raise SystemExit(str(exc)) from None
+        except ApiError as exc:
+            if exc.detail in CREDIT_ERRORS:
+                entry = state["sessions"].get(topic)
+                if (isinstance(entry, dict) and exc.operation in
+                        ("Отправка обновления", "Повтор отправки")):
+                    entry.pop("pending", None)
+                    manager.save_state(state)
+                raise SystemExit("API сообщил об исчерпании кредита или лимита: " + exc.detail) from None
+            failures.append(topic)
+            print("Не обновлена тема:", topic, str(exc), flush=True)
+        except (RuntimeError, OSError, ValueError, KeyError) as exc:
             failures.append(topic)
             print("Не обновлена тема:", topic, str(exc), flush=True)
     if failures:

@@ -1,8 +1,15 @@
 name: Пульс ИИ — обновление новостей
 
 on:
+  push:
+    branches: [main]
+    paths: [refresh-trigger.json]
   workflow_dispatch:
     inputs:
+      configure_cloud_scheduler:
+        description: Настроить облачный таймер агента
+        type: boolean
+        default: false
       initialize_sessions:
         description: Создать недостающие сессии по всем темам
         type: boolean
@@ -59,6 +66,7 @@ jobs:
       PULSE_CONTINUE_PILOT: ${{ inputs.continue_pilot }}
       PULSE_PERSISTENT: ${{ inputs.persistent_session }}
       PULSE_INITIALIZE: ${{ inputs.initialize_sessions }}
+      PULSE_CONFIGURE_CLOUD: ${{ inputs.configure_cloud_scheduler }}
     steps:
       - name: Сохранить текущую аналитику и подготовить выпуск
         env:
@@ -278,6 +286,23 @@ jobs:
                   "service_account_id": account,
               },
           )["access_token"]
+
+          if os.environ.get("PULSE_CONFIGURE_CLOUD") == "true":
+              def load_program(filename):
+                  with request(
+                      "https://api.github.com/repos/DPProekt/Nov_II/contents/" + filename + "?ref=" + os.environ["GITHUB_SHA"],
+                      "Загрузка " + filename, token=os.environ["PULSE_GITHUB_TOKEN"],
+                      headers={"Accept": "application/vnd.github.raw+json"},
+                  ) as source:
+                      return source.read().decode("utf-8")
+              sessions = {"__name__": "pulse_session_manager"}
+              exec(compile(load_program("session_manager.py"), "session_manager.py", "exec"), sessions)
+              scheduler = {"__name__": "pulse_cloud_scheduler"}
+              exec(compile(load_program("cloud_scheduler_setup.py"), "cloud_scheduler_setup.py", "exec"), scheduler)
+              manager = sessions["Manager"](openai_token, os.environ["PULSE_GITHUB_TOKEN"], vault,
+                                            os.environ["GITHUB_RUN_ID"])
+              scheduler["configure"](manager)
+              raise SystemExit(0)
 
           use_sessions = (
               os.environ.get("PULSE_PERSISTENT") == "true" or

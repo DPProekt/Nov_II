@@ -52,7 +52,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: pulse-ii-news
+  group: ${{ (inputs.configure_cloud_scheduler == true || inputs.exercise_cloud_scheduler == true) && 'pulse-ii-cloud-setup' || 'pulse-ii-news' }}
   cancel-in-progress: false
 
 jobs:

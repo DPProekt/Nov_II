@@ -24,6 +24,14 @@
       "history": [],
       "id": "sess_03d0ee54f1a5d3d7006afacf1e22848195a6ef62456950f0b5",
       "last_turn_id": "turn_03d0ee54f1a5d3d7006afacf26f68c8195833f9f023dec7f64"
+    },
+    "Гипербола технологий Капицы с ИИ": {
+      "history": [],
+      "id": "sess_0774442b5db096b7806afacfabb9c481948cb9573fa3d72df8",
+      "pending": {
+        "previous": null,
+        "created": true
+      }
     }
   }
 }

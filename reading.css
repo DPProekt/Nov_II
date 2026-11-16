@@ -16,6 +16,8 @@ button, input, select { font: inherit; }
 .mast .mast-nav { min-height: auto; gap: clamp(10px, 2vw, 23px); margin: 0; border: 0; justify-content: center; }
 .mast .mast-nav a { border-bottom: 3px solid transparent; padding: 15px 0 12px; font: 650 14px/1.2 var(--reading-font); }
 .mast-nav a[aria-current="page"] { border-bottom-color: var(--blue); color: var(--blue); }
+.mast .mast-nav .updates-link { padding: 8px 11px; border: 1px solid #bfd0f2; border-radius: 5px; background: var(--wash); color: var(--blue); }
+.mast .mast-nav .updates-link[aria-current="page"] { border-color: var(--blue); background: var(--blue); color: #fff; }
 .mast .refresh { margin: 0; border-radius: 6px; padding: 9px 14px; }
 a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, .table-wrap:focus-visible {
   outline: 2px solid var(--blue); outline-offset: 3px;

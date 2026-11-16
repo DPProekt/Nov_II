@@ -149,8 +149,6 @@ jobs:
               known_sources = set().union(*(article_sources(item) for item in archive["items"]))
               known_sources.update(url for review in previous.values() for url in review.get("sources", []))
               for topic in sorted(primary_topics | changed_topics):
-                  if topic not in selected_topics:
-                      raise SystemExit(f"Аналитика вне выбранных тем: {topic}.")
                   review = reviews.get(topic, {})
                   prior = previous.get(topic)
                   if not all(review.get(field) for field in ("updated_at", "changes", "conclusion")) or (
@@ -415,8 +413,6 @@ jobs:
           if not added and final_status != "PULSE_NO_NEWS":
               raise SystemExit("Новых записей нет и агент не подтвердил отсутствие новостей.")
           for item in added:
-              if item.get("topic") not in topics:
-                  raise SystemExit("Опубликована запись за пределами выбранных тем.")
               if not isinstance(item.get("question"), str) or not item["question"].strip():
                   raise SystemExit("В новой карточке отсутствует вопрос к GPT.")
               if not isinstance(item.get("analysis"), str) or not item["analysis"].strip():

@@ -263,7 +263,7 @@ class Manager:
         print("Обновлена тема:", topic, flush=True)
 
 
-def run_sessions(openai_token, github_token, vault_id, topics, run_id, initialize_only=False):
+def run_sessions(openai_token, github_token, vault_id, topics, run_id, initialize_only=False, on_topic_done=None):
     manager = Manager(openai_token, github_token, vault_id, run_id)
     state, _ = manager.read_file(STATE, missing=True)
     state = state or {"sessions": {}}
@@ -275,6 +275,8 @@ def run_sessions(openai_token, github_token, vault_id, topics, run_id, initializ
                 print("Сессия уже создана:", topic, flush=True)
                 continue
             manager.run_topic(state, topic)
+            if on_topic_done:
+                on_topic_done()
         except (ApiError, RuntimeError, OSError, ValueError, KeyError) as exc:
             failures.append(topic)
             print("Не обновлена тема:", topic, str(exc), flush=True)

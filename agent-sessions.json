@@ -13,11 +13,7 @@
     "Подробные новости ИИ": {
       "history": [],
       "id": "sess_0f895f553bbfbab7006afacd963be4819fb29e12db128702bc",
-      "last_turn_id": "turn_0f895f553bbfbab7006afacd9dc800819faf90d0ae9ae06dd8",
-      "pending": {
-        "previous": "turn_0f895f553bbfbab7006afacd9dc800819faf90d0ae9ae06dd8",
-        "key": "pulse-43864799788-0"
-      }
+      "last_turn_id": "turn_0f895f553bbfbab7006afaf3c73fd0819fa8ed0e26efede5df"
     },
     "Прогноз экономики при быстром развитии ИИ": {
       "history": [],

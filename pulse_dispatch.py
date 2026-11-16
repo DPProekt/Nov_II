@@ -22,6 +22,7 @@ def gh(*args):
     return subprocess.run(
         ["gh", *args], capture_output=True, text=True, encoding="utf-8",
         errors="replace", timeout=40, check=True,
+        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
     ).stdout
 
 

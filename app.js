@@ -58,7 +58,7 @@ function feedCards(items) {
     const url = escapeHtml(item.url);
     const published = Date.parse(item.date);
     const shownDate = Number.isFinite(published) ? newsDateFormat.format(published) : item.date;
-    return `<article class="feed-row news-card"><div class="meta"><span class="tag">${mark}</span><time datetime="${escapeHtml(item.date)}">${escapeHtml(shownDate)}</time></div>
+    return `<article class="feed-row news-card"><div class="meta"><span class="tag">${mark}</span>${item.date_kind === 'chat_answer' ? '<span>Дата ответа GPT</span>' : ''}<time datetime="${escapeHtml(item.date)}">${escapeHtml(shownDate)}</time></div>
       <div><h3><a class="article-link" href="${url}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)} ↗</a></h3>
       ${question ? `<p class="news-question"><strong>Вопрос к GPT</strong> ${escapeHtml(question)}</p>` : ''}
       <p class="news-answer"><strong>${question ? 'Ответ GPT' : 'Что произошло'}</strong> ${escapeHtml(item.summary)}</p>

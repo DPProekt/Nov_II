@@ -33,10 +33,7 @@
     "Прогноз беспилотных авто": {
       "history": [],
       "id": "sess_0c2acb839e4acc1a006afad028b2b48193903f404805ebd61b",
-      "pending": {
-        "previous": null,
-        "created": true
-      }
+      "last_turn_id": "turn_0c2acb839e4acc1a006afad031b3888193af3df03ae6e99135"
     }
   }
 }

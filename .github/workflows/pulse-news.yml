@@ -121,6 +121,47 @@ jobs:
                   raise ValueError("У версии аналитики не указан часовой пояс.")
               return canonical_topic(review["topic"]), updated.astimezone(timezone.utc)
 
+          def article_sources(item):
+              candidates = [item.get("url")]
+              candidates.extend(ref.get("url") for ref in (item.get("references") or []) if isinstance(ref, dict))
+              result = set()
+              for url in candidates:
+                  if not isinstance(url, str):
+                      continue
+                  parsed = urlsplit(url)
+                  if parsed.scheme == "https" and parsed.hostname and not parsed.username and not parsed.password:
+                      result.add(url)
+              return result
+
+          def verify_reviews(previous_archive, archive, added, selected_topics):
+              previous = {review["topic"]: review for review in previous_archive.get("analysis", [])}
+              reviews = {review["topic"]: review for review in archive.get("analysis", [])}
+              if previous.keys() - reviews.keys():
+                  raise SystemExit("В выпуске исчез прежний аналитический обзор.")
+              primary_topics = {item["topic"] for item in added}
+              changed_topics = {topic for topic, review in reviews.items() if review != previous.get(topic)}
+              new_sources = set().union(*(article_sources(item) for item in added))
+              known_sources = set().union(*(article_sources(item) for item in archive["items"]))
+              known_sources.update(url for review in previous.values() for url in review.get("sources", []))
+              for topic in sorted(primary_topics | changed_topics):
+                  if topic not in selected_topics:
+                      raise SystemExit(f"Аналитика вне выбранных тем: {topic}.")
+                  review = reviews.get(topic, {})
+                  prior = previous.get(topic)
+                  if not all(review.get(field) for field in ("updated_at", "changes", "conclusion")) or (
+                      prior and version_key(review)[1] <= version_key(prior)[1]
+                  ):
+                      raise SystemExit(f"Отсутствует обновлённый аналитический обзор: {topic}.")
+                  details = review.get("details", [])
+                  if len(details) < 2 or not all(section.get("heading") and section.get("text") for section in details):
+                      raise SystemExit(f"Аналитика темы должна содержать подробные разделы: {topic}.")
+                  urls = set(review.get("sources", []))
+                  if not urls or urls - known_sources:
+                      raise SystemExit(f"Обзор содержит ссылки вне архива материалов: {topic}.")
+                  earlier = set(prior.get("sources", [])) if prior else set()
+                  if not (urls - earlier) & new_sources:
+                      raise SystemExit(f"В обновлённом обзоре нет источника из нового выпуска: {topic}.")
+
           def save_reviews(archive):
               url = "https://api.github.com/repos/DPProekt/Nov_II/contents/analysis-history.json"
               token = os.environ["PULSE_GITHUB_TOKEN"]
@@ -287,7 +328,10 @@ jobs:
               "conclusion (вывод и оговорки), details (минимум два раздела с heading и text, включая "
               "факты, пределы данных и что изменит оценку), sources (прежние проверенные "
               "ссылки и новые прямые URL из items), source_titles (заголовки источников). "
-              "Сохрани обзоры остальных тем. Сохрани новости и аналитику одним коммитом. "
+              "Если новость существенно меняет вывод другой выбранной темы, можно обновить и этот обзор: "
+              "объясни связь и добавь в его sources прямую ссылку на новую статью или её проверенный первоисточник "
+              "из references. Сохрани без изменений обзоры, для которых новых источников нет. "
+              "Сохрани новости и аналитику одним коммитом. "
               "После записи проверь её повторным "
               "чтением и ответь PULSE_PUBLISHED. Если подтверждённых новых материалов нет, "
               "ничего не меняй и ответь PULSE_NO_NEWS. При ошибке опиши её и ответь PULSE_ERROR."
@@ -358,26 +402,7 @@ jobs:
               url = urlsplit(item.get("url", ""))
               if url.scheme != "https" or not url.hostname or not item.get("source"):
                   raise SystemExit("У новой записи отсутствует корректная ссылка на источник.")
-          affected_topics = {item["topic"] for item in added}
-          previous = {entry["topic"]: entry for entry in old_archive.get("analysis", [])}
-          reviews = {entry["topic"]: entry for entry in new_archive.get("analysis", [])}
-          source_urls = {item["url"] for item in new_items}
-          source_urls.update(url for review in previous.values() for url in review.get("sources", []))
-          if any(reviews.get(topic) != entry for topic, entry in previous.items() if topic not in affected_topics):
-              raise SystemExit("Изменился аналитический обзор незатронутой темы.")
-          for topic in affected_topics:
-              review = reviews.get(topic, {})
-              urls = review.get("sources", [])
-              prior = previous.get(topic)
-              if not all(review.get(field) for field in ("updated_at", "changes", "conclusion")) or (
-                  prior and version_key(review)[1] <= version_key(prior)[1]
-              ):
-                  raise SystemExit("Отсутствует обновлённый аналитический обзор.")
-              details = review.get("details", [])
-              if len(details) < 2 or not all(section.get("heading") and section.get("text") for section in details):
-                  raise SystemExit("Аналитика темы должна содержать подробные разделы.")
-              if not urls or any(url not in source_urls for url in urls):
-                  raise SystemExit("Обзор не ссылается на материалы в архиве.")
+          verify_reviews(old_archive, new_archive, added, topics)
           print(f"Выпуск окончен. Новых записей в GitHub: {len(added)}.")
           PY
 

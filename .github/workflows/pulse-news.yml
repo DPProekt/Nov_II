@@ -3,6 +3,10 @@ name: Пульс ИИ — обновление новостей
 on:
   workflow_dispatch:
     inputs:
+      initialize_sessions:
+        description: Создать недостающие сессии по всем темам
+        type: boolean
+        default: false
       persistent_session:
         description: Использовать постоянные сессии агента
         type: boolean
@@ -54,6 +58,7 @@ jobs:
       PULSE_SEARCH_SINCE: ${{ inputs.since }}
       PULSE_CONTINUE_PILOT: ${{ inputs.continue_pilot }}
       PULSE_PERSISTENT: ${{ inputs.persistent_session }}
+      PULSE_INITIALIZE: ${{ inputs.initialize_sessions }}
     steps:
       - name: Сохранить текущую аналитику и подготовить выпуск
         env:
@@ -278,7 +283,7 @@ jobs:
 
           if os.environ.get("PULSE_PERSISTENT") == "true":
               with request(
-                  "https://api.github.com/repos/DPProekt/Nov_II/contents/session_manager.py?ref=main",
+                  "https://api.github.com/repos/DPProekt/Nov_II/contents/session_manager.py?ref=" + os.environ["GITHUB_SHA"],
                   "Загрузка обработчика сессий", token=os.environ["PULSE_GITHUB_TOKEN"],
                   headers={"Accept": "application/vnd.github.raw+json"},
               ) as source:
@@ -294,7 +299,8 @@ jobs:
               else:
                   chosen = list(all_topics)
               namespace["run_sessions"](openai_token, os.environ["PULSE_GITHUB_TOKEN"], vault,
-                                        chosen, os.environ["GITHUB_RUN_ID"])
+                                        chosen, os.environ["GITHUB_RUN_ID"],
+                                        initialize_only=os.environ.get("PULSE_INITIALIZE") == "true")
               raise SystemExit(0)
 
           if os.environ.get("PULSE_CONTINUE_PILOT") == "true":

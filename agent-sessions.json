@@ -23,10 +23,7 @@
     "Пересборка прогноза 2026–2050": {
       "history": [],
       "id": "sess_03d0ee54f1a5d3d7006afacf1e22848195a6ef62456950f0b5",
-      "pending": {
-        "previous": null,
-        "created": true
-      }
+      "last_turn_id": "turn_03d0ee54f1a5d3d7006afacf26f68c8195833f9f023dec7f64"
     }
   }
 }

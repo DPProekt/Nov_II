@@ -48,7 +48,7 @@ jobs:
   update:
     if: github.repository == 'DPProekt/Nov_II' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     env:
       OPENAI_IDENTITY_PROVIDER_ID: ${{ vars.PULSE_OPENAI_IDENTITY_PROVIDER_ID }}
       OPENAI_SERVICE_ACCOUNT_ID: ${{ vars.PULSE_OPENAI_SERVICE_ACCOUNT_ID }}
@@ -236,7 +236,7 @@ jobs:
           cutoff = datetime.fromisoformat(cutoff_value)
           if cutoff.utcoffset() != timedelta(0):
               raise SystemExit("Срок кредитов должен быть указан в UTC.")
-          if datetime.now(timezone.utc) + timedelta(minutes=40) >= cutoff:
+          if datetime.now(timezone.utc) + timedelta(minutes=60) >= cutoff:
               raise SystemExit("Срок подтверждённых кредитов подошёл к концу. OpenAI API не вызывался.")
 
           provider = os.environ.get("OPENAI_IDENTITY_PROVIDER_ID")

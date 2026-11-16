@@ -14,7 +14,45 @@ DATA = ROOT / 'private-news.json'
 BASELINE = '2026-11-14'
 LOCK = threading.Lock()
 ALLOWED_ORIGINS = ('https://dpproekt.github.io', 'http://127.0.0.1:8766', 'http://localhost:8766')
-TOPICS = ('Новости ИИ', 'Подробные новости ИИ', 'Новости ИИ подробно', 'Прогноз экономики ИИ', 'Развитие мышления ИИ образами', 'Пересборка прогноза 2026–2050', 'Новости GPT', 'Гипербола технологий Капицы с ИИ', 'Прогноз беспилотных авто', 'Пять технологических прорывов')
+TOPIC_CONTEXT = {
+    'Подробные новости ИИ': 'новые модели искусственного интеллекта, исследования и внедрения',
+    'Прогноз экономики при быстром развитии ИИ': 'AI economic impact, производительность, стоимость и отдача внедрения',
+    'Развитие мышления ИИ образами': (
+        'AI visual reasoning, world models, пространственное планирование и визуальная память моделей. '
+        'Исключай материалы об образном мышлении человека без результата, относящегося к ИИ.'
+    ),
+    'Пересборка прогноза 2026–2050': 'AI long-term outlook, новые данные для долгосрочных прогнозов',
+    'Новости GPT': 'новые модели, продукты, системные карты и инструменты OpenAI',
+    'Гипербола технологий Капицы с ИИ': 'AI scaling, сопоставимые ряды стоимости, качества и внедрения',
+    'Прогноз беспилотных авто': 'autonomous vehicles, испытания, безопасность и действующие сервисы',
+    'Пять технологических прорывов': 'ИИ, автономные системы, энергетика, биомедицина и квантовые вычисления',
+}
+TOPIC_ALIASES = {
+    'Новости ИИ': 'Подробные новости ИИ',
+    'Новости ИИ подробно': 'Подробные новости ИИ',
+    'Прогноз экономики ИИ': 'Прогноз экономики при быстром развитии ИИ',
+}
+
+
+def canonical_topic(topic):
+    return TOPIC_ALIASES.get(topic, topic) if isinstance(topic, str) else ''
+
+
+def search_prompt(topic, cutoff):
+    return (
+        'Выполни реальный веб-поиск. Первый запрос передай целиком в точности как следующую строку, '
+        'без кавычек любого вида и без операторов точного совпадения.\n'
+        f'{topic}\n'
+        'ИИ и AI означают искусственный интеллект (artificial intelligence). '
+        'При расплывчатой выдаче сделай дополнительные запросы без кавычек с терминами темы '
+        f'на русском или английском. Ориентиры: {TOPIC_CONTEXT[topic]}. '
+        'Открой подходящие результаты и отбирай по содержанию. Статья должна сообщать новый факт, '
+        'исследование или объявление по теме. Совпадение названия темы с заголовком не требуется. '
+        f'Включай только публикации с проверяемой датой строго после {cutoff}. '
+        'Укажи прямую ссылку на первоисточник, дату исходной публикации в формате YYYY-MM-DD, '
+        'название источника, заголовок и краткое описание на русском. '
+        'Когда подтверждённых материалов по теме нет, верни пустой массив.'
+    )
 
 def read_news():
     if not DATA.exists():
@@ -54,10 +92,7 @@ def select_new(items, old, cutoff):
 
 def search_news(key, cutoff, topic):
     schema = {'type':'object','properties':{'items':{'type':'array','items':{'type':'object','properties':{'title':{'type':'string'},'summary':{'type':'string'},'date':{'type':'string'},'source':{'type':'string'},'url':{'type':'string'}},'required':['title','summary','date','source','url'],'additionalProperties':False}}},'required':['items'],'additionalProperties':False}
-    prompt = (f'Найди важные новости и исследования по теме «{topic}». По-русски, подробно и точно. '
-              f'Включай только публикации с проверяемой датой строго после {cutoff}; не выдумывай новости, даты или ссылки. '
-              'Для каждой новости укажи прямую ссылку на источник, дату исходной публикации в формате YYYY-MM-DD, '
-              'название источника, заголовок и краткое описание. Предпочитай первоисточники. Если данных нет, верни пустой массив.')
+    prompt = search_prompt(canonical_topic(topic), cutoff)
     body = {'model':'gpt-6.1-terra','tools':[{'type':'web_search','search_context_size':'low'}], 'tool_choice':'required','input':prompt,'max_output_tokens':3500,'text':{'format':{'type':'json_schema','name':'news','schema':schema,'strict':True}}}
     request = urllib.request.Request('https://api.openai.com/v1/responses', data=json.dumps(body).encode(), method='POST', headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'})
     with urllib.request.urlopen(request, timeout=180) as response:
@@ -98,9 +133,9 @@ class Handler(SimpleHTTPRequestHandler):
             if not key: return self.reply(503, {'error':'API-ключ не найден в окружении сервера.'})
             length=int(self.headers.get('Content-Length','0'))
             if length <= 0 or length > 4096: return self.reply(400, {'error':'Некорректный запрос.'})
-            data=json.loads(self.rfile.read(length)); topic=data.get('topic'); baseline=data.get('cutoff')
-            if topic not in TOPICS or not valid_date(baseline): return self.reply(400, {'error':'Некорректная тема или дата.'})
-            saved=read_news(); existing=[x for x in saved['items'] if x.get('topic')==topic]; cutoff=max([baseline]+[x['date'] for x in existing if valid_date(x.get('date'))]); found=search_news(key,cutoff,topic); added=select_new(found,existing,cutoff)
+            data=json.loads(self.rfile.read(length)); topic=canonical_topic(data.get('topic')); baseline=data.get('cutoff')
+            if topic not in TOPIC_CONTEXT or not valid_date(baseline): return self.reply(400, {'error':'Некорректная тема или дата.'})
+            saved=read_news(); existing=[x for x in saved['items'] if canonical_topic(x.get('topic'))==topic]; cutoff=max([baseline]+[x['date'] for x in existing if valid_date(x.get('date'))]); found=search_news(key,cutoff,topic); added=select_new(found,existing,cutoff)
             for item in added: item['topic']=topic
             saved['items']=(added+saved['items'])[:500]; saved['last_search']=dt.datetime.now(dt.timezone.utc).isoformat()
             tmp=DATA.with_suffix('.tmp'); tmp.write_text(json.dumps(saved,ensure_ascii=False,indent=2),encoding='utf-8'); tmp.replace(DATA)
@@ -111,5 +146,4 @@ class Handler(SimpleHTTPRequestHandler):
 if __name__ == '__main__':
     print('Пульс ИИ: http://127.0.0.1:8766', flush=True)
     ThreadingHTTPServer(('127.0.0.1',8766),Handler).serve_forever()
-
 

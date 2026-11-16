@@ -28,11 +28,7 @@
     "Гипербола технологий Капицы с ИИ": {
       "history": [],
       "id": "sess_0774442b5db096b7806afacfabb9c481948cb9573fa3d72df8",
-      "last_turn_id": "turn_0774442b5db096b7806afaf58134d48194a47ac60ffe2f8104",
-      "pending": {
-        "previous": "turn_0774442b5db096b7806afaf58134d48194a47ac60ffe2f8104",
-        "key": "pulse-43959704964-5"
-      }
+      "last_turn_id": "turn_0774442b5db096b7806afb771b1dc48194a0bf18a505d78780"
     },
     "Прогноз беспилотных авто": {
       "history": [],

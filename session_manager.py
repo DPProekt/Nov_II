@@ -20,7 +20,7 @@ TOPICS = {
     "Пересборка прогноза 2026–2050": "6a9ef2c2-cd60-83eb-bd67-df60f7638634",
     "Новости GPT": "6aee1cad-1ef8-83ed-8ea4-880afd217a6c",
     "Гипербола технологий Капицы с ИИ": "6a9334c8-57d0-83eb-9382-5dd331004307",
-    "Прогноз беспилотных авто": "6aacdb0e-ffc0-83ed-afad-35595b466a94",
+    "Прогноз беспилотных авто": "6aacdb0e-ffc0-83ed-bf65-04aff48a549c",
     "Пять технологических прорывов": "6aa9702e-ef3c-83ed-afad-35595b466a94",
 }
 
@@ -190,7 +190,9 @@ class Manager:
             raise RuntimeError("Готовый ход не содержит итогового ответа")
         for attempt in range(3):
             archive, sha = self.read_file("archive.json")
-            doc = next(item for item in archive["docs"] if item["id"] == TOPICS[topic])
+            doc = next((item for item in archive["docs"] if item["id"] == TOPICS[topic]), None)
+            if doc is None:
+                raise RuntimeError("Раздел темы не найден в архиве сайта")
             if any(item.get("agent_turn_id") == turn["id"] for item in doc["messages"]):
                 return
             now = datetime.now(timezone.utc)

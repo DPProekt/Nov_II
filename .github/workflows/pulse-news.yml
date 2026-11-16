@@ -236,9 +236,8 @@ jobs:
           cutoff = datetime.fromisoformat(cutoff_value)
           if cutoff.utcoffset() != timedelta(0):
               raise SystemExit("Срок кредитов должен быть указан в UTC.")
-          if datetime.now(timezone.utc) + timedelta(minutes=8) >= cutoff:
-              print("Срок подтверждённых кредитов подошёл к концу. OpenAI API не вызывался.")
-              raise SystemExit(0)
+          if datetime.now(timezone.utc) + timedelta(minutes=40) >= cutoff:
+              raise SystemExit("Срок подтверждённых кредитов подошёл к концу. OpenAI API не вызывался.")
 
           provider = os.environ.get("OPENAI_IDENTITY_PROVIDER_ID")
           account = os.environ.get("OPENAI_SERVICE_ACCOUNT_ID")

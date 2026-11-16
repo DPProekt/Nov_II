@@ -4,6 +4,14 @@
       "id": "sess_02d4b31ca4daef22806afacacf3118819da3432ed4296e1d0a",
       "history": [],
       "last_turn_id": "turn_02d4b31ca4daef22806afacc8acf08819da77b1ec757a01038"
+    },
+    "Новости GPT": {
+      "history": [],
+      "id": "sess_098faede644ac23f006afaccf5d3e081a3950e43f50374c6d4",
+      "pending": {
+        "previous": null,
+        "created": true
+      }
     }
   }
 }

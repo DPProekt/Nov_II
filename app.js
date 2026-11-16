@@ -210,6 +210,50 @@ function markCurrentNavigation() {
 }
 async function loadArchive(manual=false){try{let r=await fetch('archive.json?'+(manual?Date.now():'v1'),{cache:'no-store'});if(!r.ok)throw Error();archive=await r.json();render();if(manual){let msg=document.createElement('div');msg.className='status';msg.setAttribute('role','status');msg.textContent='Данные сайта перечитаны. Автоматическое получение новых ответов из закрытых чатов GPT пока не подключено.';root.prepend(msg)}}catch{if(manual&&archive){let msg=document.createElement('div');msg.className='status';msg.textContent='Не удалось перечитать архив. Показаны ранее загруженные материалы.';root.prepend(msg)}else root.innerHTML='<p class="empty">Не удалось загрузить архив. Проверьте подключение и попробуйте снова.</p>'}}
 function updateStatus(text){document.querySelector('#refresh-status')?.remove();let m=document.createElement('div');m.className='status';m.id='refresh-status';m.setAttribute('role','status');m.textContent=text;root.prepend(m)}
-async function refreshNews(){const match=location.hash.match(/^#\/(?:topic|analysis)\/(\d+)(?:\/\d{4}-\d{2}-\d{2})?$/);const d=match&&archive&&topicDocument(Number(match[1]));selectedTopic=d?.title||'Новости ИИ';let cutoff=d?new Date(d.updatedAt*1000).toISOString().slice(0,10):'2026-11-14';for(const n of fresh)if(n.topic===selectedTopic&&n.date>cutoff)cutoff=n.date;const button=document.querySelector('#refresh');button.disabled=true;button.textContent='Ищем новости…';updateStatus('Ищем новые публикации по теме «'+selectedTopic+'»…');try{const r=await fetch('http://127.0.0.1:8766/api/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({topic:selectedTopic,cutoff})});const body=await r.json();if(!r.ok)throw Error(body.error||'Поиск недоступен');localNews=Array.isArray(body.items)?body.items:[];combineNews();try{localStorage.setItem('pulse-ii-news',JSON.stringify(fresh))}catch{}render();updateStatus(body.added?'Добавлено новостей: '+body.added+'. Даты и ссылки следует проверить.':'Новых публикаций по этой теме после '+body.cutoff+' не найдено.')}catch(e){updateStatus('Поиск не завершён: '+(e.message||'локальный сервер недоступен')+'. Сохранённые материалы не изменены.')}finally{button.disabled=false;button.textContent='↻ Обновить'}}
+async function refreshNews() {
+  const match = location.hash.match(/^#\/(?:topic|analysis)\/(\d+)(?:\/\d{4}-\d{2}-\d{2})?$/);
+  const document = match && archive && topicDocument(Number(match[1]));
+  const topic = document?.title || 'Все темы';
+  const button = window.document.querySelector('#refresh');
+  const oldUrls = new Set(sharedNews.map(item => item.url));
+  button.disabled = true;
+  button.textContent = 'Ищем новости…';
+  updateStatus('GPT ищет новости. Поиск и публикация могут занять несколько минут.');
+  try {
+    const start = await fetch('http://127.0.0.1:8767/start', {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({topic})
+    });
+    const launched = await start.json();
+    if (!start.ok) throw new Error(launched.error || 'Не удалось запустить поиск.');
+    let status;
+    for (let attempt = 0; attempt < 90; attempt++) {
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      const response = await fetch('http://127.0.0.1:8767/status/' + launched.run_id);
+      status = await response.json();
+      if (!response.ok) throw new Error(status.error || 'Не удалось проверить состояние поиска.');
+      if (status.status === 'completed') break;
+    }
+    if (status?.status !== 'completed') throw new Error('Поиск ещё выполняется в GitHub Actions.');
+    if (status.conclusion !== 'success') throw new Error('GitHub Actions завершился с ошибкой: ' + status.conclusion);
+    let data;
+    for (let attempt = 0; attempt < 24; attempt++) {
+      const response = await fetch('news.json?refresh=' + Date.now(), {cache: 'no-store'});
+      data = await response.json();
+      if (data.items.some(item => !oldUrls.has(item.url)) || attempt === 23) break;
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+    sharedNews = data.items;
+    newsAnalysis = Array.isArray(data.analysis) ? data.analysis : [];
+    combineNews();
+    render();
+    const added = sharedNews.filter(item => !oldUrls.has(item.url) && (topic === 'Все темы' || canonicalTopic(item.topic) === topic));
+    updateStatus(added.length ? 'GPT добавил публикаций по выбранной теме: ' + added.length + '.' : 'Поиск завершён. Новых подтверждённых публикаций по теме не найдено.');
+  } catch (error) {
+    updateStatus('Поиск не завершён: ' + (error.message || 'локальный обработчик недоступен') + '.');
+  } finally {
+    button.disabled = false;
+    button.textContent = '↻ Обновить';
+  }
+}
 window.addEventListener('message',event=>{if(event.origin!==backendOrigin||event.source!==popup)return;if(event.data?.type==='pulse-ready'){const match=location.hash.match(/^#\/(?:topic|analysis)\/(\d+)(?:\/\d{4}-\d{2}-\d{2})?$/);const d=match&&archive&&topicDocument(Number(match[1]));let cutoff=d?new Date(d.updatedAt*1000).toISOString().slice(0,10):'2026-11-14';for(const n of fresh)if(n.topic===selectedTopic&&n.date>cutoff)cutoff=n.date;popup.postMessage({type:'pulse-context',topic:selectedTopic,cutoff},backendOrigin)}else if(event.data?.type==='pulse-news'&&Array.isArray(event.data.items)){const seen=new Set(fresh.map(x=>x.url));let items=event.data.items.filter(x=>{try{return typeof x.title==='string'&&typeof x.summary==='string'&&typeof x.source==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&new URL(x.url).protocol==='https:'&&!seen.has(x.url)}catch{return false}}).map(x=>({...x,topic:selectedTopic}));fresh=[...items,...fresh];try{localStorage.setItem('pulse-ii-news',JSON.stringify(fresh))}catch{updateStatus('Не удалось сохранить новости в браузере.');return}render();updateStatus(items.length?'Добавлено новостей: '+items.length+'. Даты и ссылки следует проверить.':'Новых публикаций по этой теме не найдено.');}});
 document.querySelector('#refresh').addEventListener('click',refreshNews);window.addEventListener('hashchange',()=>{render();if(!['#/chart','#/topics'].includes(location.hash))window.scrollTo(0,0)});fetch('news.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){sharedNews=d.items;newsAnalysis=Array.isArray(d.analysis)?d.analysis:[];combineNews();render()}}).catch(()=>{});fetch('http://127.0.0.1:8766/api/news').then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){localNews=d.items;combineNews();render()}}).catch(()=>{});loadArchive();

@@ -271,7 +271,41 @@ jobs:
           )["access_token"]
 
           if os.environ.get("PULSE_CONTINUE_PILOT") == "true":
-              session_id = "sess_0109c33b7d048d06006afac72f6b488194afc57f0e935e7449"
+              state_url = "https://api.github.com/repos/DPProekt/Nov_II/contents/agent-sessions.json"
+              state_headers = {"Accept": "application/vnd.github+json", "Cache-Control": "no-cache"}
+              state_file = get_json(state_url + "?ref=main", "Чтение сессий", token=os.environ["PULSE_GITHUB_TOKEN"],
+                                    headers=state_headers, missing_ok=True)
+              if state_file is None:
+                  state = {"sessions": {}}
+              else:
+                  state = json.loads(base64.b64decode(state_file["content"]))
+              topic = "Развитие мышления ИИ образами"
+              session_id = state["sessions"].get(topic)
+              if not session_id:
+                  created = get_json(
+                      "https://api.openai.com/v1/agents/sessions", "Создание сессии",
+                      token=openai_token, headers={"OpenAI-Beta": "agents=v1",
+                      "OpenAI-Project": "proj_2yk5sqnjXZpYTzF9fngNiYB0"},
+                      data={"agent_id": "agent_6afa24e65b40819189c54aeef04a7989",
+                            "environment": {"type": "openai_hosted"}, "vault_ids": [vault],
+                            "input": topic + "\nЭта сессия посвящена только этой теме. "
+                            "Найди и опубликуй новые подтверждённые материалы и связанную аналитику. "
+                            "Продолжай этот обзор при последующей команде обнови.",
+                            "stream": False},
+                      timeout=120,
+                  )
+                  session_id = created.get("id")
+                  if not session_id or not session_id.startswith("sess_"):
+                      raise SystemExit("API не вернул идентификатор созданной сессии.")
+                  state["sessions"][topic] = session_id
+                  payload = {"branch": "main", "message": "Сохранить сессию GPT по теме",
+                             "content": base64.b64encode((json.dumps(state, ensure_ascii=False, indent=2) + "\n").encode()).decode()}
+                  if state_file is not None:
+                      payload["sha"] = state_file["sha"]
+                  get_json(state_url, "Запись сессии", token=os.environ["PULSE_GITHUB_TOKEN"],
+                           headers=state_headers, data=payload, method="PUT")
+                  print("Создана и сохранена постоянная сессия по теме:", topic)
+                  raise SystemExit(0)
               base = "https://api.openai.com/v1/agents/sessions/" + session_id
               api_headers = {"OpenAI-Beta": "agents=v1", "OpenAI-Project": "proj_2yk5sqnjXZpYTzF9fngNiYB0"}
               before = get_json(base, "Чтение сессии", token=openai_token, headers=api_headers)

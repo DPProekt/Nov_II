@@ -35,7 +35,6 @@ on:
           - Пять технологических прорывов
   schedule:
     - cron: '17 */6 * * *'
-    - cron: '*/5 21 16 11 *'
 
 permissions:
   id-token: write
@@ -61,29 +60,6 @@ jobs:
       PULSE_PERSISTENT: ${{ inputs.persistent_session }}
       PULSE_INITIALIZE: ${{ inputs.initialize_sessions }}
     steps:
-      - name: Завершить временную проверку расписания
-        if: github.event_name == 'schedule' && github.event.schedule == '*/5 21 16 11 *'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          import base64, json, os, urllib.request
-          url = "https://api.github.com/repos/DPProekt/Nov_II/contents/.github/workflows/pulse-news.yml"
-          headers = {"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json", "User-Agent": "Pulse-II-check"}
-          with urllib.request.urlopen(urllib.request.Request(url + "?ref=main", headers=headers), timeout=30) as r:
-              item = json.load(r)
-          source = base64.b64decode(item["content"]).decode()
-          marker = "    - cron: '*/5 21 16 11 *'\n"
-          if marker not in source:
-              raise SystemExit("Контрольный запуск уже выполнялся.")
-          source = source.replace(marker, "", 1)
-          payload = {"branch": "main", "message": "Убрать разовый контроль расписания", "sha": item["sha"], "content": base64.b64encode(source.encode()).decode()}
-          headers["Content-Type"] = "application/json"
-          with urllib.request.urlopen(urllib.request.Request(url, json.dumps(payload).encode(), headers, method="PUT"), timeout=30) as r:
-              json.load(r)
-          print("Временный таймер отключён, регулярный график сохранён.")
-          PY
       - name: Сохранить текущую аналитику и подготовить выпуск
         env:
           PULSE_GITHUB_TOKEN: ${{ github.token }}

@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-16T09:23:42Z",
+  "updated_at": "2026-11-16T09:33:53.534Z",
   "items": [
+    {
+      "title": "Apple начала исследование взаимодействия пользователей с медицинским ИИ",
+      "summary": "Apple сообщила о запуске в США исследования Apple Health AI Usage Study совместно с OpenEvidence. Приложение позволяет совершеннолетним участникам задавать вопросы о здоровье, оценивать ответы и по желанию предоставлять отдельные данные HealthKit. Компания планирует изучить доверие, понимание ответов и повседневное использование медицинского ИИ; участвовать смогут до 200 тысяч жителей США от 21 года при наличии совместимого iPhone. По заявлению Apple, данные исследования не используются для обучения ИИ. Результаты исследования пока не опубликованы, а приложение не предназначено для диагностики, лечения или замены врача.",
+      "date": "2026-11-15",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Apple Newsroom",
+      "url": "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+      "topic": "Подробные новости ИИ",
+      "analysis": "Запуск расширяет эмпирическую базу для изучения применения разговорного ИИ в вопросах здоровья, но пока подтверждает только дизайн и объявление исследования, не качество ответов и не улучшение здоровья. Потолок 200 тысяч — максимально возможная, а не фактическая выборка; ограничения отбора по стране, возрасту и устройству мешают обобщению. Источник указывает дату, но не подтверждает точное время первой публикации; отметка обновления страницы — 16 ноября 01:19 UTC."
+    },
     {
       "title": "Обзор GPT от 16 ноября: модели мира, память и взаимодействие ИИ",
       "question": "обнови",
@@ -880,9 +891,9 @@
   "analysis": [
     {
       "topic": "Подробные новости ИИ",
-      "updated_at": "2026-11-16T04:37:44.989Z",
-      "changes": "Reuters описало применение ИИ в школе Пекина и обучение детей созданию приложений.\n\nДобавлено исследование Microsoft от 10 ноября о скрытой закладке, внедряемой изменением весов агентной модели.",
-      "conclusion": "Репортаж иллюстрирует внедрение ИИ в учебный процесс. Для оценки результатов обучения нужны сопоставимые данные и независимая проверка.\n\nЭксперимент показывает риск подмены весов для агентов с системными привилегиями; он не доказывает распространённости реальных атак и не переносится автоматически на все модели.",
+      "updated_at": "2026-11-16T09:33:53.534Z",
+      "changes": "Reuters описало применение ИИ в школе Пекина и обучение детей созданию приложений.\n\nДобавлено исследование Microsoft от 10 ноября о скрытой закладке, внедряемой изменением весов агентной модели.\n\nApple объявила американское исследование использования разговорного медицинского ИИ с OpenEvidence; результатов исследования пока нет.",
+      "conclusion": "Репортаж иллюстрирует внедрение ИИ в учебный процесс. Для оценки результатов обучения нужны сопоставимые данные и независимая проверка.\n\nЭксперимент показывает риск подмены весов для агентов с системными привилегиями; он не доказывает распространённости реальных атак и не переносится автоматически на все модели.\n\nИсследование может дать данные о доверии и понимании ответов, но его запуск не подтверждает медицинскую точность, пользу для здоровья или безопасность применения.",
       "details": [
         {
           "heading": "Контекст: Gemini и надёжность команд",
@@ -935,6 +946,14 @@
         {
           "heading": "Пределы и следующая проверка",
           "text": "Атакующему нужен доступ к весам; выбор моделей и сигналов ограничен экспериментом. Оценку изменят независимое воспроизведение и проверки обнаружения в реальном потоке поставки."
+        },
+        {
+          "heading": "Медицинский ИИ: что объявлено",
+          "text": "Apple и OpenEvidence запускают исследовательское приложение для вопросов о здоровье; участники смогут оценивать ответы и при желании делиться отдельными данными HealthKit. Предельный размер набора — 200 тысяч, а не число уже участвующих людей."
+        },
+        {
+          "heading": "Медицинский ИИ: ограничения и проверка",
+          "text": "Результаты пока не опубликованы; наличие ссылок на исследования само по себе не доказывает правильность каждого ответа. Выборка ограничена США, возрастом от 21 года и владельцами совместимых iPhone. По заявлению Apple, данные исследования не пойдут на обучение моделей; приложение не заменяет врача."
         }
       ],
       "sources": [
@@ -949,7 +968,8 @@
         "https://arxiv.org/abs/2610.09093",
         "https://malaysia.news.yahoo.com/inside-chinas-drive-build-ai-000559485.html",
         "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
-        "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"
+        "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+        "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/"
       ],
       "source_titles": {
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/": "Google DeepMind — Gemini 4 Hydrogen",
@@ -963,7 +983,8 @@
         "https://arxiv.org/abs/2610.09093": "A gauge-invariant measure for lattice chiral fermions",
         "https://malaysia.news.yahoo.com/inside-chinas-drive-build-ai-000559485.html": "Reuters, публикация Yahoo News",
         "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/": "Detecting sleeper agents hiding in AI model neurons",
-        "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/": "Lazare veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents"
+        "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/": "Lazare veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
+        "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/": "Apple launches research study to explore the use of AI for health"
       }
     },
     {

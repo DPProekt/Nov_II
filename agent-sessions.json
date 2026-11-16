@@ -28,10 +28,7 @@
     "Гипербола технологий Капицы с ИИ": {
       "history": [],
       "id": "sess_0774442b5db096b7806afacfabb9c481948cb9573fa3d72df8",
-      "pending": {
-        "previous": null,
-        "created": true
-      }
+      "last_turn_id": "turn_0774442b5db096b7806afacfabb9e081948f565ad3f524c63b"
     }
   }
 }

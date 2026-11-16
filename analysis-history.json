@@ -2892,6 +2892,334 @@
         "2026-11-09": 1,
         "2026-09-24": 1
       }
+    },
+    {
+      "topic": "Подробные новости ИИ",
+      "updated_at": "2026-11-16T11:50:35.184Z",
+      "changes": "Reuters описало применение ИИ в школе Пекина и обучение детей созданию приложений.\n\nДобавлено исследование Microsoft от 10 ноября о скрытой закладке, внедряемой изменением весов агентной модели.\n\nApple объявила американское исследование использования разговорного медицинского ИИ с OpenEvidence; результатов исследования пока нет.\n\nДобавлено расширение применения SMART на воздушное пространство 22 центров FAA 10 ноября и информация AP о позиции властей по сбою 13 ноября.",
+      "conclusion": "Репортаж иллюстрирует внедрение ИИ в учебный процесс. Для оценки результатов обучения нужны сопоставимые данные и независимая проверка.\n\nЭксперимент показывает риск подмены весов для агентов с системными привилегиями; он не доказывает распространённости реальных атак и не переносится автоматически на все модели.\n\nИсследование может дать данные о доверии и понимании ответов, но его запуск не подтверждает медицинскую точность, пользу для здоровья или безопасность применения.\n\nПомощь ИИ в критической инфраструктуре вышла за пределы первоначального пилота в Вашингтоне, но рекомендации по-прежнему проверяют люди. Связь SMART со сбоем отвергается властями и разработчиком; независимый итог расследования в источнике не приведён.",
+      "details": [
+        {
+          "heading": "Контекст: Gemini и надёжность команд",
+          "text": "Google вывела Gemini 4 Hydrogen для повседневных агентных задач. Anthropic показала, что в четырёх моделируемых сценариях участникам было выгоднее пользоваться общим координатором, чем отдельными агентами с разными целями."
+        },
+        {
+          "heading": "Что показывает выпуск модели",
+          "text": "Быстрая модель делает многошаговые операции доступнее. В оценке важны полная стоимость выполненной задачи, число повторов и доля результатов, которую человек принял без исправлений."
+        },
+        {
+          "heading": "Почему результат группы может ухудшаться",
+          "text": "В экспериментах Anthropic агенты делили ограниченные ресурсы и могли действовать до получения сообщений других участников. Это объясняет, почему для общего бюджета или очереди изменений полезно проверять порядок действий наряду с качеством рассуждений."
+        },
+        {
+          "heading": "Что изменит вывод",
+          "text": "Нужны сравнения одной модели и команды агентов на одинаковых задачах с единым бюджетом. Отдельный показатель — сколько ошибок связано с несогласованностью и сколько устраняет общий координатор."
+        },
+        {
+          "heading": "Формальная проверка и её пределы",
+          "text": "Авторы сообщили о проверке свойств частей PQXDH и Triple Ratchet на уровне машинного кода. Эксперты участвуют в подготовке и утверждении спецификаций; боковые каналы в описанной модели угроз не охвачены."
+        },
+        {
+          "heading": "Что изменит оценку",
+          "text": "Независимая проверка доверенных спецификаций, воспроизведение на других проектах и сопоставимые оценки затрат помогут понять масштабируемость метода."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "OpenAI сообщает о выпуске Terra в API, ChatGPT Work и Codex и о результатах Agents’ Last Exam; системная карта относит модель к критическому уровню кибервозможностей по шкале компании."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Оценки качества и стоимости получены разработчиком; картину изменят независимые испытания, данные реальных внедрений и проверки защит."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Физик Нэтаниел Крейг описал вклад GPT-6 Astra; препринт подан 6 октября 2026 года, описание процесса опубликовано 15 ноября."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Работа остаётся кандидатной и требует независимой проверки математических шагов и применимости; оценку изменят экспертная рецензия и воспроизведение доказательства."
+        },
+        {
+          "heading": "Новое событие 16 ноября",
+          "text": "16 ноября Reuters опубликовало репортаж о пекинской школе, в которой учащиеся используют искусственный интеллект и создают приложения. Описанный пример показывает конкретную практику обучения, а не распространённость технологии во всех школах страны. Независимые исследования влияния применения ИИ на обучение и подтверждённые данные о масштабах внедрения."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "В проверке Nemotron-Terminal-8B авторы изменили семь нейронов и сообщили о срабатывании не менее чем на 98,8% отложенных траекторий с сигналом; тестовый аудит обнаружил 91,4% изменённых контрольных точек при 9,7% ложных срабатываний."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Атакующему нужен доступ к весам; выбор моделей и сигналов ограничен экспериментом. Оценку изменят независимое воспроизведение и проверки обнаружения в реальном потоке поставки."
+        },
+        {
+          "heading": "Медицинский ИИ: что объявлено",
+          "text": "Apple и OpenEvidence запускают исследовательское приложение для вопросов о здоровье; участники смогут оценивать ответы и при желании делиться отдельными данными HealthKit. Предельный размер набора — 200 тысяч, а не число уже участвующих людей."
+        },
+        {
+          "heading": "Медицинский ИИ: ограничения и проверка",
+          "text": "Результаты пока не опубликованы; наличие ссылок на исследования само по себе не доказывает правильность каждого ответа. Выборка ограничена США, возрастом от 21 года и владельцами совместимых iPhone. По заявлению Apple, данные исследования не пойдут на обучение моделей; приложение не заменяет врача."
+        },
+        {
+          "heading": "Факты и контекст",
+          "text": "По репортажу AP от 16 ноября национальное расширение произошло 10 ноября; общенациональная остановка вылетов — 13 ноября. Министерство транспорта описало SMART как систему поддержки рекомендаций, не управляющую самолётами."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Заявления сторон не заменяют независимого выяснения причин сбоя и оценки качества рекомендаций. Вывод изменят результаты расследования и аудита, сопоставимые данные об ошибках, задержках и безопасности."
+        }
+      ],
+      "sources": [
+        "https://www.nature.com/articles/s41598-026-78368-7",
+        "https://alignment.anthropic.com/2026/worse-together/",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "https://deepmind.google/blog/introducing-alphaproof-code/",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf",
+        "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "https://openai.com/index/step-toward-defining-the-standard-model/",
+        "https://arxiv.org/abs/2610.09093",
+        "https://malaysia.news.yahoo.com/inside-chinas-drive-build-ai-000559485.html",
+        "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+        "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+        "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+        "https://apnews.com/article/faa-smart-ai-outage-08af345749c81fd8364299cd75275fa6",
+        "https://www.transportation.gov/briefing-room/trumps-transportation-secretary-sean-p-duffy-delivers-state-art-air-traffic-control"
+      ],
+      "source_titles": {
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/": "Google DeepMind — Gemini 4 Hydrogen",
+        "https://alignment.anthropic.com/2026/worse-together/": "Anthropic — Worse Together",
+        "https://www.nature.com/articles/s41598-026-78368-7": "Scientific Reports — исследование надёжности моделей при анализе смарт-контрактов",
+        "https://deepmind.google/blog/introducing-alphaproof-code/": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf": "AlphaProof Code: Verifying Signal’s Security at the Machine-Code Level",
+        "https://openai.com/index/introducing-gpt-6-1-terra/": "Introducing GPT-6.1 Terra",
+        "https://deploymentsafety.openai.com/gpt-6-1-terra": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+        "https://openai.com/index/step-toward-defining-the-standard-model/": "Физик описал применение GPT-6 Astra к задаче определения Стандартной модели",
+        "https://arxiv.org/abs/2610.09093": "A gauge-invariant measure for lattice chiral fermions",
+        "https://malaysia.news.yahoo.com/inside-chinas-drive-build-ai-000559485.html": "Reuters, публикация Yahoo News",
+        "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/": "Detecting sleeper agents hiding in AI model neurons",
+        "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/": "Lazare veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
+        "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/": "Apple launches research study to explore the use of AI for health",
+        "https://apnews.com/article/faa-smart-ai-outage-08af345749c81fd8364299cd75275fa6": "Associated Press: Questions swirl around FAA’s new SMART AI system",
+        "https://www.transportation.gov/briefing-room/trumps-transportation-secretary-sean-p-duffy-delivers-state-art-air-traffic-control": "US Department of Transportation: SMART air traffic management tool"
+      },
+      "publication_dates": {
+        "2026-11-16": 2,
+        "2026-11-15": 3,
+        "2026-11-10": 2,
+        "2026-11-12": 1,
+        "2026-11-11": 1
+      }
+    },
+    {
+      "topic": "Прогноз беспилотных авто",
+      "updated_at": "2026-11-16T11:50:35.184Z",
+      "changes": "AP описало действующие роботакси и робототехнические компании Шэньчжэня.\n\nДобавлено объявление May Mobility от 12 ноября о программе Volkswagen ID. Buzz: цель — более 10 тысяч машин до 2031 года.\n\nPony.ai и Toyota сообщили о коммерческих поездках без водителя на серийном bZ4X в Гуанчжоу и о плане примерно на 1000 автомобилей в нескольких городах Китая.\n\nДобавлено объявление Zoox от 13 ноября о поездках в Атланте для сотрудников, их родственников и друзей.",
+      "conclusion": "Действующий городской сервис подтверждает развитие локальной эксплуатации. По одному репортажу нельзя оценить прибыльность, безопасность на всех маршрутах или сроки распространения в другие города.\n\nНовая программа повышает наблюдаемую амбицию по масштабированию, но её сроки, безопасность и экономика пока не подтверждены фактическим развёртыванием.\n\nЗапуск серийной модели усиливает свидетельства постепенного масштабирования локальных сервисов, но не доказывает их прибыльность, безопасность вне объявленных условий и выполнение плана по парку.\n\nГеография роботакси расширяется, но ограниченная пилотная программа Zoox в Атланте не равнозначна открытому коммерческому сервису Pony.ai в Гуанчжоу. Масштаб и безопасность новой эксплуатации требуют отдельных данных.",
+      "details": [
+        {
+          "heading": "Готовность города",
+          "text": "Для коммерческого сервиса нужны разрешения, интеграция с системой заказа поездок, местный оператор и согласованные процедуры поддержки. Партнёрство в Токио показывает практическую роль этих компонентов."
+        },
+        {
+          "heading": "Что отличает пилот от эксплуатации",
+          "text": "Число коммерческих поездок без водителя, территория обслуживания, часы работы и безопасность на сопоставимом пробеге лучше характеризуют стадию внедрения, чем общий пробег с оператором."
+        },
+        {
+          "heading": "Что изменит прогноз",
+          "text": "Фактический запуск, затем публикация данных о поездках и расширение зоны подтвердят следующий этап. Задержки разрешений или устойчивые ограничения в сложных погодных и дорожных условиях отодвинут его."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "По сравнению Waymo с человеческим базовым уровнем в пяти агломерациях частота аварий с травмами ниже на 82%; сравнение включает аварии независимо от виновности."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Базовая частота моделируется и зависит от регистрации ДТП, а поездки не рандомизированы. Оценку изменят независимые сопоставления, новые территории и отчёты регуляторов."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "TechCrunch сообщило о запуске 9 ноября со ссылкой на объявление Tesla; собственный отчёт Tesla перечисляет Сан-Антонио среди городов работы."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "На момент объявления не раскрыты режим страхующего оператора и размер локального парка; прямого сравнения с ранее описанной выборкой Waymo нет. Оценку изменят данные о пробеге, авариях и условиях эксплуатации в городе."
+        },
+        {
+          "heading": "Новое событие 16 ноября",
+          "text": "16 ноября Associated Press опубликовало репортаж о поездках на беспилотных такси и разработчиках роботов в Шэньчжэне. Материал описывает работу сервисов в конкретном городе и показывает практическую эксплуатацию, которую можно учитывать при прогнозе распространения автономного транспорта. Официальные данные о зоне обслуживания, количестве оплаченных поездок, аварийности и экономике эксплуатации."
+        },
+        {
+          "heading": "Новый план развёртывания",
+          "text": "May Mobility планирует дорожные испытания в США с начала 2027 года и первые поставки серийных ID. Buzz в 2028 году; цель более 10 тысяч машин относится к периоду до 2031 года."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "План не равен заказу, допуску или действующему парку. Оценку изменят начало испытаний, разрешения, реальные поставки, условия сервиса и статистика аварий на сопоставимом пробеге."
+        },
+        {
+          "heading": "Новый запуск: производство и сервис",
+          "text": "По сообщению Pony.ai, Gen-7 bZ4X вошёл в коммерческий беспилотный парк Гуанчжоу; заказ заявлен круглосуточно. Первый серийный автомобиль произведён в феврале 2026 года. Разработка также охватывает техническое обслуживание и зарядку."
+        },
+        {
+          "heading": "План, ограничения и проверка прогноза",
+          "text": "Примерно 1000 bZ4X — заявленный план для нескольких китайских городов, без раскрытого срока, а не фактическое число машин. Число эксплуатируемых машин, зона, тарифы, пробег, статистика аварий и экономика в объявлении не приведены. Данные оператора и независимых регуляторов о них позволят оценить масштабирование."
+        },
+        {
+          "heading": "Новые факты и сопоставление",
+          "text": "Zoox сообщила о поездках в северо-западной части Атланты; доступ ограничен персоналом и их близкими. Это иной этап внедрения, чем ранее описанный коммерческий запуск Pony.ai и Toyota в Гуанчжоу."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Компания не раскрыла для Атланты число машин, пробег или сопоставимую статистику происшествий. Оценку изменят запуск ранней пассажирской программы, условия доступа, зона обслуживания и результаты проверок безопасности."
+        }
+      ],
+      "sources": [
+        "https://waymo.com/blog/2026/09/opening-tokyo-in-2027-with-nihon-kotsu-go/",
+        "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+        "https://waymo.com/blog/shorts/safetydata-september26/",
+        "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/Waymo_Safety_Impact_Data_Hub_Release_Notes_20260924.pdf",
+        "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/",
+        "https://www.tesla.com/robotaxi/safety",
+        "https://apnews.com/article/df655739f3881e2025c873c13b1fed70",
+        "https://maymobility.com/en/news/may-mobility-plans-to-bring-autonomous-volkswagen-id-buzz-vehicles-to-global-robotaxi-platforms",
+        "https://blog.pony.ai/pony-ai-and-toyota-launch-fully-driverless-commercial-services-with-gen-7-bz4x-robotaxi/",
+        "https://zoox.com/journal/atlanta-expansion-robotaxi"
+      ],
+      "source_titles": {
+        "https://waymo.com/blog/2026/09/opening-tokyo-in-2027-with-nihon-kotsu-go/": "Waymo — подготовка к запуску в Токио в 2027 году",
+        "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/": "Google DeepMind — Genie 3",
+        "https://waymo.com/blog/shorts/safetydata-september26/": "From the road — September 24, 2026",
+        "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/Waymo_Safety_Impact_Data_Hub_Release_Notes_20260924.pdf": "Waymo Safety Impact Data Hub Release Notes, September 24, 2026",
+        "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/": "Tesla объявила о запуске Robotaxi в Сан-Антонио",
+        "https://www.tesla.com/robotaxi/safety": "Tesla Robotaxi Safety Report",
+        "https://apnews.com/article/df655739f3881e2025c873c13b1fed70": "Associated Press",
+        "https://maymobility.com/en/news/may-mobility-plans-to-bring-autonomous-volkswagen-id-buzz-vehicles-to-global-robotaxi-platforms": "May Mobility Plans to Bring Autonomous Volkswagen ID. Buzz Vehicles to Global Robotaxi Platforms",
+        "https://blog.pony.ai/pony-ai-and-toyota-launch-fully-driverless-commercial-services-with-gen-7-bz4x-robotaxi/": "Pony.ai and Toyota Launch Fully Driverless Commercial Services with Gen-7 bZ4X Robotaxi",
+        "https://zoox.com/journal/atlanta-expansion-robotaxi": "Zoox robotaxi is now driving in Atlanta"
+      },
+      "publication_dates": {
+        "2026-11-13": 1,
+        "2026-11-16": 2,
+        "2026-11-12": 1,
+        "2026-11-09": 1,
+        "2026-09-24": 1
+      }
+    },
+    {
+      "topic": "Пять технологических прорывов",
+      "updated_at": "2026-11-16T11:50:35.184Z",
+      "changes": "К прежнему обзору AlphaEvolve, SIMA 2 и эксперимента LLNL добавлены ранее пропущенные публикации: формальная проверка libsignal с AlphaProof Code и открытый выпуск робототехнической модели Praxis-1. Добавлена рецензированная работа по автономной коррекции ошибок квантовой памяти.\n\nК результату по квантовой памяти добавлен лабораторный опыт с новой архитектурой сверхпроводящих магнитных датчиков.\n\nК прежним результатам квантовой памяти и датчиков добавлены измерение температуры электронов на LM26 и заявленное IBM ускорение эксперимента на Nighthawk r2.\n\nДобавлено заявление Qunova от 12 ноября о гибридном расчёте 4Fe–4S и сопоставление с ранее опубликованным препринтом.\n\nДобавлен метод Tessa: автор сообщил о кодировании и восстановлении 1568 числовых значений на квантовом процессоре; Moth разъяснила результат 16 ноября.",
+      "conclusion": "Оба результата расширяют набор проверяемых применений ИИ, но формальное доказательство ограничено спецификацией, а успех в симуляции не равен готовности робота к эксплуатации. Энергетические и биомедицинские сроки эти результаты сами по себе не меняют. К прежним примерам ИИ и робототехники добавлен лабораторный результат в квантовой памяти; сроки практического масштабирования остаются неопределёнными.\n\nЭксперимент расширяет набор возможных архитектур квантовых сенсоров, но не подтверждает готовность медицинского прибора или сроки коммерциализации.\n\nОба результата расширяют экспериментальную базу, но нагрев плазмы не равен энергетической окупаемости, а ускорение относительно прежнего квантового чипа не доказывает превосходства над классическими системами.\n\nЗаявленная химическая точность относится к экстраполяции; наблюдавшийся результат прежнего расчёта до неё не дотягивает. Превосходство над лучшими классическими системами не установлено.\n\nTessa расширяет экспериментальные возможности загрузки данных на квантовый чип, но результаты являются авторскими и не доказывают практического квантового преимущества. Как и в ранее рассмотренных результатах IBM и Qunova, важны воспроизводимость, точность и полная стоимость.",
+      "details": [
+        {
+          "heading": "Алгоритмы и роботизация",
+          "text": "Алгоритмический поиск легче проверять, если качество можно измерить программой. Для роботизации ещё важны надёжные действия в новых физических условиях и экономика обслуживания."
+        },
+        {
+          "heading": "Энергия и материалы",
+          "text": "Экспериментальный термоядерный результат показывает физическую возможность при конкретных условиях. Для энергетики нужны отдельные измерения всей установки и повторяемости. Для новых материалов важны независимое воспроизведение и свойства в рабочих условиях."
+        },
+        {
+          "heading": "Биотехнологии и пересмотр сроков",
+          "text": "Переход к практическому применению зависит от измеримых результатов исследований и подтверждённой безопасности. Пока для отдельных направлений нет сопоставимых новых данных, сохраняется высокая неопределённость их сроков."
+        },
+        {
+          "heading": "Новые результаты и ограничения",
+          "text": "AlphaProof Code использует проверку доказательств в Lean для заданных свойств кода; Praxis-1 сочетает предсказание видео и действий, а её показатели RoboLab-120 получены в симуляции. Оба результата сообщены разработчиками и требуют дальнейшего независимого изучения."
+        },
+        {
+          "heading": "Что изменит оценку",
+          "text": "Перенос формальной проверки на другие промышленные проекты и независимые испытания роботов в рабочих условиях с измерением надёжности и стоимости."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Авторы Nature Physics сообщили об увеличении времени жизни логического кубита в состояниях удерживаемого иона при применении коррекции без измерения синдрома и обратной связи."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Результат получен для одного логического кубита и конкретных шумов; он не доказывает готовность масштабируемого компьютера. Оценку изменят воспроизведение и демонстрации операций на нескольких кубитах."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Статья Physical Review Applied описывает массивы с контурами без джозефсоновских переходов и экспериментальную проверку предсказанного поведения."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Результат получен на изготовленных массивах при низких температурах; оценку изменят независимое воспроизведение, количественные сравнения чувствительности и испытания в прикладных условиях."
+        },
+        {
+          "heading": "Новые факты",
+          "text": "LM26: 1090 ± 40 эВ для электронов в описанном эксперименте; IBM сообщает о 12-кратном ускорении одной нагрузки относительно Heron. Обе оценки сообщены участниками проектов."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Для синтеза нужны повторяемость и совместная оценка температуры, плотности и удержания; для квантового процессора — независимые сравнения, метрики ошибок и проверка других задач. Более 1000 кубитов IBM относит к плану на 2027 год."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Компания заявляет экстраполированную энергию −327,2482 ± 0,0007 Hartree при классическом эталоне −327,2471; прежний препринт сообщает около −327,1757 после 32 итераций."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Метод новой экстраполяции и полная стоимость требуют проверки. Вывод изменят подробная публикация, независимое воспроизведение и сравнение общих затрат с классическим DMRG."
+        },
+        {
+          "heading": "Данные нового эксперимента",
+          "text": "В препринте автор сообщает о парном кодировании 1568 значений на 120-кубитном Phoenix при 8192 измерениях на базис. Для яркостной компоненты средняя абсолютная ошибка устройства до коррекции составила 0,152 против 0,059 в модели локального шума."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Сравнение числа значений с прежними работами зависит от определения допустимого метода, а точность и стоимость измерений различаются. Вывод изменят независимое воспроизведение, рецензирование и проверка метода в полноценном алгоритме с учётом всех затрат."
+        }
+      ],
+      "sources": [
+        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+        "https://lasers.llnl.gov/science/achieving-fusion-ignition",
+        "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/",
+        "https://deepmind.google/blog/introducing-alphaproof-code/",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf",
+        "https://runway.com/news/company-news/praxis-1-is-now-available",
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control",
+        "https://www.nature.com/articles/s41567-026-03486-y",
+        "https://journals.aps.org/prapplied/abstract/10.1103/wc1k-wxtc",
+        "https://adelaide.edu.au/about/news/2026/tiny-quantum-breakthrough-with-big-implications-for-medicine-and/",
+        "https://www.gov.uk/government/news/ukaea-general-fusion-announce-magnetised-target-fusion-milestone",
+        "https://generalfusion.com/post/thomson-scattering-measurement-of-1-kev-electron-temperature-on-lawson-machine-26/",
+        "https://newsroom.ibm.com/2026-11-11-ibm-quantum-nighthawk-demonstrates-new-levels-of-speed-and-quality,-with-plans-to-scale-beyond-1,000-qubits-in-2027",
+        "https://qunovacomputing.com/news/148",
+        "https://arxiv.org/abs/2601.06935",
+        "https://www.quantum-brief.com/blog/news-2026-11-15-qunova-hivqe-iron-sulfur/",
+        "https://mothquantum.com/news/2026/11/16/tessa-loading-data-onto-real-quantum-chips",
+        "https://arxiv.org/abs/2611.18440"
+      ],
+      "source_titles": {
+        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/": "Google DeepMind — AlphaEvolve",
+        "https://lasers.llnl.gov/science/achieving-fusion-ignition": "LLNL — Achieving Fusion Ignition",
+        "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/": "Google DeepMind — SIMA 2",
+        "https://deepmind.google/blog/introducing-alphaproof-code/": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf": "AlphaProof Code: Verifying Signal’s Security at the Machine-Code Level",
+        "https://runway.com/news/company-news/praxis-1-is-now-available": "Praxis-1 Is Now Available",
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control": "Praxis-1: From Video Pretraining to Robot Control",
+        "https://www.nature.com/articles/s41567-026-03486-y": "Beating the break-even point with autonomous quantum error correction",
+        "https://journals.aps.org/prapplied/abstract/10.1103/wc1k-wxtc": "Исследователи испытали новую конструкцию сверхпроводящего магнитного датчика",
+        "https://adelaide.edu.au/about/news/2026/tiny-quantum-breakthrough-with-big-implications-for-medicine-and/": "Tiny quantum breakthrough with big implications for medicine and technology",
+        "https://www.gov.uk/government/news/ukaea-general-fusion-announce-magnetised-target-fusion-milestone": "General Fusion и UKAEA измерили нагрев электронов плазмы на LM26",
+        "https://generalfusion.com/post/thomson-scattering-measurement-of-1-kev-electron-temperature-on-lawson-machine-26/": "Thomson Scattering Measurement of 1 keV Electron Temperature on Lawson Machine 26",
+        "https://newsroom.ibm.com/2026-11-11-ibm-quantum-nighthawk-demonstrates-new-levels-of-speed-and-quality,-with-plans-to-scale-beyond-1,000-qubits-in-2027": "IBM сообщила об ускорении квантового эксперимента на Nighthawk r2",
+        "https://qunovacomputing.com/news/148": "Qunova Sets a New Benchmark for Quantum Chemistry, Matching the Best Classical Methods on a Landmark Iron-Sulfur Problem",
+        "https://arxiv.org/abs/2601.06935": "Extending the Handover-Iterative VQE to Challenging Strongly Correlated Systems: N2 and Fe-S Cluster",
+        "https://www.quantum-brief.com/blog/news-2026-11-15-qunova-hivqe-iron-sulfur/": "Qunova says it matched the best classical chemistry on an iron-sulfur cluster, and its measured energy sits 64 millihartree above the reference",
+        "https://mothquantum.com/news/2026/11/16/tessa-loading-data-onto-real-quantum-chips": "Moth: Tessa: loading a record amount of data onto real quantum chips",
+        "https://arxiv.org/abs/2611.18440": "Tessa: Encoding Classical Data Across an Entire Quantum Processor"
+      },
+      "publication_dates": {
+        "2026-11-16": 1,
+        "2026-11-12": 1,
+        "2026-10-08": 1,
+        "2026-11-11": 1,
+        "2026-10-26": 1,
+        "2026-10-23": 1
+      }
     }
   ]
 }

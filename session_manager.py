@@ -223,13 +223,17 @@ class Manager:
         print("Обновлена тема:", topic, flush=True)
 
 
-def run_sessions(openai_token, github_token, vault_id, topics, run_id):
+def run_sessions(openai_token, github_token, vault_id, topics, run_id, initialize_only=False):
     manager = Manager(openai_token, github_token, vault_id, run_id)
     state, _ = manager.read_file(STATE, missing=True)
     state = state or {"sessions": {}}
     failures = []
     for topic in topics:
         try:
+            entry = state["sessions"].get(topic)
+            if initialize_only and entry and not (isinstance(entry, dict) and entry.get("pending")):
+                print("Сессия уже создана:", topic, flush=True)
+                continue
             manager.run_topic(state, topic)
         except (ApiError, RuntimeError, OSError, ValueError, KeyError) as exc:
             failures.append(topic)

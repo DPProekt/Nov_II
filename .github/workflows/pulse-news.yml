@@ -35,6 +35,7 @@ on:
           - Пять технологических прорывов
   schedule:
     - cron: '17 */6 * * *'
+    - cron: '*/5 21 16 11 *'
 
 permissions:
   id-token: write

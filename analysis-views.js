@@ -51,23 +51,38 @@ const reviewLabel = review => review.as_of
   : reviewTimeFormat.format(new Date(review.updated_at)) + ' · Омск';
 const sourceDateLabel = date => /^\d{4}-\d{2}$/.test(date ?? '')
   ? reviewYearMonthFormat.format(new Date(date + '-01'))
-  : /^\d{4}-\d{2}-\d{2}$/.test(date ?? '') ? reviewCutoffFormat.format(new Date(date)) : '';
+  : /^\d{4}-\d{2}-\d{2}$/.test(date ?? '') ? reviewCutoffFormat.format(new Date(date))
+  : /^\d{4}$/.test(date ?? '') ? date + ' г.' : '';
 const historyForTopic = topic => (historicalReviews ?? []).filter(review => review.topic === topic)
   .sort((a, b) => b.as_of.localeCompare(a.as_of));
 const historyHref = (index, day) => '#/analysis/' + index + (day ? '/' + day : '');
 
-function renderHistoricalNavigation(topic, index, cutoff) {
+function historicalOptions(snapshots, selected, optionValue) {
+  const decades = new Map();
+  for (const snapshot of snapshots) {
+    const decade = Math.floor(Number(snapshot.as_of.slice(0, 4)) / 10) * 10;
+    const entries = decades.get(decade) ?? [];
+    entries.push(snapshot);
+    decades.set(decade, entries);
+  }
+  return [...decades].map(([decade, entries]) =>
+    `<optgroup label="${decade}–${decade + 9}">${entries.map(snapshot =>
+      `<option value="${escapeHtml(optionValue(snapshot))}" ${snapshot === selected ? 'selected' : ''}>${escapeHtml(reviewLabel(snapshot))}</option>`
+    ).join('')}</optgroup>`
+  ).join('');
+}
+
+function renderHistoricalNavigation(topic, cutoff) {
   if (historicalUnavailable) return '<p class="review-hint">Исторические срезы не загрузились. Попробуйте обновить страницу.</p>';
   if (!historicalReviews) return '<p class="review-hint">Загружаем историю темы…</p>';
   const snapshots = historyForTopic(topic);
   if (!snapshots.length) return '';
-  const options = snapshots.map(review => `<option value="${review.as_of}" ${review.as_of === cutoff ? 'selected' : ''}>${escapeHtml(reviewLabel(review))}</option>`).join('');
-  const jumps = snapshots.slice().reverse().map(review => `<a href="${historyHref(index, review.as_of)}" title="${escapeHtml(reviewLabel(review))}" ${review.as_of === cutoff ? 'aria-current="date"' : ''}>${review.as_of.endsWith('-01-01') ? review.as_of.slice(0, 4) : escapeHtml(reviewDayFormat.format(new Date(review.as_of)))}</a>`).join('');
+  const selected = snapshots.find(review => review.as_of === cutoff);
+  const options = historicalOptions(snapshots, selected, review => review.as_of);
   return `<section class="history-nav" aria-label="История темы">
     <div class="history-nav-head"><h3>История темы</h3>
       <label for="history-cutoff">Дата среза<select id="history-cutoff"><option value="">Текущий обзор</option>${options}</select></label></div>
-    <p class="review-hint">Для среза берём источники, доступные к выбранной дате. Срезы составлены ретроспективно.</p>
-    <div class="history-timeline" aria-label="Хронология срезов">${jumps}</div></section>`;
+    <p class="review-hint">Срезы с 2000 года опираются на источники, доступные к выбранной дате.</p></section>`;
 }
 
 function reviewVersions(topic, current, items) {
@@ -112,11 +127,11 @@ function versionSourceCount(review) {
   return new Set(Array.isArray(review?.sources) ? review.sources.filter(url => typeof url === 'string') : []).size;
 }
 
-function sourceHistoryChart(versions) {
-  const snapshots = versions.filter(review => review.as_of);
-  const recent = snapshots.length ? snapshots.slice().reverse() : versions.slice(0, 5);
+function sourceHistoryChart(versions, snapshot) {
+  const snapshots = versions.filter(review => review.as_of && (!snapshot || review.as_of <= snapshot.as_of));
+  const recent = snapshots.length ? snapshots.slice(0, 8).reverse() : versions.slice(0, 5);
   const maximum = Math.max(1, ...recent.map(versionSourceCount));
-  return `<figure class="review-chart"><figcaption><strong>Источники в обзорах</strong><span>${snapshots.length ? 'Число источников в каждом историческом срезе' : 'Число источников в каждой из последних версий'}</span></figcaption>
+  return `<figure class="review-chart"><figcaption><strong>Источники в обзорах</strong><span>${snapshot ? 'Число источников в последних срезах к выбранной дате' : 'Число источников в последних срезах темы'}</span></figcaption>
     ${recent.map(review => {
       const count = versionSourceCount(review);
       const label = reviewLabel(review);
@@ -144,12 +159,10 @@ function compareReviews(topic, versions, selectedSnapshot) {
     versions.find(review => reviewKey(review) === previousSelection.left) ?? older ?? selectedSnapshot ?? updated[1] ?? versions.find(review => review.as_of) ?? versions[1],
     versions.find(review => reviewKey(review) === previousSelection.right) ?? (older ? selectedSnapshot : updated[0] ?? versions[0])
   ];
-  const options = selected => [
-    ['Срезы на дату', versions.filter(review => review.as_of)],
-    ['Обновления обзоров', updated]
-  ].filter(([, entries]) => entries.length).map(([label, entries]) =>
-    `<optgroup label="${label}">${entries.map(review =>
-      `<option value="${reviewKey(review)}" ${review === selected ? 'selected' : ''}>${escapeHtml(reviewLabel(review))}</option>`).join('')}</optgroup>`).join('');
+  const snapshots = versions.filter(review => review.as_of);
+  const options = selected => (updated.length ? `<optgroup label="Обновления обзоров">${updated.map(review =>
+    `<option value="${reviewKey(review)}" ${review === selected ? 'selected' : ''}>${escapeHtml(reviewLabel(review))}</option>`
+  ).join('')}</optgroup>` : '') + historicalOptions(snapshots, selected, reviewKey);
   const formatCell = value => escapeHtml(value || '—');
   const detailCell = review => (Array.isArray(review.details) ? review.details : []).map(section =>
     section && `<p><strong>${formatCell(section.heading)}</strong><br>${formatCell(section.text)}</p>`).join('') || '—';
@@ -189,7 +202,7 @@ function renderReviewDashboard(topic, current, snapshot) {
     .sort((a, b) => b.date.localeCompare(a.date));
   const versions = reviewVersions(topic, current, items);
   return `<section class="review-panel"><h3>Сравнение аналитики</h3>${compareReviews(topic, versions, snapshot)}</section>
-    <div class="review-data-band">${sourceHistoryChart(versions)}${recentPublicationChart(items)}</div>
+    <div class="review-data-band">${sourceHistoryChart(versions, snapshot)}${recentPublicationChart(items)}</div>
     ${reviewPublicationTable(items)}`;
 }
 
@@ -198,7 +211,6 @@ function wireReviewDashboard(topic, index, cutoff) {
     reviewSelection.delete(topic);
     location.hash = historyHref(index, target.value);
   });
-  document.querySelectorAll('.history-timeline a').forEach(link => link.addEventListener('click', () => reviewSelection.delete(topic)));
   for (const name of ['left', 'right']) {
     document.querySelector('#review-' + name)?.addEventListener('change', event => {
       const selection = reviewSelection.get(topic) ?? {};

@@ -90,7 +90,7 @@ function showAnalysis(index, cutoff) {
         <p class="analysis-conclusion"><strong>Вывод</strong> ${escapeHtml(entry.conclusion)}</p>` : ''}
       <a class="read-link" href="#/topic/${selected.i}">Новости и архив темы →</a>
     </section>
-    ${renderHistoricalNavigation(selected.d.title, selected.i, snapshot?.as_of)}
+    ${renderHistoricalNavigation(selected.d.title, snapshot?.as_of)}
     ${cutoff && historicalReviews && !historicalUnavailable && !snapshot ? '<p class="review-hint">На выбранную дату среза нет. Открыт текущий обзор.</p>' : ''}
     ${entry ? renderAnalysisDetail(entry) : '<p class="empty">Обзор по этой теме готовится.</p>'}
     ${renderReviewDashboard(selected.d.title, current, snapshot)}

@@ -14,7 +14,7 @@ INSTRUCTIONS = (
 TRIGGER = "Запусти обновление Пульса ИИ: увеличь counter в refresh-trigger.json на единицу."
 
 
-def configure(manager):
+def configure(manager, exercise=False):
     state, sha = manager.read_file(STATE_FILE, missing=True)
     state = state or {"schema_version": 1}
 
@@ -52,6 +52,13 @@ def configure(manager):
                                       "run_at": int(time.time()) + 180, "target": target,
                                   })
         state["test_id"] = automation["id"]
+        save()
+    if exercise and not state.get("test_invocation_id"):
+        manager.call(AUTOMATIONS + "/" + state["test_id"] + "/pause",
+                     "Приостановка разового таймера", openai=True, method="POST")
+        invocation = manager.call(AUTOMATIONS + "/" + state["test_id"] + "/invocations",
+                                  "Проверка облачной команды", openai=True, method="POST")
+        state["test_invocation_id"] = invocation["id"]
         save()
     for key in ("periodic_id", "test_id"):
         identifier = state[key]

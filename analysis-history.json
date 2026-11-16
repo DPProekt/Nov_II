@@ -3220,6 +3220,79 @@
         "2026-10-26": 1,
         "2026-10-23": 1
       }
+    },
+    {
+      "topic": "Новости GPT",
+      "updated_at": "2026-11-16T12:08:39.778Z",
+      "changes": "OpenAI представила профили компаний и бизнес-агентов в ChatGPT, а затем ChatGPT Wallet для покупок через агента с подтверждением пользователя. Добавлена модель GPT-6.1 Terra и её системная карта от 26 октября.\n\nК обзору GPT-6.1 Terra и агентных функций добавлен запуск специализированной модели GPT-6 Cyber.\n\nOpenAI и медиаподразделение LVMH объявили о представлении материалов группы в ChatGPT и внедрении ChatGPT Enterprise в редакционные процессы.",
+      "conclusion": "Направление развития — от ответа в чате к действиям с участием пользователя. Для оценки прогресса важны условия доступа, точность действий и возможность проверить или отменить ошибку. Помимо ранее рассмотренных продуктовых функций ChatGPT появилась более дешёвая модель для визуальных и компьютерных задач; заявления о качествах и безопасности требуют независимой проверки.\n\nСпециализация улучшила заявленный разработчиком результат на заданном тесте, но доступ ограничен и заявленная безопасность зависит от условий применения и защитных мер.\n\nПартнёрство расширяет заявленный доступ к издательскому контенту, но его влияние на точность ответов и аудиторию пока не измерено.",
+      "details": [
+        {
+          "heading": "Два этапа коммерческого сценария",
+          "text": "Бизнес-профиль даёт пользователю сведения о компании и возможность задать вопросы её агенту. Wallet добавляет отдельный этап оплаты с подтверждением заказа, когда пользователь и способ оплаты соответствуют условиям."
+        },
+        {
+          "heading": "Где остаётся человеческий контроль",
+          "text": "Пользователь проверяет детали перед оплатой. Для оценки работы полезно измерять, сколько заказов агент подготовил корректно, сколько пользователь отменил и сколько завершились возвратом или спором."
+        },
+        {
+          "heading": "Что изменит вывод",
+          "text": "Расширение доступности по странам и типам продавцов, статистика завершённых покупок и изменения механизма подтверждения дадут основания пересмотреть оценку внедрения."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Модель доступна через API и в ChatGPT Work и Codex для указанных тарифов; стандартная стоимость — 1 доллар за миллион входных и 5 долларов за миллион выходных токенов."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Цена не включает всех затрат на выполнение задачи, а тесты и классификация риска принадлежат OpenAI. Оценку изменят независимые проверки и практические результаты."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "OpenAI сообщила 48,5% на ExploitGym против 32,1% у GPT-5.6 Cyber и первоначальный доступ для выбранных одобренных клиентов Daybreak Red."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Показатель получен на тесте разработчика и не гарантирует корректной работы вне него; оценку изменят независимые испытания и сведения о фактических исправлениях."
+        },
+        {
+          "heading": "Издательский контент в ChatGPT",
+          "text": "В ответах на соответствующие запросы планируются резюме и фрагменты материалов изданий с указанием источника и прямой ссылкой. Для сотрудников медиагруппы предусмотрены ChatGPT Enterprise, инструменты поиска и сравнения документов, предварительного перевода и обучение."
+        },
+        {
+          "heading": "Ограничения партнёрства",
+          "text": "Стороны не раскрыли финансовые условия, сроки полного внедрения, долю фактически доступных материалов и показатели качества ссылок или переходов. Планы партнёров нельзя считать доказательством повышения точности и редакционной эффективности."
+        }
+      ],
+      "sources": [
+        "https://openai.com/index/introducing-chatgpt-wallet/",
+        "https://openai.com/ru-RU/index/introducing-businesses-chatgpt/",
+        "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "https://openai.com/index/introducing-gpt-6-cyber/",
+        "https://deploymentsafety.openai.com/gpt-6-cyber",
+        "https://openai.com/index/lvmh-media-division-partnership/",
+        "https://lesechosleparisien.fr/actualites/le-groupe/le-pole-medias-de-lvmh-annonce-un-partenariat-strategique-avec-openai/",
+        "https://www.leparisien.fr/high-tech/intelligence-artificielle-le-parisien-et-les-medias-du-groupe-lvmh-signent-un-partenariat-avec-openai-16-11-2026-3SN5FRYKKJH2PC44VTDISBJMUI.php"
+      ],
+      "source_titles": {
+        "https://openai.com/index/introducing-chatgpt-wallet/": "OpenAI — ChatGPT Wallet",
+        "https://openai.com/ru-RU/index/introducing-businesses-chatgpt/": "OpenAI — бизнес в ChatGPT",
+        "https://openai.com/index/introducing-gpt-6-1-terra/": "Introducing GPT-6.1 Terra",
+        "https://deploymentsafety.openai.com/gpt-6-1-terra": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+        "https://openai.com/index/introducing-gpt-6-cyber/": "OpenAI представила GPT-6 Cyber для ограниченного круга специалистов",
+        "https://deploymentsafety.openai.com/gpt-6-cyber": "GPT-6 Cyber System Card",
+        "https://openai.com/index/lvmh-media-division-partnership/": "LVMH’s Media Division announces strategic partnership with OpenAI",
+        "https://lesechosleparisien.fr/actualites/le-groupe/le-pole-medias-de-lvmh-annonce-un-partenariat-strategique-avec-openai/": "Le pôle médias de LVMH annonce un partenariat stratégique avec OpenAI",
+        "https://www.leparisien.fr/high-tech/intelligence-artificielle-le-parisien-et-les-medias-du-groupe-lvmh-signent-un-partenariat-avec-openai-16-11-2026-3SN5FRYKKJH2PC44VTDISBJMUI.php": "Le Parisien et les médias du groupe LVMH signent un partenariat avec OpenAI"
+      },
+      "publication_dates": {
+        "2026-11-16": 1,
+        "2026-11-05": 1,
+        "2026-10-26": 1,
+        "2026-11-13": 1,
+        "2026-11-10": 1
+      }
     }
   ]
 }

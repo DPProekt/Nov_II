@@ -3,6 +3,10 @@ name: Пульс ИИ — обновление новостей
 on:
   workflow_dispatch:
     inputs:
+      continue_pilot:
+        description: Продолжить проверочную сессию по мышлению ИИ
+        type: boolean
+        default: false
       since:
         description: Начальная дата поиска YYYY-MM-DD, необязательно
         type: string
@@ -44,6 +48,7 @@ jobs:
       PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
       PULSE_SEARCH_TOPIC: ${{ inputs.topic }}
       PULSE_SEARCH_SINCE: ${{ inputs.since }}
+      PULSE_CONTINUE_PILOT: ${{ inputs.continue_pilot }}
     steps:
       - name: Сохранить текущую аналитику и подготовить выпуск
         env:
@@ -55,6 +60,7 @@ jobs:
           import json
           import os
           import re
+          import time
           from collections import Counter
           from datetime import date, datetime, timedelta, timezone
           from urllib.error import HTTPError, URLError
@@ -263,6 +269,33 @@ jobs:
                   "service_account_id": account,
               },
           )["access_token"]
+
+          if os.environ.get("PULSE_CONTINUE_PILOT") == "true":
+              session_id = "sess_0109c33b7d048d06006afac72f6b488194afc57f0e935e7449"
+              base = "https://api.openai.com/v1/agents/sessions/" + session_id
+              api_headers = {"OpenAI-Beta": "agents=v1", "OpenAI-Project": "proj_2yk5sqnjXZpYTzF9fngNiYB0"}
+              before = get_json(base, "Чтение сессии", token=openai_token, headers=api_headers)
+              if before.get("status") != "idle":
+                  raise SystemExit("Сессия занята. Сообщение не отправлено.")
+              get_json(
+                  base + "/events", "Отправка обновления", token=openai_token,
+                  headers={**api_headers, "Idempotency-Key": "pulse-" + os.environ["GITHUB_RUN_ID"]},
+                  data={"events": [{"type": "agent.session.input.message", "input": [
+                      {"role": "user", "content": [{"type": "input_text", "text": "обнови"}]}
+                  ]}]},
+              )
+              print("Отправлено сообщение «обнови» в прежнюю сессию агента.")
+              deadline = time.monotonic() + 300
+              while time.monotonic() < deadline:
+                  time.sleep(5)
+                  session = get_json(base, "Проверка сессии", token=openai_token, headers=api_headers)
+                  status = session.get("status")
+                  if status in ("failed", "cancelled"):
+                      raise SystemExit("Сессия агента завершилась с ошибкой: " + status)
+                  if status == "idle":
+                      print("Сессия завершила обновление. Проверьте её последний ответ и news.json.")
+                      raise SystemExit(0)
+              raise SystemExit("Истекло время ожидания сессии. Повторную отправку необходимо сверить с историей.")
 
           topics = {
               "Подробные новости ИИ": "новые модели искусственного интеллекта, исследования, оценки и реальные внедрения",

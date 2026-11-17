@@ -202,29 +202,43 @@ function renderNews(topicName){
   return `<section class="news-period" aria-label="Лента по времени"><h2 class="section-title">${topicName?'Новые материалы по теме':'Лента новостей'}</h2><div class="period-controls" role="group" aria-label="Период новостей">${buttons}</div><div class="period-nav"><button type="button" data-news-page="older">← ${older}</button><span>${escapeHtml(periodLabel)} · Омск</span><button type="button" data-news-page="newer" ${newsPage===0?'disabled':''}>${newer} →</button></div><p class="period-note">${note}</p>${newsHighlights(candidates, periodLabel)}<div aria-live="polite">${candidates.length?feedCards(candidates):'<p class="empty">За выбранный период материалов пока нет.</p>'}</div></section>`
 }
 function wireNews(){root.querySelectorAll('[data-news-view]').forEach(b=>b.addEventListener('click',()=>{newsView=b.dataset.newsView;newsPage=0;newsAnchor=Date.now();render()}));root.querySelectorAll('[data-news-page]').forEach(b=>b.addEventListener('click',()=>{newsPage=Math.max(0,newsPage+(b.dataset.newsPage==='older'?1:-1));render()}))}
+const editionDay = new Intl.DateTimeFormat('ru-RU', {timeZone: 'Asia/Omsk', day: 'numeric', month: 'long', year: 'numeric'});
+const editionClock = new Intl.DateTimeFormat('ru-RU', {timeZone: 'Asia/Omsk', hour: '2-digit', minute: '2-digit'});
+let updateFilter = 'all';
+function answerPreview(text) {
+  const clean = text.replace(/url([^]+)[^]*/g, '$1').replace(/[^]*/g, '')
+    .replace(/:chatgpt-content-reference\{[^}]*\}/g, '').replace(/\[([^\]]+)\]\(https?:\/\/[^\s)]+\)/g, '$1')
+    .replace(/https?:\/\/\S+/g, '').replace(/^[\t ]*#{1,6}\s+/gm, '').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
+  return clean.length <= 170 ? clean : clean.slice(0, 170).replace(/\s+\S*$/, '').trimEnd() + '…';
+}
 function showAllUpdates() {
-  const answers = topicEntries().flatMap(({d, i}) => d.messages.filter(message =>
-    typeof message.text === 'string' && Number.isFinite(Number(message.date))
-  ).map(message => ({type: 'answer', time: Number(message.date) * 1000, title: d.title, index: i, message})));
-  const articles = fresh.filter(validNews).map(item => ({
-    type: 'news', time: itemTime(item) ?? Date.parse(item.date + 'T12:00:00+06:00'), item
-  }));
-  const entries = [...answers, ...articles].filter(entry => Number.isFinite(entry.time))
-    .sort((a, b) => b.time - a.time);
+  const answers = topicEntries().flatMap(({d, i}) => d.messages.filter(m => typeof m.text === 'string' && Number.isFinite(Number(m.date)))
+    .map(message => ({type: 'answer', time: Number(message.date) * 1000, title: d.title, index: i, message})));
+  const articles = fresh.filter(validNews).map(item => ({type: 'news', time: itemTime(item) ?? Date.parse(item.date + 'T12:00:00+06:00'), item}));
+  const all = [...answers, ...articles].filter(entry => Number.isFinite(entry.time)).sort((a, b) => b.time - a.time);
+  const entries = all.filter(entry => updateFilter === 'all' || updateFilter === entry.type);
   const visible = entries.slice(0, updateLimit);
-  root.innerHTML = `<section class="updates-page"><a class="back" href="#/">← Главная</a>
-    <h1>Последние обновления</h1><p class="updates-intro">Ответы GPT и новости по всем темам · время Омска</p>
-    <div class="updates-list">${visible.map(entry => {
-      if (entry.type === 'news') return feedCards([entry.item], true);
-      const preview = entry.message.text.replace(/[#*_`\[\]]/g, '').replace(/\s+/g, ' ').trim().slice(0, 200);
-      return `<details class="update-entry"><summary><span class="update-date">${escapeHtml(updateTimeFormat.format(entry.time))}</span>
-        <span><strong>${escapeHtml(entry.title)}</strong><small>${escapeHtml(preview)}${entry.message.text.length > 200 ? '…' : ''}</small></span></summary>
-        <div class="update-content prose"><p><a class="read-link" href="#/topic/${entry.index}">Открыть тему →</a></p>
-          ${renderArticle(entry.message.text)}</div></details>`;
-    }).join('')}</div>
-    ${entries.length > visible.length ? `<button type="button" class="updates-more">Показать ещё</button>` : ''}
-  </section>`;
-  root.querySelector('.updates-more')?.addEventListener('click', () => { updateLimit += 30; showAllUpdates(); });
+  let previousDay = '';
+  const list = visible.map(entry => {
+    const day = omskDate(entry.time);
+    const heading = day === previousDay ? '' : `<h2 class="edition-day"><span>${escapeHtml(editionDay.format(entry.time))}</span></h2>`;
+    previousDay = day;
+    if (entry.type === 'news') return heading + feedCards([entry.item], true);
+    return heading + `<details class="update-entry"><summary><span class="update-date"><span class="kind-label">Ответ GPT</span><time datetime="${new Date(entry.time).toISOString()}" aria-label="${escapeHtml(updateTimeFormat.format(entry.time))}">${escapeHtml(editionClock.format(entry.time))}</time></span>
+      <span class="summary-copy"><strong>${escapeHtml(entry.title)}</strong><small>${escapeHtml(answerPreview(entry.message.text))}</small></span><span class="disclosure" aria-hidden="true"></span></summary>
+      <div class="update-content prose"><p><a class="read-link" href="#/topic/${entry.index}">Все материалы по теме →</a></p>${renderArticle(entry.message.text)}</div></details>`;
+  }).join('');
+  root.innerHTML = `<section class="updates-page"><header class="edition-hero"><div class="overline">Хроника / Все темы</div><h1>Последние обновления</h1><p class="updates-intro">Ответы агента и статьи со ссылками на источники. Даты и время — по Омску.</p></header>
+    <div class="edition-controls" role="group" aria-label="Тип материала">${[['all','Все'],['answer','Ответы GPT'],['news','Статьи']].map(([id,label])=>`<button type="button" data-edition-filter="${id}" aria-pressed="${updateFilter === id}">${label}</button>`).join('')}</div>
+    <div class="updates-list">${list || '<p class="empty">В этой ленте пока нет материалов.</p>'}</div>${entries.length > visible.length ? '<button type="button" class="updates-more">Показать ещё</button>' : ''}</section>`;
+  root.querySelectorAll('[data-edition-filter]').forEach(button => button.addEventListener('click', () => {
+    updateFilter = button.dataset.editionFilter; updateLimit = 30; showAllUpdates(); root.querySelector(`[data-edition-filter="${updateFilter}"]`).focus({preventScroll:true});
+  }));
+  root.querySelector('.updates-more')?.addEventListener('click', () => {
+    const firstNew = visible.length; updateLimit += 30; showAllUpdates();
+    const target = root.querySelectorAll('.updates-list > :is(details,article)')[firstNew];
+    (target?.querySelector('summary,a') || root.querySelector('.updates-more'))?.focus({preventScroll:true});
+  });
 }
 async function checkPublishedUpdates() {
   if (!archive || location.hash !== '#/updates' || document.hidden || updatesReading ||
@@ -258,8 +272,8 @@ async function checkPublishedUpdates() {
 }
 document.addEventListener('visibilitychange', checkPublishedUpdates);
 setInterval(checkPublishedUpdates, 60000);
-function home(){let items=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));root.innerHTML=`<div class="layout"><section><div class="hero"><h1>Новости искусственного интеллекта</h1><p>Исследования, открытия и прогнозы — важные события развития ИИ и их влияние на будущее.</p></div><form class="search" role="search"><input id="search" type="search" aria-label="Поиск по архиву" placeholder="Поиск по архиву: новости, модели, прогнозы..." value="${escapeHtml(query)}"></form>${renderNews()}<h2 class="section-title">Архив подборок из чатов</h2><div id="results">${items.length?rows(items):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'}</div>${graph()}</section>${side()}</div>`;wireNews();document.querySelector('.search').addEventListener('submit',e=>e.preventDefault());document.querySelector('#search').addEventListener('input',e=>{query=e.target.value;let matches=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));document.querySelector('#results').innerHTML=matches.length?rows(matches):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'})}
-function topic(i){i=topicIndex(i);let d=topicDocument(i);if(!d){home();return}root.innerHTML=`<section class="article-top"><a class="back" href="#/">← Все материалы</a><h1>${escapeHtml(d.title)}</h1><p><a class="read-link" href="#/analysis/${i}">Аналитика темы →</a></p><div class="meta">${labels[i]} · последнее изменение чата ${date(d.updatedAt)}</div><div class="status">Это сохранённые ответы из чата GPT. Сообщения и прогнозы не проверены повторно и могут устареть. Встроенные ссылки на конкретные источники сохранены, где они доступны.</div></section><div class="article-body">${renderNews(d.title)}${i===8?graph():''}${d.note?`<div class="status">${escapeHtml(d.note)}</div>`:""}${d.messages.map((m,n)=>`<section class="message"><div class="message-date">Ответ ${n+1} · ${date(m.date)}</div>${m.truncated?'<div class="status">Ответ получен не полностью: показаны первые 20 000 символов.</div>':''}<div class="prose">${renderArticle(m.text)}</div></section>`).join('')}</div>`;wireNews()}
+function home(){let items=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));root.innerHTML=`<div class="layout"><section><div class="hero"><div class="overline">Обзор / Искусственный интеллект</div><h1>Новости искусственного интеллекта</h1><p>Исследования, открытия и прогнозы — важные события развития ИИ и их влияние на будущее.</p></div><form class="search" role="search"><input id="search" type="search" aria-label="Поиск по архиву" placeholder="Поиск по архиву: новости, модели, прогнозы..." value="${escapeHtml(query)}"></form>${renderNews()}<h2 class="section-title">Архив подборок из чатов</h2><div id="results">${items.length?rows(items):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'}</div>${graph()}</section>${side()}</div>`;wireNews();document.querySelector('.search').addEventListener('submit',e=>e.preventDefault());document.querySelector('#search').addEventListener('input',e=>{query=e.target.value;let matches=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));document.querySelector('#results').innerHTML=matches.length?rows(matches):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'})}
+function topic(i){i=topicIndex(i);let d=topicDocument(i);if(!d){home();return}root.innerHTML=`<section class="article-top"><a class="back" href="#/">← Все материалы</a><h1>${escapeHtml(d.title)}</h1><p><a class="read-link" href="#/analysis/${i}">Аналитика темы →</a></p><div class="meta">${labels[i]} · последнее изменение чата ${date(d.updatedAt)}</div></section><div class="article-body">${renderNews(d.title)}${i===8?graph():''}${d.note?`<div class="status">${escapeHtml(d.note)}</div>`:""}${d.messages.map((m,n)=>`<section class="message"><div class="message-date">Ответ ${n+1} · ${date(m.date)}</div>${m.truncated?'<div class="status">Ответ получен не полностью: показаны первые 20 000 символов.</div>':''}<div class="prose">${renderArticle(m.text)}</div></section>`).join('')}</div>`;wireNews()}
 function render(){if(!archive)return;markCurrentNavigation();const analysisRoute=location.hash.match(/^#\/analysis(?:\/(\d+)(?:\/(\d{4}-\d{2}-\d{2}))?)?$/);if(analysisRoute){showAnalysis(Number(analysisRoute[1]??0),analysisRoute[2]);return;}if(location.hash==='#/updates'){showAllUpdates();return}if(location.hash==='#/forecast'){showForecast();return}let match=location.hash.match(/^#\/topic\/(\d+)$/);if(match)topic(Number(match[1]));else{home();if(location.hash==='#/chart')document.querySelector('#chart')?.scrollIntoView();if(location.hash==='#/topics')document.querySelector('#results')?.scrollIntoView()}}
 function markCurrentNavigation() {
   let route = location.hash || '#/';
@@ -327,4 +341,9 @@ async function refreshNews() {
   }
 }
 window.addEventListener('message',event=>{if(event.origin!==backendOrigin||event.source!==popup)return;if(event.data?.type==='pulse-ready'){const match=location.hash.match(/^#\/(?:topic|analysis)\/(\d+)(?:\/\d{4}-\d{2}-\d{2})?$/);const d=match&&archive&&topicDocument(Number(match[1]));let cutoff=d?new Date(d.updatedAt*1000).toISOString().slice(0,10):'2026-11-14';for(const n of fresh)if(n.topic===selectedTopic&&n.date>cutoff)cutoff=n.date;popup.postMessage({type:'pulse-context',topic:selectedTopic,cutoff},backendOrigin)}else if(event.data?.type==='pulse-news'&&Array.isArray(event.data.items)){const seen=new Set(fresh.map(x=>x.url));let items=event.data.items.filter(x=>{try{return typeof x.title==='string'&&typeof x.summary==='string'&&typeof x.source==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&new URL(x.url).protocol==='https:'&&!seen.has(x.url)}catch{return false}}).map(x=>({...x,topic:selectedTopic}));fresh=[...items,...fresh];try{localStorage.setItem('pulse-ii-news',JSON.stringify(fresh))}catch{updateStatus('Не удалось сохранить новости в браузере.');return}render();updateStatus(items.length?'Добавлено новостей: '+items.length+'. Даты и ссылки следует проверить.':'Новых публикаций по этой теме не найдено.');}});
-document.querySelector('#refresh').addEventListener('click',refreshNews);window.addEventListener('hashchange',()=>{render();if(!['#/chart','#/topics'].includes(location.hash))window.scrollTo(0,0)});fetch('news.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){sharedNews=d.items;newsAnalysis=Array.isArray(d.analysis)?d.analysis:[];combineNews();render()}}).catch(()=>{});fetch('http://127.0.0.1:8766/api/news').then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){localNews=d.items;combineNews();render()}}).catch(()=>{});loadArchive();
+const sizeButton = document.getElementById('reader-size');
+function readerSize(large) { document.documentElement.classList.toggle('large-type', large); sizeButton.setAttribute('aria-pressed', String(large)); }
+try { readerSize(localStorage.getItem('pulse-reading-large') === 'yes'); } catch { readerSize(false); }
+sizeButton.addEventListener('click', () => { const large = sizeButton.getAttribute('aria-pressed') !== 'true'; readerSize(large); try { localStorage.setItem('pulse-reading-large', large ? 'yes' : 'no'); } catch {} });
+document.querySelector('.skip').addEventListener('click', e => { e.preventDefault(); root.focus(); root.scrollIntoView(); });
+document.querySelector('#refresh').addEventListener('click',refreshNews);window.addEventListener('hashchange',()=>{render();if(!['#/chart','#/topics'].includes(location.hash))window.scrollTo(0,0)});fetch('news.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){sharedNews=d.items;newsAnalysis=Array.isArray(d.analysis)?d.analysis:[];combineNews();render()}}).catch(()=>{});if(['localhost','127.0.0.1'].includes(location.hostname))fetch('http://127.0.0.1:8766/api/news').then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){localNews=d.items;combineNews();render()}}).catch(()=>{});loadArchive();

@@ -6,6 +6,10 @@ on:
     paths: [refresh-trigger.json]
   workflow_dispatch:
     inputs:
+      reset_cloud_scheduler:
+        description: Восстановить облачный таймер
+        type: boolean
+        default: false
       retest_cloud_scheduler:
         description: Повторно проверить облачный сигнал агента
         type: boolean
@@ -56,7 +60,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: ${{ (inputs.configure_cloud_scheduler == true || inputs.exercise_cloud_scheduler == true || inputs.retest_cloud_scheduler == true) && 'pulse-ii-cloud-setup' || 'pulse-ii-news' }}
+  group: ${{ (inputs.configure_cloud_scheduler == true || inputs.exercise_cloud_scheduler == true || inputs.retest_cloud_scheduler == true || inputs.reset_cloud_scheduler == true) && 'pulse-ii-cloud-setup' || 'pulse-ii-news' }}
   cancel-in-progress: false
 
 jobs:
@@ -77,6 +81,7 @@ jobs:
       PULSE_CONFIGURE_CLOUD: ${{ inputs.configure_cloud_scheduler }}
       PULSE_EXERCISE_CLOUD: ${{ inputs.exercise_cloud_scheduler }}
       PULSE_RETEST_CLOUD: ${{ inputs.retest_cloud_scheduler }}
+      PULSE_RESET_CLOUD: ${{ inputs.reset_cloud_scheduler }}
     steps:
       - name: Сохранить текущую аналитику и подготовить выпуск
         env:
@@ -326,7 +331,8 @@ jobs:
 
           if (os.environ.get("PULSE_CONFIGURE_CLOUD") == "true" or
                   os.environ.get("PULSE_EXERCISE_CLOUD") == "true" or
-                  os.environ.get("PULSE_RETEST_CLOUD") == "true"):
+                  os.environ.get("PULSE_RETEST_CLOUD") == "true" or
+                  os.environ.get("PULSE_RESET_CLOUD") == "true"):
               def load_program(filename):
                   with request(
                       "https://api.github.com/repos/DPProekt/Nov_II/contents/" + filename + "?ref=" + os.environ["GITHUB_SHA"],
@@ -341,7 +347,8 @@ jobs:
               manager = sessions["Manager"](openai_token, os.environ["PULSE_GITHUB_TOKEN"], vault,
                                             os.environ["GITHUB_RUN_ID"])
               scheduler["configure"](manager, exercise=os.environ.get("PULSE_EXERCISE_CLOUD") == "true",
-                                     retest=os.environ.get("PULSE_RETEST_CLOUD") == "true")
+                                     retest=os.environ.get("PULSE_RETEST_CLOUD") == "true",
+                                     reset=os.environ.get("PULSE_RESET_CLOUD") == "true")
               raise SystemExit(0)
 
           use_sessions = (

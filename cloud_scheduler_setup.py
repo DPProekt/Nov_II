@@ -80,8 +80,10 @@ def configure(manager, exercise=False, retest=False, reset=False):
         state["last_reset_run"] = manager.run_id
         state["last_reset_test_id"] = check["id"]
         save()
-    for key in ("periodic_id", "test_id"):
-        identifier = state[key]
+    for key in ("periodic_id", "test_id", "last_reset_test_id"):
+        identifier = state.get(key)
+        if not identifier:
+            continue
         info = manager.call(AUTOMATIONS + "/" + identifier, "Чтение расписания", openai=True)
         invocations = manager.call(AUTOMATIONS + "/" + identifier + "/invocations?limit=5",
                                    "Чтение запусков расписания", openai=True).get("data", [])

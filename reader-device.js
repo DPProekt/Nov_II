@@ -27,7 +27,8 @@ const ReaderDevice=(()=>{
   const p=await store('readonly',s=>s.get('active'));if(!p?.keys){let e=Error('Этот браузер ещё не подключён.');e.setup=true;throw e}
   const ts=Math.floor(Date.now()/1000),msg=['pulse-reader-v1',j.id,j.topic,ts].join('\n');
   const signature=b64(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},p.keys.privateKey,encoder.encode(msg)));
-  return post(p.origin,'start',{id:j.id,topic:j.topic,key:p.id,ts,signature});
+  const job=await post(p.origin,'start',{id:j.id,topic:j.topic,key:p.id,ts,signature});
+  if(!p.linked){p.linked=true;try{await store('readwrite',s=>s.put(p,'active'))}catch{}}return job;
  }
  return {pair,start,publicCode};
 })();

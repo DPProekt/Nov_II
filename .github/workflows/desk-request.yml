@@ -1,0 +1,44 @@
+name: Запрос обновления с сайта
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+jobs:
+  request:
+    if: github.repository == 'DPProekt/Nov_II' && startsWith(github.event.issue.title, 'Пульс ИИ · обновить ') && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    permissions:
+      actions: write
+      issues: write
+      contents: read
+    steps:
+      - name: Проверить право записи и передать агенту выбранную тему
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, urllib.request
+          from urllib.parse import quote
+          repo='https://api.github.com/repos/DPProekt/Nov_II'
+          def api(path, body=None, method=None):
+              headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+os.environ['GH_TOKEN'],'User-Agent':'Pulse-II'}
+              if body is not None: headers['Content-Type']='application/json'
+              with urllib.request.urlopen(urllib.request.Request(repo+path,headers=headers,data=json.dumps(body).encode() if body is not None else None,method=method),timeout=20) as r:
+                  data=r.read()
+                  return json.loads(data) if data else {}
+          event=json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          issue=event['issue']
+          rid=re.fullmatch(r'Пульс ИИ · обновить ([a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12})',issue['title'])
+          chosen=re.search(r'^Тема: (.+?)\s*$',issue.get('body') or '',re.M)
+          topics={'Все темы','Подробные новости ИИ','Прогноз экономики при быстром развитии ИИ','Развитие мышления ИИ образами','Пересборка прогноза 2026–2050','Новости GPT','Гипербола технологий Капицы с ИИ','Прогноз беспилотных авто','Пять технологических прорывов'}
+          if not rid or not chosen or chosen[1] not in topics: raise SystemExit('Неверный формат запроса.')
+          actor=quote(issue['user']['login'],safe='')
+          if api('/collaborators/'+actor+'/permission').get('permission') not in ('admin','maintain','write'):raise SystemExit('Запуск доступен только редактору.')
+          path='/actions/workflows/pulse-news.yml'
+          recent=api(path+'/runs?event=workflow_dispatch&per_page=40')['workflow_runs']
+          if not any(r['display_title']=='Пульс ИИ · запрос '+rid[1] for r in recent):
+              api(path+'/dispatches',{'ref':'main','inputs':{'persistent_session':True,'web_request':rid[1],'topic':chosen[1]}})
+          api('/issues/'+str(int(issue['number'])),{'state':'closed'},'PATCH')
+          PY

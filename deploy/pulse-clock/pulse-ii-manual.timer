@@ -1,0 +1,8 @@
+[Unit]
+Description=Check the private Pulse II refresh queue
+[Timer]
+OnBootSec=30s
+OnUnitInactiveSec=25s
+AccuracySec=1s
+[Install]
+WantedBy=timers.target

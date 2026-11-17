@@ -1,11 +1,17 @@
 name: Пульс ИИ — обновление новостей
 
+run-name: ${{ inputs.web_request && format('Пульс ИИ · запрос {0}', inputs.web_request) || 'Пульс ИИ — обновление новостей' }}
+
 on:
   push:
     branches: [main]
     paths: [refresh-trigger.json]
   workflow_dispatch:
     inputs:
+      web_request:
+        description: Идентификатор запроса с сайта (служебный, необязательно)
+        type: string
+        required: false
       clock_check:
         description: Проверка пропущенного выпуска от серверного таймера
         type: boolean
@@ -77,6 +83,7 @@ jobs:
       OPENAI_SERVICE_ACCOUNT_ID: ${{ vars.PULSE_OPENAI_SERVICE_ACCOUNT_ID }}
       PULSE_GITHUB_VAULT_ID: ${{ vars.PULSE_GITHUB_VAULT_ID }}
       PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
+      PULSE_WEB_REQUEST: ${{ inputs.web_request }}
       PULSE_SEARCH_TOPIC: ${{ inputs.topic }}
       PULSE_CLOCK_CHECK: ${{ inputs.clock_check }}
       PULSE_SEARCH_SINCE: ${{ inputs.since }}

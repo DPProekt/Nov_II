@@ -219,7 +219,8 @@ class Manager:
                 return
             now = datetime.now(timezone.utc)
             doc["messages"].insert(0, {"text": answer, "date": now.timestamp(),
-                                       "truncated": False, "agent_turn_id": turn["id"]})
+                                       "truncated": False, "agent_turn_id": turn["id"], "github_run_id": self.run_id,
+                                       "web_request": os.environ.get("PULSE_WEB_REQUEST") or None})
             doc["updatedAt"] = now.timestamp()
             archive["generatedAt"] = now.isoformat()
             try:

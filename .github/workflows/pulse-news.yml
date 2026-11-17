@@ -53,7 +53,7 @@ on:
           - Прогноз беспилотных авто
           - Пять технологических прорывов
   schedule:
-    - cron: '17 */6 * * *'
+    - cron: '17,32,47,57 */6 * * *'
 
 permissions:
   id-token: write
@@ -377,7 +377,8 @@ jobs:
               namespace["run_sessions"](openai_token, os.environ["PULSE_GITHUB_TOKEN"], vault,
                                         chosen, os.environ["GITHUB_RUN_ID"],
                                         initialize_only=os.environ.get("PULSE_INITIALIZE") == "true",
-                                        on_topic_done=lambda: save_reviews(read_archive()))
+                                        on_topic_done=lambda: save_reviews(read_archive()),
+                                        skip_after=freshness_cutoff if os.environ.get("GITHUB_EVENT_NAME") in ("schedule", "push") else None)
               raise SystemExit(0)
 
           if os.environ.get("PULSE_CONTINUE_PILOT") == "true":

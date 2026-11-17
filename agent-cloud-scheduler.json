@@ -5,5 +5,7 @@
   "test_id": "auto_6afb729da4508191a4fe351ba30e3896",
   "test_invocation_id": "ainv_2dc065338b188191bdfa400dfc15d121",
   "last_retest_run": "44029072082",
-  "last_retest_invocation_id": "ainv_a34d324ef7408191aca01d0a9fecf887"
+  "last_retest_invocation_id": "ainv_a34d324ef7408191aca01d0a9fecf887",
+  "last_reset_run": "44030377677",
+  "last_reset_test_id": "auto_6afbf206ed1c8191bab66bd5544c18c0"
 }

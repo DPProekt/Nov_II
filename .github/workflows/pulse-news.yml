@@ -6,6 +6,10 @@ on:
     paths: [refresh-trigger.json]
   workflow_dispatch:
     inputs:
+      clock_check:
+        description: Проверка пропущенного выпуска от серверного таймера
+        type: boolean
+        default: false
       reset_cloud_scheduler:
         description: Восстановить облачный таймер
         type: boolean
@@ -74,6 +78,7 @@ jobs:
       PULSE_GITHUB_VAULT_ID: ${{ vars.PULSE_GITHUB_VAULT_ID }}
       PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
       PULSE_SEARCH_TOPIC: ${{ inputs.topic }}
+      PULSE_CLOCK_CHECK: ${{ inputs.clock_check }}
       PULSE_SEARCH_SINCE: ${{ inputs.since }}
       PULSE_CONTINUE_PILOT: ${{ inputs.continue_pilot }}
       PULSE_PERSISTENT: ${{ inputs.persistent_session }}
@@ -267,7 +272,9 @@ jobs:
           if not provider or not account or not vault:
               raise SystemExit("Добавьте идентификаторы провайдера, сервисного аккаунта и хранилища GitHub.")
 
-          if os.environ.get("GITHUB_EVENT_NAME") in ("schedule", "push"):
+          automatic = (os.environ.get("GITHUB_EVENT_NAME") in ("schedule", "push") or
+                       os.environ.get("PULSE_CLOCK_CHECK") == "true")
+          if automatic:
               github_headers = {"Accept": "application/vnd.github.raw+json", "Cache-Control": "no-cache"}
               registry = get_json(
                   "https://api.github.com/repos/DPProekt/Nov_II/contents/agent-sessions.json?ref=main",
@@ -378,7 +385,7 @@ jobs:
                                         chosen, os.environ["GITHUB_RUN_ID"],
                                         initialize_only=os.environ.get("PULSE_INITIALIZE") == "true",
                                         on_topic_done=lambda: save_reviews(read_archive()),
-                                        skip_after=freshness_cutoff if os.environ.get("GITHUB_EVENT_NAME") in ("schedule", "push") else None)
+                                        skip_after=freshness_cutoff if automatic else None)
               raise SystemExit(0)
 
           if os.environ.get("PULSE_CONTINUE_PILOT") == "true":

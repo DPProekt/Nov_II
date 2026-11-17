@@ -257,6 +257,33 @@ jobs:
           if not provider or not account or not vault:
               raise SystemExit("Добавьте идентификаторы провайдера, сервисного аккаунта и хранилища GitHub.")
 
+          if os.environ.get("GITHUB_EVENT_NAME") in ("schedule", "push"):
+              github_headers = {"Accept": "application/vnd.github.raw+json", "Cache-Control": "no-cache"}
+              registry = get_json(
+                  "https://api.github.com/repos/DPProekt/Nov_II/contents/agent-sessions.json?ref=main",
+                  "Чтение сессий", token=os.environ["PULSE_GITHUB_TOKEN"], headers=github_headers,
+              )
+              content_archive = get_json(
+                  "https://api.github.com/repos/DPProekt/Nov_II/contents/archive.json?ref=main",
+                  "Чтение ответов", token=os.environ["PULSE_GITHUB_TOKEN"], headers=github_headers,
+              )
+              turn_times = {
+                  message["agent_turn_id"]: message.get("date", 0)
+                  for document in content_archive.get("docs", [])
+                  for message in document.get("messages", [])
+                  if message.get("agent_turn_id")
+              }
+              sessions = list(registry.get("sessions", {}).values())
+              freshness_cutoff = (datetime.now(timezone.utc) - timedelta(hours=5)).timestamp()
+              if (len(sessions) == 8 and all(
+                  isinstance(entry, dict) and not entry.get("pending") and
+                  isinstance(turn_times.get(entry.get("last_turn_id")), (int, float)) and
+                  turn_times[entry["last_turn_id"]] >= freshness_cutoff
+                  for entry in sessions
+              )):
+                  print("Все темы недавно обновлены; повторный выпуск не требуется.")
+                  raise SystemExit(0)
+
           old_archive = read_archive()
           save_reviews(old_archive)
           old_items = old_archive["items"]

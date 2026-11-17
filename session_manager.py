@@ -290,16 +290,28 @@ class Manager:
         print("Обновлена тема:", topic, flush=True)
 
 
-def run_sessions(openai_token, github_token, vault_id, topics, run_id, initialize_only=False, on_topic_done=None):
+def run_sessions(openai_token, github_token, vault_id, topics, run_id, initialize_only=False,
+                 on_topic_done=None, skip_after=None):
     manager = Manager(openai_token, github_token, vault_id, run_id)
     state, _ = manager.read_file(STATE, missing=True)
     state = state or {"sessions": {}}
+    turn_times = {}
+    if skip_after is not None:
+        archive, _ = manager.read_file("archive.json")
+        turn_times = {message["agent_turn_id"]: message.get("date", 0)
+                      for doc in archive.get("docs", []) for message in doc.get("messages", [])
+                      if message.get("agent_turn_id")}
     failures = []
     for topic in topics:
         try:
             entry = state["sessions"].get(topic)
             if initialize_only and entry and not (isinstance(entry, dict) and entry.get("pending")):
                 print("Сессия уже создана:", topic, flush=True)
+                continue
+            if (skip_after is not None and isinstance(entry, dict) and not entry.get("pending") and
+                    isinstance(turn_times.get(entry.get("last_turn_id")), (int, float)) and
+                    turn_times[entry["last_turn_id"]] >= skip_after):
+                print("Тема уже обновлена в этом периоде:", topic, flush=True)
                 continue
             manager.run_topic(state, topic)
             if on_topic_done:

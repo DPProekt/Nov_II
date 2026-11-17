@@ -1,6 +1,27 @@
 {
-  "updated_at": "2026-11-17T16:18:44.560Z",
+  "updated_at": "2026-11-17T16:25:14.400Z",
   "items": [
+    {
+      "title": "OpenAI сообщила об использовании кибермоделей в защите сетей НАТО",
+      "summary": "17 ноября OpenAI сообщила о сотрудничестве с Агентством НАТО по связи и информации: организации НАТО получают доступ к кибермоделям компании для разрешённой защитной работы через программу Daybreak. По утверждению OpenAI, месячное использование достигало 300 млрд входных и выходных токенов; период и разбивка по моделям не уточнены. Компания также описала применение Daybreak на учениях Crossed Swords. В качестве другого примера CERT Polska ранее сообщила, что использовала GPT-5.5-cyber и GPT-5.6-sol при поиске шести уязвимостей RouterOS; исследователи задавали направление и проверяли результаты.",
+      "date": "2026-11-17",
+      "published_at": null,
+      "importance": "normal",
+      "source": "OpenAI — Strengthening NATO and allied cyber defenses with AI",
+      "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/",
+      "topic": "Новости GPT",
+      "analysis": "Данные указывают на практическое использование кибермоделей, но объём токенов не измеряет качество защиты, число пользователей или предотвращённые инциденты. OpenAI не раскрывает модели и период, относящиеся к показателю НАТО; нельзя автоматически приписывать его GPT-6 Cyber. Пример CERT Polska относится к более ранней работе и подтверждает необходимость исследовательской проверки.",
+      "references": [
+        {
+          "title": "CERT Polska — исследование уязвимостей RouterOS",
+          "url": "https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/"
+        },
+        {
+          "title": "CCDCOE — учения Crossed Swords",
+          "url": "https://ccdcoe.org/news/2026/exercise-crossed-swords-tests-cyber-operations-and-multi-domain-coordination/"
+        }
+      ]
+    },
     {
       "title": "ОЭСР и Eurofound: ИИ-экспозиция профессий и изменение организации труда",
       "summary": "Исследование сопоставляет потенциальную подверженность профессий возможностям ИИ с изменениями задач работников по данным PIAAC за 2011–2012 и 2022–2023 годы и европейских обследований условий труда за 2015 и 2024 годы. В более экспонированных профессиях монотонность в среднем выросла слабее, а частота некоторых информационных задач выросла сильнее. Авторы не устанавливают причинное влияние ИИ.",
@@ -2031,9 +2052,9 @@
     },
     {
       "topic": "Новости GPT",
-      "updated_at": "2026-11-16T21:34:26.397Z",
-      "changes": "OpenAI представила профили компаний и бизнес-агентов в ChatGPT, а затем ChatGPT Wallet для покупок через агента с подтверждением пользователя. Добавлена модель GPT-6.1 Terra и её системная карта от 26 октября.\n\nК обзору GPT-6.1 Terra и агентных функций добавлен запуск специализированной модели GPT-6 Cyber.\n\nOpenAI и медиаподразделение LVMH объявили о представлении материалов группы в ChatGPT и внедрении ChatGPT Enterprise в редакционные процессы.\n\nНовые материалы: OpenAI расширила клинический поиск и агентные функции ChatGPT для медицины; OpenAI расширяет программу бесплатного доступа ChatGPT для учёных; OpenAI изучила использование ChatGPT исследователями в летнем пилоте.",
-      "conclusion": "Направление развития — от ответа в чате к действиям с участием пользователя. Для оценки прогресса важны условия доступа, точность действий и возможность проверить или отменить ошибку. Помимо ранее рассмотренных продуктовых функций ChatGPT появилась более дешёвая модель для визуальных и компьютерных задач; заявления о качествах и безопасности требуют независимой проверки.\n\nСпециализация улучшила заявленный разработчиком результат на заданном тесте, но доступ ограничен и заявленная безопасность зависит от условий применения и защитных мер.\n\nПартнёрство расширяет заявленный доступ к издательскому контенту, но его влияние на точность ответов и аудиторию пока не измерено.\n\nОбъявления расширяют доступ к ChatGPT в науке и медицинских процессах; заявленные улучшения и оценки времени требуют независимой проверки, особенно там, где последствия ошибок затрагивают здоровье.",
+      "updated_at": "2026-11-17T16:25:14.400Z",
+      "changes": "OpenAI представила профили компаний и бизнес-агентов в ChatGPT, а затем ChatGPT Wallet для покупок через агента с подтверждением пользователя. Добавлена модель GPT-6.1 Terra и её системная карта от 26 октября.\n\nК обзору GPT-6.1 Terra и агентных функций добавлен запуск специализированной модели GPT-6 Cyber.\n\nOpenAI и медиаподразделение LVMH объявили о представлении материалов группы в ChatGPT и внедрении ChatGPT Enterprise в редакционные процессы.\n\nНовые материалы: OpenAI расширила клинический поиск и агентные функции ChatGPT для медицины; OpenAI расширяет программу бесплатного доступа ChatGPT для учёных; OpenAI изучила использование ChatGPT исследователями в летнем пилоте.\n\nOpenAI сообщила об использовании её кибермоделей в НАТО и привела примеры работы с европейскими защитниками.",
+      "conclusion": "Направление развития — от ответа в чате к действиям с участием пользователя. Для оценки прогресса важны условия доступа, точность действий и возможность проверить или отменить ошибку. Помимо ранее рассмотренных продуктовых функций ChatGPT появилась более дешёвая модель для визуальных и компьютерных задач; заявления о качествах и безопасности требуют независимой проверки.\n\nСпециализация улучшила заявленный разработчиком результат на заданном тесте, но доступ ограничен и заявленная безопасность зависит от условий применения и защитных мер.\n\nПартнёрство расширяет заявленный доступ к издательскому контенту, но его влияние на точность ответов и аудиторию пока не измерено.\n\nОбъявления расширяют доступ к ChatGPT в науке и медицинских процессах; заявленные улучшения и оценки времени требуют независимой проверки, особенно там, где последствия ошибок затрагивают здоровье.\n\nЗаявленный объём использования отражает масштаб обработки, но не доказывает повышение безопасности и не позволяет установить вклад конкретной версии GPT.",
       "details": [
         {
           "heading": "Два этапа коммерческого сценария",
@@ -2094,6 +2115,14 @@
         {
           "heading": "Ограничения исследования",
           "text": "Участники пилота не представляют всех исследователей; число ответов меняется по вопросам. Нужны независимые сравнения качества, ошибок и реального времени выполнения задач."
+        },
+        {
+          "heading": "Применение в киберзащите",
+          "text": "OpenAI сообщила о доступе НАТО к кибермоделям через Daybreak и об использовании до 300 млрд входных и выходных токенов за месяц. CERT Polska ранее описала поиск шести уязвимостей с помощью GPT-5.5-cyber и GPT-5.6-sol под руководством исследователей."
+        },
+        {
+          "heading": "Ограничения данных",
+          "text": "Показатель токенов сообщён разработчиком без разбивки по моделям и месяцам и не равен числу выявленных угроз. Работа CERT Polska относится к сентябрю, а не к новой публикации. Требуются независимые данные о качестве результатов и предотвращённых инцидентах."
         }
       ],
       "sources": [
@@ -2109,7 +2138,10 @@
         "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/",
         "https://openai.com/index/advancing-computer-use-for-healthcare-teams/",
         "https://openai.com/index/expanding-chatgpt-for-academic-researchers/",
-        "https://openai.com/index/science-at-the-frontier/"
+        "https://openai.com/index/science-at-the-frontier/",
+        "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/",
+        "https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/",
+        "https://ccdcoe.org/news/2026/exercise-crossed-swords-tests-cyber-operations-and-multi-domain-coordination/"
       ],
       "source_titles": {
         "https://openai.com/index/introducing-chatgpt-wallet/": "OpenAI — ChatGPT Wallet",
@@ -2124,7 +2156,10 @@
         "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/": "OpenAI — ChatGPT for Healthcare",
         "https://openai.com/index/advancing-computer-use-for-healthcare-teams/": "Advancing computer-use agents for healthcare teams",
         "https://openai.com/index/expanding-chatgpt-for-academic-researchers/": "OpenAI — Broadening access to AI for scientists",
-        "https://openai.com/index/science-at-the-frontier/": "OpenAI — Science at the frontier"
+        "https://openai.com/index/science-at-the-frontier/": "OpenAI — Science at the frontier",
+        "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/": "Strengthening NATO and allied cyber defenses with AI",
+        "https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/": "Critical vulnerabilities in MikroTik RouterOS are being actively exploited",
+        "https://ccdcoe.org/news/2026/exercise-crossed-swords-tests-cyber-operations-and-multi-domain-coordination/": "Exercise Crossed Swords tests cyber operations and multi-domain coordination"
       }
     },
     {

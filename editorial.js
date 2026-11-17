@@ -107,6 +107,10 @@ function runRefresh(){
 }
 async function connectReader(d){try{await ReaderDevice.pair(d);note('success','Браузер подключён','Выберите тему и нажмите «Обновить». Дополнительных подтверждений не потребуется.')}catch(e){setupNotice(e.status||e.message?.includes('файл')?e.message:'Не удалось подключить браузер. Повторите подключение из личного ярлыка.')}}
 document.querySelector('#edition-file').addEventListener('change',async e=>{const f=e.target.files?.[0];e.target.value='';if(!f)return;try{if(f.size>1300)throw Error();await connectReader(JSON.parse(await f.text()))}catch{setupNotice('Нужен личный файл подключения Пульса ИИ.')}});
+if(location.hash.startsWith('#device=')){
+ const endpoint=decodeURIComponent(location.hash.slice(8));history.replaceState(null,'',location.pathname+location.search+'#/topic/5');
+ ReaderDevice.publicCode(endpoint).then(pub=>{note('waiting','Привязка этого браузера','Открытый идентификатор для администратора:');const code=document.createElement('code');code.id='device-public-id';code.style.overflowWrap='anywhere';code.textContent=pub;document.querySelector('#edition-result').append(code)}).catch(()=>setupNotice('Не удалось подготовить профиль устройства.'));
+}
 if(location.hash.startsWith('#connect=')){
  const arg=location.hash.slice(9);history.replaceState(null,'',location.pathname+location.search+'#/updates');
  try{const d=JSON.parse(atob(arg.replace(/-/g,'+').replace(/_/g,'/')));connectReader(d)}catch{setupNotice('Недействительный ярлык подключения.')}

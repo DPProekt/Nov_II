@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T06:16:14.118217+00:00",
+  "generatedAt": "2026-11-17T06:16:49.703744+00:00",
   "docs": [
     {
       "id": "6af8414e-fba4-83ed-8d83-a9fe1058f3c3",
@@ -278,10 +278,16 @@
     {
       "id": "6aee1cad-1ef8-83ed-8ea4-880afd217a6c",
       "title": "Новости GPT",
-      "updatedAt": 1794880850.406796,
+      "updatedAt": 1794896209.703744,
       "hasMore": false,
       "nextCursor": null,
       "messages": [
+        {
+          "text": "**Новых подтверждённых материалов по GPT — 0.**\n\nПроверены последние шесть часов до 06:16 UTC 17 ноября и двухчасовое перекрытие. Найденные сообщения о ChatGPT уже есть в архиве; новых выпусков в [обновлениях моделей OpenAI](https://help.openai.com/en/articles/9624314-model-release-notes) не обнаружено.\n\n`news.json` и прогноз не изменялись.",
+          "date": 1794896209.703744,
+          "truncated": false,
+          "agent_turn_id": "turn_098faede644ac23f006afbf13c8d6881a3bc401c936b941472"
+        },
         {
           "text": "**Новых подтверждённых материалов по GPT — 0.**\n\nПроверены последние шесть часов до 02:00 UTC 17 ноября и двухчасовое перекрытие. Материалы, найденные в [новостях OpenAI](https://openai.com/news/) и [истории обновлений моделей](https://help.openai.com/en/articles/9624314-model-release-notes), уже учтены в архиве.\n\n`news.json` и прогноз не изменялись.",
           "date": 1794880850.406796,

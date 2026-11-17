@@ -1,12 +1,12 @@
 name: Запрос обновления с сайта
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
 
 permissions: {}
 jobs:
   request:
-    if: github.repository == 'DPProekt/Nov_II' && startsWith(github.event.issue.title, 'Пульс ИИ · обновить ') && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)
+    if: github.event.repository.id == 1458024428 && (github.event.issue.user.id == 19629485 || contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association))
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:
@@ -30,6 +30,7 @@ jobs:
                   return json.loads(data) if data else {}
           event=json.load(open(os.environ['GITHUB_EVENT_PATH']))
           issue=event['issue']
+          if not issue['title'].startswith('Пульс ИИ · обновить '): raise SystemExit(0)
           rid=re.fullmatch(r'Пульс ИИ · обновить ([a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12})',issue['title'])
           chosen=re.search(r'^Тема: (.+?)\s*$',issue.get('body') or '',re.M)
           topics={'Все темы','Подробные новости ИИ','Прогноз экономики при быстром развитии ИИ','Развитие мышления ИИ образами','Пересборка прогноза 2026–2050','Новости GPT','Гипербола технологий Капицы с ИИ','Прогноз беспилотных авто','Пять технологических прорывов'}

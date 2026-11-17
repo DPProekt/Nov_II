@@ -29,10 +29,16 @@
       "date": "2026-11-16",
       "published_at": "2026-11-16T21:57Z",
       "importance": "normal",
-      "source": "Илон Маск, публикация в X (копия teapawt)",
-      "url": "https://nitter.cf/elonmusk/status/2122449119570534680",
+      "source": "Not a Tesla App",
+      "url": "https://www.notateslaapp.com/news/5022/tesla-to-allow-customers-to-add-their-vehicles-to-robotaxi-as-early-as-next-month",
       "topic": "Прогноз беспилотных авто",
-      "analysis": "Подключение автомобилей владельцев потенциально может изменить способ расширения сети, но из заявления нельзя заключить, что конкретные Model Y или Cybercab допущены к беспилотным коммерческим поездкам. Возможность зависит от технической готовности, правил, страхования и условий участия; пилот пока не подтверждён фактическим запуском. Время публикации подтверждено копией исходного сообщения с точностью до минуты."
+      "analysis": "Подключение автомобилей владельцев потенциально может изменить способ расширения сети, но из заявления нельзя заключить, что конкретные Model Y или Cybercab допущены к беспилотным коммерческим поездкам. Возможность зависит от технической готовности, правил, страхования и условий участия; пилот пока не подтверждён фактическим запуском. Время публикации подтверждено копией исходного сообщения с точностью до минуты.",
+      "references": [
+        {
+          "title": "Публикация Илона Маска в X",
+          "url": "https://x.com/elonmusk/status/2122449119570534680"
+        }
+      ]
     },
     {
       "title": "Preferred Networks и SEMIFIVE планируют ИИ-чип с более широкой полосой памяти",
@@ -2176,7 +2182,7 @@
         "https://investor.uber.com/news-events/news/press-release-details/2026/Zoox-Is-Now-Available-on-Uber-in-Las-Vegas/default.aspx",
         "https://de.linkedin.com/posts/andre-thierig-3959a035_news-weiter-gehts-wir-bauen-aus-activity-7528101731734515712-eFlC",
         "https://techcrunch.com/2026/11/16/tesla-goes-all-in-on-the-cybercab-with-upcoming-e3b-berlin-gigafactory-expansion/",
-        "https://nitter.cf/elonmusk/status/2122449119570534680",
+        "https://www.notateslaapp.com/news/5022/tesla-to-allow-customers-to-add-their-vehicles-to-robotaxi-as-early-as-next-month",
         "https://x.com/elonmusk/status/2122449119570534680",
         "https://teslanorth.com/2026/11/16/tesla-owner-robotaxi-trials-december-musk/"
       ],
@@ -2198,9 +2204,9 @@
         "https://investor.uber.com/news-events/news/press-release-details/2026/Zoox-Is-Now-Available-on-Uber-in-Las-Vegas/default.aspx": "Zoox Is Now Available on Uber in Las Vegas",
         "https://de.linkedin.com/posts/andre-thierig-3959a035_news-weiter-gehts-wir-bauen-aus-activity-7528101731734515712-eFlC": "Andre Thierig: Ausbau der Gigafactory Berlin-Brandenburg",
         "https://techcrunch.com/2026/11/16/tesla-goes-all-in-on-the-cybercab-with-upcoming-e3b-berlin-gigafactory-expansion/": "Tesla goes all-in on the Cybercab with upcoming €3B Berlin Gigafactory expansion",
-        "https://nitter.cf/elonmusk/status/2122449119570534680": "Elon Musk: possible owner Robotaxi trials next month — копия сообщения",
         "https://x.com/elonmusk/status/2122449119570534680": "Elon Musk: possible owner Robotaxi trials next month — оригинал в X",
-        "https://teslanorth.com/2026/11/16/tesla-owner-robotaxi-trials-december-musk/": "Tesla Owner Robotaxi Trials Could Start Next Month"
+        "https://teslanorth.com/2026/11/16/tesla-owner-robotaxi-trials-december-musk/": "Tesla Owner Robotaxi Trials Could Start Next Month",
+        "https://www.notateslaapp.com/news/5022/tesla-to-allow-customers-to-add-their-vehicles-to-robotaxi-as-early-as-next-month": "Not a Tesla App — сообщение о возможных испытаниях"
       }
     },
     {

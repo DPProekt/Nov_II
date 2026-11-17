@@ -30,10 +30,15 @@ function note(kind,title,body,actions=[]){
 }
 function deskLink(j){return deskOrigin+'/edition?'+new URLSearchParams({t:String(editionTopics.indexOf(j.topic)),id:j.id})}
 function githubLink(j){return editionRepo+'/issues/new?'+new URLSearchParams({title:'Пульс ИИ · обновить '+j.id,body:'Тема: '+j.topic+'\n\nЗапустить поиск новых публикаций и обновить аналитику на сайте «Пульс ИИ».'})}
+function rememberTransport(value){try{localStorage.setItem('pulse-edition-transport',value)}catch{}}
+function preferredTransport(){try{return localStorage.getItem('pulse-edition-transport')}catch{return null}}
+function confirmGitHub(j){
+ j.viaGithub=true;rememberTransport('github');saveJob();note('waiting','Подтвердите запуск в GitHub','Тема уже выбрана: «'+j.topic+'». Нажмите Create, затем вернитесь сюда. Результат появится автоматически.',[['Открыть запрос в GitHub ↗',githubLink(j)],['Вернуться к выбору','#',e=>{e.preventDefault();waiting(j)}]]);
+}
 function runLink(j){return j.run?editionRepo+'/actions/runs/'+j.run:editionRepo+'/actions/workflows/pulse-news.yml'}
 function accessOptions(j){
- return [['Открыть панель владельца',deskLink(j),e=>{e.preventDefault();deskWindow=window.open(deskLink(j),'pulseEditionDesk','popup,width=540,height=500');if(!deskWindow)location.assign(deskLink(j))}],
- ['Подтвердить через GitHub ↗',githubLink(j),()=>{j.viaGithub=true;saveJob();note('waiting','Подтвердите запуск в GitHub','Тема уже выбрана: «'+j.topic+'». Нажмите Create, затем вернитесь сюда. Результат появится автоматически.')}],['Снять ожидание','#',e=>{e.preventDefault();finish('waiting','Ожидание снято','Можно выбрать другую тему. Уже отправленная команда продолжит выполняться в облаке.',[])}]];
+ return [['Открыть панель владельца',deskLink(j),e=>{e.preventDefault();rememberTransport('desk');deskWindow=window.open(deskLink(j),'pulseEditionDesk','popup,width=540,height=500');if(!deskWindow)location.assign(deskLink(j))}],
+ ['Подтвердить через GitHub ↗',githubLink(j),()=>confirmGitHub(j)],['Снять ожидание','#',e=>{e.preventDefault();finish('waiting','Ожидание снято','Можно выбрать другую тему. Уже отправленная команда продолжит выполняться в облаке.',[])}]];
 }
 function waiting(j){note('waiting','Обновление: '+j.topic,'Опубликованные материалы доступны сразу. Для нового поиска откроется панель владельца. Если она недоступна, подтвердите запуск через GitHub.',accessOptions(j))}
 function jobStatus(j){
@@ -91,7 +96,7 @@ function runRefresh(){
  if(!archive){note('waiting','Загружаем ленту','Сначала загрузятся опубликованные материалы. После этого можно начать поиск.');return}
  if(ongoing){jobStatus(ongoing);queueCheck(20);editionPanel.scrollIntoView({block:'nearest'});return}
  const topic=selection();const id=crypto.randomUUID();const j={id,topic:editionTopics.includes(topic)?topic:editionTopics[0],started:Date.now(),before:sharedNews.map(n=>n.url),phase:'auth'};ongoing=j;saveJob();
- deskWindow=window.open(deskLink(j),'pulseEditionDesk','popup,width=540,height=500');waiting(j);queueCheck(0);
+ if(preferredTransport()==='github'){window.open(githubLink(j),'_blank','noopener');confirmGitHub(j)}else{deskWindow=window.open(deskLink(j),'pulseEditionDesk','popup,width=540,height=500');waiting(j)}queueCheck(0);
 }
 window.addEventListener('message',e=>{
  const j=ongoing;if(!j||e.origin!==deskOrigin||e.source!==deskWindow||e.data?.type!=='pulse-edition'||e.data.id!==(j.gateId||j.id))return;

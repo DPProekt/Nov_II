@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T20:32:44.259635+00:00",
+  "generatedAt": "2026-11-17T20:35:29.374025+00:00",
   "docs": [
     {
       "id": "6af8414e-fba4-83ed-8d83-a9fe1058f3c3",
@@ -374,10 +374,18 @@
     {
       "id": "6aee1cad-1ef8-83ed-8ea4-880afd217a6c",
       "title": "Новости GPT",
-      "updatedAt": 1794943881.329197,
+      "updatedAt": 1794947729.374025,
       "hasMore": false,
       "nextCursor": null,
       "messages": [
+        {
+          "text": "## Новости GPT\n\n**Новый материал: 1.** Artificial Analysis 17 ноября опубликовала [внешнюю оценку GPT-6.2 Astra и Sol](https://artificialanalysis.ai/es/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol). Точное время публикации источник не указывает, поэтому подтвердить, что материал вышел именно за последние шесть часов, нельзя.\n\n### Результаты тестов\n\n| Модель | Общий Intelligence Index | Coding Agent Index |\n|---|---|---|\n| GPT-6.2 Astra | +5 пунктов относительно GPT-6 Astra; второе место в индексе | Без изменения относительно GPT-6 Astra |\n| GPT-6.2 Sol | +2 пункта | −3 пункта относительно GPT-6.1 Sol |\n\nТест программирующих агентов проводился с оболочкой **Codex и максимальным уровнем рассуждения**. По объяснению оценщиков, снижение Sol связано в том числе с падением на 14 пунктов в SWE-Atlas-QnA-AA: модель чаще предшественницы упускала важные факты.\n\n**Вывод:** рост общего индекса не означает улучшения в каждой задаче программирования. Результаты относятся к конкретным тестам и настройкам; переносить их на продуктивность в реальных проектах без полевых испытаний нельзя. Ранее в архив уже добавлялись результаты Vals AI, но их показатели нельзя напрямую сопоставлять с индексами Artificial Analysis из-за различий методик.\n\nНовость и анализ сохранены в [news.json](https://github.com/DPProekt/Nov_II/blob/main/news.json); прогноз по теме уточнён в [forecasts.json](https://github.com/DPProekt/Nov_II/blob/main/forecasts.json).",
+          "date": 1794947729.374025,
+          "truncated": false,
+          "agent_turn_id": "turn_098faede644ac23f006afcba01551c81a3922f4e9fc8f8b1b6",
+          "github_run_id": "44169063071",
+          "web_request": "963cd512-d803-4045-91d3-0db0a75a5488"
+        },
         {
           "text": "## Новое: внешняя оценка GPT-6.2\n\nVals AI опубликовала сравнение Astra и Sol на своих тестах. Обе модели проверялись с максимальным уровнем рассуждения. [Результаты Astra](https://www.vals.ai/models/openai_gpt-6.2-astra), [результаты Sol](https://www.vals.ai/models/openai_gpt-6.2-sol).\n\n| Показатель | GPT-6.2 Astra | GPT-6.2 Sol |\n|---|---:|---:|\n| Vals Index v2.2 | 67,66% | 66,06% |\n| Vals Science Index | 68,44% | 57,76% |\n| Стоимость теста Vals Index | $10,68 | около $3,18 |\n\n**Вывод:** Astra показала большее преимущество на научном индексе, тогда как Sol оказалась дешевле в этой тестовой конфигурации. Результаты не измеряют надёжность на всех рабочих задачах, а стоимость теста не включает внедрение и человеческую проверку.\n\nVals датирует обновление **17 ноября 2026 года**; точное время не указано. Добавлен **один новый материал** в [news.json](https://github.com/DPProekt/Nov_II/blob/main/news.json), прогноз дополнен источниками в [forecasts.json](https://github.com/DPProekt/Nov_II/blob/main/forecasts.json).",
           "date": 1794943881.329197,

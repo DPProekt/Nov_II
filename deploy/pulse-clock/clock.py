@@ -13,6 +13,8 @@ REPOSITORY = "DPProekt/Nov_II"
 API = "https://api.github.com"
 WORKFLOW = f"/repos/{REPOSITORY}/actions/workflows/pulse-news.yml"
 PERIOD = 6 * 3600
+EDITION_DELAY = 17 * 60  # Same opening time as the GitHub Actions freshness guard.
+SIGNAL_GRACE = 12 * 60  # Allow another check at :32; active runs are checked separately.
 
 
 def get_json(url, *, token=None, data=None):
@@ -67,7 +69,7 @@ def recent_topics(slot, cache_tag):
 def run(verify):
     now = int(time.time())
     slot = now // PERIOD * PERIOD
-    if not verify and now - slot < 25 * 60:
+    if not verify and now - slot < EDITION_DELAY:
         print("Waiting for the scheduled minute")
         return
     current = recent_topics(slot, str(now // 60))
@@ -78,7 +80,7 @@ def run(verify):
     state_file = Path(os.environ["STATE_DIRECTORY"]) / "last-dispatch.json"
     state = json.loads(state_file.read_text()) if state_file.exists() else {}
     attempts = state.get("attempts", 0) if state.get("slot") == slot else 0
-    if not verify and (attempts >= 3 or (attempts and now - state["sent_at"] < 20 * 60)):
+    if not verify and (attempts >= 3 or (attempts and now - state["sent_at"] < SIGNAL_GRACE)):
         print("A previous signal is still being given time to run")
         return
 

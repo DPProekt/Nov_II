@@ -6663,6 +6663,217 @@
         "2026-11-09": 1,
         "2026-09-24": 1
       }
+    },
+    {
+      "topic": "Пять технологических прорывов",
+      "updated_at": "2026-11-17T06:22:39.286Z",
+      "changes": "К прежнему обзору AlphaEvolve, SIMA 2 и эксперимента LLNL добавлены ранее пропущенные публикации: формальная проверка libsignal с AlphaProof Code и открытый выпуск робототехнической модели Praxis-1. Добавлена рецензированная работа по автономной коррекции ошибок квантовой памяти.\n\nК результату по квантовой памяти добавлен лабораторный опыт с новой архитектурой сверхпроводящих магнитных датчиков.\n\nК прежним результатам квантовой памяти и датчиков добавлены измерение температуры электронов на LM26 и заявленное IBM ускорение эксперимента на Nighthawk r2.\n\nДобавлено заявление Qunova от 12 ноября о гибридном расчёте 4Fe–4S и сопоставление с ранее опубликованным препринтом.\n\nДобавлен метод Tessa: автор сообщил о кодировании и восстановлении 1568 числовых значений на квантовом процессоре; Moth разъяснила результат 16 ноября.\n\nNature Physics опубликовал две отдельные работы об автономной коррекции ошибок фотонных логических кубитов в сверхпроводящих системах. Ранее архив содержал эксперимент с захваченным ионом; новые статьи не являются его повтором. Время публикации обеих статей не указано, поэтому точное попадание в шестичасовое окно установить нельзя.\n\nДобавлено открытие научным пользователям суперкомпьютера Lux и его дебют на 14-м месте TOP500. AMD опубликовала сообщение в 19:00 UTC 16 ноября.\n\nДобавлен выпуск NVIDIA TCBP-JOBS для исследования декодирования ошибок; время публикации источником не указано.\n\nДобавлено сообщение DGIST от 16 ноября о спектрометре, статья о котором опубликована 10 октября; время сообщения не подтверждено.\n\nДобавлено сообщение Академии наук Китая от 16 ноября о методе подбора добавок для катода, опубликованном 1 октября; время сообщения не подтверждено.\n\nДобавлено сообщение IBM от 16 ноября о гибридном расчёте Fe₄S₄ методом SQD, описанном в препринте от 3 ноября. Точное время сообщения не указано; это отдельное исследование от расчёта Qunova.\n\nДобавлено сообщение GS Yuasa и Университета Осаки о влиянии влаги на сульфидные твёрдые электролиты и вводе опытного оборудования.\n\nДобавлено сообщение NEC и IBM Japan об испытании гибридной криптографической схемы QKD и PQC; проверка проводилась в июле–сентябре 2026 года.",
+      "conclusion": "Оба результата расширяют набор проверяемых применений ИИ, но формальное доказательство ограничено спецификацией, а успех в симуляции не равен готовности робота к эксплуатации. Энергетические и биомедицинские сроки эти результаты сами по себе не меняют. К прежним примерам ИИ и робототехники добавлен лабораторный результат в квантовой памяти; сроки практического масштабирования остаются неопределёнными.\n\nЭксперимент расширяет набор возможных архитектур квантовых сенсоров, но не подтверждает готовность медицинского прибора или сроки коммерциализации.\n\nОба результата расширяют экспериментальную базу, но нагрев плазмы не равен энергетической окупаемости, а ускорение относительно прежнего квантового чипа не доказывает превосходства над классическими системами.\n\nЗаявленная химическая точность относится к экстраполяции; наблюдавшийся результат прежнего расчёта до неё не дотягивает. Превосходство над лучшими классическими системами не установлено.\n\nTessa расширяет экспериментальные возможности загрузки данных на квантовый чип, но результаты являются авторскими и не доказывают практического квантового преимущества. Как и в ранее рассмотренных результатах IBM и Qunova, важны воспроизводимость, точность и полная стоимость.\n\nРезультаты расширяют свидетельства автономной коррекции на разные установки и показывают измерительную задачу, но внутрисистемное превышение порога не устанавливает масштабируемости, практического квантового преимущества или готовности сенсоров.\n\nLux расширяет доступные вычислительные мощности для ИИ и моделирования; научный эффект, эффективность и сроки результатов ещё предстоит проверить.\n\nЗаявленное ускорение декодирования может упростить исследование кодов, но не доказывает универсального ускорения квантовых вычислений или готовности отказоустойчивой машины.\n\nЭксперимент с одним фотодетектором показывает улучшение восстановления конкретных спектров, но не готовность компактного коммерческого прибора.\n\nРезультаты катодного материала расширяют базу для разработки аккумуляторов, но не устанавливают сроки коммерциализации и ресурс промышленных батарей.\n\nГибридный расчёт близок к выбранному конечному классическому эталону, но сам по себе не доказывает квантового преимущества; существенную роль играют классическая подготовка и обработка.\n\nРезультат помогает исследовать деградацию электролита, но не доказывает влагостойкость серийных твёрдотельных батарей.\n\nСовместимость компонентов QKD и PQC показана в конкретной среде, но безопасность и экономическая целесообразность широкого внедрения не установлены.",
+      "details": [
+        {
+          "heading": "Алгоритмы и роботизация",
+          "text": "Алгоритмический поиск легче проверять, если качество можно измерить программой. Для роботизации ещё важны надёжные действия в новых физических условиях и экономика обслуживания."
+        },
+        {
+          "heading": "Энергия и материалы",
+          "text": "Экспериментальный термоядерный результат показывает физическую возможность при конкретных условиях. Для энергетики нужны отдельные измерения всей установки и повторяемости. Для новых материалов важны независимое воспроизведение и свойства в рабочих условиях."
+        },
+        {
+          "heading": "Биотехнологии и пересмотр сроков",
+          "text": "Переход к практическому применению зависит от измеримых результатов исследований и подтверждённой безопасности. Пока для отдельных направлений нет сопоставимых новых данных, сохраняется высокая неопределённость их сроков."
+        },
+        {
+          "heading": "Новые результаты и ограничения",
+          "text": "AlphaProof Code использует проверку доказательств в Lean для заданных свойств кода; Praxis-1 сочетает предсказание видео и действий, а её показатели RoboLab-120 получены в симуляции. Оба результата сообщены разработчиками и требуют дальнейшего независимого изучения."
+        },
+        {
+          "heading": "Что изменит оценку",
+          "text": "Перенос формальной проверки на другие промышленные проекты и независимые испытания роботов в рабочих условиях с измерением надёжности и стоимости."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Авторы Nature Physics сообщили об увеличении времени жизни логического кубита в состояниях удерживаемого иона при применении коррекции без измерения синдрома и обратной связи."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Результат получен для одного логического кубита и конкретных шумов; он не доказывает готовность масштабируемого компьютера. Оценку изменят воспроизведение и демонстрации операций на нескольких кубитах."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Статья Physical Review Applied описывает массивы с контурами без джозефсоновских переходов и экспериментальную проверку предсказанного поведения."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Результат получен на изготовленных массивах при низких температурах; оценку изменят независимое воспроизведение, количественные сравнения чувствительности и испытания в прикладных условиях."
+        },
+        {
+          "heading": "Новые факты",
+          "text": "LM26: 1090 ± 40 эВ для электронов в описанном эксперименте; IBM сообщает о 12-кратном ускорении одной нагрузки относительно Heron. Обе оценки сообщены участниками проектов."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Для синтеза нужны повторяемость и совместная оценка температуры, плотности и удержания; для квантового процессора — независимые сравнения, метрики ошибок и проверка других задач. Более 1000 кубитов IBM относит к плану на 2027 год."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Компания заявляет экстраполированную энергию −327,2482 ± 0,0007 Hartree при классическом эталоне −327,2471; прежний препринт сообщает около −327,1757 после 32 итераций."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Метод новой экстраполяции и полная стоимость требуют проверки. Вывод изменят подробная публикация, независимое воспроизведение и сравнение общих затрат с классическим DMRG."
+        },
+        {
+          "heading": "Данные нового эксперимента",
+          "text": "В препринте автор сообщает о парном кодировании 1568 значений на 120-кубитном Phoenix при 8192 измерениях на базис. Для яркостной компоненты средняя абсолютная ошибка устройства до коррекции составила 0,152 против 0,059 в модели локального шума."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Сравнение числа значений с прежними работами зависит от определения допустимого метода, а точность и стоимость измерений различаются. Вывод изменят независимое воспроизведение, рецензирование и проверка метода в полноценном алгоритме с учётом всех затрат."
+        },
+        {
+          "heading": "Новые эксперименты с фотонными кубитами",
+          "text": "Ni и коллеги сообщили о времени жизни около 2,0 мс, на 18% выше лучшего физического кубита их системы, и о метрологическом выигрыше 6,3 дБ относительно выбранной суперпозиции состояний Фока. Sun и коллеги сообщили об увеличении когерентности логического кубита до 1,04 времени лучшего физического кубита своей системы."
+        },
+        {
+          "heading": "Сопоставимость и ограничения",
+          "text": "Это отдельные эксперименты с разными установками, кодами и условиями шума; проценты относительно собственных базовых кубитов не следует считать прямым рейтингом платформ. Ни одна работа не демонстрирует масштабируемый универсальный квантовый компьютер. Важны независимое воспроизведение, проверка других ошибок, операций, ресурсов и практических задач."
+        },
+        {
+          "heading": "Новая вычислительная инфраструктура",
+          "text": "По данным ORNL, Lux показал 220,79 петафлопс в HPL; около половины 3,5 млн годовых узло-часов планируется выделить Genesis Mission. В перечень проектов входят моделирование термоядерной энергетики, материалы и прогнозирование земных систем."
+        },
+        {
+          "heading": "Пределы инфраструктурного результата",
+          "text": "Рейтинг HPL не измеряет непосредственно скорость ИИ или научные открытия. Заявленные направления работ являются планами; их результативность и воспроизводимость требуют публикаций исследований и сведений о затратах."
+        },
+        {
+          "heading": "Исследовательское сравнение декодеров",
+          "text": "Исследовательское описание NVIDIA указывает до 13 000 раз относительно Tesseract без разреживания и с длинным лучом для кодов bivariate-bicycle; для разреженных вариантов — 10–7400 раз. Отношения логических ошибок в сравнении с вариантом на 13 000 раз составили 0,97–1,57."
+        },
+        {
+          "heading": "Ограничения сравнения",
+          "text": "Это заявленные авторами результаты для конкретных нагрузок и конфигураций; частота ошибок, используемые ресурсы и задержка важны наряду со скоростью. Независимое воспроизведение и проверка на аппаратных сценариях остаются необходимыми."
+        },
+        {
+          "heading": "Спектрометр: корректное сравнение",
+          "text": "Для второго сложного спектра при 21 состоянии измерения MSE снизилась с 0,0389 до 0,0017, PSNR повысился с 14,1 до 27,7 дБ. В статье эти показатели относятся к спектру, а не к изображению; отдельно показана реконструкция псевдоцветного изображения 6 × 6 пикселей."
+        },
+        {
+          "heading": "Ограничения сенсора",
+          "text": "Сравнивались одномерное и многомерное кодирование в конкретном эксперименте; заявленные применения в смартфонах и автономных устройствах остаются перспективой. Нужны независимые испытания, оценка скорости, энергопотребления и чувствительности в рабочих условиях."
+        },
+        {
+          "heading": "Катодный материал: режимы испытаний",
+          "text": "Авторы Nature Synthesis сообщают 130,9 мА·ч/г при 25C и 25 °C, сохранение 82,4% после 350 циклов при 10C и 112,2 мА·ч/г при −20 °C и 1C. Значения относятся к испытаниям материала в конкретных режимах."
+        },
+        {
+          "heading": "Ограничения батарейного исследования",
+          "text": "Удельная ёмкость катодного материала не равна плотности энергии готовой батареи. Для оценки применения нужны независимая проверка, полные элементы, сведения о ресурсе, технологичности и себестоимости."
+        },
+        {
+          "heading": "Новое сообщение о квантовой химии",
+          "text": "В препринте указаны 72 кубита данных, 88 задействованных физических кубитов и 5 млн измерений; после отбора осталось 1 996 334. Непосредственно рассчитанная энергия −327,235076 Hartree находится на 4,3 миллихартри выше DMRG с D=4000, −327,2393952 Hartree."
+        },
+        {
+          "heading": "Ограничения сравнения",
+          "text": "Экстраполяции в препринте — отдельные оценочные результаты. Сравнение справедливо только для указанной модели и параметров DMRG, а практическое преимущество необходимо проверять по полной стоимости, точности и лучшим классическим методам. Расчёт Qunova использует другой алгоритм; без сопоставимых условий прямой рейтинг некорректен."
+        },
+        {
+          "heading": "Влага и электролит",
+          "text": "По сообщению GS Yuasa, сопоставление экспериментальных и расчётных ЯМР-спектров позволило оценить влагу внутри и на поверхности материала; с ростом внутренней влаги наблюдалось снижение ионной проводимости."
+        },
+        {
+          "heading": "Пределы батарейного результата",
+          "text": "В сообщении нет количественной зависимости, подробных условий и независимой проверки. Оборудование для крупных прототипов введено в эксплуатацию, но сроки и показатели массового производства не установлены."
+        },
+        {
+          "heading": "Гибридная квантово-защищённая связь",
+          "text": "В демонстрации секреты QKD и ML-KEM-768 объединялись через HKDF-SHA256 для TLS; аутентификация продолжала использовать сертификаты и ML-DSA-44. Компании сообщают о подключении оборудования через API без существенных изменений приложений."
+        },
+        {
+          "heading": "Что пока не показано",
+          "text": "Работа не доказывает абсолютной безопасности, не заменяет сертификатную аутентификацию и не проверяет независимое переключение на QKD. Нужны независимый аудит, оценки дальности, надёжности и стоимости эксплуатации."
+        }
+      ],
+      "sources": [
+        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+        "https://lasers.llnl.gov/science/achieving-fusion-ignition",
+        "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/",
+        "https://deepmind.google/blog/introducing-alphaproof-code/",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf",
+        "https://runway.com/news/company-news/praxis-1-is-now-available",
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control",
+        "https://www.nature.com/articles/s41567-026-03486-y",
+        "https://journals.aps.org/prapplied/abstract/10.1103/wc1k-wxtc",
+        "https://adelaide.edu.au/about/news/2026/tiny-quantum-breakthrough-with-big-implications-for-medicine-and/",
+        "https://www.gov.uk/government/news/ukaea-general-fusion-announce-magnetised-target-fusion-milestone",
+        "https://generalfusion.com/post/thomson-scattering-measurement-of-1-kev-electron-temperature-on-lawson-machine-26/",
+        "https://newsroom.ibm.com/2026-11-11-ibm-quantum-nighthawk-demonstrates-new-levels-of-speed-and-quality,-with-plans-to-scale-beyond-1,000-qubits-in-2027",
+        "https://qunovacomputing.com/news/148",
+        "https://arxiv.org/abs/2601.06935",
+        "https://www.quantum-brief.com/blog/news-2026-11-15-qunova-hivqe-iron-sulfur/",
+        "https://mothquantum.com/news/2026/11/16/tessa-loading-data-onto-real-quantum-chips",
+        "https://arxiv.org/abs/2611.18440",
+        "https://www.nature.com/articles/s41567-026-03493-z",
+        "https://www.nature.com/articles/s41567-026-03528-5",
+        "https://newsroom.amd.com/news/amd-powered-lux-supercomputer-opens-scientific-users/",
+        "https://www.olcf.ornl.gov/2026/11/16/lux-genesis-mission/",
+        "https://www.top500.org/lists/top500/2026/11/",
+        "https://nvidianews.nvidia.com/news/nvidia-announces-collaboration-with-ibm-and-fermi-national-accelerator-laboratory-to-launch-quantum-classical-codesign-platform-plus-error-correction-breakthrough-to-advance-practical-quantum-computing",
+        "https://research.nvidia.com/publication/_tcbpjobs-gpu-accelerated-quantum-error-correction-decoding-and-noise-learning-near",
+        "https://techxplore.com/news/2026-11-sensor-ultraprecise-reconstruction.html",
+        "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78934",
+        "https://english.cas.cn/newsroom/research-news/202611/t20261111_1214949.shtml",
+        "https://www.nature.com/articles/s44160-026-01152-y",
+        "https://www.ibm.com/quantum/blog/sc26",
+        "https://arxiv.org/abs/2611.04496",
+        "https://newsroom.gs-yuasa.com/en/news-release/450",
+        "https://www.nec.com/en/press/202611/global_20261117_01.html"
+      ],
+      "source_titles": {
+        "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/": "Google DeepMind — AlphaEvolve",
+        "https://lasers.llnl.gov/science/achieving-fusion-ignition": "LLNL — Achieving Fusion Ignition",
+        "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/": "Google DeepMind — SIMA 2",
+        "https://deepmind.google/blog/introducing-alphaproof-code/": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf": "AlphaProof Code: Verifying Signal’s Security at the Machine-Code Level",
+        "https://runway.com/news/company-news/praxis-1-is-now-available": "Praxis-1 Is Now Available",
+        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control": "Praxis-1: From Video Pretraining to Robot Control",
+        "https://www.nature.com/articles/s41567-026-03486-y": "Beating the break-even point with autonomous quantum error correction",
+        "https://journals.aps.org/prapplied/abstract/10.1103/wc1k-wxtc": "Исследователи испытали новую конструкцию сверхпроводящего магнитного датчика",
+        "https://adelaide.edu.au/about/news/2026/tiny-quantum-breakthrough-with-big-implications-for-medicine-and/": "Tiny quantum breakthrough with big implications for medicine and technology",
+        "https://www.gov.uk/government/news/ukaea-general-fusion-announce-magnetised-target-fusion-milestone": "General Fusion и UKAEA измерили нагрев электронов плазмы на LM26",
+        "https://generalfusion.com/post/thomson-scattering-measurement-of-1-kev-electron-temperature-on-lawson-machine-26/": "Thomson Scattering Measurement of 1 keV Electron Temperature on Lawson Machine 26",
+        "https://newsroom.ibm.com/2026-11-11-ibm-quantum-nighthawk-demonstrates-new-levels-of-speed-and-quality,-with-plans-to-scale-beyond-1,000-qubits-in-2027": "IBM сообщила об ускорении квантового эксперимента на Nighthawk r2",
+        "https://qunovacomputing.com/news/148": "Qunova Sets a New Benchmark for Quantum Chemistry, Matching the Best Classical Methods on a Landmark Iron-Sulfur Problem",
+        "https://arxiv.org/abs/2601.06935": "Extending the Handover-Iterative VQE to Challenging Strongly Correlated Systems: N2 and Fe-S Cluster",
+        "https://www.quantum-brief.com/blog/news-2026-11-15-qunova-hivqe-iron-sulfur/": "Qunova says it matched the best classical chemistry on an iron-sulfur cluster, and its measured energy sits 64 millihartree above the reference",
+        "https://mothquantum.com/news/2026/11/16/tessa-loading-data-onto-real-quantum-chips": "Moth: Tessa: loading a record amount of data onto real quantum chips",
+        "https://arxiv.org/abs/2611.18440": "Tessa: Encoding Classical Data Across an Entire Quantum Processor",
+        "https://www.nature.com/articles/s41567-026-03493-z": "Extending qubit lifetime beyond break-even and enhancing quantum sensing by autonomous quantum error correction",
+        "https://www.nature.com/articles/s41567-026-03528-5": "Extension of coherence time beyond breakeven point using only drives and dissipation",
+        "https://newsroom.amd.com/news/amd-powered-lux-supercomputer-opens-scientific-users/": "AMD-Powered Lux Supercomputer Opens to Scientific Users at Oak Ridge, Becoming First AI Factory for DOE’s Genesis Mission",
+        "https://www.olcf.ornl.gov/2026/11/16/lux-genesis-mission/": "Lux SI+HPC supercomputer debuts in the Top500, advances Genesis Mission goals",
+        "https://www.top500.org/lists/top500/2026/11/": "TOP500 — November 2026",
+        "https://nvidianews.nvidia.com/news/nvidia-announces-collaboration-with-ibm-and-fermi-national-accelerator-laboratory-to-launch-quantum-classical-codesign-platform-plus-error-correction-breakthrough-to-advance-practical-quantum-computing": "NVIDIA Announces Collaboration With IBM and Fermi National Accelerator Laboratory to Launch Quantum-Classical Codesign Platform, Plus Error-Correction Breakthrough to Advance Practical Quantum Computing",
+        "https://research.nvidia.com/publication/_tcbpjobs-gpu-accelerated-quantum-error-correction-decoding-and-noise-learning-near": "TCBP+JOBS: GPU-Accelerated Quantum Error Correction Decoding and Noise Learning with Near-Optimal Accuracy",
+        "https://techxplore.com/news/2026-11-sensor-ultraprecise-reconstruction.html": "A single sensor offers ultraprecise reconstruction of light information",
+        "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78934": "Multidimensional-Encoded High-Fidelity Spectrometers With a Floating-Base Bipolar Junction",
+        "https://english.cas.cn/newsroom/research-news/202611/t20261111_1214949.shtml": "Scientists Propose Descriptor-Driven Design Paradigm for Battery Cathode Materials",
+        "https://www.nature.com/articles/s44160-026-01152-y": "Descriptor-informed multi-component doping enables high-performance Co-free Ni-rich cathodes",
+        "https://www.ibm.com/quantum/blog/sc26": "At SC26, dramatic progress in bringing quantum and HPC together",
+        "https://arxiv.org/abs/2611.04496": "Broken-Symmetry Reference States for Sample-Based Quantum Diagonalization with Near-DMRG Accuracy",
+        "https://newsroom.gs-yuasa.com/en/news-release/450": "GS Yuasa and Osaka Metropolitan University Elucidate Moisture-Induced Degradation Mechanism in Sulfide Solid Electrolytes",
+        "https://www.nec.com/en/press/202611/global_20261117_01.html": "NEC and IBM Japan Successfully Demonstrate Japan's First PQC and QKD Integrated Method for Quantum-Safe Communication Technology"
+      },
+      "publication_dates": {
+        "2026-11-17": 2,
+        "2026-11-16": 8,
+        "2026-11-12": 1,
+        "2026-10-08": 1,
+        "2026-11-11": 1,
+        "2026-10-26": 1,
+        "2026-10-23": 1
+      }
     }
   ]
 }

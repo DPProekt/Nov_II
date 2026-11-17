@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-17T20:26:22.971Z",
+  "updated_at": "2026-11-17T20:28:04.809Z",
   "items": [
+    {
+      "title": "Опрос Bank of America: владельцы малого и среднего бизнеса ожидают разных последствий ИИ для занятости",
+      "summary": "В опросе Ipsos для Bank of America 84% владельцев малого и среднего бизнеса США сообщили, что используют ИИ в какой-либо форме. Среди использующих ИИ или планирующих его использовать 60% ожидали изменения ролей сотрудников, 52% — необходимости дополнительного найма для управления ИИ-инструментами, 33% — вероятного сокращения штата. Ipsos опросила онлайн 849 владельцев малых и 250 владельцев средних компаний 7–20 августа 2026 года; результаты взвешены по размеру, выручке и региону.",
+      "date": "2026-11-17",
+      "published_at": "2026-11-17T09:00:00-05:00",
+      "importance": "normal",
+      "source": "Bank of America",
+      "url": "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/11/bank-of-america-study-business-owners-bet-on-growth-and-ai-despi",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Ожидания работодателей не являются данными о фактических увольнениях, найме, производительности или ВВП. Доли относятся к конкретной выборке и подгруппе; варианты не следует складывать или считать взаимоисключающими. Онлайн-панель предварительно набиралась и охватывает не весь бизнес США."
+    },
     {
       "title": "Microsoft представила модели программирования MAI Code 2 и Code 2 Flash",
       "summary": "17 ноября на Ignite Microsoft представила две модели программирования MAI Code 2 и Code 2 Flash. Обе доступны в GitHub Copilot; Flash также доступна в ограниченном предварительном доступе Microsoft Foundry. По оценке Microsoft, на четырёх тестах Code 2 достигает 98% среднего результата GPT-6.1 Sol при 40% стоимости и 96% результата Claude Opus 5.5 при 5% стоимости. Три теста компания запускала на собственной платформе, результаты четвёртого взяты из Artificial Analysis; стоимость Code 2 рассчитана по промоцене со скидкой 50%. Разработчик отмечает, что модели пока не оптимизированы для фундаментальных исследований и очень длительных агентных задач. Точное время публикации не указано.",
@@ -1920,9 +1931,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-17T16:18:44.560Z",
-      "changes": "Добавлены рабочее исследование ОЭСР и Eurofound об изменении рабочих задач в профессиях с различной потенциальной экспозицией ИИ и первая оценка производительности Великобритании за III квартал 2026 года.",
-      "conclusion": "Новые данные уточняют структуру рабочих задач и общую динамику выпуска на час, но не позволяют выделить причинный вклад ИИ в производительность или экономический рост.",
+      "updated_at": "2026-11-17T20:28:04.809Z",
+      "changes": "Добавлен опрос Ipsos для Bank of America об использовании ИИ и ожиданиях владельцев малого и среднего бизнеса США относительно изменений ролей, найма и сокращений.",
+      "conclusion": "Опрос указывает на неоднородные ожидания работодателей: ИИ может сопровождаться как изменением ролей и дополнительным наймом, так и сокращением штата. Фактическое влияние на занятость и производительность из него не следует.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -2019,6 +2030,14 @@
         {
           "heading": "Макропроизводительность Великобритании",
           "text": "По компонентной оценке ONS выпуск на час в III квартале 2026 года был на 2,5% выше, чем годом ранее. Показатель охватывает всю экономику, не выделяет вклад ИИ и может пересматриваться; методика выпуска обновлена."
+        },
+        {
+          "heading": "Новые данные об ожиданиях работодателей",
+          "text": "Из использующих или планирующих использовать ИИ владельцев 60% ожидают изменений ролей, 52% — необходимости нанять сотрудников для управления ИИ, 33% — вероятного сокращения штата. 84% участников сообщили об использовании ИИ в какой-либо форме."
+        },
+        {
+          "heading": "Ограничения опроса и сравнения",
+          "text": "Ipsos опросила в августе 849 владельцев малых и 250 владельцев средних компаний США через предварительно набранную онлайн-панель; результаты взвешены. Ожидания не измеряют реальные изменения занятости, а доли нельзя напрямую сравнить с более ранними опросами, где различались определение ИИ и охват компаний."
         }
       ],
       "sources": [
@@ -2044,7 +2063,8 @@
         "https://www.oecd.org/en/publications/artificial-intelligence-and-work-organisation_5a208f6b-en.html",
         "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/11/artificial-intelligence-and-work-organisation_9c5e298d/5a208f6b-en.pdf",
         "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/julytoseptember2026",
-        "https://www.ons.gov.uk/releasecalendar?query=monthly+gdp&view=upcoming"
+        "https://www.ons.gov.uk/releasecalendar?query=monthly+gdp&view=upcoming",
+        "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/11/bank-of-america-study-business-owners-bet-on-growth-and-ai-despi"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -2069,7 +2089,8 @@
         "https://www.oecd.org/en/publications/artificial-intelligence-and-work-organisation_5a208f6b-en.html": "Artificial intelligence and work organisation",
         "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/11/artificial-intelligence-and-work-organisation_9c5e298d/5a208f6b-en.pdf": "Artificial intelligence and work organisation — полный текст OECD AI Papers No. 68",
         "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/julytoseptember2026": "Labour productivity, UK: July to September 2026",
-        "https://www.ons.gov.uk/releasecalendar?query=monthly+gdp&view=upcoming": "ONS release calendar — время выпуска"
+        "https://www.ons.gov.uk/releasecalendar?query=monthly+gdp&view=upcoming": "ONS release calendar — время выпуска",
+        "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/11/bank-of-america-study-business-owners-bet-on-growth-and-ai-despi": "Bank of America Study: Business Owners Bet on Growth and AI Despite Rising Costs"
       }
     },
     {

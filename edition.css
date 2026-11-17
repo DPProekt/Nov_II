@@ -61,3 +61,22 @@ main{min-height:60vh}h1,h2,h3{color:var(--ink);letter-spacing:-.035em;text-wrap:
 @media(max-width:780px){.mast-timestamp{display:none}.edition-hero{grid-template-columns:1fr;gap:16px}.edition-facts{grid-template-columns:auto auto minmax(0,1fr);align-items:center;gap:12px;padding:10px 14px}.edition-facts div{display:flex;align-items:baseline;gap:5px}.edition-facts strong{font-size:18px}.edition-facts p{grid-column:auto;text-align:right;border:0;padding:0;margin:0}}
 @media(max-width:620px){.mast .mast-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#c3d1c2 transparent;gap:0 17px}.mast .mast-nav a{flex:none;white-space:nowrap;min-height:42px}.edition-hero{padding-bottom:18px}.edition-facts{display:flex;flex-wrap:wrap;gap:5px 17px}.edition-facts p{width:100%;font-size:11px;text-align:left}.edition-notice:not([hidden]){grid-template-columns:8px minmax(0,1fr) 28px;gap:7px;padding:13px 11px}.edition-notice>button{width:28px}.edition-notice h2{font-size:17px}.mast .refresh{padding:8px 11px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Reading desk: the owner's 2560 × 1440 screen at 200% is about 1280 CSS pixels. */
+.reader-column{min-width:0}.reader-rail{display:none}.latest-brief{padding:16px 22px;margin:0 0 23px;border:1px solid var(--line);border-left:4px solid #59795c;background:#edf2e8;border-radius:8px}
+.rail-head{color:#39604f;font:750 .7rem/1.5 var(--reading-font);letter-spacing:.09em}.latest-brief p{font:500 var(--body-copy)/1.52 var(--reading-font);max-width:68ch;margin:.4em 0}.brief-link{border:0;background:none;color:#155443;padding:4px 0;font:650 .91rem/1.4 var(--reading-font);cursor:pointer;text-underline-offset:3px}.brief-link:hover{text-decoration:underline}
+#edition-setup:not([hidden]){display:block;margin:10px 0;font-size:.93rem}#edition-result details{margin-top:.7em;border-top:1px solid #c1d1c2;padding-top:.5em}#edition-result summary{color:#164a39;cursor:pointer;font-weight:700}#edition-result .prose{max-width:69ch;max-height:min(54vh,34rem);overflow:auto;padding:0 12px 0 0;scrollbar-width:thin}
+@media(min-width:1020px){
+ .wrap{width:min(1380px,calc(100% - clamp(44px,6.4vw,110px)))}
+ .mast-tools button{min-height:40px}.brand{padding-block:9px}.mast .mast-nav a,.mast .mast-nav .updates-link{min-height:37px}
+ .reader-grid{display:grid;grid-template-columns:clamp(185px,17.6vw,238px) minmax(0,1fr);gap:clamp(25px,3.8vw,65px);align-items:start;padding-block:23px 40px}
+ .reader-rail{display:block;position:sticky;top:15px;padding:8px 12px 8px 0;border-right:1px solid var(--line);max-height:calc(100vh - 30px);overflow:auto}
+ .reader-rail .rail-head{margin:0 0 12px 9px}.reader-rail nav{display:grid;gap:3px}.reader-rail a{display:grid;grid-template-columns:20px minmax(0,1fr);gap:7px;padding:8px;border-radius:6px;color:#3e564e;font:580 .9rem/1.4 var(--reading-font);text-decoration:none}
+ .reader-rail a span{font-size:.73rem;color:#5e7164;font-variant-numeric:tabular-nums;padding-top:2px}.reader-rail a:hover{background:#edf2e9}.reader-rail a[aria-current=page]{background:#dbe9da;color:#173e32;font-weight:750;box-shadow:inset 3px 0 #426d50}
+ .reader-column .article-top,.reader-column .article-body{width:100%;max-width:1020px;margin:0;padding:0}.reader-column .article-top{padding-bottom:16px;margin-bottom:15px}
+ .reader-column .article-top h1{font-size:clamp(32px,3.3vw,55px);max-width:28ch;line-height:1.06;margin:7px 0 10px}
+ .reader-column .article-top p{margin:3px 0}.reader-column .article-top .back{min-height:27px}
+ .reader-column .article-body>.message{max-width:76ch;margin:28px 0}.reader-column .prose{max-width:69ch}.reader-column .news-card{grid-template-columns:92px minmax(0,1fr)}
+ .updates-page{max-width:1240px;padding-block:clamp(18px,3vh,36px)}.edition-hero h1{font-size:clamp(38px,4.1vw,64px);max-width:none}.edition-hero{padding-bottom:18px;align-items:center}.edition-hero .updates-intro{font-size:1.06rem}
+}
+@media(min-width:1020px) and (max-height:740px){.reader-grid{padding-top:14px}.edition-hero{padding-top:0}.edition-day{margin:16px 0 7px}.latest-brief{margin-bottom:14px;padding-block:12px}.edition-hero .updates-intro{margin-top:6px}}

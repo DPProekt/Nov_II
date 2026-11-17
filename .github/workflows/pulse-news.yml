@@ -313,6 +313,20 @@ jobs:
                   print("Все темы недавно обновлены; повторный выпуск не требуется.")
                   raise SystemExit(0)
 
+          web_id=os.environ.get("PULSE_WEB_REQUEST","")
+          already_published=set()
+          if web_id:
+              if not re.fullmatch(r"[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}",web_id):
+                  raise SystemExit("Некорректный номер запроса.")
+              published=get_json("https://api.github.com/repos/DPProekt/Nov_II/contents/archive.json?ref=main",
+                  "Проверка повторной отправки",token=os.environ["PULSE_GITHUB_TOKEN"],
+                  headers={"Accept":"application/vnd.github.raw+json","Cache-Control":"no-cache"})
+              already_published={canonical_topic(d["title"]) for d in published["docs"]
+                  if any(m.get("web_request")==web_id for m in d.get("messages",[]))}
+              selection=os.environ.get("PULSE_SEARCH_TOPIC") or "Все темы"
+              if selection in already_published or selection=="Все темы" and len(already_published)>=8:
+                  print("Ответ на этот запрос уже опубликован.");raise SystemExit(0)
+
           old_archive = read_archive()
           save_reviews(old_archive)
           old_items = old_archive["items"]
@@ -393,7 +407,7 @@ jobs:
               else:
                   chosen = list(all_topics)
               namespace["run_sessions"](openai_token, os.environ["PULSE_GITHUB_TOKEN"], vault,
-                                        chosen, os.environ["GITHUB_RUN_ID"],
+                                        [t for t in chosen if t not in already_published], os.environ["GITHUB_RUN_ID"],
                                         initialize_only=os.environ.get("PULSE_INITIALIZE") == "true",
                                         on_topic_done=lambda: save_reviews(read_archive()),
                                         skip_after=freshness_cutoff if automatic else None)

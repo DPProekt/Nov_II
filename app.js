@@ -1,5 +1,5 @@
 'use strict';
-const root=document.querySelector('#app');let archive=null;let query='';let fresh=[];let sharedNews=[];let newsAnalysis=[];let localNews=[];let newsView='latest';let newsPage=0;let newsAnchor=Date.now();let popup=null;let selectedTopic='Новости ИИ';const backendOrigin='https://puls-ii-novosti.dnpnik.chatgpt.site';try{fresh=JSON.parse(localStorage.getItem('pulse-ii-news')||'[]');if(!Array.isArray(fresh))fresh=[];localNews=fresh.slice()}catch{fresh=[]}
+const root=document.querySelector('#app');let archive=null;let query='';let fresh=[];let sharedNews=[];let newsAnalysis=[];let localNews=[];let newsView='latest';let newsPage=0;let newsAnchor=Date.now();try{fresh=JSON.parse(localStorage.getItem('pulse-ii-news')||'[]');if(!Array.isArray(fresh))fresh=[];localNews=fresh.slice()}catch{fresh=[]}
 const labels=['Новости','Новости','Экономика','Исследование','Прогноз','Новости','Аналитика','Прогноз','Прогноз'];
 const descriptions=['Подробный обзор событий и исследований в области искусственного интеллекта.','Новости и обсуждение последних событий в мире ИИ.','Возможное влияние искусственного интеллекта на экономику.','Как ИИ работает с изображениями, пространством и визуальными представлениями.','Сценарии развития искусственного интеллекта и экономики до 2050 года.','Новости моделей GPT и технологий OpenAI.','Модель технологического развития и её связь с искусственным интеллектом.','Сценарии развития и распространения беспилотного транспорта.','Пять возможных направлений технологических изменений и сценарные сроки.'];
 function validNews(n){try{return n&&typeof n.title==='string'&&typeof n.summary==='string'&&typeof n.source==='string'&&typeof n.topic==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(n.date)&&new URL(n.url).protocol==='https:'}catch{return false}}
@@ -228,7 +228,7 @@ function showAllUpdates() {
       <span class="summary-copy"><strong>${escapeHtml(entry.title)}</strong><small>${escapeHtml(answerPreview(entry.message.text))}</small></span><span class="disclosure" aria-hidden="true"></span></summary>
       <div class="update-content prose"><p><a class="read-link" href="#/topic/${entry.index}">Все материалы по теме →</a></p>${renderArticle(entry.message.text)}</div></details>`;
   }).join('');
-  root.innerHTML = `<section class="updates-page"><header class="edition-hero"><div class="overline">Хроника / Все темы</div><h1>Последние обновления</h1><p class="updates-intro">Ответы агента и статьи со ссылками на источники. Даты и время — по Омску.</p></header>
+  root.innerHTML = `<section class="updates-page"><header class="edition-hero"><div class="edition-lead"><div class="overline">Хроника / Все темы</div><h1>Последние обновления</h1><p class="updates-intro">Исследования, релизы и прогнозы в порядке выхода. Откройте ответ агента целиком или перейдите к статье с источниками.</p></div><aside class="edition-facts" aria-label="Об архиве"><div><strong>${topicEntries().length}</strong><span>тем в обзоре</span></div><div><strong>${sharedNews.length}</strong><span>статей в архиве</span></div><p>Плановый выпуск · каждые 6 часов</p></aside></header>
     <div class="edition-controls" role="group" aria-label="Тип материала">${[['all','Все'],['answer','Ответы GPT'],['news','Статьи']].map(([id,label])=>`<button type="button" data-edition-filter="${id}" aria-pressed="${updateFilter === id}">${label}</button>`).join('')}</div>
     <div class="updates-list">${list || '<p class="empty">В этой ленте пока нет материалов.</p>'}</div>${entries.length > visible.length ? '<button type="button" class="updates-more">Показать ещё</button>' : ''}</section>`;
   root.querySelectorAll('[data-edition-filter]').forEach(button => button.addEventListener('click', () => {
@@ -274,7 +274,7 @@ document.addEventListener('visibilitychange', checkPublishedUpdates);
 setInterval(checkPublishedUpdates, 60000);
 function home(){let items=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));root.innerHTML=`<div class="layout"><section><div class="hero"><div class="overline">Обзор / Искусственный интеллект</div><h1>Новости искусственного интеллекта</h1><p>Исследования, открытия и прогнозы — важные события развития ИИ и их влияние на будущее.</p></div><form class="search" role="search"><input id="search" type="search" aria-label="Поиск по архиву" placeholder="Поиск по архиву: новости, модели, прогнозы..." value="${escapeHtml(query)}"></form>${renderNews()}<h2 class="section-title">Архив подборок из чатов</h2><div id="results">${items.length?rows(items):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'}</div>${graph()}</section>${side()}</div>`;wireNews();document.querySelector('.search').addEventListener('submit',e=>e.preventDefault());document.querySelector('#search').addEventListener('input',e=>{query=e.target.value;let matches=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));document.querySelector('#results').innerHTML=matches.length?rows(matches):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'})}
 function topic(i){i=topicIndex(i);let d=topicDocument(i);if(!d){home();return}root.innerHTML=`<section class="article-top"><a class="back" href="#/">← Все материалы</a><h1>${escapeHtml(d.title)}</h1><p><a class="read-link" href="#/analysis/${i}">Аналитика темы →</a></p><div class="meta">${labels[i]} · последнее изменение чата ${date(d.updatedAt)}</div></section><div class="article-body">${renderNews(d.title)}${i===8?graph():''}${d.note?`<div class="status">${escapeHtml(d.note)}</div>`:""}${d.messages.map((m,n)=>`<section class="message"><div class="message-date">Ответ ${n+1} · ${date(m.date)}</div>${m.truncated?'<div class="status">Ответ получен не полностью: показаны первые 20 000 символов.</div>':''}<div class="prose">${renderArticle(m.text)}</div></section>`).join('')}</div>`;wireNews()}
-function render(){if(!archive)return;markCurrentNavigation();const analysisRoute=location.hash.match(/^#\/analysis(?:\/(\d+)(?:\/(\d{4}-\d{2}-\d{2}))?)?$/);if(analysisRoute){showAnalysis(Number(analysisRoute[1]??0),analysisRoute[2]);return;}if(location.hash==='#/updates'){showAllUpdates();return}if(location.hash==='#/forecast'){showForecast();return}let match=location.hash.match(/^#\/topic\/(\d+)$/);if(match)topic(Number(match[1]));else{home();if(location.hash==='#/chart')document.querySelector('#chart')?.scrollIntoView();if(location.hash==='#/topics')document.querySelector('#results')?.scrollIntoView()}}
+function render(){if(!archive)return;if(typeof stamp==='function')stamp();markCurrentNavigation();const analysisRoute=location.hash.match(/^#\/analysis(?:\/(\d+)(?:\/(\d{4}-\d{2}-\d{2}))?)?$/);if(analysisRoute){showAnalysis(Number(analysisRoute[1]??0),analysisRoute[2]);return;}if(location.hash==='#/updates'){showAllUpdates();return}if(location.hash==='#/forecast'){showForecast();return}let match=location.hash.match(/^#\/topic\/(\d+)$/);if(match)topic(Number(match[1]));else{home();if(location.hash==='#/chart')document.querySelector('#chart')?.scrollIntoView();if(location.hash==='#/topics')document.querySelector('#results')?.scrollIntoView()}}
 function markCurrentNavigation() {
   let route = location.hash || '#/';
   if (route.startsWith('#/analysis')) route = '#/analysis';
@@ -283,67 +283,10 @@ function markCurrentNavigation() {
     else link.removeAttribute('aria-current');
   });
 }
-async function loadArchive(manual=false){try{let r=await fetch('archive.json?'+(manual?Date.now():'v1'),{cache:'no-store'});if(!r.ok)throw Error();archive=await r.json();render();if(manual){let msg=document.createElement('div');msg.className='status';msg.setAttribute('role','status');msg.textContent='Данные сайта перечитаны. Автоматическое получение новых ответов из закрытых чатов GPT пока не подключено.';root.prepend(msg)}}catch{if(manual&&archive){let msg=document.createElement('div');msg.className='status';msg.textContent='Не удалось перечитать архив. Показаны ранее загруженные материалы.';root.prepend(msg)}else root.innerHTML='<p class="empty">Не удалось загрузить архив. Проверьте подключение и попробуйте снова.</p>'}}
-function updateStatus(text){document.querySelector('#refresh-status')?.remove();let m=document.createElement('div');m.className='status';m.id='refresh-status';m.setAttribute('role','status');m.textContent=text;root.prepend(m)}
-async function refreshNews() {
-  const match = location.hash.match(/^#\/(?:topic|analysis)\/(\d+)(?:\/\d{4}-\d{2}-\d{2})?$/);
-  const document = match && archive && topicDocument(Number(match[1]));
-  const topic = document?.title || 'Все темы';
-  const button = window.document.querySelector('#refresh');
-  const oldUrls = new Set(sharedNews.map(item => item.url));
-  const oldTurns = new Set(archive.docs.flatMap(doc => doc.messages.map(message => message.agent_turn_id).filter(Boolean)));
-  button.disabled = true;
-  button.textContent = 'Ищем новости…';
-  updateStatus('GPT ищет новости. Поиск и публикация могут занять несколько минут.');
-  try {
-    const start = await fetch('http://127.0.0.1:8767/start', {
-      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({topic})
-    });
-    const launched = await start.json();
-    if (!start.ok) throw new Error(launched.error || 'Не удалось запустить поиск.');
-    let status;
-    for (let attempt = 0; attempt < 90; attempt++) {
-      await new Promise(resolve => setTimeout(resolve, 5000));
-      const response = await fetch('http://127.0.0.1:8767/status/' + launched.run_id);
-      status = await response.json();
-      if (!response.ok) throw new Error(status.error || 'Не удалось проверить состояние поиска.');
-      if (status.status === 'completed') break;
-    }
-    if (status?.status !== 'completed') throw new Error('Поиск ещё выполняется в GitHub Actions.');
-    if (status.conclusion !== 'success') throw new Error('GitHub Actions завершился с ошибкой: ' + status.conclusion);
-    let data, updatedArchive;
-    for (let attempt = 0; attempt < 24; attempt++) {
-      const stamp = Date.now();
-      const [newsResponse, archiveResponse] = await Promise.all([
-        fetch('news.json?refresh=' + stamp, {cache: 'no-store'}),
-        fetch('archive.json?refresh=' + stamp, {cache: 'no-store'})
-      ]);
-      if (!newsResponse.ok || !archiveResponse.ok) throw Error('Не удалось прочитать обновлённые данные сайта.');
-      data = await newsResponse.json();
-      updatedArchive = await archiveResponse.json();
-      const hasAnswer = updatedArchive.docs.some(doc => doc.messages.some(message => message.agent_turn_id && !oldTurns.has(message.agent_turn_id)));
-      if (data.items.some(item => !oldUrls.has(item.url)) || hasAnswer || attempt === 23) break;
-      await new Promise(resolve => setTimeout(resolve, 5000));
-    }
-    sharedNews = data.items;
-    archive = updatedArchive;
-    newsAnalysis = Array.isArray(data.analysis) ? data.analysis : [];
-    combineNews();
-    render();
-    const added = sharedNews.filter(item => !oldUrls.has(item.url) && (topic === 'Все темы' || canonicalTopic(item.topic) === topic));
-    const answers = archive.docs.flatMap(doc => doc.messages.filter(message => message.agent_turn_id && !oldTurns.has(message.agent_turn_id)));
-    updateStatus(added.length || answers.length ? 'Готово. Новых публикаций: ' + added.length + ', ответов агента: ' + answers.length + '.' : 'Поиск завершён. Новых подтверждённых публикаций по теме не найдено.');
-  } catch (error) {
-    updateStatus('Поиск не завершён: ' + (error.message || 'локальный обработчик недоступен') + '.');
-  } finally {
-    button.disabled = false;
-    button.textContent = '↻ Обновить';
-  }
-}
-window.addEventListener('message',event=>{if(event.origin!==backendOrigin||event.source!==popup)return;if(event.data?.type==='pulse-ready'){const match=location.hash.match(/^#\/(?:topic|analysis)\/(\d+)(?:\/\d{4}-\d{2}-\d{2})?$/);const d=match&&archive&&topicDocument(Number(match[1]));let cutoff=d?new Date(d.updatedAt*1000).toISOString().slice(0,10):'2026-11-14';for(const n of fresh)if(n.topic===selectedTopic&&n.date>cutoff)cutoff=n.date;popup.postMessage({type:'pulse-context',topic:selectedTopic,cutoff},backendOrigin)}else if(event.data?.type==='pulse-news'&&Array.isArray(event.data.items)){const seen=new Set(fresh.map(x=>x.url));let items=event.data.items.filter(x=>{try{return typeof x.title==='string'&&typeof x.summary==='string'&&typeof x.source==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&new URL(x.url).protocol==='https:'&&!seen.has(x.url)}catch{return false}}).map(x=>({...x,topic:selectedTopic}));fresh=[...items,...fresh];try{localStorage.setItem('pulse-ii-news',JSON.stringify(fresh))}catch{updateStatus('Не удалось сохранить новости в браузере.');return}render();updateStatus(items.length?'Добавлено новостей: '+items.length+'. Даты и ссылки следует проверить.':'Новых публикаций по этой теме не найдено.');}});
+async function loadArchive(){try{const r=await fetch('archive.json?v1',{cache:'no-store'});if(!r.ok)throw Error();const d=await r.json();if(!Array.isArray(d.docs))throw Error();archive=d;render()}catch{root.innerHTML='<p class="empty">Не удалось загрузить архив. Перезагрузите страницу.</p>'}}
 const sizeButton = document.getElementById('reader-size');
 function readerSize(large) { document.documentElement.classList.toggle('large-type', large); sizeButton.setAttribute('aria-pressed', String(large)); }
 try { readerSize(localStorage.getItem('pulse-reading-large') === 'yes'); } catch { readerSize(false); }
 sizeButton.addEventListener('click', () => { const large = sizeButton.getAttribute('aria-pressed') !== 'true'; readerSize(large); try { localStorage.setItem('pulse-reading-large', large ? 'yes' : 'no'); } catch {} });
 document.querySelector('.skip').addEventListener('click', e => { e.preventDefault(); root.focus(); root.scrollIntoView(); });
-document.querySelector('#refresh').addEventListener('click',refreshNews);window.addEventListener('hashchange',()=>{render();if(!['#/chart','#/topics'].includes(location.hash))window.scrollTo(0,0)});fetch('news.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){sharedNews=d.items;newsAnalysis=Array.isArray(d.analysis)?d.analysis:[];combineNews();render()}}).catch(()=>{});if(['localhost','127.0.0.1'].includes(location.hostname))fetch('http://127.0.0.1:8766/api/news').then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){localNews=d.items;combineNews();render()}}).catch(()=>{});loadArchive();
+window.addEventListener('hashchange',()=>{render();if(!['#/chart','#/topics'].includes(location.hash))window.scrollTo(0,0)});fetch('news.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)){sharedNews=d.items;newsAnalysis=Array.isArray(d.analysis)?d.analysis:[];combineNews();render()}}).catch(()=>{});loadArchive();

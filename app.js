@@ -54,6 +54,7 @@ const updateTimeFormat = new Intl.DateTimeFormat('ru-RU', {
   timeZone: 'Asia/Omsk', dateStyle: 'medium', timeStyle: 'short'
 });
 let updateLimit = 30;
+let updatesReading = false;
 
 function feedCards(items, showTopic = false) {
   return items.map(item => {
@@ -225,6 +226,38 @@ function showAllUpdates() {
   </section>`;
   root.querySelector('.updates-more')?.addEventListener('click', () => { updateLimit += 30; showAllUpdates(); });
 }
+async function checkPublishedUpdates() {
+  if (!archive || location.hash !== '#/updates' || document.hidden || updatesReading ||
+      root.querySelector('.update-entry[open]') || document.querySelector('#refresh').disabled) return;
+  updatesReading = true;
+  try {
+    const query = '?published=' + Math.floor(Date.now() / 60000);
+    const [archiveResponse, newsResponse] = await Promise.all([
+      fetch('archive.json' + query, {cache: 'no-store'}),
+      fetch('news.json' + query, {cache: 'no-store'})
+    ]);
+    if (!archiveResponse.ok || !newsResponse.ok) return;
+    const [nextArchive, nextNews] = await Promise.all([archiveResponse.json(), newsResponse.json()]);
+    if (!Array.isArray(nextArchive.docs) || !Array.isArray(nextNews.items) ||
+        location.hash !== '#/updates' || root.querySelector('.update-entry[open]') ||
+        document.querySelector('#refresh').disabled) return;
+    const archiveChanged = Date.parse(nextArchive.generatedAt) > Date.parse(archive.generatedAt);
+    const newsChanged = nextNews.items.length !== sharedNews.length ||
+      nextNews.items.some((item, i) => item.url !== sharedNews[i]?.url);
+    if (!archiveChanged && !newsChanged) return;
+    if (archiveChanged) archive = nextArchive;
+    sharedNews = nextNews.items;
+    newsAnalysis = Array.isArray(nextNews.analysis) ? nextNews.analysis : [];
+    combineNews();
+    showAllUpdates();
+  } catch {
+    // The visible list stays available during a temporary network error.
+  } finally {
+    updatesReading = false;
+  }
+}
+document.addEventListener('visibilitychange', checkPublishedUpdates);
+setInterval(checkPublishedUpdates, 60000);
 function home(){let items=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));root.innerHTML=`<div class="layout"><section><div class="hero"><h1>Новости искусственного интеллекта</h1><p>Исследования, открытия и прогнозы — важные события развития ИИ и их влияние на будущее.</p></div><form class="search" role="search"><input id="search" type="search" aria-label="Поиск по архиву" placeholder="Поиск по архиву: новости, модели, прогнозы..." value="${escapeHtml(query)}"></form>${renderNews()}<h2 class="section-title">Архив подборок из чатов</h2><div id="results">${items.length?rows(items):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'}</div>${graph()}</section>${side()}</div>`;wireNews();document.querySelector('.search').addEventListener('submit',e=>e.preventDefault());document.querySelector('#search').addEventListener('input',e=>{query=e.target.value;let matches=topicEntries().filter(({d,i})=>(d.title+' '+descriptions[i]+' '+d.messages.map(m=>m.text).join(' ')).toLowerCase().includes(query.toLowerCase()));document.querySelector('#results').innerHTML=matches.length?rows(matches):'<p class="empty">Ничего не найдено. Попробуйте другой запрос.</p>'})}
 function topic(i){i=topicIndex(i);let d=topicDocument(i);if(!d){home();return}root.innerHTML=`<section class="article-top"><a class="back" href="#/">← Все материалы</a><h1>${escapeHtml(d.title)}</h1><p><a class="read-link" href="#/analysis/${i}">Аналитика темы →</a></p><div class="meta">${labels[i]} · последнее изменение чата ${date(d.updatedAt)}</div><div class="status">Это сохранённые ответы из чата GPT. Сообщения и прогнозы не проверены повторно и могут устареть. Встроенные ссылки на конкретные источники сохранены, где они доступны.</div></section><div class="article-body">${renderNews(d.title)}${i===8?graph():''}${d.note?`<div class="status">${escapeHtml(d.note)}</div>`:""}${d.messages.map((m,n)=>`<section class="message"><div class="message-date">Ответ ${n+1} · ${date(m.date)}</div>${m.truncated?'<div class="status">Ответ получен не полностью: показаны первые 20 000 символов.</div>':''}<div class="prose">${renderArticle(m.text)}</div></section>`).join('')}</div>`;wireNews()}
 function render(){if(!archive)return;markCurrentNavigation();const analysisRoute=location.hash.match(/^#\/analysis(?:\/(\d+)(?:\/(\d{4}-\d{2}-\d{2}))?)?$/);if(analysisRoute){showAnalysis(Number(analysisRoute[1]??0),analysisRoute[2]);return;}if(location.hash==='#/updates'){showAllUpdates();return}if(location.hash==='#/forecast'){showForecast();return}let match=location.hash.match(/^#\/topic\/(\d+)$/);if(match)topic(Number(match[1]));else{home();if(location.hash==='#/chart')document.querySelector('#chart')?.scrollIntoView();if(location.hash==='#/topics')document.querySelector('#results')?.scrollIntoView()}}

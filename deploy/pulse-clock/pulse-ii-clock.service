@@ -1,0 +1,20 @@
+[Unit]
+Description=Check and signal the Pulse II news edition
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+DynamicUser=yes
+StateDirectory=pulse-ii-clock
+StateDirectoryMode=0700
+LoadCredential=github-app-key:/etc/pulse-ii-clock/github-app-key.pem
+LoadCredential=github-app:/etc/pulse-ii-clock/github-app.json
+ExecStart=/usr/bin/python3 /usr/local/lib/pulse-ii-clock/clock.py
+TimeoutStartSec=4min
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6

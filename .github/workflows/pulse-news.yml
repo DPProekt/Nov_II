@@ -274,7 +274,7 @@ jobs:
                   if message.get("agent_turn_id")
               }
               sessions = list(registry.get("sessions", {}).values())
-              freshness_cutoff = (datetime.now(timezone.utc) - timedelta(hours=5)).timestamp()
+              freshness_cutoff = (datetime.now(timezone.utc) - timedelta(hours=1)).timestamp()
               if (len(sessions) == 8 and all(
                   isinstance(entry, dict) and not entry.get("pending") and
                   isinstance(turn_times.get(entry.get("last_turn_id")), (int, float)) and

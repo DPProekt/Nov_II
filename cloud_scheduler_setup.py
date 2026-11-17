@@ -87,6 +87,11 @@ def configure(manager, exercise=False, retest=False, reset=False):
         info = manager.call(AUTOMATIONS + "/" + identifier, "Чтение расписания", openai=True)
         invocations = manager.call(AUTOMATIONS + "/" + identifier + "/invocations?limit=5",
                                    "Чтение запусков расписания", openai=True).get("data", [])
+        if (key == "last_reset_test_id" and info.get("status") == "active" and
+                info.get("run_at", 0) + 300 < time.time() and not invocations):
+            manager.call(AUTOMATIONS + "/" + identifier + "/pause",
+                         "Приостановка просроченной разовой проверки", openai=True, method="POST")
+            info["status"] = "paused"
         print(key, "состояние:", info.get("status"), "время:", info.get("run_at"),
               "запуски:", [(item.get("status"), (item.get("error") or {}).get("code"))
                             for item in invocations], flush=True)

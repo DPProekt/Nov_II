@@ -38,7 +38,11 @@
     "Пять технологических прорывов": {
       "history": [],
       "id": "sess_0116038403c9bb40806afaf0dd3a70819aae56870f403eb070",
-      "last_turn_id": "turn_0116038403c9bb40806afbb64555ac819a8e2cb5f5ccd245a3"
+      "last_turn_id": "turn_0116038403c9bb40806afbb64555ac819a8e2cb5f5ccd245a3",
+      "pending": {
+        "previous": "turn_0116038403c9bb40806afbb64555ac819a8e2cb5f5ccd245a3",
+        "key": "pulse-44029126138-7"
+      }
     }
   }
 }

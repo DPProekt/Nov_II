@@ -282,6 +282,8 @@ class Manager:
             self.save_state(state)
             raise CreditLimitReached("API сообщил об исчерпании кредита или лимита: " + error)
         if turn["status"] != "completed":
+            entry.pop("pending", None)
+            self.save_state(state)
             raise RuntimeError("Ход завершился с ошибкой: " + str(error or turn["status"]))
         self.append_answer(topic, session_id, turn)
         entry.pop("pending", None)

@@ -80,7 +80,7 @@ class Manager:
             raise ApiError("Обновление доступа OpenAI", exc.code) from None
 
     def call(self, url, operation, *, openai=False, method="GET", payload=None,
-             raw=False, missing=False, idempotency=None, retry_auth=True):
+             raw=False, missing=False, idempotency=None, retry_auth=True, retry_transient=2):
         headers = {
             "User-Agent": "Pulse-II-Sessions",
             "Authorization": "Bearer " + (self.openai_token if openai else self.github_token),
@@ -105,14 +105,28 @@ class Manager:
             if openai and exc.code == 401 and retry_auth:
                 self.refresh_openai_token()
                 return self.call(url, operation, openai=True, method=method, payload=payload,
-                                 raw=raw, missing=missing, idempotency=idempotency, retry_auth=False)
+                                 raw=raw, missing=missing, idempotency=idempotency,
+                                 retry_auth=False, retry_transient=retry_transient)
             detail = ""
             try:
                 info = json.load(exc).get("error", {})
                 detail = str(info.get("code", "")) if isinstance(info, dict) else ""
             except (ValueError, AttributeError):
                 pass
+            if (openai and retry_transient and (method == "GET" or idempotency) and
+                    exc.code in (429, 500, 502, 503, 504) and detail not in CREDIT_ERRORS):
+                time.sleep(3 if retry_transient == 2 else 8)
+                return self.call(url, operation, openai=True, method=method, payload=payload,
+                                 raw=raw, missing=missing, idempotency=idempotency,
+                                 retry_auth=retry_auth, retry_transient=retry_transient - 1)
             raise ApiError(operation, exc.code, detail) from None
+        except (urllib.error.URLError, TimeoutError):
+            if openai and retry_transient and (method == "GET" or idempotency):
+                time.sleep(3 if retry_transient == 2 else 8)
+                return self.call(url, operation, openai=True, method=method, payload=payload,
+                                 raw=raw, missing=missing, idempotency=idempotency,
+                                 retry_auth=retry_auth, retry_transient=retry_transient - 1)
+            raise RuntimeError(operation + ": ошибка соединения") from None
 
     def read_file(self, path, missing=False):
         response = self.call(REPO + path + "?ref=main", "Чтение " + path, missing=missing)

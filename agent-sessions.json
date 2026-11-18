@@ -18,11 +18,7 @@
     "Прогноз экономики при быстром развитии ИИ": {
       "history": [],
       "id": "sess_03a36d95316e9a62006aface35a940819c8b6e99b756568bd7",
-      "last_turn_id": "turn_03a36d95316e9a62006afcef351a68819c9bf8f3c979e8303a",
-      "pending": {
-        "previous": "turn_03a36d95316e9a62006afcef351a68819c9bf8f3c979e8303a",
-        "key": "pulse-44250202352-1"
-      }
+      "last_turn_id": "turn_03a36d95316e9a62006afd43bbc5f4819c859424de6f948740"
     },
     "Пересборка прогноза 2026–2050": {
       "history": [],

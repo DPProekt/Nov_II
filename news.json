@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-18T16:03:27.767Z",
+  "updated_at": "2026-11-18T16:07:56.399Z",
   "items": [
+    {
+      "title": "Accenture: часть опрошенных использует ИИ для создания продуктов на продажу, но молодёжь критична к ИИ-рекламе",
+      "summary": "В отчёте Life Trends 2027 Accenture сообщает об онлайн-опросе 28 тысяч человек в 26 странах и примерно 100 глубинных интервью. По данным компании, 15% опрошенных уже использовали ИИ для создания продукта или услуги на продажу, а 60% участников 18–24 лет считают бренды, использующие ИИ в контенте или рекламе, ленивыми, небрежными и дешёвыми.",
+      "date": "2026-11-18",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Accenture",
+      "url": "https://newsroom.accenture.com/news/2026/accenture-life-trends-2027-finds-people-want-progress-in-an-ai-era-but-on-their-own-terms",
+      "topic": "Пересборка прогноза 2026–2050",
+      "analysis": "Опрос показывает неоднородность отношения к ИИ: инструменты могут помогать создавать продукты, одновременно вызывая недоверие к синтетическому контенту. Это самоотчёты участников онлайн-опроса и возрастной подгруппы, а не измерение количества продаж, устойчивого дохода или причинного влияния ИИ на экономику. В пресс-релизе не приведены точное время публикации, сроки полевых работ и сведения, достаточные для проверки репрезентативности; попадание в шестичасовое окно не подтверждено."
+    },
     {
       "title": "Indeed и Glassdoor: доля вакансий с упоминанием ИИ выросла, но массовое вытеснение не установлено",
       "summary": "По данным обзора Indeed и Glassdoor, доля американских вакансий на Indeed с упоминанием ИИ выросла с 3,6% в сентябре 2025 года до 7,2% в сентябре 2026 года. Во взвешенном опросе занятых американцев доля использующих ИИ для работы не реже раза в неделю выросла с 36% до 42%. Авторы отмечают ограниченность свидетельств массовых потерь рабочих мест исключительно из-за ИИ; общие данные производительности не позволяют выделить его вклад.",
@@ -2681,9 +2692,9 @@
     },
     {
       "topic": "Пересборка прогноза 2026–2050",
-      "updated_at": "2026-11-18T06:24:53.376Z",
-      "changes": "Стэнфорд обновил монитор опросов распространения ИИ; источники показывают неодинаковую динамику, а компании сообщают умеренные планы расширения охвата.",
-      "conclusion": "Траектория внедрения не определяется одним опросом: разные источники и категории ИИ дают разные сигналы. Намерения фирм не равны фактическому внедрению и не определяют рост выпуска или занятости.",
+      "updated_at": "2026-11-18T16:07:56.399Z",
+      "changes": "Опрос Accenture добавляет данные о самостоятельном создании товаров и услуг с ИИ и о недоверии части молодых пользователей к ИИ-контенту брендов.",
+      "conclusion": "Потенциал масштабирования ИИ зависит не только от технических возможностей и цены, но также от того, кому выгодно применение и какой уровень доверия сохраняется к результатам. Самооценки и намерения не равны измеренному экономическому эффекту.",
       "details": [
         {
           "heading": "Ближний контур",
@@ -2772,6 +2783,18 @@
         {
           "heading": "Ограничения и архив",
           "text": "Данные руководителей семи стран собраны в мае–июле 2026 года; дата обновления витрины 18 ноября не означает, что опрос проведён или впервые опубликован в этот день. Самоотчёты не измеряют причинный эффект на производительность, а сопоставимость с ранее сохранёнными опросами Northeastern и Банка Кореи ограничена различиями методик. Точное время обновления страницы неизвестно."
+        },
+        {
+          "heading": "Новые результаты опроса",
+          "text": "Accenture сообщает, что 15% участников использовали ИИ для создания продукта или услуги на продажу; 60% участников 18–24 лет отрицательно характеризуют бренды, использующие ИИ в контенте или рекламе. Это разные показатели и разные базы, их нельзя сопоставлять напрямую."
+        },
+        {
+          "heading": "Связь с архивом",
+          "text": "Ранее опрос Northeastern показал неравномерность заявленной экономии времени среди работающих, а монитор Стэнфорда — расхождения между опросами внедрения. Accenture добавляет потребительский и предпринимательский контуры, но не подтверждает, что создание с ИИ обеспечивает продажи или устойчивый доход."
+        },
+        {
+          "heading": "Ограничения и пересмотр",
+          "text": "В пресс-релизе отсутствуют сроки полевого этапа, точное время публикации и данные, достаточные для проверки репрезентативности; опрос основан на самоотчётах. Для пересмотра количественных сценариев нужны независимые панельные данные, результаты продаж и причинные измерения изменения доходов и занятости."
         }
       ],
       "sources": [
@@ -2790,7 +2813,8 @@
         "https://link.springer.com/article/10.1365/s35764-026-00617-1",
         "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/autumn-2026-economic-forecast-shows-continued-growth-amid-higher-inflation/incorporating-ai-potential-output-estimates-challenges-and-practices_en",
         "https://www.ebrd.com/home/news-and-events/publications/economics/transition-reports/transition-report-2026-27.html",
-        "https://digitaleconomy.stanford.edu/project/indicators/adoptionmonitor/"
+        "https://digitaleconomy.stanford.edu/project/indicators/adoptionmonitor/",
+        "https://newsroom.accenture.com/news/2026/accenture-life-trends-2027-finds-people-want-progress-in-an-ai-era-but-on-their-own-terms"
       ],
       "source_titles": {
         "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/": "Google DeepMind — AlphaEvolve",
@@ -2808,7 +2832,8 @@
         "https://link.springer.com/article/10.1365/s35764-026-00617-1": "Mehr KI, kaum mehr Produktivität? Die organisatorische Lücke zwischen Einführung und wirtschaftlicher Wirkung",
         "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/autumn-2026-economic-forecast-shows-continued-growth-amid-higher-inflation/incorporating-ai-potential-output-estimates-challenges-and-practices_en": "Еврокомиссия объяснила, как учитывает ИИ в оценке потенциального выпуска",
         "https://www.ebrd.com/home/news-and-events/publications/economics/transition-reports/transition-report-2026-27.html": "ЕБРР: спрос на ИИ создаёт возможности для экспорта, но не гарантирует технологического догоняния",
-        "https://digitaleconomy.stanford.edu/project/indicators/adoptionmonitor/": "AI Economic Indicators: Adoption Monitor"
+        "https://digitaleconomy.stanford.edu/project/indicators/adoptionmonitor/": "AI Economic Indicators: Adoption Monitor",
+        "https://newsroom.accenture.com/news/2026/accenture-life-trends-2027-finds-people-want-progress-in-an-ai-era-but-on-their-own-terms": "Accenture Life Trends 2027"
       }
     },
     {

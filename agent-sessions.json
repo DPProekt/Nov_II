@@ -3,21 +3,7 @@
     "Развитие мышления ИИ образами": {
       "id": "sess_02d4b31ca4daef22806afacacf3118819da3432ed4296e1d0a",
       "history": [],
-      "last_turn_id": "turn_02d4b31ca4daef22806afd985ee510819dbf6a177898412267",
-      "pending": {
-        "previous": "turn_02d4b31ca4daef22806afd985ee510819dbf6a177898412267",
-        "key": "pulse-44341628363-2",
-        "article_urls_before": [
-          "https://arxiv.org/abs/2610.08966",
-          "https://arxiv.org/abs/2610.12402",
-          "https://arxiv.org/abs/2611.15131",
-          "https://arxiv.org/abs/2611.16861",
-          "https://arxiv.org/abs/2611.17626",
-          "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
-          "https://runway.com/news/company-news/praxis-1-is-now-available",
-          "https://www.alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783"
-        ]
-      }
+      "last_turn_id": "turn_02d4b31ca4daef22806afdcc906ce4819d90ea997c6e5e0e86"
     },
     "Новости GPT": {
       "history": [],

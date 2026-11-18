@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-18T18:20:15.688Z",
+  "updated_at": "2026-11-18T18:22:37.897Z",
   "items": [
+    {
+      "title": "Just Capital: октябрьская оценка ИИ в сфере работы остаётся положительной, но изменений за месяц не установлено",
+      "summary": "В октябрьской волне опроса The Harris Poll для Just Capital баланс позитивных и негативных оценок влияния ИИ в сфере работы составил +47 пунктов, против +44 в сентябре и +48 в августе. Индекс равен доле положительных ответов минус доля отрицательных; авторы предупреждают, что изменения от месяца к месяцу статистически незначимы. В онлайн-опросе 19–21 октября участвовали 1008 взрослых жителей США.",
+      "date": "2026-11-18",
+      "published_at": "2026-11-18T11:25:00-05:00",
+      "importance": "normal",
+      "source": "Just Capital",
+      "url": "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Показатель характеризует оценки респондентов, не прирост ВВП, рабочих мест или измеренную производительность. Ответы «не знаю» исключены из расчёта; опубликованные изменения не подтверждают месячного тренда. Подробные веса и размеры подгрупп не опубликованы в релизе."
+    },
     {
       "title": "Investing.com представила новое поколение ИИ-аналитика WarrenAI",
       "summary": "Investing.com объявила о развитии WarrenAI для многошагового исследования инвестиций: по заявлению компании, система планирует исследование, изучает рыночные данные и уточняет результаты до 10 раундов. Режимы Analyst и Senior Analyst доступны в бесплатных и платных тарифах с разными лимитами; второй формирует оптимистичный, базовый и пессимистичный сценарии. Торговые планы с ИИ и более проактивный мониторинг ещё разрабатываются. В августовском опросе 896 пользователей Investing.com 86% сообщили, что проверяют числа ИИ по другому источнику перед действиями.",
@@ -2471,9 +2482,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-18T16:03:27.767Z",
-      "changes": "Добавлен обзор Indeed и Glassdoor о динамике упоминаний ИИ в американских вакансиях, использовании работниками и ограничениях доказательств вытеснения.",
-      "conclusion": "Упоминания ИИ в вакансиях и регулярное использование в опросе выросли, но это не измеряет причинный вклад ИИ в занятость, зарплаты или производительность. Влияние может различаться по профессиям и этапам карьеры.",
+      "updated_at": "2026-11-18T18:22:37.897Z",
+      "changes": "Добавлена октябрьская волна National AI Monitor об оценках влияния ИИ в сфере работы и общих ожиданиях американцев.",
+      "conclusion": "Опрос дополняет данные о восприятии ИИ, но не подтверждает месячного изменения оценок или измеримого экономического эффекта; оснований менять численные параметры прогноза нет.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -2610,6 +2621,14 @@
         {
           "heading": "Что показатели не устанавливают",
           "text": "Текст вакансий на Indeed не охватывает все размещения и не определяет долю занятых с ИИ; самоотчёты и наблюдательные сопоставления не показывают причинный вклад технологии. Отсутствие явных признаков общерыночного массового вытеснения не исключает потерь в отдельных группах."
+        },
+        {
+          "heading": "Оценка влияния ИИ на работу",
+          "text": "Баланс положительных и отрицательных ответов по сфере работы составил +48 в августе, +44 в сентябре и +47 в октябре. По указанию авторов, изменения между соседними месяцами статистически незначимы."
+        },
+        {
+          "heading": "Методика и границы вывода",
+          "text": "Harris Poll опросила 1008 взрослых в США онлайн 19–21 октября 2026 года. Баланс — разность долей положительных и отрицательных оценок, ответы «не знаю» исключены; это не доля сторонников и не оценка фактического роста производительности. Подробные веса и размер подгрупп в релизе не приведены."
         }
       ],
       "sources": [
@@ -2650,7 +2669,9 @@
         "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and",
         "https://hiringlab.indeed.com/2026/11/18/there-is-no-ai-jobpocalypse/",
         "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoors-2027-u-s-hiring-and-worklife-trends-report-consolidated-methodology/",
-        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/"
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/",
+        "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html",
+        "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -2690,7 +2711,9 @@
         "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and": "European Employers Face Uncertain Outlook Amid Accelerating AI Adoption",
         "https://hiringlab.indeed.com/2026/11/18/there-is-no-ai-jobpocalypse/": "There is no AI Jobpocalypse, but plenty of AI-nxiety",
         "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoors-2027-u-s-hiring-and-worklife-trends-report-consolidated-methodology/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report: Consolidated Methodology",
-        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report"
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report",
+        "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html": "National AI Monitor: Americans Remain Net Positive on AI Today, Divided on Beneficial Impacts In the Future",
+        "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/": "Just Capital: National AI Monitor — October 2026 results"
       }
     },
     {

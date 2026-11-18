@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-18T15:59:51.204Z",
+  "updated_at": "2026-11-18T16:03:27.767Z",
   "items": [
+    {
+      "title": "Indeed и Glassdoor: доля вакансий с упоминанием ИИ выросла, но массовое вытеснение не установлено",
+      "summary": "По данным обзора Indeed и Glassdoor, доля американских вакансий на Indeed с упоминанием ИИ выросла с 3,6% в сентябре 2025 года до 7,2% в сентябре 2026 года. Во взвешенном опросе занятых американцев доля использующих ИИ для работы не реже раза в неделю выросла с 36% до 42%. Авторы отмечают ограниченность свидетельств массовых потерь рабочих мест исключительно из-за ИИ; общие данные производительности не позволяют выделить его вклад.",
+      "date": "2026-11-18",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Indeed Hiring Lab и Glassdoor Economic Research",
+      "url": "https://hiringlab.indeed.com/2026/11/18/there-is-no-ai-jobpocalypse/",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Объявления одной платформы не равны всем вакансиям, а упоминание ИИ не является измерением его внедрения или новых рабочих мест. Опрос отражает самоотчёты, изменения спроса и экспозиция профессий не устанавливают причинности; ограниченность выявленных потерь не доказывает отсутствие вытеснения в отдельных группах. Первоисточник не указывает точного времени публикации."
+    },
     {
       "title": "Oracle представила ИИ-агентов для организации клинических исследований",
       "summary": "18 ноября Oracle представила Life Sciences AI Agents для мониторинга портфеля, планирования и проведения клинических исследований. По описанию Oracle, агенты используют данные её приложений и поддерживаемых сторонних источников, чтобы выявлять организационные проблемы и предлагать действия; люди должны проверять рекомендации и утверждать действия до исполнения. Продукт доступен ранним пользователям, а функции для управления клиническими данными, анализа после испытаний и других этапов запланированы. Релиз не приводит независимых показателей точности, влияния на сроки или исходы исследований.",
@@ -2338,9 +2349,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-18T12:20:57.096Z",
-      "changes": "Добавлены обзор финансовой стабильности ЕЦБ с оценкой рисков финансирования ИИ и опрос Littler об ожиданиях и кадровых решениях европейских компаний.",
-      "conclusion": "Новые материалы усиливают внимание к двум неопределённостям: распространению финансового шока через долговые связи и неоднородным кадровым решениям. Ни один не доказывает неизбежность кризиса или общий масштаб сокращений из-за ИИ.",
+      "updated_at": "2026-11-18T16:03:27.767Z",
+      "changes": "Добавлен обзор Indeed и Glassdoor о динамике упоминаний ИИ в американских вакансиях, использовании работниками и ограничениях доказательств вытеснения.",
+      "conclusion": "Упоминания ИИ в вакансиях и регулярное использование в опросе выросли, но это не измеряет причинный вклад ИИ в занятость, зарплаты или производительность. Влияние может различаться по профессиям и этапам карьеры.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -2469,6 +2480,14 @@
         {
           "heading": "Опрос работодателей и его пределы",
           "text": "В выборке Littler из 498 европейских руководителей и специалистов по кадрам и праву 28% указали сокращение штата, а 32% — найма в связи с фактическим или ожидаемым использованием ИИ. Сопоставимые показатели предыдущей волны — по 13%; разные волны не обязательно включают те же компании, репрезентативность и причинность не установлены."
+        },
+        {
+          "heading": "Вакансии и самоотчёты работников",
+          "text": "Доля вакансий Indeed с ИИ-терминами увеличилась с 3,6% в сентябре 2025 до 7,2% в сентябре 2026. Доля занятых американцев, сообщивших об использовании ИИ для работы не реже раза в неделю, выросла с 36% до 42% во взвешенных опросах YouGov за II кварталы 2025 и 2026 годов."
+        },
+        {
+          "heading": "Что показатели не устанавливают",
+          "text": "Текст вакансий на Indeed не охватывает все размещения и не определяет долю занятых с ИИ; самоотчёты и наблюдательные сопоставления не показывают причинный вклад технологии. Отсутствие явных признаков общерыночного массового вытеснения не исключает потерь в отдельных группах."
         }
       ],
       "sources": [
@@ -2506,7 +2525,10 @@
         "https://www.ecb.europa.eu/press/calendars/weekly/html/index.en.html",
         "https://www.littler.com/sites/default/files/2026-11/2026_littler_european_employer_survey_report.pdf",
         "https://www.littler.com/news-analysis/littler-report/littler-european-employer-survey-2026",
-        "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and"
+        "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and",
+        "https://hiringlab.indeed.com/2026/11/18/there-is-no-ai-jobpocalypse/",
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoors-2027-u-s-hiring-and-worklife-trends-report-consolidated-methodology/",
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -2543,7 +2565,10 @@
         "https://www.ecb.europa.eu/press/calendars/weekly/html/index.en.html": "ECB weekly schedule: publication at 10:00 CET",
         "https://www.littler.com/sites/default/files/2026-11/2026_littler_european_employer_survey_report.pdf": "Littler 2026 European Employer Survey Report",
         "https://www.littler.com/news-analysis/littler-report/littler-european-employer-survey-2026": "The Littler 2026 European Employer Survey Report — overview",
-        "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and": "European Employers Face Uncertain Outlook Amid Accelerating AI Adoption"
+        "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and": "European Employers Face Uncertain Outlook Amid Accelerating AI Adoption",
+        "https://hiringlab.indeed.com/2026/11/18/there-is-no-ai-jobpocalypse/": "There is no AI Jobpocalypse, but plenty of AI-nxiety",
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoors-2027-u-s-hiring-and-worklife-trends-report-consolidated-methodology/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report: Consolidated Methodology",
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report"
       }
     },
     {

@@ -8,11 +8,7 @@
     "Новости GPT": {
       "history": [],
       "id": "sess_098faede644ac23f006afaccf5d3e081a3950e43f50374c6d4",
-      "last_turn_id": "turn_098faede644ac23f006afcba01551c81a3922f4e9fc8f8b1b6",
-      "pending": {
-        "previous": "turn_098faede644ac23f006afcba01551c81a3922f4e9fc8f8b1b6",
-        "key": "pulse-44206555925-4"
-      }
+      "last_turn_id": "turn_098faede644ac23f006afcf06c8ee881a385e114ceab6db3ea"
     },
     "Подробные новости ИИ": {
       "history": [],

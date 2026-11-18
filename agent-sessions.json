@@ -23,7 +23,11 @@
     "Пересборка прогноза 2026–2050": {
       "history": [],
       "id": "sess_03d0ee54f1a5d3d7006afacf1e22848195a6ef62456950f0b5",
-      "last_turn_id": "turn_03d0ee54f1a5d3d7006afd447d4c2481958fb713108daec200"
+      "last_turn_id": "turn_03d0ee54f1a5d3d7006afd447d4c2481958fb713108daec200",
+      "pending": {
+        "previous": "turn_03d0ee54f1a5d3d7006afd447d4c2481958fb713108daec200",
+        "key": "pulse-44302455892-3"
+      }
     },
     "Гипербола технологий Капицы с ИИ": {
       "history": [],

@@ -18,7 +18,33 @@
     "Прогноз экономики при быстром развитии ИИ": {
       "history": [],
       "id": "sess_03a36d95316e9a62006aface35a940819c8b6e99b756568bd7",
-      "last_turn_id": "turn_03a36d95316e9a62006afdcbaa6f18819c9cd1a2ba9b3b0acf"
+      "last_turn_id": "turn_03a36d95316e9a62006afdcbaa6f18819c9cd1a2ba9b3b0acf",
+      "pending": {
+        "previous": "turn_03a36d95316e9a62006afdcbaa6f18819c9cd1a2ba9b3b0acf",
+        "key": "pulse-44368010585-1",
+        "article_urls_before": [
+          "https://apps.bea.gov/scb/spotlights/2026/1026-ai-utilization.htm",
+          "https://committees.parliament.uk/publications/55827/standard/pdf",
+          "https://hiringlab.indeed.com/2026/11/18/there-is-no-ai-jobpocalypse/",
+          "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/11/bank-of-america-study-business-owners-bet-on-growth-and-ai-despi",
+          "https://newsroom.ibm.com/2026-11-17-ibm-study-chief-ai-officers-see-where-ai-creates-value%2C-but-few-control-investment-decisions",
+          "https://vercel.com/blog/ai-gateway-production-index-november-2026",
+          "https://www.ecb.europa.eu/press/financial-stability-publications/fsr/html/ecb.fsr202611~e03b919d36.en.html",
+          "https://www.eib.org/en/publications/20260192-econ-eibis-2026-eu",
+          "https://www.federalreserve.gov/newsevents/speech/barr20261116a.htm",
+          "https://www.federalreserve.gov/newsevents/speech/jefferson20261113a.htm",
+          "https://www.federalreserve.gov/newsevents/speech/warsh20261116a.htm",
+          "https://www.globenewswire.com/news-release/2026/11/16/3403877/0/en/broad-ai-adoption-could-boost-latin-america-and-caribbean-gdp-by-5-1-over-a-decade-idb-report-finds.html",
+          "https://www.gov.uk/government/publications/ai-adoption-survey-2026/ai-adoption-survey-report-2026-executive-summary",
+          "https://www.littler.com/sites/default/files/2026-11/2026_littler_european_employer_survey_report.pdf",
+          "https://www.nature.com/articles/s41598-026-79480-4",
+          "https://www.nature.com/articles/s41893-026-01985-7",
+          "https://www.nuinfoinstitute.org/publications-1/ai-and-time-at-work",
+          "https://www.oecd.org/en/publications/artificial-intelligence-and-work-organisation_5a208f6b-en.html",
+          "https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/gdpfirstquarterlyestimateuk/julytoseptember2026",
+          "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/julytoseptember2026"
+        ]
+      }
     },
     "Пересборка прогноза 2026–2050": {
       "history": [],

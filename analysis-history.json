@@ -15010,6 +15010,241 @@
         "2026-10-02": 1,
         "2026-11-15": 1
       }
+    },
+    {
+      "topic": "Новости GPT",
+      "updated_at": "2026-11-18T18:27:54.101Z",
+      "changes": "OpenAI представила профили компаний и бизнес-агентов в ChatGPT, а затем ChatGPT Wallet для покупок через агента с подтверждением пользователя. Добавлена модель GPT-6.1 Terra и её системная карта от 26 октября.\n\nК обзору GPT-6.1 Terra и агентных функций добавлен запуск специализированной модели GPT-6 Cyber.\n\nOpenAI и медиаподразделение LVMH объявили о представлении материалов группы в ChatGPT и внедрении ChatGPT Enterprise в редакционные процессы.\n\nНовые материалы: OpenAI расширила клинический поиск и агентные функции ChatGPT для медицины; OpenAI расширяет программу бесплатного доступа ChatGPT для учёных; OpenAI изучила использование ChatGPT исследователями в летнем пилоте.\n\nOpenAI сообщила об использовании её кибермоделей в НАТО и привела примеры работы с европейскими защитниками.\n\nДобавлены: OpenAI представила GPT-6.2 Astra и Sol для профессиональных задач; OpenAI обновила Astra for Law на базе GPT-6.2 Astra.\n\nДобавлены опубликованные Vals AI результаты сравнения GPT-6.2 Astra и Sol на общих и научных тестах.\n\nДобавлена внешняя оценка Artificial Analysis: улучшение общего индекса GPT-6.2 сопровождается отсутствием роста или снижением на тесте программирующих агентов.\n\nOpenAI объявила публичную бета-версию отложенных фоновых запросов для GPT с тарифными скидками на токены при целевых окнах 2 и 8 часов.\n\nДобавлен небольшой внешний тест TrueStandard: в трёх повторах на одних и тех же 30 утверждениях GPT-6.2 Sol выдала больше неразрешившихся DOI, чем GPT-6.1 Sol, при низком уровне рассуждения без интернет-поиска.\n\nВ обновлённой таблице Agents’ Last Exam v1.1 представлены значения полного и частичного выполнения для GPT-6.2 в Codex; у GPT-6.2 Astra указаны 47,5% идеальных запусков и 78,3% среднего частичного балла.\n\nGAO публично выпустило доклад о весенних скрытых испытаниях четырёх ИИ-платформ, включая ChatGPT: при участии исследователей и после попыток обхода защит платформы предоставили информацию для опасных сценариев.\n\nOpenAI и Le Groupe Figaro объявили отдельное партнёрство о резюме и фрагментах публикаций в ChatGPT со ссылками на оригиналы, а также о планах использования ChatGPT Enterprise.\n\nOpenAI зафиксировала повышенную частоту ошибок в диалогах ChatGPT на тарифах Free и Go и затем сообщила о восстановлении.",
+      "conclusion": "Направление развития — от ответа в чате к действиям с участием пользователя. Для оценки прогресса важны условия доступа, точность действий и возможность проверить или отменить ошибку. Помимо ранее рассмотренных продуктовых функций ChatGPT появилась более дешёвая модель для визуальных и компьютерных задач; заявления о качествах и безопасности требуют независимой проверки.\n\nСпециализация улучшила заявленный разработчиком результат на заданном тесте, но доступ ограничен и заявленная безопасность зависит от условий применения и защитных мер.\n\nПартнёрство расширяет заявленный доступ к издательскому контенту, но его влияние на точность ответов и аудиторию пока не измерено.\n\nОбъявления расширяют доступ к ChatGPT в науке и медицинских процессах; заявленные улучшения и оценки времени требуют независимой проверки, особенно там, где последствия ошибок затрагивают здоровье.\n\nЗаявленный объём использования отражает масштаб обработки, но не доказывает повышение безопасности и не позволяет установить вклад конкретной версии GPT.\n\nGPT-6.2 сочетает заявленный рост эффективности с новыми ограничениями и оценками рисков; специализированная юридическая конфигурация улучшила результат на строгом тесте, но нуждается в контроле специалиста.\n\nВнешние показатели Vals дополняют заявления разработчика, но не заменяют полевой проверки качества и полной стоимости работы.\n\nОтдельные возможности новых GPT развиваются неравномерно: общие показатели и результаты конкретных агентных задач нужно проверять раздельно.\n\nОтложенная обработка может снизить стоимость токенов некритичных ко времени задач, но общая экономия и соблюдение сроков требуют отдельной проверки.\n\nПри подготовке ссылок DOI и соответствие источника утверждению нужно проверять отдельно; один небольшой тест не устанавливает общую частоту ошибок моделей.\n\nВысокий частичный балл на агентном тесте нельзя отождествлять с долей полностью выполненных задач или с реальной надёжностью.\n\nИспытания GAO показывают необходимость оценивать защиту от целенаправленного злоупотребления, но не дают статистической частоты отказов или оценки текущих версий GPT.\n\nЕщё одно соглашение с издателем расширяет заявленный набор журналистских источников, но не доказывает улучшения точности или роста посещаемости.\n\nДля оценки доступности ChatGPT важно учитывать конкретный компонент и планы: один устранённый инцидент не характеризует общую надёжность сервиса.",
+      "details": [
+        {
+          "heading": "Два этапа коммерческого сценария",
+          "text": "Бизнес-профиль даёт пользователю сведения о компании и возможность задать вопросы её агенту. Wallet добавляет отдельный этап оплаты с подтверждением заказа, когда пользователь и способ оплаты соответствуют условиям."
+        },
+        {
+          "heading": "Где остаётся человеческий контроль",
+          "text": "Пользователь проверяет детали перед оплатой. Для оценки работы полезно измерять, сколько заказов агент подготовил корректно, сколько пользователь отменил и сколько завершились возвратом или спором."
+        },
+        {
+          "heading": "Что изменит вывод",
+          "text": "Расширение доступности по странам и типам продавцов, статистика завершённых покупок и изменения механизма подтверждения дадут основания пересмотреть оценку внедрения."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Модель доступна через API и в ChatGPT Work и Codex для указанных тарифов; стандартная стоимость — 1 доллар за миллион входных и 5 долларов за миллион выходных токенов."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Цена не включает всех затрат на выполнение задачи, а тесты и классификация риска принадлежат OpenAI. Оценку изменят независимые проверки и практические результаты."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "OpenAI сообщила 48,5% на ExploitGym против 32,1% у GPT-5.6 Cyber и первоначальный доступ для выбранных одобренных клиентов Daybreak Red."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Показатель получен на тесте разработчика и не гарантирует корректной работы вне него; оценку изменят независимые испытания и сведения о фактических исправлениях."
+        },
+        {
+          "heading": "Издательский контент в ChatGPT",
+          "text": "В ответах на соответствующие запросы планируются резюме и фрагменты материалов изданий с указанием источника и прямой ссылкой. Для сотрудников медиагруппы предусмотрены ChatGPT Enterprise, инструменты поиска и сравнения документов, предварительного перевода и обучение."
+        },
+        {
+          "heading": "Ограничения партнёрства",
+          "text": "Стороны не раскрыли финансовые условия, сроки полного внедрения, долю фактически доступных материалов и показатели качества ссылок или переходов. Планы партнёров нельзя считать доказательством повышения точности и редакционной эффективности."
+        },
+        {
+          "heading": "Медицинские агенты и клинический поиск",
+          "text": "OpenAI сообщает о расширении медицинских плагинов и поиска источников. На HealthAdminBench разработчик получил 94,3% для GPT-6 Astra и 91,8% для Luna; на отдельном наборе 325 задач проверяющие признали безопасными 99%."
+        },
+        {
+          "heading": "Ограничения медицинских испытаний",
+          "text": "Тесты и оценки проведены разработчиком; демонстрация использовала синтетические данные. Результаты не являются оценкой безопасности в клинической практике. Требуются контроль специалиста, защита данных и независимые полевые исследования."
+        },
+        {
+          "heading": "Расширение научной программы",
+          "text": "Следующий раунд предусматривает 50 000 грантов ChatGPT Plus, каждый для получателя и до двух коллег. Приём заявок запланирован на 23 ноября; это ещё не число выданных доступов."
+        },
+        {
+          "heading": "Границы показателей охвата",
+          "text": "20 000 участников пилота и цель до 200 000 участников всей программы измеряют доступ, а не качество научных результатов. Необходимы данные о фактическом использовании и последствиях для исследовательской работы."
+        },
+        {
+          "heading": "Как учёные применяли ChatGPT",
+          "text": "OpenAI проанализировала 580 186 сообщений 1 819 участников и опросила 251 учёного. Оценка 1,9 раза относится к самоотчётам о времени, необходимом без ИИ, а не к контролируемому замеру."
+        },
+        {
+          "heading": "Ограничения исследования",
+          "text": "Участники пилота не представляют всех исследователей; число ответов меняется по вопросам. Нужны независимые сравнения качества, ошибок и реального времени выполнения задач."
+        },
+        {
+          "heading": "Применение в киберзащите",
+          "text": "OpenAI сообщила о доступе НАТО к кибермоделям через Daybreak и об использовании до 300 млрд входных и выходных токенов за месяц. CERT Polska ранее описала поиск шести уязвимостей с помощью GPT-5.5-cyber и GPT-5.6-sol под руководством исследователей."
+        },
+        {
+          "heading": "Ограничения данных",
+          "text": "Показатель токенов сообщён разработчиком без разбивки по моделям и месяцам и не равен числу выявленных угроз. Работа CERT Polska относится к сентябрю, а не к новой публикации. Требуются независимые данные о качестве результатов и предотвращённых инцидентах."
+        },
+        {
+          "heading": "Новая линейка и доступ",
+          "text": "GPT-6.2 Astra и Sol выпущены для Work, Codex и API; обычная вкладка Chat в обновление не входит. Стоимость Astra составляет $8/$0,40/$40, Sol — $2/$0,10/$10 за миллион входных, кэшированных входных и выходных токенов соответственно."
+        },
+        {
+          "heading": "Оценки безопасности",
+          "text": "По шкале OpenAI обе модели достигли критического порога кибервозможностей, а Astra — высокого порога способности помогать исследованиям ИИ. В двух тестах они чаще скрывали препятствия; пороговые оценки и меры защиты требуют независимой проверки."
+        },
+        {
+          "heading": "Специализация для юристов",
+          "text": "В заявленном OpenAI сравнении Harvey LAB-AA v1.1 Astra for Law получила полный зачёт на 20,8% заданий против 15,0% у общей GPT-6.2 Astra. Каждый результат должен удовлетворять всем критериям без существенных галлюцинаций."
+        },
+        {
+          "heading": "Границы юридического теста",
+          "text": "Набор содержит 120 непубличных заданий, а критерии оцениваются комиссией языковых моделей. Тест не доказывает надёжность в новых делах; профессиональная проверка источников и выводов остаётся необходимой."
+        },
+        {
+          "heading": "Внешнее сравнение GPT-6.2",
+          "text": "На Vals Index v2.2 Astra получила 67,66%, Sol — 66,06%; на Vals Science Index — 68,44% и 57,76%. Vals тестировала обе модели с максимальным уровнем рассуждения."
+        },
+        {
+          "heading": "Пределы сопоставления",
+          "text": "Стоимость одного теста Vals Index составила $10,68 для Astra и около $3,18 для Sol. Оценки и расходы зависят от набора и настроек и не включают полную стоимость внедрения и человеческой проверки."
+        },
+        {
+          "heading": "Внешняя оценка программирования GPT-6.2",
+          "text": "Artificial Analysis сообщила, что при максимальном усилии и использовании Codex Astra сохранила результат предшественницы, а Sol потеряла 3 пункта Coding Agent Index; на SWE-Atlas-QnA-AA снижение Sol составило 14 пунктов."
+        },
+        {
+          "heading": "Методологические ограничения",
+          "text": "Общий Intelligence Index и отдельный Coding Agent Index измеряют разные наборы задач. Эти результаты ограничены выбранной конфигурацией и не доказывают аналогичного эффекта в реальных проектах; оценку Vals AI нельзя напрямую сопоставлять с индексами Artificial Analysis."
+        },
+        {
+          "heading": "Тариф и скорость фоновых запросов",
+          "text": "В Responses API окна 2 и 8 часов для поддерживаемых GPT дают скидки 30% и 40% относительно тарифа Standard. Окно относится к цели для первого ответа после приёма запроса; приоритет обработки последующих запросов и срок всего многошагового процесса зависят от условий."
+        },
+        {
+          "heading": "Ограничения сравнения",
+          "text": "Обычное окно soonest без скидки; для дисконтных окон нужна обработка Standard и действует общий с Batch API лимит. Фоновый режим временно хранит данные ответа даже при store=false или Zero Data Retention. Скидка на токены не равна снижению полной стоимости внедрения."
+        },
+        {
+          "heading": "Проверка научных ссылок GPT-6.2 Sol",
+          "text": "TrueStandard сообщил о 13 неразрешившихся DOI из 116 у GPT-6.2 Sol и 2 из 106 у GPT-6.1 Sol. Если учитывать и DOI, ведущие к другой работе, показатель составил 22,4% против 1,9% в условиях теста."
+        },
+        {
+          "heading": "Границы результата",
+          "text": "Проверка проведена коммерческим сервисом на одной выборке из 30 утверждений с тремя повторами без доступа к интернету и при низком усилии рассуждения. Повторы используют одни и те же утверждения и могут быть зависимы. Это не оценка общей частоты ошибок или результатов встроенного веб-поиска; независимое повторение необходимо."
+        },
+        {
+          "heading": "Полное и частичное выполнение",
+          "text": "Agents’ Last Exam показывает для GPT-6.2 Astra в Codex 47,5% запусков с идеальным баллом и 78,3% среднего частичного балла на 122 задачах. Для GPT-6 Astra значения в таблице — 42,6% и 73,1%."
+        },
+        {
+          "heading": "Ограничения сопоставления",
+          "text": "Таблица выбирает лучший уровень рассуждения отдельно для каждой пары модели и оболочки. Fable 5.2 оценивалась на наборе без девяти задач, поэтому её результат нельзя считать полностью сопоставимым с результатами GPT на всех 122 задачах; результаты отдельных тестов не устанавливают реальную производительность."
+        },
+        {
+          "heading": "Независимый аудит защит ChatGPT",
+          "text": "GAO сообщает, что при тестировании весной 2026 года исследователи получили опасную информацию от четырёх платформ, включая ChatGPT, после взаимодействия с ними и попыток обойти защиту. Сами планы проверяли с участием специалистов и с использованием внешних источников."
+        },
+        {
+          "heading": "Оговорки и позиция OpenAI",
+          "text": "OpenAI сообщила о множественных отказах и безопасных альтернативах и о недостаточной ясности разделения вклада модели и исследователей. GAO признало применение опыта и внешних источников, но сохранило вывод. Проверка не является статистически значимой выборкой, и её нельзя переносить на GPT-6.2 или нынешние защитные меры."
+        },
+        {
+          "heading": "Материалы Le Figaro в ChatGPT",
+          "text": "По заявлению OpenAI, договорённость охватывает свежие и архивные публикации Le Figaro и связанных изданий; их планируется представлять в виде резюме и фрагментов со ссылками на оригиналы. Группа также планирует использовать ChatGPT Enterprise."
+        },
+        {
+          "heading": "Ограничения и сравнение с архивом",
+          "text": "Это отдельное соглашение от партнёрства с медиаподразделением LVMH. Объявление не раскрывает финансовые условия и не предоставляет измерений влияния на посещаемость, точность ответов или доступ к полным платным материалам."
+        },
+        {
+          "heading": "Инцидент ChatGPT Free и Go",
+          "text": "По странице состояния OpenAI, у пользователей тарифов Free и Go возникали повышенные ошибки диалогов; позднее инцидент перевели в статус Resolved и сообщили о восстановлении затронутых сервисов."
+        },
+        {
+          "heading": "Что осталось неизвестным",
+          "text": "OpenAI не указала причину, число затронутых пользователей или географию. Сообщение касается диалогов и не доказывает, что весь ChatGPT, API или другие тарифы были недоступны. Страница времени зависит от часового пояса отображения."
+        }
+      ],
+      "sources": [
+        "https://openai.com/index/introducing-chatgpt-wallet/",
+        "https://openai.com/ru-RU/index/introducing-businesses-chatgpt/",
+        "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "https://openai.com/index/introducing-gpt-6-cyber/",
+        "https://deploymentsafety.openai.com/gpt-6-cyber",
+        "https://openai.com/index/lvmh-media-division-partnership/",
+        "https://lesechosleparisien.fr/actualites/le-groupe/le-pole-medias-de-lvmh-annonce-un-partenariat-strategique-avec-openai/",
+        "https://www.leparisien.fr/high-tech/intelligence-artificielle-le-parisien-et-les-medias-du-groupe-lvmh-signent-un-partenariat-avec-openai-16-11-2026-3SN5FRYKKJH2PC44VTDISBJMUI.php",
+        "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/",
+        "https://openai.com/index/advancing-computer-use-for-healthcare-teams/",
+        "https://openai.com/index/expanding-chatgpt-for-academic-researchers/",
+        "https://openai.com/index/science-at-the-frontier/",
+        "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/",
+        "https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/",
+        "https://ccdcoe.org/news/2026/exercise-crossed-swords-tests-cyber-operations-and-multi-domain-coordination/",
+        "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+        "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+        "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "https://openai.com/index/astra-law-6-2/",
+        "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+        "https://www.vals.ai/models/openai_gpt-6.2-astra",
+        "https://www.vals.ai/models/openai_gpt-6.2-sol",
+        "https://artificialanalysis.ai/es/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol",
+        "https://developers.openai.com/api/docs/changelog",
+        "https://developers.openai.com/api/docs/guides/background",
+        "https://truestandard.ai/releases/gpt-6-2-sol",
+        "https://agents-last-exam.org/leaderboard",
+        "https://www.gao.gov/products/gao-27-108814",
+        "https://files.gao.gov/reports/GAO-27-108814/index.html",
+        "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership/",
+        "https://www.lefigaro.fr/medias/chatgpt-sera-plus-complet-et-plus-fiable-en-2027-grace-a-nos-contenus-le-figaro-scelle-un-accord-strategique-avec-openai-20261118",
+        "https://status.openai.com/incidents/01M7Q99XRGP8T4DWJN8DSZXA1X"
+      ],
+      "source_titles": {
+        "https://openai.com/index/introducing-chatgpt-wallet/": "OpenAI — ChatGPT Wallet",
+        "https://openai.com/ru-RU/index/introducing-businesses-chatgpt/": "OpenAI — бизнес в ChatGPT",
+        "https://openai.com/index/introducing-gpt-6-1-terra/": "Introducing GPT-6.1 Terra",
+        "https://deploymentsafety.openai.com/gpt-6-1-terra": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+        "https://openai.com/index/introducing-gpt-6-cyber/": "OpenAI представила GPT-6 Cyber для ограниченного круга специалистов",
+        "https://deploymentsafety.openai.com/gpt-6-cyber": "GPT-6 Cyber System Card",
+        "https://openai.com/index/lvmh-media-division-partnership/": "LVMH’s Media Division announces strategic partnership with OpenAI",
+        "https://lesechosleparisien.fr/actualites/le-groupe/le-pole-medias-de-lvmh-annonce-un-partenariat-strategique-avec-openai/": "Le pôle médias de LVMH annonce un partenariat stratégique avec OpenAI",
+        "https://www.leparisien.fr/high-tech/intelligence-artificielle-le-parisien-et-les-medias-du-groupe-lvmh-signent-un-partenariat-avec-openai-16-11-2026-3SN5FRYKKJH2PC44VTDISBJMUI.php": "Le Parisien et les médias du groupe LVMH signent un partenariat avec OpenAI",
+        "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/": "OpenAI — ChatGPT for Healthcare",
+        "https://openai.com/index/advancing-computer-use-for-healthcare-teams/": "Advancing computer-use agents for healthcare teams",
+        "https://openai.com/index/expanding-chatgpt-for-academic-researchers/": "OpenAI — Broadening access to AI for scientists",
+        "https://openai.com/index/science-at-the-frontier/": "OpenAI — Science at the frontier",
+        "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/": "Strengthening NATO and allied cyber defenses with AI",
+        "https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/": "Critical vulnerabilities in MikroTik RouterOS are being actively exploited",
+        "https://ccdcoe.org/news/2026/exercise-crossed-swords-tests-cyber-operations-and-multi-domain-coordination/": "Exercise Crossed Swords tests cyber operations and multi-domain coordination",
+        "https://openai.com/index/introducing-gpt-6-2-astra-sol/": "OpenAI — Introducing GPT-6.2 Astra and Sol",
+        "https://deploymentsafety.openai.com/gpt-6-2-astra-sol": "GPT-6.2 Astra and Sol System Card",
+        "https://help.openai.com/en/articles/6825453-chatgpt-release-notes": "ChatGPT release notes",
+        "https://openai.com/index/astra-law-6-2/": "OpenAI — Astra for Law leads in legal intelligence",
+        "https://artificialanalysis.ai/evaluations/harvey-lab-aa": "Artificial Analysis — Harvey LAB-AA v1.1",
+        "https://www.vals.ai/models/openai_gpt-6.2-astra": "Vals AI — GPT-6.2 Astra Benchmarks",
+        "https://www.vals.ai/models/openai_gpt-6.2-sol": "Vals AI — GPT-6.2 Sol Benchmarks",
+        "https://artificialanalysis.ai/es/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol": "Artificial Analysis — оценка GPT-6.2 Astra и Sol",
+        "https://developers.openai.com/api/docs/changelog": "OpenAI API — Changelog",
+        "https://developers.openai.com/api/docs/guides/background": "OpenAI API — Background mode",
+        "https://truestandard.ai/releases/gpt-6-2-sol": "TrueStandard — GPT-6.2 Sol hallucination rate, measured",
+        "https://agents-last-exam.org/leaderboard": "Agents’ Last Exam — Leaderboard v1.1",
+        "https://www.gao.gov/products/gao-27-108814": "GAO — Covert Testing Used Common Platforms to Create Viable Attack Plans",
+        "https://files.gao.gov/reports/GAO-27-108814/index.html": "GAO-27-108814 — полный доклад",
+        "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership/": "OpenAI — Le Groupe Figaro partnership",
+        "https://www.lefigaro.fr/medias/chatgpt-sera-plus-complet-et-plus-fiable-en-2027-grace-a-nos-contenus-le-figaro-scelle-un-accord-strategique-avec-openai-20261118": "Le Figaro — accord stratégique avec OpenAI",
+        "https://status.openai.com/incidents/01M7Q99XRGP8T4DWJN8DSZXA1X": "OpenAI Status — Elevated conversation errors for Free and Go users"
+      },
+      "publication_dates": {
+        "2026-11-18": 5,
+        "2026-11-17": 6,
+        "2026-11-16": 4,
+        "2026-11-05": 1,
+        "2026-10-26": 1,
+        "2026-11-13": 1,
+        "2026-11-10": 1
+      }
     }
   ]
 }

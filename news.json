@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-18T06:19:43.486Z",
+  "updated_at": "2026-11-18T06:22:14.486Z",
   "items": [
+    {
+      "title": "Комитет парламента Британии связал распространение ИИ с безопасностью и напомнил о прогнозе ОЭСР",
+      "summary": "Комитет Палаты общин рекомендовал закон о безопасности ИИ и отдельного регулятора с полномочиями проверять опасные системы и ограничивать их запуск. В докладе приведены сценарии ОЭСР 2025 года: ИИ может добавить 0,4–1,3 процентного пункта к ежегодному росту производительности труда в высокоэкспонированных экономиках в течение десяти лет. Комитет пересчитывает верхнюю оценку по текущему ВВП Великобритании и указывает на возможный размер экономики до 400 млрд фунтов больше через десять лет.",
+      "date": "2026-11-18",
+      "published_at": "2026-11-18T00:01:00+00:00",
+      "importance": "normal",
+      "source": "Business, Innovation, Science and Trade Committee, UK Parliament",
+      "url": "https://committees.parliament.uk/publications/55827/standard/pdf",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Новый материал — парламентский доклад и рекомендации, а не новый причинный замер отдачи ИИ: сценарная оценка заимствована из работы ОЭСР 2025 года. Пересчёт на текущий ВВП — иллюстративная оценка комитета, а не гарантированный прирост; доклад не устанавливает причинный эффект предложенного регулирования. Закон и регулятор пока предложены, а не приняты."
+    },
     {
       "title": "Исследование: усиление рассуждений не улучшило выбор товаров, но повысило уверенность моделей",
       "summary": "В новом выпуске arXiv от 18 ноября опубликован препринт исследователей Чикагского университета о выборе товаров десятью языковыми моделями. Авторы сравнили низкий, средний и высокий уровни рассуждений на трёх наборах WebShop, Amazon SQID и Wayfair WANDS. По их анализу, повышение усилия не дало статистически значимого общего улучшения правильности, но повысило заявленную уверенность; ошибки моделей часто совпадали. Эксперимент предлагал фиксированный список из десяти товаров, не проверял поиск и навигацию; разметка содержит неоднозначности, а каждый режим запускался один раз. Рукопись подана 17 ноября; точное время её публичного размещения отдельно не указано.",
@@ -2075,9 +2086,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-18T00:21:33.432Z",
-      "changes": "Добавлено исследование Northeastern University о неравномерном распределении заявленной экономии рабочего времени от ИИ среди работников США.",
-      "conclusion": "Опрос указывает, что даже при распространении ИИ выгоды в форме заявленной экономии времени могут концентрироваться в отдельных профессиях и группах; причинный эффект на зарплаты, выпуск и ВВП не измерен.",
+      "updated_at": "2026-11-18T06:22:14.486Z",
+      "changes": "Добавлен доклад комитета Палаты общин о безопасности ИИ, распространении технологии и иллюстративном экономическом пересчёте сценариев ОЭСР 2025 года.",
+      "conclusion": "Комитет рассматривает доверие и управление рисками как условия широкого внедрения ИИ; возможный выигрыш зависит от допущений об использовании и производительности, а эффективность предлагаемых мер ещё не установлена.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -2190,6 +2201,14 @@
         {
           "heading": "Различия отраслей и ограничения",
           "text": "Не менее часа экономии сообщают 74% работников информации и технологий, 26% работников здравоохранения и социальной помощи и 20% работников гостиничного бизнеса или услуг. Это самоотчёты, сравнение не является причинным, а определения и выборка отличаются от опросов работодателей и Банка Кореи. Точная дата и время суток публикации помимо даты 18 ноября источником не указаны."
+        },
+        {
+          "heading": "Сценарий производительности",
+          "text": "Комитет приводит старую оценку ОЭСР: 0,4–1,3 процентного пункта к ежегодному росту производительности труда в высокоэкспонированных экономиках на десятилетнем горизонте, и иллюстративно пересчитывает верхнюю границу по текущему ВВП Великобритании. Это не новый измеренный эффект и не гарантированный прирост."
+        },
+        {
+          "heading": "Предложенные институты и ограничения",
+          "text": "Комитет предлагает законодательство по безопасности ИИ и отдельного регулятора с полномочиями по независимой проверке и ограничению высокорисковых систем. Меры не приняты; польза для доверия, темпов внедрения и роста является гипотезой, а затраты и побочные эффекты требуют оценки."
         }
       ],
       "sources": [
@@ -2217,7 +2236,11 @@
         "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/julytoseptember2026",
         "https://www.ons.gov.uk/releasecalendar?query=monthly+gdp&view=upcoming",
         "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/11/bank-of-america-study-business-owners-bet-on-growth-and-ai-despi",
-        "https://www.nuinfoinstitute.org/publications-1/ai-and-time-at-work"
+        "https://www.nuinfoinstitute.org/publications-1/ai-and-time-at-work",
+        "https://committees.parliament.uk/publications/55827/standard/pdf",
+        "https://api.parliament.uk/committees/publications/55827",
+        "https://committees.parliament.uk/committee/365/business-innovation-science-and-trade-committee/news/219006/close-ai-safety-gaps-to-secure-britains-400-billion-ai-growth-opportunity-mps-urge/",
+        "https://www.oecd.org/en/publications/macroeconomic-productivity-gains-from-artificial-intelligence-in-g7-economies_a5319ab5-en.html"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -2244,7 +2267,11 @@
         "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/julytoseptember2026": "Labour productivity, UK: July to September 2026",
         "https://www.ons.gov.uk/releasecalendar?query=monthly+gdp&view=upcoming": "ONS release calendar — время выпуска",
         "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/11/bank-of-america-study-business-owners-bet-on-growth-and-ai-despi": "Bank of America Study: Business Owners Bet on Growth and AI Despite Rising Costs",
-        "https://www.nuinfoinstitute.org/publications-1/ai-and-time-at-work": "AI and Time at Work: For a Few Workers, Most of the Hours Saved"
+        "https://www.nuinfoinstitute.org/publications-1/ai-and-time-at-work": "AI and Time at Work: For a Few Workers, Most of the Hours Saved",
+        "https://committees.parliament.uk/publications/55827/standard/pdf": "Guardrails for growth: AI safety and security",
+        "https://api.parliament.uk/committees/publications/55827": "UK Parliament: publication details, HC 689",
+        "https://committees.parliament.uk/committee/365/business-innovation-science-and-trade-committee/news/219006/close-ai-safety-gaps-to-secure-britains-400-billion-ai-growth-opportunity-mps-urge/": "Close AI safety gaps to secure Britain’s £400 billion AI growth opportunity, MPs urge",
+        "https://www.oecd.org/en/publications/macroeconomic-productivity-gains-from-artificial-intelligence-in-g7-economies_a5319ab5-en.html": "Macroeconomic productivity gains from Artificial Intelligence in G7 economies (2025)"
       }
     },
     {

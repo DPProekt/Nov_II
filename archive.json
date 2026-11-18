@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T06:31:22.877979+00:00",
+  "generatedAt": "2026-11-18T06:32:16.618407+00:00",
   "docs": [
     {
       "id": "6af8414e-fba4-83ed-8d83-a9fe1058f3c3",
@@ -665,10 +665,18 @@
     {
       "id": "6aacdb0e-ffc0-83ed-bf65-04aff48a549c",
       "title": "Прогноз беспилотных авто",
-      "updatedAt": 1794961921.233135,
+      "updatedAt": 1794983536.618407,
       "hasMore": false,
       "nextCursor": null,
       "messages": [
+        {
+          "text": "### Обновление прогноза беспилотных авто\n\n**Новых подтверждённых событий: 0.** Проверены публикации за последние шесть часов с небольшим перекрытием.\n\nСвежий [материал AFP](https://www.afp.com/en/waymo-pulls-self-driving-cars-us-freeways-after-california-ban) об ограничениях Waymo повторяет событие, уже сохранённое в архиве. Новых оснований менять прогноз не найдено.\n\n**Что отслеживать дальше:** [Pony.ai планирует опубликовать результаты за III квартал](https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-report-third-quarter-2026-financial-results-november) 18 ноября до открытия рынка США; звонок с руководством назначен на 12:00 UTC. Это ещё не опубликованные результаты.\n\n`news.json` и `forecasts.json` не изменялись.",
+          "date": 1794983536.618407,
+          "truncated": false,
+          "agent_turn_id": "turn_0c2acb839e4acc1a006afd464a8d18819381b4101ea54eb24c",
+          "github_run_id": "44250202352",
+          "web_request": null
+        },
         {
           "text": "### Обновление: беспилотные автомобили\n\n**Новых подтверждённых событий: 0.** Проверены публикации примерно за последние шесть часов с небольшим перекрытием и записи архива.\n\n- [CBS сообщила об ограничениях Waymo на автомагистралях](https://www.cbsnews.com/sanfrancisco/news/waymo-robotaxis-california-dmv-freeways-autonomous-vehicles/). Это событие и приостановка поездок по автомагистралям на других рынках уже есть в архиве; новую запись не добавляю.\n- [Сообщение о разрешении WeRide в Гуанчжоу](https://robottoday.com/industry-briefing/weride-wins-approval-for-paid-fully-driverless-robotaxi-service-in-guangzhou/18296) не указывает дату выдачи или орган, выдавший разрешение. При этом [сама WeRide сообщала о платной беспилотной работе в том же районе ещё в сентябре 2025 года](https://weride.gcs-web.com/news-releases/news-release-details/weride-launches-247-fully-driverless-robotaxi-service-guangzhous). Подтвердить, что речь о новом событии, не удалось.\n\nНовых оснований для пересмотра сценариев нет. `news.json` и `forecasts.json` не изменялись.",
           "date": 1794961921.233135,

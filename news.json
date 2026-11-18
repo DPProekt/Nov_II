@@ -1,6 +1,28 @@
 {
-  "updated_at": "2026-11-18T12:18:37.842Z",
+  "updated_at": "2026-11-18T12:20:57.096Z",
   "items": [
+    {
+      "title": "ЕЦБ: завышенные ожидания от ИИ и долговое финансирование повышают финансовые риски",
+      "summary": "В ноябрьском обзоре финансовой стабильности ЕЦБ предупреждает, что высокие оценки компаний, связанных с ИИ, зависят от амбициозных ожиданий прибыли. Долговое финансирование ИИ-инфраструктуры может распространить потенциальную переоценку с акций на облигации, банки и небанковские организации. Одновременно ЕЦБ считает, что совокупный банковский сектор еврозоны располагает капиталом и ликвидностью для поглощения возможных шоков.",
+      "date": "2026-11-18",
+      "published_at": "2026-11-18T10:00:00+01:00",
+      "importance": "high",
+      "source": "Европейский центральный банк",
+      "url": "https://www.ecb.europa.eu/press/financial-stability-publications/fsr/html/ecb.fsr202611~e03b919d36.en.html",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Это оценка рисков и каналов распространения, а не прогноз неизбежного обвала или расчёт вероятности кризиса. ЕЦБ отдельно отмечает устойчивость банков и более выраженные уязвимости в некоторых небанковских сегментах."
+    },
+    {
+      "title": "Littler: в опросе европейских работодателей чаще сообщают о кадровых сокращениях в связи с ИИ",
+      "summary": "В онлайн-опросе 498 руководителей бизнеса, корпоративных юристов и HR-специалистов по Европе 28% сообщили о сокращении штата в связи с фактическим или ожидаемым расширением применения ИИ, против 13% в опросе 2025 года. Доля сообщивших о сокращении найма выросла с 13% до 32%. Опрос проведён в августе–сентябре 2026 года.",
+      "date": "2026-11-18",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Littler",
+      "url": "https://www.littler.com/sites/default/files/2026-11/2026_littler_european_employer_survey_report.pdf",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Проценты относятся к отвечавшим организациям, а не к доле потерянных рабочих мест или всех работодателей Европы. Опрос фиксирует объяснения участников, включая ожидание будущего внедрения ИИ, и не устанавливает причинного эффекта или репрезентативности; варианты ответов могут пересекаться. На странице отчёта точное время публикации не указано."
+    },
     {
       "title": "Workday намерена купить Honeydew для связи ИИ-агентов с корпоративными данными",
       "summary": "18 ноября Workday объявила о намерении приобрести Honeydew, разработчика семантического слоя для ИИ и бизнес-аналитики. По плану Workday, единые определения бизнес-показателей и права доступа будут использоваться для формирования запросов агентов к данным через Workday Data Cloud. Ожидается закрытие сделки в четвёртом квартале финансового 2027 года Workday, заканчивающемся 31 января 2027 года, при выполнении обычных условий; цена в релизе не раскрыта. Покупка ещё не завершена, а заявленные преимущества интеграции не подтверждены независимыми тестами.",
@@ -2218,9 +2240,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-18T06:22:14.486Z",
-      "changes": "Добавлен доклад комитета Палаты общин о безопасности ИИ, распространении технологии и иллюстративном экономическом пересчёте сценариев ОЭСР 2025 года.",
-      "conclusion": "Комитет рассматривает доверие и управление рисками как условия широкого внедрения ИИ; возможный выигрыш зависит от допущений об использовании и производительности, а эффективность предлагаемых мер ещё не установлена.",
+      "updated_at": "2026-11-18T12:20:57.096Z",
+      "changes": "Добавлены обзор финансовой стабильности ЕЦБ с оценкой рисков финансирования ИИ и опрос Littler об ожиданиях и кадровых решениях европейских компаний.",
+      "conclusion": "Новые материалы усиливают внимание к двум неопределённостям: распространению финансового шока через долговые связи и неоднородным кадровым решениям. Ни один не доказывает неизбежность кризиса или общий масштаб сокращений из-за ИИ.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -2341,6 +2363,14 @@
         {
           "heading": "Предложенные институты и ограничения",
           "text": "Комитет предлагает законодательство по безопасности ИИ и отдельного регулятора с полномочиями по независимой проверке и ограничению высокорисковых систем. Меры не приняты; польза для доверия, темпов внедрения и роста является гипотезой, а затраты и побочные эффекты требуют оценки."
+        },
+        {
+          "heading": "Финансовые каналы риска",
+          "text": "ЕЦБ указывает на зависимость ИИ-оценок от ожиданий доходов, растущее долговое финансирование и связи банков с небанковским сектором. Он также отмечает устойчивые капитал и ликвидность банков еврозоны; сценарии переоценки не являются прогнозом неизбежного кризиса."
+        },
+        {
+          "heading": "Опрос работодателей и его пределы",
+          "text": "В выборке Littler из 498 европейских руководителей и специалистов по кадрам и праву 28% указали сокращение штата, а 32% — найма в связи с фактическим или ожидаемым использованием ИИ. Сопоставимые показатели предыдущей волны — по 13%; разные волны не обязательно включают те же компании, репрезентативность и причинность не установлены."
         }
       ],
       "sources": [
@@ -2372,7 +2402,13 @@
         "https://committees.parliament.uk/publications/55827/standard/pdf",
         "https://api.parliament.uk/committees/publications/55827",
         "https://committees.parliament.uk/committee/365/business-innovation-science-and-trade-committee/news/219006/close-ai-safety-gaps-to-secure-britains-400-billion-ai-growth-opportunity-mps-urge/",
-        "https://www.oecd.org/en/publications/macroeconomic-productivity-gains-from-artificial-intelligence-in-g7-economies_a5319ab5-en.html"
+        "https://www.oecd.org/en/publications/macroeconomic-productivity-gains-from-artificial-intelligence-in-g7-economies_a5319ab5-en.html",
+        "https://www.ecb.europa.eu/press/financial-stability-publications/fsr/html/ecb.fsr202611~e03b919d36.en.html",
+        "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261118~83c5c60158.sv.html",
+        "https://www.ecb.europa.eu/press/calendars/weekly/html/index.en.html",
+        "https://www.littler.com/sites/default/files/2026-11/2026_littler_european_employer_survey_report.pdf",
+        "https://www.littler.com/news-analysis/littler-report/littler-european-employer-survey-2026",
+        "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -2403,7 +2439,13 @@
         "https://committees.parliament.uk/publications/55827/standard/pdf": "Guardrails for growth: AI safety and security",
         "https://api.parliament.uk/committees/publications/55827": "UK Parliament: publication details, HC 689",
         "https://committees.parliament.uk/committee/365/business-innovation-science-and-trade-committee/news/219006/close-ai-safety-gaps-to-secure-britains-400-billion-ai-growth-opportunity-mps-urge/": "Close AI safety gaps to secure Britain’s £400 billion AI growth opportunity, MPs urge",
-        "https://www.oecd.org/en/publications/macroeconomic-productivity-gains-from-artificial-intelligence-in-g7-economies_a5319ab5-en.html": "Macroeconomic productivity gains from Artificial Intelligence in G7 economies (2025)"
+        "https://www.oecd.org/en/publications/macroeconomic-productivity-gains-from-artificial-intelligence-in-g7-economies_a5319ab5-en.html": "Macroeconomic productivity gains from Artificial Intelligence in G7 economies (2025)",
+        "https://www.ecb.europa.eu/press/financial-stability-publications/fsr/html/ecb.fsr202611~e03b919d36.en.html": "Financial Stability Review, November 2026",
+        "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261118~83c5c60158.sv.html": "ECB: Risks from AI valuations, fiscal imbalances and geoeconomic tensions",
+        "https://www.ecb.europa.eu/press/calendars/weekly/html/index.en.html": "ECB weekly schedule: publication at 10:00 CET",
+        "https://www.littler.com/sites/default/files/2026-11/2026_littler_european_employer_survey_report.pdf": "Littler 2026 European Employer Survey Report",
+        "https://www.littler.com/news-analysis/littler-report/littler-european-employer-survey-2026": "The Littler 2026 European Employer Survey Report — overview",
+        "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and": "European Employers Face Uncertain Outlook Amid Accelerating AI Adoption"
       }
     },
     {

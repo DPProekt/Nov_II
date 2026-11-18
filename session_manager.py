@@ -206,10 +206,26 @@ class Manager:
             time.sleep(5)
         raise RuntimeError("Ход ещё не завершился; повторное сообщение не отправлено")
 
-    def append_answer(self, topic, session_id, turn):
+    def topic_article_urls(self, topic):
+        """Optional publication receipt; unavailable metadata must never prevent a search."""
+        aliases = {"Новости ИИ подробно": "Подробные новости ИИ", "Новости ИИ": "Подробные новости ИИ",
+                   "Прогноз экономики ИИ": "Прогноз экономики при быстром развитии ИИ"}
+        try:
+            data, _ = self.read_file("news.json")
+            items = data.get("items") if isinstance(data, dict) else None
+            if not isinstance(items, list) or any(not isinstance(n, dict) or
+                    not isinstance(n.get("url"), str) or not isinstance(n.get("topic"), str) for n in items):
+                return None
+            return sorted({n["url"] for n in items if aliases.get(n["topic"], n["topic"]) == topic})
+        except (ApiError, RuntimeError, OSError, ValueError):
+            return None
+
+    def append_answer(self, topic, session_id, turn, before=None):
         answer = self.final_answer(session_id, turn["id"])
         if not answer:
             raise RuntimeError("Готовый ход не содержит итогового ответа")
+        after = self.topic_article_urls(topic) if isinstance(before, list) else None
+        receipt = {"added_articles": len(set(after).difference(before))} if after is not None else {}
         for attempt in range(3):
             archive, sha = self.read_file("archive.json")
             doc = next((item for item in archive["docs"] if item["id"] == TOPICS[topic]), None)
@@ -218,7 +234,7 @@ class Manager:
             if any(item.get("agent_turn_id") == turn["id"] for item in doc["messages"]):
                 return
             now = datetime.now(timezone.utc)
-            doc["messages"].insert(0, {"text": answer, "date": now.timestamp(),
+            doc["messages"].insert(0, {"text": answer, "date": now.timestamp(), **receipt,
                                        "truncated": False, "agent_turn_id": turn["id"], "github_run_id": self.run_id,
                                        "web_request": os.environ.get("PULSE_WEB_REQUEST") or None})
             doc["updatedAt"] = now.timestamp()
@@ -239,9 +255,10 @@ class Manager:
         state["sessions"][topic] = entry
         session_id = entry.get("id")
         if not session_id:
+            before = self.topic_article_urls(topic)
             session_id = self.create(topic)
             entry["id"] = session_id
-            entry["pending"] = {"previous": None, "created": True}
+            entry["pending"] = {"previous": None, "created": True, "article_urls_before": before}
             self.save_state(state)
         pending = entry.get("pending")
         if not pending:
@@ -251,7 +268,7 @@ class Manager:
             turns = self.turns(session_id)
             previous = turns[0]["id"] if turns else None
             key = "pulse-" + self.run_id + "-" + str(list(TOPICS).index(topic))
-            entry["pending"] = {"previous": previous, "key": key}
+            entry["pending"] = {"previous": previous, "key": key, "article_urls_before": self.topic_article_urls(topic)}
             self.save_state(state)
             self.call(API + "/" + session_id + "/events", "Отправка обновления",
                       openai=True, method="POST", idempotency=key, payload={"events": [{
@@ -273,7 +290,7 @@ class Manager:
             new_session = self.create(topic, previous=session_id)
             entry.setdefault("history", []).append(session_id)
             entry["id"] = new_session
-            entry["pending"] = {"previous": None, "created": True}
+            entry["pending"] = {"previous": None, "created": True, "article_urls_before": pending.get("article_urls_before")}
             self.save_state(state)
             session_id = new_session
             turn = self.wait_turn(session_id, None)
@@ -286,7 +303,7 @@ class Manager:
             entry.pop("pending", None)
             self.save_state(state)
             raise RuntimeError("Ход завершился с ошибкой: " + str(error or turn["status"]))
-        self.append_answer(topic, session_id, turn)
+        self.append_answer(topic, session_id, turn, entry["pending"].get("article_urls_before"))
         entry.pop("pending", None)
         entry["last_turn_id"] = turn["id"]
         self.save_state(state)

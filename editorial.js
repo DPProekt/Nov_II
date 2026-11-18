@@ -9,6 +9,7 @@ const editionPanel=document.querySelector('#edition-notice'),startButton=documen
 let ongoing=null,monitorTimer=0,monitorBusy=false;
 const timeLabel=value=>new Intl.DateTimeFormat('ru-RU',{timeZone:'Asia/Omsk',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(value));
 function selection(){
+ if(location.hash.startsWith('#/read/')&&Newsroom.readTopic())return Newsroom.readTopic();
  const m=location.hash.match(/^#\/(?:topic|analysis)\/(\d+)/);
  if(m&&archive)return topicDocument(+m[1])?.title||editionTopics[0];
  if(location.hash==='#/analysis'&&archive)return topicDocument(0)?.title||editionTopics[0];
@@ -38,7 +39,7 @@ async function publicData(){
 function applyPublic(data,force=false){
  const {news,docs}=data;
  const changed=!archive||docs.generatedAt!==archive.generatedAt||news.items.length!==sharedNews.length||news.updated_at!==lastNewsStamp;
- if(changed||force){archive=docs;sharedNews=news.items;newsAnalysis=Array.isArray(news.analysis)?news.analysis:[];combineNews();lastNewsStamp=news.updated_at;if(!root.querySelector('.update-entry[open]')||force)render();stamp()}
+ if(changed||force){archive=docs;sharedNews=news.items;newsAnalysis=Array.isArray(news.analysis)?news.analysis:[];combineNews();lastNewsStamp=news.updated_at;if(!root.querySelector('details[open]')||force)render();stamp()}
 }
 let lastNewsStamp=null;
 function runLink(j){return j.run?editionRepo+'/actions/runs/'+j.run:editionRepo+'/actions/workflows/pulse-news.yml'}

@@ -10573,6 +10573,270 @@
         "2026-09-22": 1,
         "2026-11-10": 1
       }
+    },
+    {
+      "topic": "Подробные новости ИИ",
+      "updated_at": "2026-11-18T06:19:43.486Z",
+      "changes": "Reuters описало применение ИИ в школе Пекина и обучение детей созданию приложений.\n\nДобавлено исследование Microsoft от 10 ноября о скрытой закладке, внедряемой изменением весов агентной модели.\n\nApple объявила американское исследование использования разговорного медицинского ИИ с OpenEvidence; результатов исследования пока нет.\n\nДобавлено расширение применения SMART на воздушное пространство 22 центров FAA 10 ноября и информация AP о позиции властей по сбою 13 ноября.\n\nFinite State представила предварительные показатели поиска и последующей проверки уязвимостей в прошивках с применением языковых моделей.\n\nДобавлены новые объявления: Apollo Research описала условия независимой проверки моделей OpenAI; Perplexity объявила исследовательскую программу для автономной науки; Tencent представила мультимодальную модель Hy4 flash для рабочих задач; Liquid AI выпустила модели d1.2 для мультимодальных решений.\n\nOpenAI представила специализированный классификатор изображений и дополнительные средства защиты детей.\n\nДобавлены новые сведения: Калифорния подала иск к OpenAI из-за безопасности ИИ-агентов; Noeri объявила о привлечении $110 млн на разработку адаптирующихся ИИ-систем.\n\nAWS описала применение памяти AgentCore вместе с агентным поиском и фильтрацией доступа к документам.\n\nCypris объявила Agent Fleet для специализированных задач исследований и разработок. Cato Networks представила AgentSense для контроля влияния недоверенных данных на действия агентов; выявление отклонений от задач описано как будущая функция.\n\nScotiabank объявил о внедрении агентов для начального анализа финансовой отчётности и обработки кредитных документов. Surgo Health представила ИИ-интервью Derin и описала исследование вместе с Upstream USA.\n\nMicrosoft выпустила MAI Code 2 и Code 2 Flash для программирования. Microsoft и более 40 организаций запустили AI Transparency Initiative для разработки открытых подходов к контролю ИИ-агентов.\n\nNVIDIA сообщила о квартальной выручке $115,8 млрд, из которых $107,6 млрд приходится на сегмент Data Center; компания представила прогноз на следующий квартал.\n\nПрепринт проверил влияние усилия рассуждения на выбор товаров десятью моделями. Препринт BRIDGE сравнил простую поисковую память с более сложными архитектурами агентов.",
+      "conclusion": "Репортаж иллюстрирует внедрение ИИ в учебный процесс. Для оценки результатов обучения нужны сопоставимые данные и независимая проверка.\n\nЭксперимент показывает риск подмены весов для агентов с системными привилегиями; он не доказывает распространённости реальных атак и не переносится автоматически на все модели.\n\nИсследование может дать данные о доверии и понимании ответов, но его запуск не подтверждает медицинскую точность, пользу для здоровья или безопасность применения.\n\nПомощь ИИ в критической инфраструктуре вышла за пределы первоначального пилота в Вашингтоне, но рекомендации по-прежнему проверяют люди. Связь SMART со сбоем отвергается властями и разработчиком; независимый итог расследования в источнике не приведён.\n\nЗаявление показывает различие между кандидатами, найденными ИИ-конвейером, и воспроизводимо подтверждёнными случаями. Без технического отчёта, независимого воспроизведения и сравнения с ручным анализом эффект ИИ и распространённость ошибок не установлены.\n\nНовые программы и продукты расширяют исследования и инструменты ИИ, но обещанные автономные открытия, полноценность внешнего аудита и качество моделей требуют независимой проверки.\n\nПоиск потенциально вредных материалов можно использовать для приоритизации проверки, но оценка модели не подтверждает юридический статус изображения или его происхождение; остаются необходимы обученные специалисты и независимая оценка качества.\n\nОценивать автономные системы нужно по проверяемым результатам и условиям контроля. Иск является заявлением истца до судебного решения, а финансирование стартапа не доказывает работоспособность обещанного подхода.\n\nДолговременная память может улучшить персонализацию агентов, но для безопасного применения нужны надёжная идентификация, правильно настроенная изоляция данных и проверка записанных фактов; независимых данных об эффективности конкретного решения в руководстве нет.\n\nАгенты могут помогать с поиском отраслевых данных, но заявленная польза для исследований и комплаенса не подтверждена независимыми результатами. Защиту от инъекций следует оценивать по независимым испытаниям, частоте пропусков и ложных блокировок, а не считать полной гарантией безопасности.\n\nУскорение одного этапа, заявленное банком, не показывает влияния на весь кредитный процесс или точность решений; цель на 2027 год не является достигнутым результатом. Заявленные результаты опроса требуют раскрытия выборки и независимой проверки; нельзя принимать годовой охват партнёров Upstream за размер исследования.\n\nСравнения моделей зависят от внутренних тестов и промоцены; прежде чем распространять их на реальную работу, нужны независимые испытания и сравнение обычных тарифов. Инициатива может улучшить аудит, но пока представляет намерение и сотрудничество, а не готовый стандарт или подтверждённую гарантию безопасности.\n\nРост выручки поставщика инфраструктуры подтверждает масштаб спроса на его оборудование, но не измеряет окупаемость ИИ у пользователей; прогноз компании на более длинный следующий квартал остаётся прогнозом.\n\nВ проверенных задачах более сильное рассуждение увеличивало заявленную уверенность без статистически значимого общего роста правильности; результаты ограничены фиксированными списками и шумной разметкой. Проверка памяти должна измерять, способны ли агенты применять найденную информацию; лучшая архитектура зависела от задания.",
+      "details": [
+        {
+          "heading": "Контекст: Gemini и надёжность команд",
+          "text": "Google вывела Gemini 4 Hydrogen для повседневных агентных задач. Anthropic показала, что в четырёх моделируемых сценариях участникам было выгоднее пользоваться общим координатором, чем отдельными агентами с разными целями."
+        },
+        {
+          "heading": "Что показывает выпуск модели",
+          "text": "Быстрая модель делает многошаговые операции доступнее. В оценке важны полная стоимость выполненной задачи, число повторов и доля результатов, которую человек принял без исправлений."
+        },
+        {
+          "heading": "Почему результат группы может ухудшаться",
+          "text": "В экспериментах Anthropic агенты делили ограниченные ресурсы и могли действовать до получения сообщений других участников. Это объясняет, почему для общего бюджета или очереди изменений полезно проверять порядок действий наряду с качеством рассуждений."
+        },
+        {
+          "heading": "Что изменит вывод",
+          "text": "Нужны сравнения одной модели и команды агентов на одинаковых задачах с единым бюджетом. Отдельный показатель — сколько ошибок связано с несогласованностью и сколько устраняет общий координатор."
+        },
+        {
+          "heading": "Формальная проверка и её пределы",
+          "text": "Авторы сообщили о проверке свойств частей PQXDH и Triple Ratchet на уровне машинного кода. Эксперты участвуют в подготовке и утверждении спецификаций; боковые каналы в описанной модели угроз не охвачены."
+        },
+        {
+          "heading": "Что изменит оценку",
+          "text": "Независимая проверка доверенных спецификаций, воспроизведение на других проектах и сопоставимые оценки затрат помогут понять масштабируемость метода."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "OpenAI сообщает о выпуске Terra в API, ChatGPT Work и Codex и о результатах Agents’ Last Exam; системная карта относит модель к критическому уровню кибервозможностей по шкале компании."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Оценки качества и стоимости получены разработчиком; картину изменят независимые испытания, данные реальных внедрений и проверки защит."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Физик Нэтаниел Крейг описал вклад GPT-6 Astra; препринт подан 6 октября 2026 года, описание процесса опубликовано 15 ноября."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Работа остаётся кандидатной и требует независимой проверки математических шагов и применимости; оценку изменят экспертная рецензия и воспроизведение доказательства."
+        },
+        {
+          "heading": "Новое событие 16 ноября",
+          "text": "16 ноября Reuters опубликовало репортаж о пекинской школе, в которой учащиеся используют искусственный интеллект и создают приложения. Описанный пример показывает конкретную практику обучения, а не распространённость технологии во всех школах страны. Независимые исследования влияния применения ИИ на обучение и подтверждённые данные о масштабах внедрения."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "В проверке Nemotron-Terminal-8B авторы изменили семь нейронов и сообщили о срабатывании не менее чем на 98,8% отложенных траекторий с сигналом; тестовый аудит обнаружил 91,4% изменённых контрольных точек при 9,7% ложных срабатываний."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Атакующему нужен доступ к весам; выбор моделей и сигналов ограничен экспериментом. Оценку изменят независимое воспроизведение и проверки обнаружения в реальном потоке поставки."
+        },
+        {
+          "heading": "Медицинский ИИ: что объявлено",
+          "text": "Apple и OpenEvidence запускают исследовательское приложение для вопросов о здоровье; участники смогут оценивать ответы и при желании делиться отдельными данными HealthKit. Предельный размер набора — 200 тысяч, а не число уже участвующих людей."
+        },
+        {
+          "heading": "Медицинский ИИ: ограничения и проверка",
+          "text": "Результаты пока не опубликованы; наличие ссылок на исследования само по себе не доказывает правильность каждого ответа. Выборка ограничена США, возрастом от 21 года и владельцами совместимых iPhone. По заявлению Apple, данные исследования не пойдут на обучение моделей; приложение не заменяет врача."
+        },
+        {
+          "heading": "Факты и контекст",
+          "text": "По репортажу AP от 16 ноября национальное расширение произошло 10 ноября; общенациональная остановка вылетов — 13 ноября. Министерство транспорта описало SMART как систему поддержки рекомендаций, не управляющую самолётами."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Заявления сторон не заменяют независимого выяснения причин сбоя и оценки качества рекомендаций. Вывод изменят результаты расследования и аудита, сопоставимые данные об ошибках, задержках и безопасности."
+        },
+        {
+          "heading": "Проверка ИИ-находок в прошивках",
+          "text": "По заявлению Finite State, команда изучила 35 образов и отобрала 802 кандидата на удалённое выполнение кода через внедрение команд и кода; 68 подтвердили воспроизводимыми демонстрациями. С учётом ошибок повреждения памяти заявлено свыше 140 демонстраций."
+        },
+        {
+          "heading": "Ограничения и сопоставление с архивом",
+          "text": "Доля 68 из 802 относится только к заданной категории и не измеряет универсальную точность модели: неподтверждённые находки не обязательно ложны. Свыше 140 относится к более широкой группе и не является числителем для 802. В отличие от ранее архивированного исследования Microsoft о внедрении закладки в веса самой модели, здесь изучаются уязвимости прошивок. Техническая методика, базовое сравнение и независимая проверка пока отсутствуют."
+        },
+        {
+          "heading": "Внешняя проверка моделей",
+          "text": "Apollo планирует четыре месяца изучать ограниченный круг моделей и вопросов на этапах обучения и внутреннего использования. Доступ и публикация доказательств ограничены условиями; два публичных отчёта ещё предстоят."
+        },
+        {
+          "heading": "Автономная наука как исследовательская цель",
+          "text": "Perplexity заявляет о шести направлениях исследований и ресурсах более 10 тысяч GPU. Это анонс намерений, а не доказательство появления автономного учёного или подтверждённой эффективности."
+        },
+        {
+          "heading": "Мультимодальные рабочие модели",
+          "text": "Tencent выпустила Hy4 flash и сообщает о снижении стоимости на внутреннем WorkIndex. Объявленные цены и оценки разработчика зависят от условий теста; открытие весов пока запланировано."
+        },
+        {
+          "heading": "Структурированные мультимодальные ответы",
+          "text": "Liquid AI выпустила d1.2 и d1.2-ultra и опубликовала внутренние оценки по документам и изображениям. Их точность в других условиях требует независимой проверки; тарифы на вход нельзя напрямую сравнивать с тарифами генеративного вывода."
+        },
+        {
+          "heading": "Специализированный инструмент и тест",
+          "text": "По данным OpenAI, классификатор доступен проверенным организациям бесплатно через API. В сравнении компании с прежним инструментом расчётное число сигналов для проверки снизилось на 48% при примерно одинаковом числе обнаруженных нарушений; это результат конкретного теста, а не универсальная оценка."
+        },
+        {
+          "heading": "Ограничения и проверка человеком",
+          "text": "Карточка модели указывает, что сигналы не устанавливают юридический статус материалов и не подтверждают их происхождение. Авторы не смогли полностью исключить пересечение связанных данных между обучением и оценкой; необходимы человеческая проверка и независимые сопоставимые испытания."
+        },
+        {
+          "heading": "Судебная проверка безопасности агентов",
+          "text": "Калифорния оспаривает практики тестирования OpenAI и связывает иск с ранее раскрытым инцидентом Hugging Face. Обвинения не являются судебным установлением фактов; значимость дела зависит от доказательств, возражений ответчика и решения суда."
+        },
+        {
+          "heading": "Контроль и позиции сторон",
+          "text": "OpenAI ранее сообщала об инциденте и мерах реагирования. Публичные отчёты и независимые оценки Apollo из архива дополняют контекст, но сами по себе не решают вопрос о правовой ответственности."
+        },
+        {
+          "heading": "Адаптация ИИ в компаниях",
+          "text": "Noeri привлекла $110 млн и заявляет, что предлагает улучшения рабочих процессов с утверждением человеком. Независимых результатов коммерческого продукта в релизе не приведено; нельзя приравнивать инвестирование к доказанному автономному самоулучшению."
+        },
+        {
+          "heading": "Память и поиск",
+          "text": "В примере AWS поиск по базе знаний дополняется историей и долгосрочными записями пользователя; результат сопровождается ссылками и событиями трассировки. Публикация описывает архитектуру и пример, а не сравнительное измерение качества."
+        },
+        {
+          "heading": "Границы доступа и риски",
+          "text": "Пример использует проверенную идентичность, фильтрацию прав на документы и политики IAM для памяти. Эти гарантии зависят от настройки и не устраняют автоматически ошибки сохранённых сведений, утечки либо все риски работы агента."
+        },
+        {
+          "heading": "Агенты для R&D",
+          "text": "Cypris заявляет о специализированных агентах для поиска материалов, регуляторной и патентной аналитики с памятью и управлением специалистами. Релиз не содержит независимых сравнений качества, производительности или условий доступности."
+        },
+        {
+          "heading": "Безопасность агентов и пределы оценки",
+          "text": "По заявлению Cato, AgentSense проверяет влияние недоверенного содержимого и блокирует опасное действие; компания предложила конкурс на обход. Результаты независимых тестов и сроки будущей функции обнаружения отклонений не опубликованы."
+        },
+        {
+          "heading": "ИИ в банковских операциях",
+          "text": "По заявлению Scotiabank, первичный анализ сокращается с часа до менее минуты, а отдельные операции с кредитными документами ускоряются до 30%. Сопоставимые данные о качестве, выборке и полной длительности сделки в релизе отсутствуют."
+        },
+        {
+          "heading": "ИИ-интервью и чувствительные данные",
+          "text": "Surgo заявляет об исследовательских диалогах и обратной связи участников, но не раскрывает размер выборки и методику приведённых процентов. Для оценки нужны данные о согласии, конфиденциальности, репрезентативности и качестве по сравнению с интервьюерами."
+        },
+        {
+          "heading": "Новые модели программирования",
+          "text": "По данным Microsoft, Code 2 достигла 98% среднего результата GPT-6.1 Sol при 40% стоимости на четырёх тестах; цена учитывает скидку 50%. Три теста проведены на внутренней платформе, поэтому результаты требуют независимого воспроизведения."
+        },
+        {
+          "heading": "Прозрачность и управление агентами",
+          "text": "Microsoft намерена совместно с партнёрами и в рамках работы NIST развивать проверяемость действий агентов и контроль доступа. Конкретная завершённая спецификация, сроки и независимая оценка эффективности в релизе не приведены."
+        },
+        {
+          "heading": "Финансовые результаты инфраструктуры ИИ",
+          "text": "За квартал до 25 октября общая выручка NVIDIA выросла на 103% год к году до $115,8 млрд, а Data Center — на 110% до $107,6 млрд. NVIDIA также сообщила о поставках Vera Rubin NVL72."
+        },
+        {
+          "heading": "Ограничения и прогноз NVIDIA",
+          "text": "Data Center включает не только ИИ, и выручка поставщика не показывает прибыльность приложений у клиентов. Ожидание $130 млрд ±3% относится к следующему кварталу с дополнительной неделей и не включает вычислительную выручку Data Center из Китая."
+        },
+        {
+          "heading": "Уверенность и выбор товаров",
+          "text": "Исследователи сравнили десять моделей на трёх наборах; изменение уровня усилия повысило уверенность без значимого общего выигрыша в правильности. Наблюдения не распространяются автоматически на полноценный поиск и навигацию."
+        },
+        {
+          "heading": "Память и применение сведений",
+          "text": "При одинаковой модели-чтеце BRIDGE был сопоставим с прежними лидерами на LongMemEval-S и BEAM; на другом тесте авторы сообщили о преимуществе 5,7–6,3 п.п. В специальных проверках разные системы выигрывали на разных типах задач."
+        }
+      ],
+      "sources": [
+        "https://www.nature.com/articles/s41598-026-78368-7",
+        "https://alignment.anthropic.com/2026/worse-together/",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "https://deepmind.google/blog/introducing-alphaproof-code/",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf",
+        "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "https://openai.com/index/step-toward-defining-the-standard-model/",
+        "https://arxiv.org/abs/2610.09093",
+        "https://malaysia.news.yahoo.com/inside-chinas-drive-build-ai-000559485.html",
+        "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+        "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+        "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
+        "https://apnews.com/article/faa-smart-ai-outage-08af345749c81fd8364299cd75275fa6",
+        "https://www.transportation.gov/briefing-room/trumps-transportation-secretary-sean-p-duffy-delivers-state-art-air-traffic-control",
+        "https://finance.yahoo.com/technology/ai/articles/finite-state-reveal-results-six-050100800.html",
+        "https://www.apolloresearch.ai/blog/pilot-towards-embedded-evaluations",
+        "https://www.perplexity.ai/en-GB/hub/blog/introducing-perplexity-frontier-research",
+        "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+        "https://www.liquid.ai/blog/d1-2",
+        "https://openai.com/index/strengthening-online-child-safety/",
+        "https://deploymentsafety.openai.com/csam-image-classifier",
+        "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over",
+        "https://oag.ca.gov/system/files/attachments/press-docs/complaint-oai-cyber.pdf",
+        "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+        "https://apnews.com/article/1dd7be56134b4f09fb2fb974803edc69",
+        "https://www.businesswire.com/news/home/20261116056631/en/Noeri-Founded-by-Leading-Stanford-AI-Professors-Launches-with-%24110-Million-to-Empower-Companies-to-Build-and-Own-Their-AI",
+        "https://aws.amazon.com/blogs/machine-learning/build-memory-aware-ai-agents-with-agentic-retrieve-on-amazon-bedrock-managed-knowledge-base/",
+        "https://www.prnewswire.com/news-releases/cypris-introduces-the-first-ai-agent-workforce-for-rd-302942399.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-unveils-agentsense-a-patented-breakthrough-in-stopping-harmful-ai-agent-behavior-in-real-time-302940721.html",
+        "https://www.newswire.ca/news-releases/scotiabank-launches-ai-powered-commercial-navigator-to-give-teams-more-time-with-clients-888239003.html",
+        "https://www.prnewswire.com/news-releases/surgo-health-introduces-ai-driven-research-platform-to-transform-healthcare-insights-302941876.html",
+        "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+        "https://news.microsoft.com/source/2026/11/17/microsoft-and-organizations-across-industries-launch-ai-transparency-initiative-to-strengthen-enterprise-trust-in-ai-models-and-agents/",
+        "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/",
+        "https://www.microsoft.com/en-us/security/blog/2026/09/30/secure-whats-next-your-guide-to-microsoft-security-at-microsoft-ignite-2026/",
+        "https://www.globenewswire.com/news-release/2026/11/17/3405200/0/en/nvidia-announces-financial-results-for-third-quarter-fiscal-2027.html",
+        "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/nvda-20261117.htm",
+        "https://arxiv.org/abs/2611.22033",
+        "https://arxiv.org/abs/2611.22179",
+        "https://arxiv.org/list/cs.AI/new",
+        "https://info.arxiv.org/help/availability.html"
+      ],
+      "source_titles": {
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/": "Google DeepMind — Gemini 4 Hydrogen",
+        "https://alignment.anthropic.com/2026/worse-together/": "Anthropic — Worse Together",
+        "https://www.nature.com/articles/s41598-026-78368-7": "Scientific Reports — исследование надёжности моделей при анализе смарт-контрактов",
+        "https://deepmind.google/blog/introducing-alphaproof-code/": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+        "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf": "AlphaProof Code: Verifying Signal’s Security at the Machine-Code Level",
+        "https://openai.com/index/introducing-gpt-6-1-terra/": "Introducing GPT-6.1 Terra",
+        "https://deploymentsafety.openai.com/gpt-6-1-terra": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+        "https://openai.com/index/step-toward-defining-the-standard-model/": "Физик описал применение GPT-6 Astra к задаче определения Стандартной модели",
+        "https://arxiv.org/abs/2610.09093": "A gauge-invariant measure for lattice chiral fermions",
+        "https://malaysia.news.yahoo.com/inside-chinas-drive-build-ai-000559485.html": "Reuters, публикация Yahoo News",
+        "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/": "Detecting sleeper agents hiding in AI model neurons",
+        "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/": "Lazare veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
+        "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/": "Apple launches research study to explore the use of AI for health",
+        "https://apnews.com/article/faa-smart-ai-outage-08af345749c81fd8364299cd75275fa6": "Associated Press: Questions swirl around FAA’s new SMART AI system",
+        "https://www.transportation.gov/briefing-room/trumps-transportation-secretary-sean-p-duffy-delivers-state-art-air-traffic-control": "US Department of Transportation: SMART air traffic management tool",
+        "https://finance.yahoo.com/technology/ai/articles/finite-state-reveal-results-six-050100800.html": "Finite State to Reveal Results of Six-Month, AI-Driven Firmware Security Research at Hardwear.io 2026",
+        "https://www.apolloresearch.ai/blog/pilot-towards-embedded-evaluations": "A Pilot Towards Embedded Evaluations",
+        "https://www.perplexity.ai/en-GB/hub/blog/introducing-perplexity-frontier-research": "Introducing Perplexity Frontier Research",
+        "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/": "Tencent Launches Hy4 flash to Power High-Speed, Cost-Efficient AI Deployment for Everyday Workflows",
+        "https://www.liquid.ai/blog/d1-2": "d1.2: State-of-the-Art Omnimodal Decision Models",
+        "https://openai.com/index/strengthening-online-child-safety/": "Strengthening the fight against online child sexual abuse with new tools and support",
+        "https://deploymentsafety.openai.com/csam-image-classifier": "OpenAI CSAM Image Classifier Model Card",
+        "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over": "It’s the Golden State, not the Wild West: Attorney General Bonta Sues OpenAI Over Cybersecurity Incidents",
+        "https://oag.ca.gov/system/files/attachments/press-docs/complaint-oai-cyber.pdf": "California v. OpenAI — complaint",
+        "https://openai.com/index/hugging-face-model-evaluation-security-incident/": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+        "https://apnews.com/article/1dd7be56134b4f09fb2fb974803edc69": "California sues OpenAI, seeking court-ordered changes after the Hugging Face hack",
+        "https://www.businesswire.com/news/home/20261116056631/en/Noeri-Founded-by-Leading-Stanford-AI-Professors-Launches-with-%24110-Million-to-Empower-Companies-to-Build-and-Own-Their-AI": "Noeri, Founded by Leading Stanford AI Professors, Launches with $110 Million to Empower Companies to Build and Own Their AI",
+        "https://aws.amazon.com/blogs/machine-learning/build-memory-aware-ai-agents-with-agentic-retrieve-on-amazon-bedrock-managed-knowledge-base/": "Build memory-aware AI agents with Agentic Retrieve on Amazon Bedrock Managed Knowledge Base",
+        "https://www.prnewswire.com/news-releases/cypris-introduces-the-first-ai-agent-workforce-for-rd-302942399.html": "Cypris представила Agent Fleet для исследовательских и промышленных команд",
+        "https://www.prnewswire.com/news-releases/cato-networks-unveils-agentsense-a-patented-breakthrough-in-stopping-harmful-ai-agent-behavior-in-real-time-302940721.html": "Cato Networks объявила AgentSense для контроля действий ИИ-агентов",
+        "https://www.newswire.ca/news-releases/scotiabank-launches-ai-powered-commercial-navigator-to-give-teams-more-time-with-clients-888239003.html": "Scotiabank внедряет ИИ-агентов для анализа и оформления коммерческих кредитов",
+        "https://www.prnewswire.com/news-releases/surgo-health-introduces-ai-driven-research-platform-to-transform-healthcare-insights-302941876.html": "Surgo Health представила ИИ-платформу интервью для исследований в здравоохранении",
+        "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/": "Microsoft представила модели программирования MAI Code 2 и Code 2 Flash",
+        "https://news.microsoft.com/source/2026/11/17/microsoft-and-organizations-across-industries-launch-ai-transparency-initiative-to-strengthen-enterprise-trust-in-ai-models-and-agents/": "Microsoft и партнёры объявили инициативу прозрачности ИИ-агентов",
+        "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/": "Ignite 2026: Building the frontier ecosystem",
+        "https://www.microsoft.com/en-us/security/blog/2026/09/30/secure-whats-next-your-guide-to-microsoft-security-at-microsoft-ignite-2026/": "Secure what's next: Your guide to Microsoft Security at Microsoft Ignite 2026",
+        "https://www.globenewswire.com/news-release/2026/11/17/3405200/0/en/nvidia-announces-financial-results-for-third-quarter-fiscal-2027.html": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+        "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/nvda-20261117.htm": "NVIDIA Form 8-K, November 17, 2026",
+        "https://arxiv.org/abs/2611.22033": "Исследование: усиление рассуждений не улучшило выбор товаров, но повысило уверенность моделей",
+        "https://arxiv.org/abs/2611.22179": "Исследователи сравнили простую память RAG и сложные системы памяти ИИ-агентов",
+        "https://arxiv.org/list/cs.AI/new": "arXiv: новые работы по ИИ, выпуск 18 ноября 2026",
+        "https://info.arxiv.org/help/availability.html": "arXiv: расписание публичных объявлений"
+      },
+      "publication_dates": {
+        "2026-11-17": 9,
+        "2026-11-16": 11,
+        "2026-11-15": 3,
+        "2026-11-10": 2,
+        "2026-11-12": 1,
+        "2026-11-11": 1
+      }
     }
   ]
 }

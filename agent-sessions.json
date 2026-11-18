@@ -3,7 +3,11 @@
     "Развитие мышления ИИ образами": {
       "id": "sess_02d4b31ca4daef22806afacacf3118819da3432ed4296e1d0a",
       "history": [],
-      "last_turn_id": "turn_02d4b31ca4daef22806afcefbeab98819d8ee9e087317d64b3"
+      "last_turn_id": "turn_02d4b31ca4daef22806afcefbeab98819d8ee9e087317d64b3",
+      "pending": {
+        "previous": "turn_02d4b31ca4daef22806afcefbeab98819d8ee9e087317d64b3",
+        "key": "pulse-44250202352-2"
+      }
     },
     "Новости GPT": {
       "history": [],

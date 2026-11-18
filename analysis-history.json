@@ -15452,6 +15452,229 @@
         "2026-09-22": 1,
         "2026-11-10": 1
       }
+    },
+    {
+      "topic": "Прогноз беспилотных авто",
+      "updated_at": "2026-11-18T18:31:52.766Z",
+      "changes": "AP описало действующие роботакси и робототехнические компании Шэньчжэня.\n\nДобавлено объявление May Mobility от 12 ноября о программе Volkswagen ID. Buzz: цель — более 10 тысяч машин до 2031 года.\n\nPony.ai и Toyota сообщили о коммерческих поездках без водителя на серийном bZ4X в Гуанчжоу и о плане примерно на 1000 автомобилей в нескольких городах Китая.\n\nДобавлено объявление Zoox от 13 ноября о поездках в Атланте для сотрудников, их родственников и друзей.\n\nAxios опубликовало обзор положения Waymo в Чикаго и законодательного препятствия; официальный реестр показывает, что HB4663 находится в комитете Палаты представителей.\n\nZoox появилась в приложении Uber в Лас-Вегасе; свежий репортаж Axios описывает ограничения выбора роботакси и условие появления отдельной категории.\n\nTesla объявила план инвестировать около 3 млрд евро в новое производство Cybercab в Грюнхайде: строительство намечено на 2027 год, выпуск — на 2029 год, перспективная цель — до 1 млн машин в год.\n\nМаск допустил возможное начало испытаний личных автомобилей владельцев в сети Robotaxi в декабре 2026 года при благоприятных условиях; фактический запуск не объявлен.\n\nABC15 опубликовала видеорепортаж и материалы о ДТП четырёх автомобилей, включая два Waymo, в Финиксе; полиция расследует происшествие.\n\nLiaison Strategies опубликовала опрос жителей Торонто: 64% поддержали испытания Waymo с водителем, а платные поездки без водителя поддержали 36% и не поддержали 51%.\n\nDMV Калифорнии сообщил журналистам об ограничении беспилотных Waymo на автомагистралях с 11 ноября; компания отдельно заявила о временной паузе на автомагистралях других рынков. По неаудированному отчёту Pony.ai за III квартал 2026 года парк вырос с 1 975 до 2 768 машин за квартал, а выручка услуг роботакси — с $12,073 млн до $17,763 млн. Uber и Momenta объявили о бесплатном пилоте пассажирских автономных поездок с оператором в части Мюнхена. Einride сообщила о росте накопленных часов работы без оператора безопасности по клиентским контрактам с 5 400 в июне до 8 500 на 13 ноября 2026 года.",
+      "conclusion": "Действующий городской сервис подтверждает развитие локальной эксплуатации. По одному репортажу нельзя оценить прибыльность, безопасность на всех маршрутах или сроки распространения в другие города.\n\nНовая программа повышает наблюдаемую амбицию по масштабированию, но её сроки, безопасность и экономика пока не подтверждены фактическим развёртыванием.\n\nЗапуск серийной модели усиливает свидетельства постепенного масштабирования локальных сервисов, но не доказывает их прибыльность, безопасность вне объявленных условий и выполнение плана по парку.\n\nГеография роботакси расширяется, но ограниченная пилотная программа Zoox в Атланте не равнозначна открытому коммерческому сервису Pony.ai в Гуанчжоу. Масштаб и безопасность новой эксплуатации требуют отдельных данных.\n\nЧикаго иллюстрирует зависимость внедрения от местного регулирования: картографирование и переговоры не являются запуском беспилотного сервиса, а будущее рассмотрение законопроекта не означает его принятия.\n\nИнтеграция расширяет каналы доступа к уже действующему сервису, но её влияние на поездки, себестоимость и безопасность ещё не измерено. Планы отдельной категории и выхода через Uber в Лос-Анджелес не равны выполненным запускам.\n\nПроект усиливает заявленные намерения масштабировать производство, но не подтверждает строительство, разрешения, продажи или реальный парк роботакси. Переход от проектной мощности к коммерческим поездкам зависит от регулирования, спроса и подтверждения безопасности.\n\nПодключение частных машин потенциально меняет модель масштабирования, но одно условное заявление не подтверждает запуск, безопасность, экономику или допуск конкретных моделей.\n\nОтдельное тяжёлое ДТП важно для мониторинга, но до окончания расследования оно не устанавливает ошибку Waymo и не позволяет оценить частоту происшествий на сопоставимом пробеге.\n\nОбщественное принятие и доверие могут стать отдельным ограничением внедрения даже при технологической готовности. Один локальный опрос не устанавливает безопасность, будущий спрос или позицию жителей других городов.\n\nРегуляторное ограничение и пауза Waymo повышают краткосрочную неопределённость масштабирования поездок по автомагистралям. Они не означают остановку городского сервиса и не позволяют сами по себе оценить относительную аварийность или длительность ограничений. Новые данные Pony.ai подтверждают масштабирование у одного оператора, но убыток и неоднородность выручки не позволяют вывести сроки всеобщего внедрения. Европейский пилот расширяет географию пассажирских испытаний, но не подтверждает возможность коммерческих поездок без оператора. Отчёт Einride даёт отдельный индикатор развёртывания беспилотных грузоперевозок, но не позволяет рассчитать отраслевую безопасность или рентабельность автономного сегмента.",
+      "details": [
+        {
+          "heading": "Готовность города",
+          "text": "Для коммерческого сервиса нужны разрешения, интеграция с системой заказа поездок, местный оператор и согласованные процедуры поддержки. Партнёрство в Токио показывает практическую роль этих компонентов."
+        },
+        {
+          "heading": "Что отличает пилот от эксплуатации",
+          "text": "Число коммерческих поездок без водителя, территория обслуживания, часы работы и безопасность на сопоставимом пробеге лучше характеризуют стадию внедрения, чем общий пробег с оператором."
+        },
+        {
+          "heading": "Что изменит прогноз",
+          "text": "Фактический запуск, затем публикация данных о поездках и расширение зоны подтвердят следующий этап. Задержки разрешений или устойчивые ограничения в сложных погодных и дорожных условиях отодвинут его."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "По сравнению Waymo с человеческим базовым уровнем в пяти агломерациях частота аварий с травмами ниже на 82%; сравнение включает аварии независимо от виновности."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Базовая частота моделируется и зависит от регистрации ДТП, а поездки не рандомизированы. Оценку изменят независимые сопоставления, новые территории и отчёты регуляторов."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "TechCrunch сообщило о запуске 9 ноября со ссылкой на объявление Tesla; собственный отчёт Tesla перечисляет Сан-Антонио среди городов работы."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "На момент объявления не раскрыты режим страхующего оператора и размер локального парка; прямого сравнения с ранее описанной выборкой Waymo нет. Оценку изменят данные о пробеге, авариях и условиях эксплуатации в городе."
+        },
+        {
+          "heading": "Новое событие 16 ноября",
+          "text": "16 ноября Associated Press опубликовало репортаж о поездках на беспилотных такси и разработчиках роботов в Шэньчжэне. Материал описывает работу сервисов в конкретном городе и показывает практическую эксплуатацию, которую можно учитывать при прогнозе распространения автономного транспорта. Официальные данные о зоне обслуживания, количестве оплаченных поездок, аварийности и экономике эксплуатации."
+        },
+        {
+          "heading": "Новый план развёртывания",
+          "text": "May Mobility планирует дорожные испытания в США с начала 2027 года и первые поставки серийных ID. Buzz в 2028 году; цель более 10 тысяч машин относится к периоду до 2031 года."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "План не равен заказу, допуску или действующему парку. Оценку изменят начало испытаний, разрешения, реальные поставки, условия сервиса и статистика аварий на сопоставимом пробеге."
+        },
+        {
+          "heading": "Новый запуск: производство и сервис",
+          "text": "По сообщению Pony.ai, Gen-7 bZ4X вошёл в коммерческий беспилотный парк Гуанчжоу; заказ заявлен круглосуточно. Первый серийный автомобиль произведён в феврале 2026 года. Разработка также охватывает техническое обслуживание и зарядку."
+        },
+        {
+          "heading": "План, ограничения и проверка прогноза",
+          "text": "Примерно 1000 bZ4X — заявленный план для нескольких китайских городов, без раскрытого срока, а не фактическое число машин. Число эксплуатируемых машин, зона, тарифы, пробег, статистика аварий и экономика в объявлении не приведены. Данные оператора и независимых регуляторов о них позволят оценить масштабирование."
+        },
+        {
+          "heading": "Новые факты и сопоставление",
+          "text": "Zoox сообщила о поездках в северо-западной части Атланты; доступ ограничен персоналом и их близкими. Это иной этап внедрения, чем ранее описанный коммерческий запуск Pony.ai и Toyota в Гуанчжоу."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Компания не раскрыла для Атланты число машин, пробег или сопоставимую статистику происшествий. Оценку изменят запуск ранней пассажирской программы, условия доступа, зона обслуживания и результаты проверок безопасности."
+        },
+        {
+          "heading": "Чикаго: статус разработки и регулирования",
+          "text": "Waymo объявила о начале картографирования и ручных испытаний в феврале 2026 года. По свежему репортажу Axios, машины в городе по-прежнему управляются человеком, а пилотный законопроект HB4663 застрял в комитете."
+        },
+        {
+          "heading": "Что может изменить оценку",
+          "text": "Официальные реестры, решения по HB4663 и конкретные разрешения или запуск подтвердят изменение статуса. Последнее действие в реестре датировано 27 марта; возможное рассмотрение осенью не является принятием закона или разрешением на поездки."
+        },
+        {
+          "heading": "Новый канал заказа в Лас-Вегасе",
+          "text": "По совместному сообщению Uber и Zoox, при заказе подходящих категорий Uber может назначить беспилотное Zoox без дополнительной платы; поездки через собственное приложение Zoox продолжаются. Предпочтение автономных поездок повышает вероятность назначения, но отдельного тарифа роботакси пока нет."
+        },
+        {
+          "heading": "Пределы и наблюдение",
+          "text": "Репортаж Axios передаёт условие Uber: выделять отдельную категорию при достаточной доступности и надёжности. Дата не названа. Расширение в Лос-Анджелес на 2027 год — план; проверить его выполнение помогут число машин и оплаченных поездок, зона, время ожидания, безопасность и экономика."
+        },
+        {
+          "heading": "Производственные планы Tesla",
+          "text": "Руководитель Gigafactory Berlin-Brandenburg сообщил о намерении инвестировать около 3 млрд евро в новое производственное здание и начать выпуск Cybercab в 2029 году с перспективой роста до 1 млн машин ежегодно. Строительство планируется на первое полугодие 2027 года."
+        },
+        {
+          "heading": "Ограничения и проверка исполнения",
+          "text": "Проектная цель не является достигнутым выпуском, количеством заказов или развёрнутым парком. Ключевые вехи — разрешения и начало строительства, ввод оборудования и фактический выпуск, а также допуск автомобиля и беспилотной эксплуатации в соответствующих странах."
+        },
+        {
+          "heading": "Условное заявление о частных автомобилях",
+          "text": "В ответе владельцу Model Y Маск написал, что испытания могут начаться в следующем месяце, если всё сложится благоприятно. Публикация датирована 16 ноября 2026 года, поэтому речь идёт о декабре."
+        },
+        {
+          "heading": "Что осталось неизвестным",
+          "text": "В сообщении не указаны география, подходящие автомобили и владельцы, доля выручки, страхование или регуляторные условия. Следует ожидать официальных правил и подтверждения фактического пилота; дата в заявлении не гарантирована."
+        },
+        {
+          "heading": "ДТП в Финиксе",
+          "text": "Полиция сообщила ABC15 о четырёх участниках столкновения, в том числе двух автомобилях Waymo, и трёх госпитализированных; одному человеку угрожала опасность для жизни. ABC15 получила видео с камеры наблюдения и разместила материалы с пояснениями полиции."
+        },
+        {
+          "heading": "Ограничения оценки безопасности",
+          "text": "Waymo заявила, что один её автомобиль стоял на светофоре и был поражён другим транспортным средством. Это версия компании; следствие продолжается. Случай сам по себе не раскрывает режим системы, вину, причинность или относительный риск на единицу пробега."
+        },
+        {
+          "heading": "Разные условия испытаний и сервиса",
+          "text": "В телефонном опросе 1000 жителей Торонто 64% поддержали тесты Waymo с человеком за рулём (29% против); в отдельном вопросе о платных поездках без водителя 36% поддержали и 51% выступили против. Опрос проведён 14–15 ноября 2026 года."
+        },
+        {
+          "heading": "Методика и ограничения ценового сравнения",
+          "text": "При одинаковой цене и времени прибытия Waymo в гипотетическом выборе предпочли 15% одной группы; при цене на $5 ниже — 27% другой группы. Полный отчёт указывает 497 и 503 участника соответственно. Данные взвешены по возрасту, полу и району; авторы указывают погрешность ±3,1 п.п. для всей выборки, для подвыборок она выше. Заявленные предпочтения не равны реальным заказам, а неответы и формулировка могут влиять на результаты."
+        },
+        {
+          "heading": "Ограничение DMV и позиция Waymo",
+          "text": "По сведениям DMV, переданным ABC7 и San Francisco Business Times, ограничение действует с 11 ноября до подтверждения эффективных корректирующих мер после повторных инцидентов в рабочих зонах. Компания отдельно сообщила Business Times о временном ограничении движения по автомагистралям на других рынках; поездки по обычным улицам продолжаются."
+        },
+        {
+          "heading": "Что означает для прогноза",
+          "text": "Ограничение относится к дорожному режиму и не является аннулированием всех разрешений или остановкой всех поездок. Проверяемые вехи: меры по исправлению, решение DMV и подтверждённое возобновление автомагистралей по каждому рынку. Публичного текста решения в проверенных источниках не найдено, поэтому детали приведены по прямым заявлениям ведомства и компании журналистам."
+        },
+        {
+          "heading": "Квартальная динамика Pony.ai",
+          "text": "На 30 июня и 30 сентября парк роботакси насчитывал соответственно 1 975 и 2 768 машин; выручка услуг роботакси во II и III кварталах составила $12,073 млн и $17,763 млн. За III квартал общая выручка составила $44,574 млн, чистый убыток по GAAP — $136,3 млн. Руководство ставит цель 3 500 машин в 20 городах к концу года."
+        },
+        {
+          "heading": "Ограничения финансовой оценки",
+          "text": "Отчёт не аудирован. Выручка роботакси включает разные источники, а не только плату пассажиров; доля полностью беспилотных машин и единая экономика поездки не раскрыты. Компания объясняет рост чистого убытка прежде всего переоценкой торговых ценных бумаг. План на конец года не означает его исполнения; показатели одного оператора нельзя переносить на отрасль."
+        },
+        {
+          "heading": "Пилот Uber и Momenta в Мюнхене",
+          "text": "18 ноября партнёры сообщили о старте бесплатных некоммерческих поездок через Uber в северной части Мюнхена по испытательным разрешениям KBA. Доступ ограничен предварительно зарегистрированными и отобранными пользователями, посадка и высадка предусмотрены в обозначенных точках. В каждой поездке присутствует обученный оператор безопасности."
+        },
+        {
+          "heading": "Ограничения и вехи пилота",
+          "text": "Это не полностью беспилотный или платный сервис. Размер парка, частота и число поездок, эксплуатационный пробег, аварийность, расходы и сроки работы без оператора в объявлении не указаны. Пошаговое расширение остаётся планом. Дата источника известна, но точное время опубликования не подтверждено; независимое сообщение CnEVPost вышло в 10:05 UTC 18 ноября."
+        },
+        {
+          "heading": "Беспилотная грузовая эксплуатация Einride",
+          "text": "По отчёту компании, накопленная работа без оператора безопасности в клиентских контрактных операциях выросла примерно с 5 400 часов в июне до 8 500 часов на 13 ноября. Компания сообщила о разрешениях на работу без оператора безопасности в четырёх странах и пяти штатах США. Её план для автономности на автомагистралях с первого полугодия 2028 года относится к следующему поколению системы и остаётся целью."
+        },
+        {
+          "heading": "Границы показателей Einride",
+          "text": "Накопленные часы не являются километражом и не раскрывают дорожные условия, степень удалённой поддержки или частоту аварий. Выручка всего бизнеса при постоянном курсе выросла с $14,4 млн во II квартале до $18,3 млн в III; скорректированный EBITDA III квартала — минус $20,3 млн. CARR вырос с $95 млн на конец июня до $167 млн в ноябре, но это контрактная годовая метрика, а не признанная выручка; финансовые показатели не выделяют отдельно беспилотные перевозки."
+        }
+      ],
+      "sources": [
+        "https://waymo.com/blog/2026/09/opening-tokyo-in-2027-with-nihon-kotsu-go/",
+        "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+        "https://waymo.com/blog/shorts/safetydata-september26/",
+        "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/Waymo_Safety_Impact_Data_Hub_Release_Notes_20260924.pdf",
+        "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/",
+        "https://www.tesla.com/robotaxi/safety",
+        "https://apnews.com/article/df655739f3881e2025c873c13b1fed70",
+        "https://maymobility.com/en/news/may-mobility-plans-to-bring-autonomous-volkswagen-id-buzz-vehicles-to-global-robotaxi-platforms",
+        "https://blog.pony.ai/pony-ai-and-toyota-launch-fully-driverless-commercial-services-with-gen-7-bz4x-robotaxi/",
+        "https://zoox.com/journal/atlanta-expansion-robotaxi",
+        "https://www.axios.com/local/chicago/2026/11/16/illinois-waymo-robotaxi-legislation-rideshare-drivers-unions",
+        "https://www.ilga.gov/Legislation/BillStatus?DocNum=4663&DocTypeID=HB&GAID=18&LegId=165621&Print=1&SessionID=114",
+        "https://waymo.com/blog/shorts/waymo-in-chicago/",
+        "https://www.axios.com/2026/11/16/uber-vegas-robotaxi-crapshoot",
+        "https://investor.uber.com/news-events/news/press-release-details/2026/Zoox-Is-Now-Available-on-Uber-in-Las-Vegas/default.aspx",
+        "https://de.linkedin.com/posts/andre-thierig-3959a035_news-weiter-gehts-wir-bauen-aus-activity-7528101731734515712-eFlC",
+        "https://techcrunch.com/2026/11/16/tesla-goes-all-in-on-the-cybercab-with-upcoming-e3b-berlin-gigafactory-expansion/",
+        "https://www.notateslaapp.com/news/5022/tesla-to-allow-customers-to-add-their-vehicles-to-robotaxi-as-early-as-next-month",
+        "https://x.com/elonmusk/status/2122449119570534680",
+        "https://teslanorth.com/2026/11/16/tesla-owner-robotaxi-trials-december-musk/",
+        "https://www.abc15.com/videos/news/local-news/region-phoenix-metro/three-hospitalized-after-suv-seen-colliding-with-multiple-waymo-vehicles-in-phoenix-monday",
+        "https://www.abc15.com/news/local-news/region-phoenix-metro/three-hospitalized-following-crash-involving-waymo",
+        "https://www.abc15.com/videos/news/local-news/region-phoenix-metro/phoenix-police-provide-details-on-four-vehicle-crash-involving-two-waymo-vehicles",
+        "https://www.fox10phoenix.com/news/waymo-cars-involved-crash-along-phoenix-roadway",
+        "https://press.liaisonstrategies.ca/toronto-waymo-testing-driverless-rides-november-17-2026/",
+        "https://press.liaisonstrategies.ca/content/files/2026/11/2026.11.17-Toronto-Report.pdf",
+        "https://abc7news.com/story/california-dmv-bans-waymos-operating-state-freeways-bay-area-traffic-incidents/20046974/",
+        "https://www.bizjournals.com/sanfrancisco/news/2026/11/17/waymo-california-freeway-ban-dmv-chp.html",
+        "https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-reports-third-quarter-2026-financial-results-total",
+        "https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-reports-second-quarter-2026-financial-results-total",
+        "https://www.momenta.ai/en/article/640.html",
+        "https://cnevpost.com/2026/11/18/momenta-uber-launch-robotaxi-pilot-germany/",
+        "https://www.globenewswire.com/news-release/2026/11/18/3405471/0/en/einride-provides-q3-2026-business-update.html"
+      ],
+      "source_titles": {
+        "https://waymo.com/blog/2026/09/opening-tokyo-in-2027-with-nihon-kotsu-go/": "Waymo — подготовка к запуску в Токио в 2027 году",
+        "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/": "Google DeepMind — Genie 3",
+        "https://waymo.com/blog/shorts/safetydata-september26/": "From the road — September 24, 2026",
+        "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/Waymo_Safety_Impact_Data_Hub_Release_Notes_20260924.pdf": "Waymo Safety Impact Data Hub Release Notes, September 24, 2026",
+        "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/": "Tesla объявила о запуске Robotaxi в Сан-Антонио",
+        "https://www.tesla.com/robotaxi/safety": "Tesla Robotaxi Safety Report",
+        "https://apnews.com/article/df655739f3881e2025c873c13b1fed70": "Associated Press",
+        "https://maymobility.com/en/news/may-mobility-plans-to-bring-autonomous-volkswagen-id-buzz-vehicles-to-global-robotaxi-platforms": "May Mobility Plans to Bring Autonomous Volkswagen ID. Buzz Vehicles to Global Robotaxi Platforms",
+        "https://blog.pony.ai/pony-ai-and-toyota-launch-fully-driverless-commercial-services-with-gen-7-bz4x-robotaxi/": "Pony.ai and Toyota Launch Fully Driverless Commercial Services with Gen-7 bZ4X Robotaxi",
+        "https://zoox.com/journal/atlanta-expansion-robotaxi": "Zoox robotaxi is now driving in Atlanta",
+        "https://www.axios.com/local/chicago/2026/11/16/illinois-waymo-robotaxi-legislation-rideshare-drivers-unions": "Driverless Waymos still not a reality in Chicago",
+        "https://www.ilga.gov/Legislation/BillStatus?DocNum=4663&DocTypeID=HB&GAID=18&LegId=165621&Print=1&SessionID=114": "Illinois General Assembly: Bill Status of HB4663",
+        "https://waymo.com/blog/shorts/waymo-in-chicago/": "Waymo: From the road — February 25, 2026",
+        "https://www.axios.com/2026/11/16/uber-vegas-robotaxi-crapshoot": "In Vegas, Uber aims to end robotaxi crapshoot",
+        "https://investor.uber.com/news-events/news/press-release-details/2026/Zoox-Is-Now-Available-on-Uber-in-Las-Vegas/default.aspx": "Zoox Is Now Available on Uber in Las Vegas",
+        "https://de.linkedin.com/posts/andre-thierig-3959a035_news-weiter-gehts-wir-bauen-aus-activity-7528101731734515712-eFlC": "Andre Thierig: Ausbau der Gigafactory Berlin-Brandenburg",
+        "https://techcrunch.com/2026/11/16/tesla-goes-all-in-on-the-cybercab-with-upcoming-e3b-berlin-gigafactory-expansion/": "Tesla goes all-in on the Cybercab with upcoming €3B Berlin Gigafactory expansion",
+        "https://x.com/elonmusk/status/2122449119570534680": "Elon Musk: possible owner Robotaxi trials next month — оригинал в X",
+        "https://teslanorth.com/2026/11/16/tesla-owner-robotaxi-trials-december-musk/": "Tesla Owner Robotaxi Trials Could Start Next Month",
+        "https://www.notateslaapp.com/news/5022/tesla-to-allow-customers-to-add-their-vehicles-to-robotaxi-as-early-as-next-month": "Not a Tesla App — сообщение о возможных испытаниях",
+        "https://www.abc15.com/videos/news/local-news/region-phoenix-metro/three-hospitalized-after-suv-seen-colliding-with-multiple-waymo-vehicles-in-phoenix-monday": "Three hospitalized after SUV seen colliding with multiple Waymo vehicles in Phoenix Monday",
+        "https://www.abc15.com/news/local-news/region-phoenix-metro/three-hospitalized-following-crash-involving-waymo": "ABC15: Three hospitalized after SUV seen colliding with multiple Waymo vehicles",
+        "https://www.abc15.com/videos/news/local-news/region-phoenix-metro/phoenix-police-provide-details-on-four-vehicle-crash-involving-two-waymo-vehicles": "Phoenix Police provide details on four-vehicle crash involving two Waymo vehicles",
+        "https://www.fox10phoenix.com/news/waymo-cars-involved-crash-along-phoenix-roadway": "Crash involving Waymo cars in Phoenix injures 3: PD",
+        "https://press.liaisonstrategies.ca/toronto-waymo-testing-driverless-rides-november-17-2026/": "Toronto: 64% Back Waymo Tests With a Driver, 51% Oppose Paid Driverless Rides",
+        "https://press.liaisonstrategies.ca/content/files/2026/11/2026.11.17-Toronto-Report.pdf": "Toronto Pulse — November 17, 2026: detailed poll report",
+        "https://abc7news.com/story/california-dmv-bans-waymos-operating-state-freeways-bay-area-traffic-incidents/20046974/": "CA DMV bans Waymos from operating on state freeways after Bay Area traffic incidents",
+        "https://www.bizjournals.com/sanfrancisco/news/2026/11/17/waymo-california-freeway-ban-dmv-chp.html": "Waymo robotaxis pulled from freeways indefinitely after viral I-280 incident involving CHP",
+        "https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-reports-third-quarter-2026-financial-results-total": "Pony AI Inc. Reports Third Quarter 2026 Financial Results",
+        "https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-reports-second-quarter-2026-financial-results-total": "PONY AI Inc. Reports Second Quarter 2026 Financial Results",
+        "https://www.momenta.ai/en/article/640.html": "Uber and Momenta Launch Supervised Autonomous Vehicle Pilot in Munich",
+        "https://cnevpost.com/2026/11/18/momenta-uber-launch-robotaxi-pilot-germany/": "Momenta, Uber launch supervised robotaxi pilot in Germany",
+        "https://www.globenewswire.com/news-release/2026/11/18/3405471/0/en/einride-provides-q3-2026-business-update.html": "Einride Provides Q3 2026 Business Update"
+      },
+      "publication_dates": {
+        "2026-11-18": 3,
+        "2026-11-17": 3,
+        "2026-11-16": 6,
+        "2026-11-13": 1,
+        "2026-11-12": 1,
+        "2026-11-09": 1,
+        "2026-09-24": 1
+      }
     }
   ]
 }

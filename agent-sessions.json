@@ -33,7 +33,11 @@
     "Прогноз беспилотных авто": {
       "history": [],
       "id": "sess_0c2acb839e4acc1a006afad028b2b48193903f404805ebd61b",
-      "last_turn_id": "turn_0c2acb839e4acc1a006afcbb0b75b88193a93eca7310e8149d"
+      "last_turn_id": "turn_0c2acb839e4acc1a006afcbb0b75b88193a93eca7310e8149d",
+      "pending": {
+        "previous": "turn_0c2acb839e4acc1a006afcbb0b75b88193a93eca7310e8149d",
+        "key": "pulse-44206555925-6"
+      }
     },
     "Пять технологических прорывов": {
       "history": [],

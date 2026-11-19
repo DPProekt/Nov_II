@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-19T18:19:13.243Z",
+  "updated_at": "2026-11-19T18:21:21.752Z",
   "items": [
+    {
+      "title": "Seramount: интерес к развитию навыков ИИ различается по возрасту среди офисных работников США",
+      "summary": "В июньском опросе Seramount через панель NORC AmeriSpeak среди более 1 800 американских офисных работников компаний с не менее чем 500 сотрудниками 18% респондентов до 29 лет сообщили о желании развивать навыки ИИ; среди работников 30–44 лет — 36%, 45–59 лет — 46%, 60 лет и старше — 43%. В младшей группе 30% считали, что ИИ помогает работать эффективнее, и 27% сообщали о поддержке работодателя во внедрении ИИ. Опрос опубликован 19 ноября.",
+      "date": "2026-11-19",
+      "published_at": "2026-11-19T08:00:00-05:00",
+      "importance": "normal",
+      "source": "Seramount",
+      "url": "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Показатели отражают заявленный интерес и восприятие, а не реальные навыки, производительность, найм или причинное влияние ИИ. Выборка охватывает офисных работников крупных компаний США, а не всю рабочую силу; размеры возрастных подгрупп и точные формулировки вопросов в релизе не приведены. Возраст может быть связан с профессией, стажем и условиями работы; причинность не установлена."
+    },
     {
       "title": "Акции Anthropic начали торговаться на Nasdaq по $111,50",
       "summary": "19 ноября акции Anthropic под тикером ANT начали торговаться на Nasdaq по $111,50 за акцию, на 34,3% выше цены IPO $83. Nasdaq указала время открытия торгов 11:48:24 по восточному времени США (16:48:24 UTC). Ранее в архиве была зафиксирована цена размещения, а не открытие вторичного рынка.",
@@ -2884,9 +2895,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-19T12:20:35.349Z",
-      "changes": "Добавлен международный опрос Adecco о различиях в заявленной продуктивности и экономии времени при обучении и интеграции ИИ.",
-      "conclusion": "Новые самоотчёты согласуются с прежним выводом: организация процессов и обучение могут быть важны для отдачи ИИ. Исследование не доказывает причинность и не измеряет вклад ИИ в ВВП; численные параметры прогноза не меняются.",
+      "updated_at": "2026-11-19T18:21:21.752Z",
+      "changes": "Добавлен опрос Seramount о возрастных различиях заявленного интереса к навыкам ИИ и поддержке работников в крупных компаниях США.",
+      "conclusion": "Интерес к освоению ИИ и доступ к поддержке могут различаться между группами работников, но опрос не позволяет измерить эффект на производительность, занятость или ВВП; оснований менять сценарные параметры нет.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -3055,6 +3066,14 @@
         {
           "heading": "Сопоставимость и ограничения",
           "text": "В отличие от сохранённых опросов Northeastern University и Банка Кореи, Adecco сопоставляет обученных и необученных пользователей в нескольких странах. Выборки, вопросы и показатели различаются: проценты нельзя напрямую сопоставлять или трактовать как изменение ВВП. Самоотбор и различия рабочих задач не позволяют вывести причинный эффект обучения; в релизе недостаточно деталей о подгруппах."
+        },
+        {
+          "heading": "Возраст и интерес к навыкам",
+          "text": "В опросе более 1 800 офисных работников крупных компаний США желание развивать навыки ИИ отметили 18% респондентов до 29 лет, 36% в возрасте 30–44 лет, 46% в возрасте 45–59 лет и 43% в возрасте от 60 лет. Среди младшей группы 27% сообщили о поддержке работодателя при интеграции ИИ."
+        },
+        {
+          "heading": "Сопоставление и пределы",
+          "text": "Опрос дополняет сохранённое международное исследование Adecco об обучении и самооценке продуктивности, но охватывает только офисных работников крупных компаний США и задаёт иные вопросы. Возрастные группы могут различаться по должностям и стажу; размеры подгрупп не приведены. Заявленный интерес не измеряет навыки или причинное влияние обучения на выпуск."
         }
       ],
       "sources": [
@@ -3102,7 +3121,8 @@
         "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm",
         "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
         "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf",
-        "https://www.adeccogroup.com/en/our-group/media/press-releases/global-workforce-of-the-future-study-2026"
+        "https://www.adeccogroup.com/en/our-group/media/press-releases/global-workforce-of-the-future-study-2026",
+        "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -3149,7 +3169,8 @@
         "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm": "Federal Reserve: Minutes of the Federal Open Market Committee, October 27–28, 2026 — press release",
         "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm": "Bank of Japan: Statement by Governor UEDA concerning the Bank's Semiannual Report on Currency and Monetary Control",
         "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf": "Bank of Japan: Statement before the Committee on Financial Affairs, Senate — full text",
-        "https://www.adeccogroup.com/en/our-group/media/press-releases/global-workforce-of-the-future-study-2026": "The Adecco Group global study: AI delivers more value when people are involved in work redesign"
+        "https://www.adeccogroup.com/en/our-group/media/press-releases/global-workforce-of-the-future-study-2026": "The Adecco Group global study: AI delivers more value when people are involved in work redesign",
+        "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html": "Seramount Finds Gen Z Employees Are Least Likely to Use AI at Work"
       }
     },
     {

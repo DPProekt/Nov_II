@@ -33,7 +33,29 @@
     "Прогноз беспилотных авто": {
       "history": [],
       "id": "sess_0c2acb839e4acc1a006afad028b2b48193903f404805ebd61b",
-      "last_turn_id": "turn_0c2acb839e4acc1a006afdeee3077481938e61a09d4e5ed591"
+      "last_turn_id": "turn_0c2acb839e4acc1a006afdeee3077481938e61a09d4e5ed591",
+      "pending": {
+        "previous": "turn_0c2acb839e4acc1a006afdeee3077481938e61a09d4e5ed591",
+        "key": "pulse-44427752499-6",
+        "article_urls_before": [
+          "https://abc7news.com/story/california-dmv-bans-waymos-operating-state-freeways-bay-area-traffic-incidents/20046974/",
+          "https://apnews.com/article/df655739f3881e2025c873c13b1fed70",
+          "https://blog.pony.ai/pony-ai-and-toyota-launch-fully-driverless-commercial-services-with-gen-7-bz4x-robotaxi/",
+          "https://de.linkedin.com/posts/andre-thierig-3959a035_news-weiter-gehts-wir-bauen-aus-activity-7528101731734515712-eFlC",
+          "https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-reports-third-quarter-2026-financial-results-total",
+          "https://maymobility.com/en/news/may-mobility-plans-to-bring-autonomous-volkswagen-id-buzz-vehicles-to-global-robotaxi-platforms",
+          "https://press.liaisonstrategies.ca/toronto-waymo-testing-driverless-rides-november-17-2026/",
+          "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/",
+          "https://waymo.com/blog/shorts/safetydata-september26/",
+          "https://www.abc15.com/videos/news/local-news/region-phoenix-metro/three-hospitalized-after-suv-seen-colliding-with-multiple-waymo-vehicles-in-phoenix-monday",
+          "https://www.axios.com/2026/11/16/uber-vegas-robotaxi-crapshoot",
+          "https://www.axios.com/local/chicago/2026/11/16/illinois-waymo-robotaxi-legislation-rideshare-drivers-unions",
+          "https://www.globenewswire.com/news-release/2026/11/18/3405471/0/en/einride-provides-q3-2026-business-update.html",
+          "https://www.momenta.ai/en/article/640.html",
+          "https://www.notateslaapp.com/news/5022/tesla-to-allow-customers-to-add-their-vehicles-to-robotaxi-as-early-as-next-month",
+          "https://zoox.com/journal/atlanta-expansion-robotaxi"
+        ]
+      }
     },
     "Пять технологических прорывов": {
       "history": [],

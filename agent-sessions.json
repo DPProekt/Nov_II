@@ -23,24 +23,7 @@
     "Пересборка прогноза 2026–2050": {
       "history": [],
       "id": "sess_03d0ee54f1a5d3d7006afacf1e22848195a6ef62456950f0b5",
-      "last_turn_id": "turn_03d0ee54f1a5d3d7006afeea16acc4819583f9cc3ad6bb3b45",
-      "pending": {
-        "previous": "turn_03d0ee54f1a5d3d7006afeea16acc4819583f9cc3ad6bb3b45",
-        "key": "pulse-44586170632-3",
-        "article_urls_before": [
-          "https://digitaleconomy.stanford.edu/project/indicators/adoptionmonitor/",
-          "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/autumn-2026-economic-forecast-shows-continued-growth-amid-higher-inflation/incorporating-ai-potential-output-estimates-challenges-and-practices_en",
-          "https://leap.forecastingresearch.org/reports/wave13",
-          "https://link.springer.com/article/10.1365/s35764-026-00617-1",
-          "https://newsroom.accenture.com/news/2026/accenture-life-trends-2027-finds-people-want-progress-in-an-ai-era-but-on-their-own-terms",
-          "https://www.adpresearch.com/research/canaries-dashboard-employment-in-ai-exposed-occupations-shrank",
-          "https://www.bok.or.kr/portal/bbs/P0002353/view.do?depth=200433&menuNo=200433&nttId=11066699&programType=newsData&relate=Y",
-          "https://www.businessthink.unsw.edu.au/articles/artificial-intelligence-economic-impact-productivity",
-          "https://www.ebrd.com/home/news-and-events/publications/economics/transition-reports/transition-report-2026-27.html",
-          "https://www.epi.org/publication/ai-and-the-economy-your-questions-answered/",
-          "https://www.imf.org/en/Publications/WEO/Issues/2026/10/13/world-economic-outlook-october-2026"
-        ]
-      }
+      "last_turn_id": "turn_03d0ee54f1a5d3d7006aff3e8896808195a3dc688908e47bef"
     },
     "Гипербола технологий Капицы с ИИ": {
       "history": [],

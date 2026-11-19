@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-19T06:19:26.250Z",
+  "updated_at": "2026-11-19T06:21:47.946Z",
   "items": [
+    {
+      "title": "Банк Японии: спрос, связанный с ИИ, поддерживает экспорт, но может усилить рост цен",
+      "summary": "В выступлении перед парламентским комитетом 19 ноября глава Банка Японии Кадзуо Уэда отметил умеренный рост японского экспорта на фоне увеличения мирового спроса, связанного с ИИ. По оценке банка, этот спрос наряду с другими факторами может поддержать экономику; одновременно рост цен на полупроводники и другие товары вместе с ослаблением иены может повысить цены товаров длительного пользования. Банк не выделил количественный вклад ИИ в рост ВВП или инфляцию. Банк заявил о дальнейшем повышении ставки в зависимости от экономических и финансовых условий, не указав конкретной даты; другие факторы включают энергию, зарплаты и валютный курс.",
+      "date": "2026-11-19",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Банк Японии",
+      "url": "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Это оценка и прогноз центрального банка, а не доказательство отдельного причинного вклада ИИ. Материал дополняет сохранённые оценки выгод и финансовых рисков возможным двойным эффектом спроса: поддержкой экспорта и давлением на цены. Время публикации первоисточник не указал."
+    },
     {
       "title": "OpenAI оценила работу ИИ-агентов над собственными исследованиями",
       "summary": "OpenAI сообщила, что оценка доли делегированных задач, выполняемых агентами без вмешательства человека, с марта по октябрь выросла с 23% до 46% для задач, требующих по оценке 2–4 часа человеческой работы, и с 13% до 35% для задач на 4–8 часов. В период с 1 августа по 18 октября оценки сильно различались: 79% для наблюдения за обучением и 25% для кода инференса и обслуживания моделей. Медианное дневное использование агентных инструментов исследователем в октябре оценено в $2400 по публичным ценам API, а не как реальный внутренний счёт.",
@@ -2657,9 +2668,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-19T00:22:36.305Z",
-      "changes": "Добавлен опубликованный 18 ноября протокол FOMC за 27–28 октября: участники обсудили слабую отдачу ИИ-инвестиций и связанные с ней финансовые риски.",
-      "conclusion": "Новый документ подтверждает актуальность ранее описанного сценария финансового стресса, но не показывает, что кризис неизбежен, и не даёт вероятности или оценок потерь; базовый качественный прогноз сохраняется.",
+      "updated_at": "2026-11-19T06:21:47.946Z",
+      "changes": "Добавлено выступление главы Банка Японии о влиянии спроса, связанного с ИИ, на экспорт и перспективы цен.",
+      "conclusion": "Спрос на инфраструктуру ИИ может одновременно поддерживать выпуск экспортёров и усиливать ценовое давление, но Банк Японии не оценил отдельный вклад ИИ; базовый качественный прогноз и количественные параметры не меняются.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -2812,6 +2823,14 @@
         {
           "heading": "Сопоставление с архивом и ограничения",
           "text": "Ранее сохранённые выступление представителя ФРС 16 ноября и обзор ЕЦБ рассматривали близкие каналы риска. Протокол добавляет обсуждение участниками FOMC, но отражает доступную им в конце октября информацию, не устанавливает вероятность шока и не оценивает его эффект на ВВП. Несколько участников отметили оценку устойчивости банков при рассмотренных тяжёлых сценариях."
+        },
+        {
+          "heading": "Экспорт и цены Японии",
+          "text": "По оценке главы Банка Японии, мировой спрос, связанный с ИИ, поддерживает экспорт и вместе с другими факторами может поддержать экономику. Банк ожидает, что рост цен полупроводников и иных товаров на фоне ИИ-спроса вместе с ослаблением иены может повысить цены товаров длительного пользования."
+        },
+        {
+          "heading": "Ограничения и сопоставление",
+          "text": "Заявление банка дополняет сохранённые сценарии ФРС о финансовых рисках и оценки производительности другими каналами воздействия. Это качественный прогноз для Японии: отдельный вклад ИИ в экспорт, инфляцию или ВВП не измерен; также действуют цены энергии, зарплаты и валютный курс. Точное время публикации источником не указано."
         }
       ],
       "sources": [
@@ -2856,7 +2875,9 @@
         "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html",
         "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/",
         "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
-        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm"
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm",
+        "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
+        "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -2900,7 +2921,9 @@
         "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html": "National AI Monitor: Americans Remain Net Positive on AI Today, Divided on Beneficial Impacts In the Future",
         "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/": "Just Capital: National AI Monitor — October 2026 results",
         "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm": "Minutes of the Federal Open Market Committee, October 27–28, 2026",
-        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm": "Federal Reserve: Minutes of the Federal Open Market Committee, October 27–28, 2026 — press release"
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm": "Federal Reserve: Minutes of the Federal Open Market Committee, October 27–28, 2026 — press release",
+        "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm": "Bank of Japan: Statement by Governor UEDA concerning the Bank's Semiannual Report on Currency and Monetary Control",
+        "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf": "Bank of Japan: Statement before the Committee on Financial Affairs, Senate — full text"
       }
     },
     {

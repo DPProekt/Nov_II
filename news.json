@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-19T00:22:36.305Z",
+  "updated_at": "2026-11-19T00:25:22.262Z",
   "items": [
+    {
+      "title": "ADP и Стэнфорд: в октябре занятость молодых работников снижалась быстрее в профессиях с высокой ИИ-экспозицией",
+      "summary": "По данным октябрьского среза Canaries Dashboard, среди работников США 22–25 лет занятость в профессиях с высокой потенциальной экспозицией ИИ сократилась на 4,2% за год, а в наименее экспонированных — на 1,3%. Для всех возрастов показатели составили −0,8% и +0,3% соответственно. Исследователи используют данные зарплатного учёта компаний-клиентов ADP.",
+      "date": "2026-11-18",
+      "published_at": null,
+      "importance": "normal",
+      "source": "ADP Research и Stanford Digital Economy Lab",
+      "url": "https://www.adpresearch.com/research/canaries-dashboard-employment-in-ai-exposed-occupations-shrank",
+      "topic": "Пересборка прогноза 2026–2050",
+      "analysis": "Это изменения занятости в выбранной панели частных работодателей США, а не количество увольнений и не причинная оценка влияния ИИ. Экспозиция обозначает потенциальную применимость ИИ к профессии, а не подтверждённое внедрение работодателем. Стэнфорд описывает пятилетнюю сбалансированную выборку фирм-клиентов ADP; она не охватывает весь рынок. У ADP указана дата, но не точное время публикации, поэтому принадлежность к шестичасовому окну не подтверждена."
+    },
     {
       "title": "Протокол ФРС: почти все участники обсудили риски слабой отдачи инвестиций в ИИ",
       "summary": "В протоколе заседания 27–28 октября, опубликованном 18 ноября в 14:00 EST, говорится, что почти все участники обсудили риски сценария разочаровывающей для инвесторов отдачи ИИ. Большинство отметило быстрый рост связанного с ИИ долга и сложные непрозрачные структуры финансирования; сотрудники ФРС указали на внебалансовые лизинговые обязательства и круговое финансирование как возможные усилители потерь. Несколько участников обратили внимание на недостаточную видимость непрямых банковских рисков через небанковские организации. Некоторые участники отмечали, что банковский сектор, по оценке сотрудников, способен выдержать рассмотренные тяжёлые сценарии.",
@@ -2914,9 +2925,9 @@
     },
     {
       "topic": "Пересборка прогноза 2026–2050",
-      "updated_at": "2026-11-18T16:07:56.399Z",
-      "changes": "Опрос Accenture добавляет данные о самостоятельном создании товаров и услуг с ИИ и о недоверии части молодых пользователей к ИИ-контенту брендов.",
-      "conclusion": "Потенциал масштабирования ИИ зависит не только от технических возможностей и цены, но также от того, кому выгодно применение и какой уровень доверия сохраняется к результатам. Самооценки и намерения не равны измеренному экономическому эффекту.",
+      "updated_at": "2026-11-19T00:25:22.262Z",
+      "changes": "В октябрьском срезе ADP и Стэнфорда занятость молодых работников в ИИ-экспонированных профессиях сократилась сильнее, чем в наименее экспонированных.",
+      "conclusion": "Изменения занятости неоднородны по возрасту и профессии; сопоставлять их с динамикой вакансий нужно раздельно. Данные наблюдательные и не позволяют приписать расхождение ИИ или экстраполировать его на весь рынок и 2050 год.",
       "details": [
         {
           "heading": "Ближний контур",
@@ -3017,6 +3028,18 @@
         {
           "heading": "Ограничения и пересмотр",
           "text": "В пресс-релизе отсутствуют сроки полевого этапа, точное время публикации и данные, достаточные для проверки репрезентативности; опрос основан на самоотчётах. Для пересмотра количественных сценариев нужны независимые панельные данные, результаты продаж и причинные измерения изменения доходов и занятости."
+        },
+        {
+          "heading": "Октябрьский срез",
+          "text": "За год занятость работников 22–25 лет в наиболее ИИ-экспонированных профессиях уменьшилась на 4,2%, в наименее экспонированных — на 1,3%. По всем возрастам в этих группах указаны −0,8% и +0,3%. Это процентные изменения относительно октября прошлого года, а не доли уволенных."
+        },
+        {
+          "heading": "Сопоставление с архивом",
+          "text": "Indeed ранее сообщила об увеличении доли вакансий с упоминанием ИИ и неоднородной динамике спроса. Вакансии Indeed и занятость в панели ADP — разные показатели с разным охватом: их нельзя напрямую складывать или считать взаимным опровержением."
+        },
+        {
+          "heading": "Ограничения и условия пересмотра",
+          "text": "Стэнфорд описывает сбалансированную пятилетнюю панель работодателей — клиентов ADP с кодированными профессиями. Потенциальная экспозиция не равна фактическому использованию ИИ; спрос, состав работодателей и другие факторы тоже могут влиять на динамику. Для причинной оценки нужны дополнительные сравнения и независимые данные. Точное время выпуска ADP не подтверждено."
         }
       ],
       "sources": [
@@ -3036,7 +3059,9 @@
         "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/autumn-2026-economic-forecast-shows-continued-growth-amid-higher-inflation/incorporating-ai-potential-output-estimates-challenges-and-practices_en",
         "https://www.ebrd.com/home/news-and-events/publications/economics/transition-reports/transition-report-2026-27.html",
         "https://digitaleconomy.stanford.edu/project/indicators/adoptionmonitor/",
-        "https://newsroom.accenture.com/news/2026/accenture-life-trends-2027-finds-people-want-progress-in-an-ai-era-but-on-their-own-terms"
+        "https://newsroom.accenture.com/news/2026/accenture-life-trends-2027-finds-people-want-progress-in-an-ai-era-but-on-their-own-terms",
+        "https://www.adpresearch.com/research/canaries-dashboard-employment-in-ai-exposed-occupations-shrank",
+        "https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/"
       ],
       "source_titles": {
         "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/": "Google DeepMind — AlphaEvolve",
@@ -3055,7 +3080,9 @@
         "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/autumn-2026-economic-forecast-shows-continued-growth-amid-higher-inflation/incorporating-ai-potential-output-estimates-challenges-and-practices_en": "Еврокомиссия объяснила, как учитывает ИИ в оценке потенциального выпуска",
         "https://www.ebrd.com/home/news-and-events/publications/economics/transition-reports/transition-report-2026-27.html": "ЕБРР: спрос на ИИ создаёт возможности для экспорта, но не гарантирует технологического догоняния",
         "https://digitaleconomy.stanford.edu/project/indicators/adoptionmonitor/": "AI Economic Indicators: Adoption Monitor",
-        "https://newsroom.accenture.com/news/2026/accenture-life-trends-2027-finds-people-want-progress-in-an-ai-era-but-on-their-own-terms": "Accenture Life Trends 2027"
+        "https://newsroom.accenture.com/news/2026/accenture-life-trends-2027-finds-people-want-progress-in-an-ai-era-but-on-their-own-terms": "Accenture Life Trends 2027",
+        "https://www.adpresearch.com/research/canaries-dashboard-employment-in-ai-exposed-occupations-shrank": "Canaries Dashboard: Employment in AI-exposed occupations shrank",
+        "https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/": "Canaries Dashboard — Stanford Digital Economy Lab and ADP Research"
       }
     },
     {

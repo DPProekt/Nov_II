@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-19T00:19:10.379Z",
+  "updated_at": "2026-11-19T00:22:36.305Z",
   "items": [
+    {
+      "title": "Протокол ФРС: почти все участники обсудили риски слабой отдачи инвестиций в ИИ",
+      "summary": "В протоколе заседания 27–28 октября, опубликованном 18 ноября в 14:00 EST, говорится, что почти все участники обсудили риски сценария разочаровывающей для инвесторов отдачи ИИ. Большинство отметило быстрый рост связанного с ИИ долга и сложные непрозрачные структуры финансирования; сотрудники ФРС указали на внебалансовые лизинговые обязательства и круговое финансирование как возможные усилители потерь. Несколько участников обратили внимание на недостаточную видимость непрямых банковских рисков через небанковские организации. Некоторые участники отмечали, что банковский сектор, по оценке сотрудников, способен выдержать рассмотренные тяжёлые сценарии.",
+      "date": "2026-11-18",
+      "published_at": "2026-11-18T14:00:00-05:00",
+      "importance": "normal",
+      "source": "Федеральная резервная система США",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Протокол дополняет ранее сохранённые выступление ФРС и обзор ЕЦБ: речь идёт уже об обсуждении на заседании FOMC, а не об оценке одного выступающего. Это качественная оценка возможных каналов заражения, а не прогноз кризиса или количественная оценка вероятности и потерь; представленные взгляды относятся к информации, доступной 27–28 октября."
+    },
     {
       "title": "SEC: Anthropic указала цену IPO в $83 за акцию",
       "summary": "В документе о дополнительной регистрации акций Anthropic указала цену первичного размещения $83 за акцию. Предыдущий проспект предусматривал диапазон $70–78. В дополнительной регистрации указана максимальная совокупная стоимость предложения $14,79475 млрд, включая акции по опциону андеррайтеров; это не сумма уже полученных средств. SEC приняла документ 18 ноября в 18:42:01 по времени восточного побережья США (23:42:01 UTC).",
@@ -2547,9 +2558,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-18T18:22:37.897Z",
-      "changes": "Добавлена октябрьская волна National AI Monitor об оценках влияния ИИ в сфере работы и общих ожиданиях американцев.",
-      "conclusion": "Опрос дополняет данные о восприятии ИИ, но не подтверждает месячного изменения оценок или измеримого экономического эффекта; оснований менять численные параметры прогноза нет.",
+      "updated_at": "2026-11-19T00:22:36.305Z",
+      "changes": "Добавлен опубликованный 18 ноября протокол FOMC за 27–28 октября: участники обсудили слабую отдачу ИИ-инвестиций и связанные с ней финансовые риски.",
+      "conclusion": "Новый документ подтверждает актуальность ранее описанного сценария финансового стресса, но не показывает, что кризис неизбежен, и не даёт вероятности или оценок потерь; базовый качественный прогноз сохраняется.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -2694,6 +2705,14 @@
         {
           "heading": "Методика и границы вывода",
           "text": "Harris Poll опросила 1008 взрослых в США онлайн 19–21 октября 2026 года. Баланс — разность долей положительных и отрицательных оценок, ответы «не знаю» исключены; это не доля сторонников и не оценка фактического роста производительности. Подробные веса и размер подгрупп в релизе не приведены."
+        },
+        {
+          "heading": "Что нового в протоколе ФРС",
+          "text": "Почти все участники обсудили сценарий разочаровывающей отдачи ИИ-инвестиций; большинство отметило быстрый рост связанного с ИИ долга и сложные непрозрачные структуры. Сотрудники указали на внебалансовый лизинг и круговое финансирование как потенциальные усилители потерь."
+        },
+        {
+          "heading": "Сопоставление с архивом и ограничения",
+          "text": "Ранее сохранённые выступление представителя ФРС 16 ноября и обзор ЕЦБ рассматривали близкие каналы риска. Протокол добавляет обсуждение участниками FOMC, но отражает доступную им в конце октября информацию, не устанавливает вероятность шока и не оценивает его эффект на ВВП. Несколько участников отметили оценку устойчивости банков при рассмотренных тяжёлых сценариях."
         }
       ],
       "sources": [
@@ -2736,7 +2755,9 @@
         "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoors-2027-u-s-hiring-and-worklife-trends-report-consolidated-methodology/",
         "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/",
         "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html",
-        "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/"
+        "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/",
+        "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -2778,7 +2799,9 @@
         "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoors-2027-u-s-hiring-and-worklife-trends-report-consolidated-methodology/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report: Consolidated Methodology",
         "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report",
         "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html": "National AI Monitor: Americans Remain Net Positive on AI Today, Divided on Beneficial Impacts In the Future",
-        "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/": "Just Capital: National AI Monitor — October 2026 results"
+        "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/": "Just Capital: National AI Monitor — October 2026 results",
+        "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm": "Minutes of the Federal Open Market Committee, October 27–28, 2026",
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm": "Federal Reserve: Minutes of the Federal Open Market Committee, October 27–28, 2026 — press release"
       }
     },
     {

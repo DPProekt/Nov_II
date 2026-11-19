@@ -21323,6 +21323,298 @@
         "2026-11-12": 1,
         "2026-11-11": 1
       }
+    },
+    {
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "updated_at": "2026-11-19T18:21:21.752Z",
+      "changes": "Добавлен опрос Seramount о возрастных различиях заявленного интереса к навыкам ИИ и поддержке работников в крупных компаниях США.",
+      "conclusion": "Интерес к освоению ИИ и доступ к поддержке могут различаться между группами работников, но опрос не позволяет измерить эффект на производительность, занятость или ВВП; оснований менять сценарные параметры нет.",
+      "details": [
+        {
+          "heading": "Что именно было проверено",
+          "text": "Графовая модель строила прогноз, а агенты оценивали его с технологической, финансовой и регуляторной сторон. Авторы сравнивали модель с альтернативами на данных, выделенных по времени."
+        },
+        {
+          "heading": "Когда экономия превращается в отдачу",
+          "text": "Ускорение подготовки обзора создаёт ценность, если уменьшается время проверки и итоговое качество не падает. В расчёте эффекта нужны расходы на интеграцию, контроль, повторные запуски и исправления."
+        },
+        {
+          "heading": "Какие показатели отслеживать",
+          "text": "Сравнивать стоимость завершённой операции и долю перепроверок до и после внедрения. Для долгосрочных прогнозов нужны наблюдения из нескольких отраслей и независимая проверка на новых периодах."
+        },
+        {
+          "heading": "Новые данные о расходах",
+          "text": "По данным Vercel, модели решений получили 26% запросов AI Gateway и 0,53% расходов в октябре; их средний запрос стоил примерно одну семидесятую запроса языковой модели. Классы решают разные задачи, а выборка ограничена пользователями одного шлюза."
+        },
+        {
+          "heading": "Что изменит экономическую оценку",
+          "text": "Нужны сопоставления стоимости и качества завершённой операции с учётом интеграции и проверки, данные других платформ и повторные измерения производительности компаний."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "В Великобритании доля компаний, использующих ИИ, включая пилоты, выросла с 16% до 32%; в исследовании BEA и соавторов более интенсивное использование связано с динамикой выпуска в группах штат–отрасль."
+        },
+        {
+          "heading": "Ограничения и следующая проверка",
+          "text": "Британские данные — самоотчёты компаний с пятью и более сотрудниками, американская оценка подвержена обратной причинности; вывод изменят причинные исследования и финансовые данные."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "ЕИБ сообщает, что генеративный ИИ используют 67% компаний и ЕС, и США; около 21% компаний ЕС уже сообщают о выгодах, а почти половина ожидают их за два года."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Самоотчёты не устанавливают причинности; выборка и определение генеративного ИИ отличаются от британского опроса всех ИИ-технологий. Оценку изменят контрольные исследования и повторные волны."
+        },
+        {
+          "heading": "Новые факты: отрасли США",
+          "text": "На графике ФРС для начала октября указаны 24,60% компаний в целом, 46,40% информационного сектора и 11,38% природных ресурсов и добычи. Данные взвешены по числу заведений; в тексте речи упоминается середина года."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Использование ИИ не измеряет причинный эффект; различия методик не позволяют непосредственно сравнить доли с опросом ЕИБ. Оценку изменят новые волны данных и исследования с контрольными группами."
+        },
+        {
+          "heading": "Новые факты выпуска",
+          "text": "Реальный ВВП Британии вырос на 0,7% к предыдущему кварталу; выпуск компьютерного программирования и связанных услуг вырос на 4,4%. ONS отмечает связь ряда компаний с ИИ и облаками."
+        },
+        {
+          "heading": "Пределы и следующая проверка",
+          "text": "Ранняя оценка пересматривается; показатель включает деятельность помимо ИИ. Оценку изменят уточнённые национальные счета и исследования причинной отдачи ИИ."
+        },
+        {
+          "heading": "Финансирование и обязательства",
+          "text": "Барр приводит прогноз долга семи крупнейших ИИ-компаний свыше 800 млрд долларов к концу 2026 года и оценку максимальной номинальной стоимости ряда внебалансовых обязательств свыше 3 трлн долларов. Это разные показатели; второй не равен убыткам."
+        },
+        {
+          "heading": "Круговое финансирование и макрориск",
+          "text": "Свыше 100 млрд долларов накопленных вложений крупных облачных и GPU-компаний в ИИ-лаборатории и облачные стартапы, по словам Барра, может создавать зависимости между поставщиком капитала и клиентом. Неизвестно, произойдёт ли переоценка и каковы будут её последствия; важно отслеживать выручку конечных клиентов, долговую нагрузку и стоимость финансирования."
+        },
+        {
+          "heading": "Сценарии ФРС для труда и выпуска",
+          "text": "Председатель ФРС описал возможные совместные выгоды для труда и капитала, рост выпуска при повышении безработицы и замедление после разочарования в отдаче от инвестиций. Эти варианты иллюстративны и не имеют указанных вероятностей."
+        },
+        {
+          "heading": "Региональная оценка МБР",
+          "text": "В релизе банка потенциальный эффект широкого внедрения ИИ за десять лет оценивается в 5,1% ВВП и 4,2% зарплат. Это не ежегодные темпы и не установленный рост; результат зависит от предпосылок и не переносится автоматически на другие регионы."
+        },
+        {
+          "heading": "Ограничения сравнения",
+          "text": "МБР сообщает, что 35% взрослых региона, 43% в европейских странах ОЭСР и 58% в США использовали генеративный ИИ в 2025–2026 годах. Само использование не измеряет качество, интенсивность, прибыль или производительность; детали опросной выборки требуют отдельной проверки."
+        },
+        {
+          "heading": "Инфраструктурные ограничения",
+          "text": "Оценка для 403 дата-центров составляет 68–99 ТВт·ч и 21–31 млн тонн CO₂ за год; центральный сценарий — 82 ТВт·ч и 25,7 млн тонн. Речь о моделируемой нагрузке по состоянию на 2024–2025 годы, а не фактическом годовом потреблении 2026 года."
+        },
+        {
+          "heading": "Экономическое значение и пределы",
+          "text": "Рост вычислений может повышать потребность в генерации и сетях, однако причинный эффект на цены, здоровье, занятость и ВВП не измерен. Дата-центры обслуживают не только ИИ; выборка не включает все объекты США."
+        },
+        {
+          "heading": "Инвестиции и управленческие решения",
+          "text": "По самоотчётам, 18% руководителей полностью контролируют инвестиции в ИИ, а 29% сообщают о быстром изменении решений и ресурсов при появлении новых данных об эффективности. Выборка состоит из 1 667 руководителей ИИ в 33 географических регионах и 20 отраслях."
+        },
+        {
+          "heading": "Ограничения опроса",
+          "text": "48% респондентов сообщили о действиях ИИ-агентов в рабочих процессах, 75% — о задержках, связанных с контролем, рисками и соблюдением требований. Доли отвечают на разные вопросы, не являются причинными оценками и не измеряют всю экономику. Контроль может предотвращать ошибки; коммерческая заинтересованность IBM требует независимой проверки."
+        },
+        {
+          "heading": "Организация труда и потенциальная экспозиция",
+          "text": "Сопоставление обследований PIAAC и EWCS показывает более слабый рост монотонности в профессиях с высокой потенциальной экспозицией ИИ. Это корреляционный анализ профессиональных задач, а не наблюдение фактического внедрения ИИ или оценка причинности."
+        },
+        {
+          "heading": "Макропроизводительность Великобритании",
+          "text": "По компонентной оценке ONS выпуск на час в III квартале 2026 года был на 2,5% выше, чем годом ранее. Показатель охватывает всю экономику, не выделяет вклад ИИ и может пересматриваться; методика выпуска обновлена."
+        },
+        {
+          "heading": "Новые данные об ожиданиях работодателей",
+          "text": "Из использующих или планирующих использовать ИИ владельцев 60% ожидают изменений ролей, 52% — необходимости нанять сотрудников для управления ИИ, 33% — вероятного сокращения штата. 84% участников сообщили об использовании ИИ в какой-либо форме."
+        },
+        {
+          "heading": "Ограничения опроса и сравнения",
+          "text": "Ipsos опросила в августе 849 владельцев малых и 250 владельцев средних компаний США через предварительно набранную онлайн-панель; результаты взвешены. Ожидания не измеряют реальные изменения занятости, а доли нельзя напрямую сравнить с более ранними опросами, где различались определение ИИ и охват компаний."
+        },
+        {
+          "heading": "Неравномерная экономия времени",
+          "text": "Среди 20 275 работающих респондентов 45% сообщают об использовании ИИ для работы не реже раза в месяц, а 33% всех работников при таком использовании сообщают об экономии не менее часа в неделю. Около половины всех заявленных сэкономленных часов приходится на 8% работников."
+        },
+        {
+          "heading": "Различия отраслей и ограничения",
+          "text": "Не менее часа экономии сообщают 74% работников информации и технологий, 26% работников здравоохранения и социальной помощи и 20% работников гостиничного бизнеса или услуг. Это самоотчёты, сравнение не является причинным, а определения и выборка отличаются от опросов работодателей и Банка Кореи. Точная дата и время суток публикации помимо даты 18 ноября источником не указаны."
+        },
+        {
+          "heading": "Сценарий производительности",
+          "text": "Комитет приводит старую оценку ОЭСР: 0,4–1,3 процентного пункта к ежегодному росту производительности труда в высокоэкспонированных экономиках на десятилетнем горизонте, и иллюстративно пересчитывает верхнюю границу по текущему ВВП Великобритании. Это не новый измеренный эффект и не гарантированный прирост."
+        },
+        {
+          "heading": "Предложенные институты и ограничения",
+          "text": "Комитет предлагает законодательство по безопасности ИИ и отдельного регулятора с полномочиями по независимой проверке и ограничению высокорисковых систем. Меры не приняты; польза для доверия, темпов внедрения и роста является гипотезой, а затраты и побочные эффекты требуют оценки."
+        },
+        {
+          "heading": "Финансовые каналы риска",
+          "text": "ЕЦБ указывает на зависимость ИИ-оценок от ожиданий доходов, растущее долговое финансирование и связи банков с небанковским сектором. Он также отмечает устойчивые капитал и ликвидность банков еврозоны; сценарии переоценки не являются прогнозом неизбежного кризиса."
+        },
+        {
+          "heading": "Опрос работодателей и его пределы",
+          "text": "В выборке Littler из 498 европейских руководителей и специалистов по кадрам и праву 28% указали сокращение штата, а 32% — найма в связи с фактическим или ожидаемым использованием ИИ. Сопоставимые показатели предыдущей волны — по 13%; разные волны не обязательно включают те же компании, репрезентативность и причинность не установлены."
+        },
+        {
+          "heading": "Вакансии и самоотчёты работников",
+          "text": "Доля вакансий Indeed с ИИ-терминами увеличилась с 3,6% в сентябре 2025 до 7,2% в сентябре 2026. Доля занятых американцев, сообщивших об использовании ИИ для работы не реже раза в неделю, выросла с 36% до 42% во взвешенных опросах YouGov за II кварталы 2025 и 2026 годов."
+        },
+        {
+          "heading": "Что показатели не устанавливают",
+          "text": "Текст вакансий на Indeed не охватывает все размещения и не определяет долю занятых с ИИ; самоотчёты и наблюдательные сопоставления не показывают причинный вклад технологии. Отсутствие явных признаков общерыночного массового вытеснения не исключает потерь в отдельных группах."
+        },
+        {
+          "heading": "Оценка влияния ИИ на работу",
+          "text": "Баланс положительных и отрицательных ответов по сфере работы составил +48 в августе, +44 в сентябре и +47 в октябре. По указанию авторов, изменения между соседними месяцами статистически незначимы."
+        },
+        {
+          "heading": "Методика и границы вывода",
+          "text": "Harris Poll опросила 1008 взрослых в США онлайн 19–21 октября 2026 года. Баланс — разность долей положительных и отрицательных оценок, ответы «не знаю» исключены; это не доля сторонников и не оценка фактического роста производительности. Подробные веса и размер подгрупп в релизе не приведены."
+        },
+        {
+          "heading": "Что нового в протоколе ФРС",
+          "text": "Почти все участники обсудили сценарий разочаровывающей отдачи ИИ-инвестиций; большинство отметило быстрый рост связанного с ИИ долга и сложные непрозрачные структуры. Сотрудники указали на внебалансовый лизинг и круговое финансирование как потенциальные усилители потерь."
+        },
+        {
+          "heading": "Сопоставление с архивом и ограничения",
+          "text": "Ранее сохранённые выступление представителя ФРС 16 ноября и обзор ЕЦБ рассматривали близкие каналы риска. Протокол добавляет обсуждение участниками FOMC, но отражает доступную им в конце октября информацию, не устанавливает вероятность шока и не оценивает его эффект на ВВП. Несколько участников отметили оценку устойчивости банков при рассмотренных тяжёлых сценариях."
+        },
+        {
+          "heading": "Экспорт и цены Японии",
+          "text": "По оценке главы Банка Японии, мировой спрос, связанный с ИИ, поддерживает экспорт и вместе с другими факторами может поддержать экономику. Банк ожидает, что рост цен полупроводников и иных товаров на фоне ИИ-спроса вместе с ослаблением иены может повысить цены товаров длительного пользования."
+        },
+        {
+          "heading": "Ограничения и сопоставление",
+          "text": "Заявление банка дополняет сохранённые сценарии ФРС о финансовых рисках и оценки производительности другими каналами воздействия. Это качественный прогноз для Японии: отдельный вклад ИИ в экспорт, инфляцию или ВВП не измерен; также действуют цены энергии, зарплаты и валютный курс. Точное время публикации источником не указано."
+        },
+        {
+          "heading": "Результаты международного опроса",
+          "text": "В опросе 40 500 работников в 36 странах среди пользователей ИИ о повышении продуктивности сообщили 93% обученных и 47% необученных. При хорошо интегрированном ИИ респонденты заявляли на 20% больше ежедневной экономии времени относительно менее интегрированной группы."
+        },
+        {
+          "heading": "Сопоставимость и ограничения",
+          "text": "В отличие от сохранённых опросов Northeastern University и Банка Кореи, Adecco сопоставляет обученных и необученных пользователей в нескольких странах. Выборки, вопросы и показатели различаются: проценты нельзя напрямую сопоставлять или трактовать как изменение ВВП. Самоотбор и различия рабочих задач не позволяют вывести причинный эффект обучения; в релизе недостаточно деталей о подгруппах."
+        },
+        {
+          "heading": "Возраст и интерес к навыкам",
+          "text": "В опросе более 1 800 офисных работников крупных компаний США желание развивать навыки ИИ отметили 18% респондентов до 29 лет, 36% в возрасте 30–44 лет, 46% в возрасте 45–59 лет и 43% в возрасте от 60 лет. Среди младшей группы 27% сообщили о поддержке работодателя при интеграции ИИ."
+        },
+        {
+          "heading": "Сопоставление и пределы",
+          "text": "Опрос дополняет сохранённое международное исследование Adecco об обучении и самооценке продуктивности, но охватывает только офисных работников крупных компаний США и задаёт иные вопросы. Возрастные группы могут различаться по должностям и стажу; размеры подгрупп не приведены. Заявленный интерес не измеряет навыки или причинное влияние обучения на выпуск."
+        }
+      ],
+      "sources": [
+        "https://www.nature.com/articles/s41598-026-79480-4",
+        "https://alignment.anthropic.com/2026/worse-together/",
+        "https://vercel.com/blog/ai-gateway-production-index-november-2026",
+        "https://www.gov.uk/government/publications/ai-adoption-survey-2026/ai-adoption-survey-report-2026-executive-summary",
+        "https://assets.publishing.service.gov.uk/media/6ae202189bca21f1c5036e99/artificial-intelligence-adoption-research-report-2026.pdf",
+        "https://apps.bea.gov/scb/spotlights/2026/1026-ai-utilization.htm",
+        "https://www.eib.org/en/publications/20260192-econ-eibis-2026-eu",
+        "https://www.federalreserve.gov/newsevents/speech/jefferson20261113a.htm",
+        "https://www.federalreserve.gov/newsevents/speech/jefferson20261113a1.htm",
+        "https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/gdpfirstquarterlyestimateuk/julytoseptember2026",
+        "https://www.federalreserve.gov/newsevents/speech/barr20261116a.htm",
+        "https://www.federalreserve.gov/newsevents/speech/warsh20261116a.htm",
+        "https://www.globenewswire.com/news-release/2026/11/16/3403877/0/en/broad-ai-adoption-could-boost-latin-america-and-caribbean-gdp-by-5-1-over-a-decade-idb-report-finds.html",
+        "https://publications.iadb.org/en/digitalization-artificial-intelligence-turning-promises-productivity",
+        "https://www.nature.com/articles/s41893-026-01985-7",
+        "https://hsph.harvard.edu/news/hyperscale-data-centers-energy-consumption-carbon-emissions-newly-estimated-by-researchers/",
+        "https://apnews.com/article/a1b338e7f781976f89260d172a7c65e2",
+        "https://newsroom.ibm.com/2026-11-17-ibm-study-chief-ai-officers-see-where-ai-creates-value%2C-but-few-control-investment-decisions",
+        "https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/2026-caio",
+        "https://www.oecd.org/en/publications/artificial-intelligence-and-work-organisation_5a208f6b-en.html",
+        "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/11/artificial-intelligence-and-work-organisation_9c5e298d/5a208f6b-en.pdf",
+        "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/julytoseptember2026",
+        "https://www.ons.gov.uk/releasecalendar?query=monthly+gdp&view=upcoming",
+        "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/11/bank-of-america-study-business-owners-bet-on-growth-and-ai-despi",
+        "https://www.nuinfoinstitute.org/publications-1/ai-and-time-at-work",
+        "https://committees.parliament.uk/publications/55827/standard/pdf",
+        "https://api.parliament.uk/committees/publications/55827",
+        "https://committees.parliament.uk/committee/365/business-innovation-science-and-trade-committee/news/219006/close-ai-safety-gaps-to-secure-britains-400-billion-ai-growth-opportunity-mps-urge/",
+        "https://www.oecd.org/en/publications/macroeconomic-productivity-gains-from-artificial-intelligence-in-g7-economies_a5319ab5-en.html",
+        "https://www.ecb.europa.eu/press/financial-stability-publications/fsr/html/ecb.fsr202611~e03b919d36.en.html",
+        "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261118~83c5c60158.sv.html",
+        "https://www.ecb.europa.eu/press/calendars/weekly/html/index.en.html",
+        "https://www.littler.com/sites/default/files/2026-11/2026_littler_european_employer_survey_report.pdf",
+        "https://www.littler.com/news-analysis/littler-report/littler-european-employer-survey-2026",
+        "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and",
+        "https://hiringlab.indeed.com/2026/11/18/there-is-no-ai-jobpocalypse/",
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoors-2027-u-s-hiring-and-worklife-trends-report-consolidated-methodology/",
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/",
+        "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html",
+        "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/",
+        "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm",
+        "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
+        "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf",
+        "https://www.adeccogroup.com/en/our-group/media/press-releases/global-workforce-of-the-future-study-2026",
+        "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html"
+      ],
+      "source_titles": {
+        "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
+        "https://alignment.anthropic.com/2026/worse-together/": "Anthropic — Worse Together",
+        "https://vercel.com/blog/ai-gateway-production-index-november-2026": "Decision models take 26% of requests; Anthropic now wins new teams 2:1",
+        "https://www.gov.uk/government/publications/ai-adoption-survey-2026/ai-adoption-survey-report-2026-executive-summary": "AI adoption survey report 2026: executive summary",
+        "https://assets.publishing.service.gov.uk/media/6ae202189bca21f1c5036e99/artificial-intelligence-adoption-research-report-2026.pdf": "Artificial intelligence adoption research 2026",
+        "https://apps.bea.gov/scb/spotlights/2026/1026-ai-utilization.htm": "AI Utilization and Changes in Economic Performance",
+        "https://www.eib.org/en/publications/20260192-econ-eibis-2026-eu": "Опрос ЕИБ: 67% компаний ЕС и США используют генеративный ИИ",
+        "https://www.federalreserve.gov/newsevents/speech/jefferson20261113a.htm": "New Technology, Old Questions: Productivity Puzzles and the Macroeconomy",
+        "https://www.federalreserve.gov/newsevents/speech/jefferson20261113a1.htm": "ФРС — данные графиков к выступлению о производительности",
+        "https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/gdpfirstquarterlyestimateuk/julytoseptember2026": "GDP first quarterly estimate, UK: July to September 2026",
+        "https://www.federalreserve.gov/newsevents/speech/barr20261116a.htm": "Some Potential Financial Stability Implications of Artificial Intelligence",
+        "https://www.federalreserve.gov/newsevents/speech/warsh20261116a.htm": "Opening Remarks — Productivity and Jobs Task Force Conference",
+        "https://www.globenewswire.com/news-release/2026/11/16/3403877/0/en/broad-ai-adoption-could-boost-latin-america-and-caribbean-gdp-by-5-1-over-a-decade-idb-report-finds.html": "Broad AI Adoption Could Boost Latin America and Caribbean GDP by 5.1% Over a Decade, IDB Report Finds",
+        "https://publications.iadb.org/en/digitalization-artificial-intelligence-turning-promises-productivity": "From Digitalization to Artificial Intelligence: Turning Promises into Productivity",
+        "https://www.nature.com/articles/s41893-026-01985-7": "Assessing the carbon emissions and energy consumption of US hyperscale data centres",
+        "https://hsph.harvard.edu/news/hyperscale-data-centers-energy-consumption-carbon-emissions-newly-estimated-by-researchers/": "Hyperscale data centers’ energy consumption, carbon emissions newly estimated by researchers",
+        "https://apnews.com/article/a1b338e7f781976f89260d172a7c65e2": "Study estimates magnitude of US data center pollution as climate talks unveil clean AI pledge",
+        "https://newsroom.ibm.com/2026-11-17-ibm-study-chief-ai-officers-see-where-ai-creates-value%2C-but-few-control-investment-decisions": "IBM Study: Chief AI Officers See Where AI Creates Value, but Few Control Investment Decisions",
+        "https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/2026-caio": "How CAIOs can deliver high-impact AI",
+        "https://www.oecd.org/en/publications/artificial-intelligence-and-work-organisation_5a208f6b-en.html": "Artificial intelligence and work organisation",
+        "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/11/artificial-intelligence-and-work-organisation_9c5e298d/5a208f6b-en.pdf": "Artificial intelligence and work organisation — полный текст OECD AI Papers No. 68",
+        "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/julytoseptember2026": "Labour productivity, UK: July to September 2026",
+        "https://www.ons.gov.uk/releasecalendar?query=monthly+gdp&view=upcoming": "ONS release calendar — время выпуска",
+        "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/11/bank-of-america-study-business-owners-bet-on-growth-and-ai-despi": "Bank of America Study: Business Owners Bet on Growth and AI Despite Rising Costs",
+        "https://www.nuinfoinstitute.org/publications-1/ai-and-time-at-work": "AI and Time at Work: For a Few Workers, Most of the Hours Saved",
+        "https://committees.parliament.uk/publications/55827/standard/pdf": "Guardrails for growth: AI safety and security",
+        "https://api.parliament.uk/committees/publications/55827": "UK Parliament: publication details, HC 689",
+        "https://committees.parliament.uk/committee/365/business-innovation-science-and-trade-committee/news/219006/close-ai-safety-gaps-to-secure-britains-400-billion-ai-growth-opportunity-mps-urge/": "Close AI safety gaps to secure Britain’s £400 billion AI growth opportunity, MPs urge",
+        "https://www.oecd.org/en/publications/macroeconomic-productivity-gains-from-artificial-intelligence-in-g7-economies_a5319ab5-en.html": "Macroeconomic productivity gains from Artificial Intelligence in G7 economies (2025)",
+        "https://www.ecb.europa.eu/press/financial-stability-publications/fsr/html/ecb.fsr202611~e03b919d36.en.html": "Financial Stability Review, November 2026",
+        "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261118~83c5c60158.sv.html": "ECB: Risks from AI valuations, fiscal imbalances and geoeconomic tensions",
+        "https://www.ecb.europa.eu/press/calendars/weekly/html/index.en.html": "ECB weekly schedule: publication at 10:00 CET",
+        "https://www.littler.com/sites/default/files/2026-11/2026_littler_european_employer_survey_report.pdf": "Littler 2026 European Employer Survey Report",
+        "https://www.littler.com/news-analysis/littler-report/littler-european-employer-survey-2026": "The Littler 2026 European Employer Survey Report — overview",
+        "https://www.littler.com/press/press-release/european-employers-face-uncertain-outlook-amid-accelerating-ai-adoption-and": "European Employers Face Uncertain Outlook Amid Accelerating AI Adoption",
+        "https://hiringlab.indeed.com/2026/11/18/there-is-no-ai-jobpocalypse/": "There is no AI Jobpocalypse, but plenty of AI-nxiety",
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoors-2027-u-s-hiring-and-worklife-trends-report-consolidated-methodology/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report: Consolidated Methodology",
+        "https://hiringlab.indeed.com/2026/11/18/indeed-glassdoor-2027-us-hiring-and-worklife-trends-report/": "Indeed & Glassdoor’s 2027 U.S. Hiring and Worklife Trends Report",
+        "https://www.globenewswire.com/news-release/2026/11/18/3406013/0/en/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future.html": "National AI Monitor: Americans Remain Net Positive on AI Today, Divided on Beneficial Impacts In the Future",
+        "https://justcapital.com/news/national-ai-monitor-americans-remain-net-positive-on-ai-today-divided-on-beneficial-impacts-in-the-future/": "Just Capital: National AI Monitor — October 2026 results",
+        "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm": "Minutes of the Federal Open Market Committee, October 27–28, 2026",
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm": "Federal Reserve: Minutes of the Federal Open Market Committee, October 27–28, 2026 — press release",
+        "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm": "Bank of Japan: Statement by Governor UEDA concerning the Bank's Semiannual Report on Currency and Monetary Control",
+        "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf": "Bank of Japan: Statement before the Committee on Financial Affairs, Senate — full text",
+        "https://www.adeccogroup.com/en/our-group/media/press-releases/global-workforce-of-the-future-study-2026": "The Adecco Group global study: AI delivers more value when people are involved in work redesign",
+        "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html": "Seramount Finds Gen Z Employees Are Least Likely to Use AI at Work"
+      },
+      "publication_dates": {
+        "2026-11-19": 3,
+        "2026-11-18": 7,
+        "2026-11-17": 4,
+        "2026-11-16": 4,
+        "2026-11-12": 1,
+        "2026-11-13": 1,
+        "2026-11-09": 2,
+        "2026-10-29": 1,
+        "2026-10-02": 1,
+        "2026-11-15": 1
+      }
     }
   ]
 }

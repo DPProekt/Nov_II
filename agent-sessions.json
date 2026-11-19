@@ -28,7 +28,28 @@
     "Гипербола технологий Капицы с ИИ": {
       "history": [],
       "id": "sess_0774442b5db096b7806afacfabb9c481948cb9573fa3d72df8",
-      "last_turn_id": "turn_0774442b5db096b7806afe97346b208194bae2e53c79573e95"
+      "last_turn_id": "turn_0774442b5db096b7806afe97346b208194bae2e53c79573e95",
+      "pending": {
+        "previous": "turn_0774442b5db096b7806afe97346b208194bae2e53c79573e95",
+        "key": "pulse-44522450917-5",
+        "article_urls_before": [
+          "https://agitracker.io/blog/mlperf-endpoints-v1-training-v6-1/",
+          "https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system",
+          "https://developer.nvidia.com/blog/build-training-ready-physical-ai-datasets-with-two-prompts-in-nvidia-cosmos/",
+          "https://epoch.ai/publications/the-plunging-price-of-thought",
+          "https://lambda.com/blog/mlperf-training-v6-1-results",
+          "https://lambda.com/blog/worlds-first-large-scale-deployment-of-nvidia-photonics-switches-with-cpo",
+          "https://openai.com/index/advancing-chip-design-with-our-models/",
+          "https://qant.com/news/q-ant-unveils-npu-gen-2-plus-photonic-fourier-transforms-power-large-language-model/",
+          "https://www.cerebras.ai/blog/cerebras-launches-disaggregated-inference",
+          "https://www.cloudzero.com/blog/ai-economics-pulse-november-2026/",
+          "https://www.prnewswire.com/news-releases/pfn-and-semifive-collaborate-to-develop-the-mn-core-l2000-series-of-next-generation-ai-inference-chips-302940559.html",
+          "https://www.prnewswire.com/news-releases/trusta-debuts-at-supercomputing-2026-with-upgraded-ai-scaler-toolkit-302943335.html",
+          "https://www.qualcomm.com/news/releases/2026/11/qualcomm-and-cirrascale-collaborate-to-advance-next-generation--",
+          "https://www.supermicro.com/en/pressreleases/supermicro-ships-first-all-flash-storage-servers-delivering-pcie-gen-6-performance",
+          "https://www.together.ai/blog/road-to-together-compiler"
+        ]
+      }
     },
     "Прогноз беспилотных авто": {
       "history": [],

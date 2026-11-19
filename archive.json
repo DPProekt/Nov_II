@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T12:30:14.582345+00:00",
+  "generatedAt": "2026-11-19T12:31:25.838043+00:00",
   "docs": [
     {
       "id": "6af8414e-fba4-83ed-8d83-a9fe1058f3c3",
@@ -983,10 +983,19 @@
     {
       "id": "6aacdb0e-ffc0-83ed-bf65-04aff48a549c",
       "title": "Прогноз беспилотных авто",
-      "updatedAt": 1795069920.879396,
+      "updatedAt": 1795091485.838043,
       "hasMore": false,
       "nextCursor": null,
       "messages": [
+        {
+          "text": "### Обновление прогноза\n\n**Новых подтверждённых событий за последние шесть часов с небольшим перекрытием не найдено.**\n\n[Свежая публикация об автономном автобусе в Мюнхене](https://cities-today.com/munich-opens-autonomous-bus-trials-to-passengers/) описывает испытания с пассажирами с 17 ноября; [городской оператор анонсировал их ещё 3 ноября](https://www.mvg.de/presse/pressemeldungen/2026-11-03-start-testbetrieb-autonome-busse.html). Поэтому в текущий обзор событие не добавляю.\n\n`news.json` и `forecasts.json` не изменялись.",
+          "date": 1795091485.838043,
+          "added_articles": 0,
+          "truncated": false,
+          "agent_turn_id": "turn_0c2acb839e4acc1a006afeebea45988193bdc0d1eeb32e9ee9",
+          "github_run_id": "44522450917",
+          "web_request": null
+        },
         {
           "text": "### Обновление прогноза\n\n**Новых подтверждённых событий: 0.** Проверены материалы за последние шесть часов с небольшим перекрытием.\n\n[Новое сообщение об ограничении Waymo на автомагистралях](https://abc7.com/post/waymo-temporalmente-suspende-operaciones-en-autopistas-del-pais-tras-veto-del-dmv-en-california/20053327/) относится к событию, уже сохранённому в архиве. Подтверждения возобновления сервиса после отдельной погодной паузы в проверенных источниках не нашёл.\n\n`news.json` и `forecasts.json` не изменялись.",
           "date": 1795069920.879396,

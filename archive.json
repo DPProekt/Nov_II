@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T06:28:57.027060+00:00",
+  "generatedAt": "2026-11-20T06:30:01.826770+00:00",
   "docs": [
     {
       "id": "6af8414e-fba4-83ed-8d83-a9fe1058f3c3",
@@ -1145,10 +1145,19 @@
     {
       "id": "6aacdb0e-ffc0-83ed-bf65-04aff48a549c",
       "title": "Прогноз беспилотных авто",
-      "updatedAt": 1795134734.786224,
+      "updatedAt": 1795156201.82677,
       "hasMore": false,
       "nextCursor": null,
       "messages": [
+        {
+          "text": "### Обновление прогноза\n\n**Новых подтверждённых событий за последние шесть часов с небольшим перекрытием не найдено.**\n\nСвежий материал о возможном роботакси в Казахстане описывает меморандум, о котором [inDrive сообщила ещё 23 октября](https://blog.indrive.com/en-co/article/indrive-and-pony-ai-announce-collaboration-to-explore-autonomous-mobility-in-kazakhstan-built-on-nvidia-hyperion). Нового запуска он не подтверждает.\n\n**Что отслеживать:** [WeRide планирует опубликовать результаты за III квартал](https://weride.gcs-web.com/news-releases/news-release-details/weride-report-third-quarter-2026-financial-results-friday) 20 ноября до открытия рынка США; звонок с руководством назначен на 13:00 UTC.\n\n`news.json` и `forecasts.json` не изменялись.",
+          "date": 1795156201.82677,
+          "added_articles": 0,
+          "truncated": false,
+          "agent_turn_id": "turn_0c2acb839e4acc1a006affe8bc4aac819392bdff870e5c116c",
+          "github_run_id": "44686705996",
+          "web_request": null
+        },
         {
           "text": "### Новое: Waymo возобновила поездки после шторма\n\nWaymo сообщила о возвращении сервиса в районе залива Сан-Франциско после погодной паузы. [Bay City News через ABC7](https://abc7news.com/live-updates/live-bay-area-storm-updates-tornado-warning-issued-santa-cruz-county-waterspouts-spotted-san-francisco/20045464/entry/20056138/) опубликовала сообщение 19 ноября в 19:15 UTC.\n\n| Событие | Местное время |\n|---|---|\n| Уведомление о паузе из-за ливня | Около 11:00, 18 ноября |\n| Возобновление, по данным [San Francisco Chronicle](https://www.sfchronicle.com/sf/article/waymo-resumes-service-22539972.php) | Около 09:00, 19 ноября |\n\nМежду ориентировочными отметками прошло **около 22 часов**. Точные границы затронутой территории и продолжительность паузы по отдельным зонам не раскрыты.\n\nВозобновление после непогоды **не означает снятия отдельного ограничения DMV на автомагистралях**. Один эпизод также не позволяет оценить среднюю доступность или сравнительную аварийность сервиса.\n\n**Добавлен 1 материал** в `news.json`; аналитика и краткосрочный прогноз в `forecasts.json` уточнены.",
           "date": 1795134734.786224,

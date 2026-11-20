@@ -86,7 +86,7 @@ jobs:
       PULSE_GITHUB_VAULT_ID: ${{ vars.PULSE_GITHUB_VAULT_ID }}
       PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
       PULSE_WEB_REQUEST: ${{ inputs.web_request }}
-      PULSE_STOP_AGENT: \${{ inputs.stop_pulse_agent }}
+      PULSE_STOP_AGENT: ${{ inputs.stop_pulse_agent }}
       PULSE_SEARCH_TOPIC: ${{ inputs.topic }}
       PULSE_CLOCK_CHECK: ${{ inputs.clock_check }}
       PULSE_SEARCH_SINCE: ${{ inputs.since }}

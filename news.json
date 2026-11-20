@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-11-20T00:19:03.211Z",
+  "updated_at": "2026-11-20T00:21:34.509Z",
   "items": [
+    {
+      "title": "Vanguard сохранила прогноз роста экономики США около 3% в 2027 году и выделила риск перехода к широкому внедрению ИИ",
+      "summary": "В предварительном обзоре прогноза на 2027 год Vanguard ожидает роста реального ВВП США около 3% в 2027 году, измеренного как изменение IV квартала к IV кварталу предыдущего года. По мнению компании, важный фактор — инвестиции в ИИ-инфраструктуру; среди рисков она выделяет возможный разрыв между вводом мощностей и готовностью пользователей платить, а также сроки перехода от строительства к широкому применению. Такая же оценка роста на 2027 год была в предыдущем обзоре Vanguard с прогнозами по состоянию на 24 июня: это не новый численный прогноз. Полный обзор компания обещает выпустить в декабре.",
+      "date": "2026-11-19",
+      "published_at": null,
+      "importance": "normal",
+      "source": "Vanguard",
+      "url": "https://corporate.vanguard.com/content/corporatesite/us/en/corp/vemo/ai-booms-critical-next-phase.html",
+      "topic": "Прогноз экономики при быстром развитии ИИ",
+      "analysis": "Оценка 3% относится ко всему ВВП США, а не к вкладу ИИ; это прогноз инвестиционной компании, не установленный результат и не причинная оценка. Новая публикация повторяет ранее высказанную оценку роста и уточняет оценку риска перехода к массовому внедрению. На странице указана дата 19 ноября, но точное время не подтверждено: попадание в шестичасовое окно неизвестно."
+    },
     {
       "title": "Вышла Valkey 9.2; представлен распределённый KV-кэш для ИИ",
       "summary": "Проект Valkey объявил общий выпуск Valkey 9.2 и представил рядом с ним распределённое KV-кэширование для повторного использования вычисленного контекста ИИ между GPU-серверами. Через LMCache решение заявлено совместимым с движками vLLM и SGLang; в самой Valkey 9.2 добавлен тип данных Path Hash для поиска общего префикса. В анонсе заявлены возможное снижение стоимости инференса до 40% и задержки до первого токена до 80%, а клиент Multiverse Computing сообщил о собственных результатах в заданных нагрузках.",
@@ -2975,9 +2986,9 @@
     },
     {
       "topic": "Прогноз экономики при быстром развитии ИИ",
-      "updated_at": "2026-11-19T18:21:21.752Z",
-      "changes": "Добавлен опрос Seramount о возрастных различиях заявленного интереса к навыкам ИИ и поддержке работников в крупных компаниях США.",
-      "conclusion": "Интерес к освоению ИИ и доступ к поддержке могут различаться между группами работников, но опрос не позволяет измерить эффект на производительность, занятость или ВВП; оснований менять сценарные параметры нет.",
+      "updated_at": "2026-11-20T00:21:34.509Z",
+      "changes": "Добавлен предварительный обзор Vanguard на 2027 год с ранее заявленным прогнозом роста США и оценкой риска перехода от строительства ИИ-мощностей к широкому использованию.",
+      "conclusion": "Возможный рост инвестиций в ИИ может поддерживать совокупный спрос, но превращение инфраструктурных расходов в устойчивую производительность и окупаемость остаётся неопределённым; прогноз Vanguard не измеряет отдельный вклад ИИ.",
       "details": [
         {
           "heading": "Что именно было проверено",
@@ -3154,6 +3165,14 @@
         {
           "heading": "Сопоставление и пределы",
           "text": "Опрос дополняет сохранённое международное исследование Adecco об обучении и самооценке продуктивности, но охватывает только офисных работников крупных компаний США и задаёт иные вопросы. Возрастные группы могут различаться по должностям и стажу; размеры подгрупп не приведены. Заявленный интерес не измеряет навыки или причинное влияние обучения на выпуск."
+        },
+        {
+          "heading": "Сценарий Vanguard",
+          "text": "Vanguard ожидает около 3% роста реального ВВП США в 2027 году по методу IV квартал к IV кварталу; этот прогноз относится ко всей экономике. Компания считает инвестиции в ИИ важным фактором и указывает на риск временного разрыва между расширением мощностей и платёжеспособным спросом."
+        },
+        {
+          "heading": "Сопоставление и ограничения",
+          "text": "Оценка около 3% уже фигурировала в обзоре Vanguard с прогнозами по состоянию на 24 июня 2026 года. Публикация от 19 ноября подтверждает, а не впервые устанавливает этот прогноз. Полный годовой обзор ещё ожидается; причинного вклада ИИ и точного времени публикации источник не приводит."
         }
       ],
       "sources": [
@@ -3202,7 +3221,9 @@
         "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm",
         "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf",
         "https://www.adeccogroup.com/en/our-group/media/press-releases/global-workforce-of-the-future-study-2026",
-        "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html"
+        "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html",
+        "https://corporate.vanguard.com/content/corporatesite/us/en/corp/vemo/ai-booms-critical-next-phase.html",
+        "https://workplace.vanguard.com/insights-and-research/perspective/AI-oil-and-a-changing-global-economy.html"
       ],
       "source_titles": {
         "https://www.nature.com/articles/s41598-026-79480-4": "Scientific Reports — исследование конкуренции компаний",
@@ -3250,7 +3271,9 @@
         "https://www.boj.or.jp/en/mopo/diet/d_state/dst261119a.htm": "Bank of Japan: Statement by Governor UEDA concerning the Bank's Semiannual Report on Currency and Monetary Control",
         "https://www.boj.or.jp/en/mopo/diet/d_state/data/dst261119a.pdf": "Bank of Japan: Statement before the Committee on Financial Affairs, Senate — full text",
         "https://www.adeccogroup.com/en/our-group/media/press-releases/global-workforce-of-the-future-study-2026": "The Adecco Group global study: AI delivers more value when people are involved in work redesign",
-        "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html": "Seramount Finds Gen Z Employees Are Least Likely to Use AI at Work"
+        "https://www.globenewswire.com/news-release/2026/11/19/3406523/0/en/seramount-finds-gen-z-employees-are-least-likely-to-use-ai-at-work.html": "Seramount Finds Gen Z Employees Are Least Likely to Use AI at Work",
+        "https://corporate.vanguard.com/content/corporatesite/us/en/corp/vemo/ai-booms-critical-next-phase.html": "The AI boom’s critical next phase",
+        "https://workplace.vanguard.com/insights-and-research/perspective/AI-oil-and-a-changing-global-economy.html": "AI, oil, and a changing global economy"
       }
     },
     {

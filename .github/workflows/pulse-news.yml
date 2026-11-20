@@ -8,6 +8,10 @@ on:
     paths: [refresh-trigger.json]
   workflow_dispatch:
     inputs:
+      stop_pulse_agent:
+        description: Только остановить расписания агента и проверить сессии
+        type: boolean
+        default: false
       web_request:
         description: Идентификатор запроса с сайта (служебный, необязательно)
         type: string
@@ -62,8 +66,6 @@ on:
           - Гипербола технологий Капицы с ИИ
           - Прогноз беспилотных авто
           - Пять технологических прорывов
-  schedule:
-    - cron: '17,47 * * * *'
 
 permissions:
   id-token: write
@@ -84,6 +86,7 @@ jobs:
       PULSE_GITHUB_VAULT_ID: ${{ vars.PULSE_GITHUB_VAULT_ID }}
       PULSE_CREDITS_UNTIL_UTC: ${{ vars.PULSE_CREDITS_UNTIL_UTC }}
       PULSE_WEB_REQUEST: ${{ inputs.web_request }}
+      PULSE_STOP_AGENT: \${{ inputs.stop_pulse_agent }}
       PULSE_SEARCH_TOPIC: ${{ inputs.topic }}
       PULSE_CLOCK_CHECK: ${{ inputs.clock_check }}
       PULSE_SEARCH_SINCE: ${{ inputs.since }}
@@ -328,7 +331,8 @@ jobs:
                   print("Ответ на этот запрос уже опубликован.");raise SystemExit(0)
 
           old_archive = read_archive()
-          save_reviews(old_archive)
+          if os.environ.get("PULSE_STOP_AGENT") != "true":
+              save_reviews(old_archive)
           old_items = old_archive["items"]
           oidc_url = os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
           separator = "&" if "?" in oidc_url else "?"
@@ -361,6 +365,31 @@ jobs:
                   "service_account_id": account,
               },
           )["access_token"]
+
+          if os.environ.get("PULSE_STOP_AGENT") == "true":
+              base = "https://api.openai.com/v1/agents/"
+              headers = {"OpenAI-Beta": "agents=v1", "OpenAI-Project": "proj_2yk5sqnjXZpYTzF9fngNiYB0"}
+              state = get_json("https://api.github.com/repos/DPProekt/Nov_II/contents/agent-cloud-scheduler.json?ref=main",
+                               "Чтение расписаний", token=os.environ["PULSE_GITHUB_TOKEN"],
+                               headers={"Accept":"application/vnd.github.raw+json"})
+              for key in ("periodic_id", "test_id", "last_reset_test_id"):
+                  aid=state.get(key)
+                  if not aid: continue
+                  info=get_json(base+"automations/"+aid,"Чтение расписания",token=openai_token,headers=headers)
+                  print("Расписание",key,"до:",info.get("status"),flush=True)
+                  if info.get("status") not in ("paused","completed","cancelled","failed"):
+                      get_json(base+"automations/"+aid+"/pause","Остановка расписания",token=openai_token,headers=headers,data={})
+                  check=get_json(base+"automations/"+aid,"Проверка расписания",token=openai_token,headers=headers)
+                  print("Расписание",key,"после:",check.get("status"),flush=True)
+              registry=get_json("https://api.github.com/repos/DPProekt/Nov_II/contents/agent-sessions.json?ref=main",
+                                "Чтение сессий",token=os.environ["PULSE_GITHUB_TOKEN"],
+                                headers={"Accept":"application/vnd.github.raw+json"})
+              ids=[s.get("id") for s in registry.get("sessions",{}).values() if isinstance(s,dict) and s.get("id")]
+              if state.get("session_id"):ids.append(state["session_id"])
+              for sid in dict.fromkeys(ids):
+                  info=get_json(base+"sessions/"+sid,"Чтение состояния сессии",token=openai_token,headers=headers)
+                  print("Сессия",sid,"состояние:",info.get("status"),flush=True)
+              raise SystemExit(0)
 
           if (os.environ.get("PULSE_CONFIGURE_CLOUD") == "true" or
                   os.environ.get("PULSE_EXERCISE_CLOUD") == "true" or
